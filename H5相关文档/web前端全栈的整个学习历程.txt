@@ -1,0 +1,14 @@
+HTML（以及HTML5）
+Css（以及css3）
+js1
+js2（js实际上没有js1和js2之分，只有es5和es6之分，即两个js版本，js2里面有es5和es6的部分，es6相对于es5增加了一些东西也删减了一些东西bong对其中一些知识点进行了改变和扩展）
+数据结构
+JS游戏开发
+数据库
+nodeJS （服务器阶段）
+express（服务器阶段）
+jQury + Bootstrap
+微信小程序
+webpack工具
+Vue前端框架（衍生：vuex、vuecli）
+React前端框架

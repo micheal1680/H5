@@ -1,0 +1,13 @@
+1.http://es6.ruanyifeng.com/ （Es6标准入门）
+2.菜鸟教程
+3.https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object （object-JavaScript|MDN 针对JS标准内置对象object的）
+4.https://www.html.cn/ （html中文网）
+5.https://www.cnblogs.com/liyusmile/p/8820443.html （构造函数、对象原型、实例对象三者之间的关系）
+6.iconfont.com(字体图标库)
+7.http://www.icomoon.io （字体图标库网址）
+8.http://www.bootCDN.cn （最全H5资源库）
+9.vue.js (学习Vue框架)
+10.layui.com（layui框架）
+11.Bootstrap(菜鸟教程里面的一个版块)
+12.http://www.hzku.vip/music/ （写微信小程序时找视频或音频的网站，还有“摄图网”也可以）
+13.swiper.com（也是一个写前后端的资源的网站）
