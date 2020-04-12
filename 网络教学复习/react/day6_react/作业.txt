@@ -1,0 +1,5 @@
+练习使用router，至少要求实现以下功能:
+
+启动项目后进入主页Home
+从Home页中有二个连接，点击连接后可以分别进入 Goods.js和Pay.js
+在Goods.js和Pay.js中都有一个连接被点击后能反回到Home页中。

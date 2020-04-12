@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var name = 'window'
+			var obj = {
+				name: 'obj',
+				say2: function() {
+					window.setTimeout(() => {
+						console.log(this.name);
+					}, 20)
+				},
+			}
+			obj.say2(); //obj
+			obj.say2.call(window); //window
+		</script>
+	</body>
+</html>

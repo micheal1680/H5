@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+			
+			全局导航守卫
+			router.beforeEach((to,from,next)=>{})
+			可以判断登录状态
+			全局后置钩子：可以监听用户从一个页面跳转到另一个页面时做出相应提示动作，比如confirm（“是否进入xxx页面”）
+			
+			
+			
+			组件内守卫：
+			beforeRouteEnter:(to,from,next){}
+			可监听到用户从组件离开，做出相应提示：比如：confirm（“是否离开xx页面”）
+			
+			
+			
+			
+			路由守卫：
+			用法与全局守卫一致
+			将守卫写在路由对象中，只在该路由下起作用
+		</pre>
+	</body>
+</html>

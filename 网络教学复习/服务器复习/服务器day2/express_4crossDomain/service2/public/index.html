@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>service2</title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+		</script>
+		<script type="text/javascript">
+			function send() {
+				$.ajax({
+					url:'http://localhost:3000/getObjArray.do',
+					type:'post',
+					dataType:'text',
+					success(a){
+						a = JSON.parse(a);
+						let person = null;
+						for(let i=0; i<a.length; i++) {
+							person = a[i];
+							$("#mytable").append("<tr><td>"+person.id+"</td><td>"+person.name+"</td><td>"+person.sex+"</td></tr>");
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			这是service2项目中的index.html,
+			<br />
+			下面要做的事件是跨域访问service1_main.js中提供的接口
+		</p>
+		<div>
+			<button onclick="send()">ajax跨域请求</button>
+			<table id="mytable" border="1" cellspacing="0">
+				<tr>
+					<th>id值</th>
+					<th>名字</th>
+					<th>姓别</th>
+				</tr>
+			</table>
+		</div>
+		<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1423739223,4057397950&fm=26&gp=0.jpg" >
+	</body>
+</html>

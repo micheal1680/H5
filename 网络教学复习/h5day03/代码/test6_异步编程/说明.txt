@@ -1,0 +1,7 @@
+promise有三种状态
+1.进行中状态 pending
+2.成功状态 resolving
+3.失败状态 rejecting
+
+进行状态->成功状态
+进行状态->失败状态

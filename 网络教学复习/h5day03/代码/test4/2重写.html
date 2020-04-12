@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>重写</title>
+		<script type="text/javascript">
+			class Person {
+				constructor() {
+				    this.show= function() {
+						console.log("Person Show");
+					}
+				}
+				walk() {
+					console.log("站着走");
+				}
+				ggo(){
+					console.log("ggo()...");
+				}
+			}
+			class Girl extends Person {
+				constructor() {
+				    super();
+					this.show= function() {
+						console.log("Girl Show");
+					}
+				}
+				walk(a) {
+					super.walk();
+					console.log("走猫步", a);
+				}
+				test() {
+					super.walk();//调用了父类中的walk();
+					this.walk();//调用了当前类中的walk();
+					super.ggo();
+					this.ggo();
+				}
+			}
+			let g1 = new Girl();
+			g1.walk(100);//调用到了重写的方法
+			// g1.show();//调用到了重写的方法
+			g1.test();
+		</script>
+	</head>
+	<body>
+		子类对出的的方法与父类中的方法名字相同即可。
+		super只能在原型方法中出现,不能出现在实例方法中
+		super在原型方法中可以调用父类中的原型方法,实例开发中
+		建议只调用被重写的原型方法
+	</body>
+</html>

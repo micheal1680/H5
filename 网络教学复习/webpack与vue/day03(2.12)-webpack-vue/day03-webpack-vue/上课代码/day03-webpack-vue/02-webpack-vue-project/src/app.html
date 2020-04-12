@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+	 
+	 
+	 
+		<!-- v-bind: 简写:,数据绑定,对标签属性值进行绑定 -->
+		
+		<div id="app" v-cloak>
+			<p>姓名：{{people.name}}</p>
+			<img :src="people.titleImg" width="100px" height="100px">
+			<p>
+				朋友圈图片：
+				<img v-bind:src="people.likeImg" alt="" width="150px" height="150px">
+			</p>
+			
+			<button type="button" @click="changeTitleImg">修改头像</button>
+			
+			
+		</div>
+		
+		
+	</body>
+</html>

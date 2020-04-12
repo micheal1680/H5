@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			.text {
+				text-align: center;
+				font-weight: 700;
+			}
+			
+			.bgc {
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak :class="{text:mytext,bgc:mybgc}">
+			{{student.name}}
+			<br>
+			{{student.desc}}			
+			<br>
+			<button type="button" @click="changeBgc">去掉背景色</button>
+			<button type="button" @click="changeTextStyle">切换文字风格</button>
+			<br><br><br><br>
+			
+			
+			<div :style="{color:myclor}">文本样式，切换颜色</div>
+			<br>
+			<button type="button" @click="changeRed">红色</button>
+			<button type="button" @click="changeBule">蓝色</button>
+		</div>
+		
+		
+	</body>
+</html>

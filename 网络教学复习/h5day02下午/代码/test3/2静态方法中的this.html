@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Person {
+				constructor(name) {
+				    this.name = name;
+				}
+				show() {
+					console.log(this.name);
+				}
+				//静态方法中的this指函数对象本身
+				static show2() {
+					console.log(this.name);
+				}
+			}
+			let p = new Person("小明");
+			p.show();//小明
+			Person.show2();
+		</script>
+	</body>
+</html>

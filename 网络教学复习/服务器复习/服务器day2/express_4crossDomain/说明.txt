@@ -1,0 +1,3 @@
+把express_4crossDomain当成是一个目录
+把service1和service2当成是两个服务器项目
+

@@ -1,0 +1,41 @@
+			以下代码执行的结果是什么？为什么
+
+			例1:
+			function Person() {
+				this.toString = function() {
+					return "这是对象自身的toString";
+				}
+			}
+			Person.prototype.toString = function() {
+				return "这是对象隐式原型中的toString";
+			}
+			const p = new Person();
+			console.log(p.toString());  //“这是对象自身的toString”     
+                        解析：类就是一个函数，一个函数是实际上也是一个对象。函数的原型用prototype来指代，对象的原型用_proto_来指代，整个原型链的本质是_proto_。
+                              此题先从自身找，找不到再到起原型找，再找不到，再往上一级原型找，依次
+
+
+			例2：
+			var name = '小华';
+			let stu = {
+				name: '小明',
+				showName: function() {
+					console.log(this.name);
+				}
+			}
+			stu.showName();  // 对象里面的属性方法的this的指向问题
+			stu.showName.bind(window)(); //‘小华’
+			stu.showName.bind(stu)(); //‘小明’
+
+
+			例3：
+			var name = '小华';
+			let stu = {
+				name: '小明',
+				showName: () => {
+					console.log(this.name);
+				}
+			}
+			stu.showName(); //箭头函数的this指向问题：
+			stu.showName.bind(window)();  //‘小华’
+

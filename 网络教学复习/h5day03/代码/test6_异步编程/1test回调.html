@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function getName(cb) {
+				setTimeout(()=>{
+					let name = '小怡';
+					cb(name);//调用函数
+				}, 3000);
+			}
+			function test() {
+				//就要得到getName中的name的值
+				getName(function(data){
+					console.log(data);//小怡
+				});
+			}
+			test();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

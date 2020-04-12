@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="300px" height="300px"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("myCanvas");
+			var context = canvas.getContext("2d");
+			draw();
+			function draw() {
+				drawV();
+				buttDemo();
+				roundDemo();
+				squareDemo();
+			}
+			function drawV() {
+				context.beginPath();
+				context.lineWidth = 1;
+				context.moveTo(100, 0);
+				context.lineTo(100, 300);
+				context.stroke();
+				
+				context.beginPath();
+				context.lineWidth = 1;
+				context.moveTo(200, 0);
+				context.lineTo(200, 300);
+				context.stroke();
+			}
+			function buttDemo() {
+				context.beginPath();
+				context.lineWidth = 10;
+				context.strokeStyle = "red";
+				context.lineCap = "butt";
+				context.moveTo(100, 100);
+				context.lineTo(200, 100);
+				context.stroke();
+			}
+
+			function roundDemo() {
+				context.beginPath();
+				context.lineWidth = 10;
+				context.strokeStyle = "green";
+				context.lineCap = "round";
+				context.moveTo(100, 120);
+				context.lineTo(200, 120);
+				context.stroke();
+			}
+
+			function squareDemo() {
+				context.beginPath();
+				context.lineWidth = 10;
+				context.strokeStyle = "blue";
+				context.lineCap = "square";
+				context.moveTo(100, 140);
+				context.lineTo(200, 140);
+				context.stroke();
+			}
+		</script>
+	</body>
+</html>
+ 

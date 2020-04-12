@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				border: 0;
+				margin: 0;
+			}
+			#myCanvas {
+				background: black;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			let star = {
+				R:80,
+				r:30,
+				x:200,
+				y:200,
+				isFill:true
+			}
+			window.onload = function() {
+				canvas = document.getElementById("myCanvas");
+				ctx = canvas.getContext("2d");
+				canvas.width=document.documentElement.clientWidth;
+				canvas.height=document.documentElement.clientHeight;
+				window.setInterval(function(){
+					//清空
+					ctx.clearRect(0,0, canvas.width, canvas.height);
+					//绘制
+					ctx.save();
+					ctx.fillStyle = "white";
+					drawFiveStar(ctx, star.R,star.r,star.x,star.y,star.isFill);
+					ctx.restore();
+					//修改数据
+					star.x=Math.random()*canvas.width;
+					star.y=Math.random()*canvas.height;
+				}, 500);
+			}
+		</script>
+		<script type="text/javascript">
+			function drawFiveStar(context, R, r, x, y, isFill) {
+				context.beginPath();
+				for (var i = 0; i < 5; i++) {
+					context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * R + x,
+						-Math.sin((18 + i * 72) / 180 * Math.PI) * R + y);
+					context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * r + x,
+						-Math.sin((54 + i * 72) / 180 * Math.PI) * r + y);
+				}
+				context.closePath();
+				context.stroke();
+				if (isFill) {
+					context.fill();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="myCanvas"></canvas>
+	</body>
+</html>

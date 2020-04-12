@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			.bigbtn {
+				width: 100px;
+				height: 40px;
+				border-radius: 20px;
+				border: 1px solid transparent;
+			}
+			
+			.btncolor1 {
+				background-color: lightblue;
+				color: red;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.btncolor2 {
+				background-color: #ccc;
+				color: black;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.btncolor3 {
+				background-color: orange;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 自定义组件：标签名+内容+属性+绑定事件 -->
+			
+			<!-- type:warn/primary/default -->
+			<!-- size -->
+			<!-- <button type size></button> -->
+			
+			
+			
+			<!-- 标准属性class 在外侧使用时是会与组件模板累加的 -->
+			<!-- 自定义属性mytype 可选值warn/primary/mydefault -->
+			
+			<!-- 原生事件的绑定，添加事件修饰符.native  @click.native="handleInfo"-->
+			<!-- 自定义事件 -->
+			<mybutton class="bigbtn" mytype="primary" @myevent="hanlemyEvent" >测试按钮
+			</mybutton>
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

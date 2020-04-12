@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.mytop {
+				height: 60px;
+				display: flex;
+				background-color: #f40;
+				text-align: center;
+			}
+			
+			.mytop li{
+				width: 120px;
+				border-left: 2px solid aliceblue;
+				list-style: none;
+				line-height: 60px;
+			}
+		</style>
+		
+	</head>
+	<body>
+
+		
+		<!-- vue 提供的现成的组件 -->
+		<div id="app" >
+			<component is="my-top" @page="hadlePage"></component>
+			
+			
+			
+			<!-- 缓存组件keep-alive,属性include/exclude -->
+			<keep-alive include="my-main">
+				<component :is="mypage"></component>
+			</keep-alive>
+			
+			
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

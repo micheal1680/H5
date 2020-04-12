@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				background: palegoldenrod;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			window.onload = function() {
+				canvas = document.getElementById("mycanvas");
+				canvas.width=300;
+				canvas.height=300;
+				ctx = canvas.getContext("2d");
+				draw1();
+			}
+			function draw1() {
+				//ctx本来就有默认状态
+				ctx.save();//把默认状态入栈
+				ctx.beginPath();
+				ctx.lineTo(20,20);
+				ctx.lineTo(150,50);
+				ctx.lineWidth = 40;
+				ctx.strokeStyle="red";
+				ctx.stroke();
+				ctx.restore();//把默认状态出栈,当作是现在的状态
+				
+				ctx.save();
+				ctx.beginPath();
+				ctx.lineTo(120,120);
+				ctx.lineTo(250,150);
+				ctx.lineWidth = 20;
+				ctx.strokeStyle="green";
+				ctx.stroke();
+				ctx.restore();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>

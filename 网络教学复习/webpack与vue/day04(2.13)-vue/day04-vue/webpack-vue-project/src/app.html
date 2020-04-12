@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			
+			<!-- 计算属性不需要设置初始值，计算属性不能被手动修改，适用情形为当一个值被其他一个或多个值影响时 -->
+			<!-- 侦听器属性，必须要有初始值，可手动修改，适用情形当一个值影响多个值的时候 -->
+			<h4>讲师姓名:{{fullname}}</h4>
+			<ul>
+				<li>绩效分数：{{teacher.grade}}</li>
+				<li>工资：{{teacher.gongzi}}</li>
+				<li>升职速度：{{teacher.shengzhi}}</li>
+			</ul>
+			
+			<div v-show="myname">{{getFullName()}}</div>
+			<br><br><br><br><br>
+			<button type="button" @click="changeFirst">修改姓</button>
+			<button type="button" @click="changeSecond">修改名字</button>
+			<button type="button" @click="changeGrade">迟到一次</button>
+		</div>
+		
+		
+	</body>
+</html>

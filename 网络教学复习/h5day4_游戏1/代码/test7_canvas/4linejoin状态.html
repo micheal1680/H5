@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				background: palegoldenrod;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			window.onload = function() {
+				canvas = document.getElementById("mycanvas");
+				canvas.width=300;
+				canvas.height=300;
+				ctx = canvas.getContext("2d");
+				draw1();
+			}
+			function draw1() {
+				ctx.beginPath();
+				ctx.lineTo(50, 200);
+				ctx.lineTo(150,50);
+				ctx.lineTo(200,200);
+				
+				ctx.lineWidth=20;
+				ctx.lineJoin='round';
+				ctx.stroke();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>

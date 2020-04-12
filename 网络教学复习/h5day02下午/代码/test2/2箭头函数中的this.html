@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let obj = {
+				name: 'obj'
+			}
+			function Stu(name) {
+				this.name = name;
+				this.showName = () => {
+					console.log(this.name);
+				}
+			}
+			let s1 = new Stu("小明");
+			s1.showName();//小明
+			s1.showName.call(obj);//小明
+		</script>
+	</body>
+</html>

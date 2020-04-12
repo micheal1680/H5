@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let obj = {
+				xx: 20000
+			}
+			let stu2 = {
+				xx: 10000,
+				m1: function() {
+					let x = () => {
+						console.log("x", this.xx);
+					}
+					x();
+				}
+			}
+			stu2.m1(); //箭头函数中的this是stu2  x 10000
+			stu2.m1.call(obj); //箭头函数中的this是obj  x 20000
+		</script>
+	</body>
+</html>

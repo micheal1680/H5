@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.myContainer {
+				background-color: blue;
+				color: white;
+				width: 100%;
+				height: 600px;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.myroot {
+				width: 100%;
+			}
+			
+			.myTeach,.mystu {
+				background-color: lightblue;
+				height: 400px;
+				width: 400px;
+				border: 1px solid black;
+				/* margin: 0 auto; */
+			}
+			
+			
+			.mylingdap {
+				background-color: #888;
+				height: 200px;
+				width: 300px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="app" class="myContainer">
+			<div class="myroot">
+				<h4>华清远见成都中心</h4>
+				<b>总人数：{{totalNum}}</b>
+			</div>
+
+			<!-- 1、父向子传值pops，属性名必须全部小写 -->
+			
+			<!-- 2、$attrs 通过组件自定义属性传值，用于多层嵌套关系传值,eg:爷爷---》儿子 -->
+			<!-- 如果你props定义了该属性，值可以通过该属性直接访问了 -->
+			<!-- 如果你props未定义该属性，值可以通过$attrs访问 -->
+			
+			
+			<!-- 3、$listeners 可以传递的事件侦听(不包括原生事件)，用于多层嵌套关系传值,eg:儿子---》爷爷 -->
+			
+			<my-teacher :teachernum="teaNum" :num="teaNum"  :lingdaonum="ldNum" class="myTeach" ref="teacher" @grandpa="addTeacher"  @click.native="handleNative"></my-teacher>
+			
+		</div>
+		
+		
+		<h1>思路整理</h1>
+		<pre style="font-size: 20px">
+		【view嵌套】：div#app    &lt;my-teacher&gt;    &lt;my-lingdao&gt;
+		
+		
+		
+		【vm关系】：main.js-  Vue  -vm     爷爷
+		
+			   myTeacher.js- VueComponent -vm  爸爸
+			
+			   myLingdao.js- VueComponent -vm  儿子
+		
+		
+		
+		【代码】：
+		div#app
+		main.js
+		
+		
+		div#app---》teacher#template(属性)
+		myTeacher.js(props,没定义的)----》this(props名,$attrs)
+		
+		
+		teacher#template($attrs)---》my-lingdao#template(v-bind)
+		myLingdao.js($attrs)-----》this
+		
+		my-lingdao#template($attrs)
+		
+		
+		
+		
+		
+		
+		</pre>
+		
+		
+		
+	</body>
+</html>

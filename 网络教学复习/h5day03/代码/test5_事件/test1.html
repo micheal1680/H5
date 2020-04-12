@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 50px;
+				height: 50px;
+				background: red;
+			}
+			div:hover {
+				background-color: green;
+			}
+		</style>
+		<script type="text/javascript">
+			function dotest(obj) {
+				console.log("处理事件....");			
+				console.log(obj);
+				obj.style.backgroundColor="green";
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="dotest(this)">点我</button>
+	    <div onclick="dotest(this)">点div</div>
+	</body>
+</html>

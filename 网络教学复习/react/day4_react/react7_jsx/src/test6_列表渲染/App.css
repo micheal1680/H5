@@ -1,0 +1,7 @@
+.tables:hover {
+	background-color: #FFC0CB;
+	cursor: pointer;
+}
+.tables:active {
+	background-color: aqua;
+}

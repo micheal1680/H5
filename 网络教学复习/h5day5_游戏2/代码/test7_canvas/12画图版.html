@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			canvas {
+				background: pink;
+				margin: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas, ctx;
+			let lastPoint = {
+				x:0,
+				y:0
+			};
+			let curPoint = {
+				x:0,
+				y:0
+			};
+			let active = false;//表示是否正在绘制
+			window.onload = function() {
+				canvas = document.getElementById("mycanvas");
+				ctx = canvas.getContext("2d");
+				init();
+				window.setInterval(function(){
+					//清空
+					//绘制
+					ctx.save();
+					ctx.lineWidth = 20;
+					ctx.lineCap = "round";
+					ctx.lineJoin = "round";
+					draw();
+					ctx.restore();
+					//修改数据
+				},5)
+			}
+			function draw() {
+				if(active) {
+					ctx.beginPath();
+					ctx.lineTo(lastPoint.x, lastPoint.y);
+					ctx.lineTo(curPoint.x, curPoint.y);
+					ctx.stroke();
+				}
+			}
+			function init() {
+				canvas.onmousedown = function(e) {
+					console.log("down");
+					active = true;
+					lastPoint = windowToCanvas(e.clientX, e.clientY);
+					curPoint = windowToCanvas(e.clientX, e.clientY);
+				}
+				canvas.onmousemove = function(e) {
+					console.log("move");
+					if(active) {
+						lastPoint = curPoint;
+						curPoint = windowToCanvas(e.clientX, e.clientY);
+					}
+				}
+				canvas.onmouseup= function(e) {
+					console.log("up");
+					active = false;
+				}
+				canvas.onmouseout = function(e) {
+					console.log("out");
+					active = false;
+				}
+			}
+			function windowToCanvas(windowX, windowY) {
+				let box = canvas.getBoundingClientRect();
+				var x = windowX-box.left;
+				var y = windowY-box.top;
+				return {
+					x:x,
+					y:y
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas" width="400px" height="400px"></canvas>
+	</body>
+</html>

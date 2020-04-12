@@ -1,0 +1,17 @@
+练习1：总结super的作用？
+
+练习2：
+事件中，什么是目标对象? 阐述事件的捕获过程？
+
+练习3：写出下面代码的执行结果，并说明为什么？
+const promise = new Promise((resolve, reject) => {
+	resolve('success1')
+	reject('error')
+	resolve('success2')
+})
+promise.then((res) => {
+	console.log('then: ', res)
+})
+.catch((err) => {
+	console.log('catch: ', err)
+})

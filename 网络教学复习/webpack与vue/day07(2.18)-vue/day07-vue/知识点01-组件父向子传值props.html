@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="app">
+			<input type="text" v-model="keyword" />
+			<button type="button" @click="handleSearch">点击搜索</button>
+			
+			<!-- 前端--接口--后端实现并返回数据--前端 -->
+			<!-- 根据用户关键词--名字,显示对应的员工信息 -->
+			<!-- 查询员工信息接口，接口设计文档 -->
+			<!-- {
+				url:"http://localhost:8888/getEmployee",
+				req:{
+					keyWord:""
+				},
+				res:{
+					data:{
+						employee:[]
+					}
+				}
+			} -->
+			
+			<!-- 1\ 定义插槽，从父向子传值 -->
+			<!-- <my-employee v-for="(item,index) in employees" :key="index">
+				<template slot="ename">
+					{{item.name}}
+				</template>
+				<template slot="esalary">
+					{{item.salary}}
+				</template>
+			</my-employee> -->
+			
+			
+			<!-- 2\ 定义使用props 属性，从父向子传值 -->
+			<my-employee v-for="(item,index) in employees" :emp="item"></my-employee>
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

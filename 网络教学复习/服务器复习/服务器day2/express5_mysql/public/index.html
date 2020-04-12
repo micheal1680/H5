@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+		</script>
+		<script type="text/javascript">
+			function send() {
+				$.ajax({
+					url:'/showAllClazz.do',
+					type:'get',
+					dataType:'text',
+					success(a){
+						a = JSON.parse(a);
+						let clazz = null;
+						for(let i=0; i<a.length; i++) {
+							clazz = a[i];
+							$("#mytable").append("<tr><td>"+clazz.id+"</td><td>"+clazz.name+"</td><td>"+clazz.major+"</td><td>"+clazz.birth+"</td></tr>");
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<button onclick="send()">得到数据库中的clazz</button>
+			<table id="mytable" border="1" cellspacing="0">
+				<tr>
+					<th>id值</th>
+					<th>名字</th>
+					<th>专业</th>
+					<th>开班时间</th>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

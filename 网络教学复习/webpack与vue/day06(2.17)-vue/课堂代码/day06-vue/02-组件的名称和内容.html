@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h4>vm根节点对象渲染的： {{msg}}</h4>
+			<!-- 自定义组件component：标签名+内容-->
+			
+			<!-- 在外侧使用组件时，添加内容
+					1\在模板定义时使用插槽slot标签 -->
+			<mydiv>
+				外侧使用mydiv 自定义组件时添加的一句话1111111111111
+				<span slot="second">外侧使用mydiv 自定义组件时添加的一句话11111111111112</span> 
+				<span slot="third">外侧使用mydiv 自定义组件时添加的一句话1111111111113</span>
+			</mydiv>
+			
+			
+			
+			
+			
+			
+<!-- 			<swipper>
+				<swiper-item>
+					11111
+				</swiper-item>
+				<swiper-item>
+					11112
+				</swiper-item>
+				<swiper-item>
+					11113
+				</swiper-item>
+			</swipper> -->
+			
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

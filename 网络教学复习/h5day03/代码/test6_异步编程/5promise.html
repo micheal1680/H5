@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function get1() {
+				let p1 = new Promise(function(resolve, reject){
+					// resolve("p1成功");
+					reject("p1失败")
+				})
+				return p1;
+			}
+			function get2() {
+				let p2 = new Promise(function(resolve, reject){
+					// resolve("p2成功");
+					reject("p2失败")
+				})
+				return p2;
+			}
+			function test() {
+				let p = Promise.all([get1(), get2()]);
+				p.then(function(d){
+					console.log(d);//["p1成功", "p2成功"]
+				}).catch(function(e){
+					console.log(e);
+				});
+			}
+			test();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

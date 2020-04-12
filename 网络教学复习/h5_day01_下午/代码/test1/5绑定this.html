@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//window.name = '大家';
+			var name = "大家";
+			let teacher = {
+				name: '秦可卿',
+				show: function(age, sex) {
+					console.log(this.name, age, sex);
+				}
+			}
+			
+			let stu = {
+				name: '宝玉',
+			}
+			
+			teacher.show(30, '女');
+			teacher.show.call(stu, 20, '男');
+			teacher.show.apply(stu, [20, '男']);
+			teacher.show.bind(stu)(20, '男');
+			teacher.show.bind(window)(20, '男');
+		</script>
+	</body>
+</html>

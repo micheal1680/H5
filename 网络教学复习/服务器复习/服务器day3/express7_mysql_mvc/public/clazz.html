@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>班级管理</title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+		</script>
+		<script type="text/javascript">
+			//监听函数在文档加载结束后自动执行
+			$(document).ready(function(){
+				show();
+			});
+			//显示所有班级信息
+			function show() {
+				$.ajax({
+					url:'/Clazz.do',
+					type:'post',
+					dataType:'text',
+					data:{//传参数
+						method:'queryAll'
+					},
+					success(clazzArray) {
+						clazzArray = JSON.parse(clazzArray);
+						let clazz = null;
+					    for(let i=0; i<clazzArray.length; i++) {
+							clazz = clazzArray[i];
+							console.log(clazz);
+							$("#showClazzTable").append("<tr><td>"+clazz.id+"</td><td>"+clazz.name+"</td><td>"+clazz.major+"</td><td>"+clazz.birth+"</td><td><button onclick='deleteById(12)'>删除</button></td><td>修改</td><td>该班学生</td></tr>")
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<p>下面显示所有班级的信息</p>
+		<div>
+			<table id="showClazzTable" border="1" cellspacing="0">
+				<tr><td>id</td><td>name</td><td>major</td><td>开班时间</td><td>删除</td><td>修改</td><td>该班学生</td></tr>
+			</table>
+		</div>
+	</body>
+</html>

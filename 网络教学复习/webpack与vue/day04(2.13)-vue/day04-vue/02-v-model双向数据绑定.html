@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			<h4>v-bind</h4>
+			<!-- v-bind 是单向数据绑定，vm-》v 数据劫持-发布者-订阅者 -->
+			<input type="text" :value="kword" />
+			<br>
+			
+			<p>{{kword}}</p>
+			<button type="button" @click="consoleInput">查看用户输入</button>
+			<button type="button" @click="editInput">修改input_value</button>			
+			<br><br><br><br>
+			<!-- v-model 是双向数据绑定,只能用在表单类的标签元素身上select/单选/多选/input_text/textarea -->
+			<!-- view->vm  实现原理事件绑定/事件监听 -->
+			<h4>v-model</h4>
+			用户名：<input type="text" v-model="username" />
+			<p>{{username}}</p>
+			<!-- v-model 在绑定一组多选框时，初始值要注意是否取数组 -->
+			喜好1：<input type="checkbox" v-model="myhobby">篮球
+			<p>myhobby:{{myhobby}}</p>
+			知识：<input type="checkbox" v-model="know" name="myknow" value="java">java
+			<input type="checkbox" v-model="know" name="myknow" value="c">c
+			<input type="checkbox" v-model="know" name="myknow" value="c++">c++
+			<input type="checkbox" v-model="know" name="myknow" value="javascript">javascript			
+			<p>知识体系：{{know}}</p>
+			性别：<input type="radio" v-model="sexy" name="gender" value="boy"/>男
+				<input type="radio" v-model="sexy" name="gender" value="girl"/>女
+			<p>sexy：{{sexy}}</p>
+			
+			
+			
+			
+		</div>
+		
+		
+	</body>
+</html>

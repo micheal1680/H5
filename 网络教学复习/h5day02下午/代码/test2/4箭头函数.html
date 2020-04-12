@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var x = 10;
+			var obj = {
+				x: 20,
+				e: function() {
+					return () => {
+						console.log(this.x);
+					}
+				}
+			}
+			obj.e()();  //this:obj
+			var m = obj.e();
+			m(); //this:obj
+			obj.e.call(window)(); //this:window
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+实现.vue组件的样式穿透有哪些方法?
+// 使用 css 时可以用 >>> 进行样式穿透
+.test-wrapper >>> .ant-select {
+font-size: 16px;
+}
+
+// 使用 scss, less 时，可以用 /deep/ 进行样式穿透
+.test-wrapper /deep/ .ant-select {
+font-size: 16px;
+}
+
+// less CSS modules 时亦可用 :global 进行覆盖
+.test-wrapper {
+:global {
+.ant-select {
+font-size: 16px;
+}
+}
+}

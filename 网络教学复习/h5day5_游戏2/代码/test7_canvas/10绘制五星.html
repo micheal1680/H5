@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 外顶点：
+			// i=(0,1,2,3,4)
+			// x:cos((18+72*i)/180*Math.PI*R)   
+			// y:-sin((18+72*i)/180*Math.PI*R);
+			// 内顶点:
+			// i=(0,1,2,3,4)
+			// x:cos( (54+72*i)/180*Math.PI   )*r
+			// y:-sin( (54+72*i)/180*Math.PI   )*r
+			function drawFiveStar(context, R, r, x, y, isFill) {
+				context.beginPath();
+				for (var i = 0; i < 5; i++) {
+					context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * R + x,
+						-Math.sin((18 + i * 72) / 180 * Math.PI) * R + y);
+					context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * r + x,
+						-Math.sin((54 + i * 72) / 180 * Math.PI) * r + y);
+				}
+				context.closePath();
+				context.stroke();
+				if (isFill) {
+					context.fill();
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			window.onload = function(){
+				canvas = document.getElementById("myCanvas");
+				ctx = canvas.getContext("2d");
+				draw();
+			}
+			function draw() {
+				ctx.save();
+				ctx.fillStyle="red";
+				ctx.strokeStyle="green";
+				ctx.lineWidth = 20;
+				drawFiveStar(ctx, 100, 50, 200, 200, true);
+				ctx.restore();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400px" height="400px"></canvas>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<canvas id="myCanvas" style="border: 2px solid black;" 
+			width="100px" height="100px"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext("2d");
+			function drawCircle(context, x0,y0, r, start, end) {
+				context.beginPath();
+				context.arc(x0, y0, r, start/180*Math.PI, end/180*Math.PI, false);
+				context.fill();
+			}
+			drawCircle(context, 50, 50, 40, 90, 360);
+		</script>
+	</body>
+</html>

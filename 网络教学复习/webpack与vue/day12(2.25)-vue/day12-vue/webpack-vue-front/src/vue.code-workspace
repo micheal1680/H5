@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "D:\\webpack-vue-server\\egg"
+		},
+		{
+			"path": "E:\\phpStudy\\PHPTutorial\\WWW\\vue"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "vue"
+	}
+}

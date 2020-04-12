@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+	 
+	 
+	 
+	 <!-- 模板语法：{{}}，表达式，指令 -->
+	 <!-- 表达式：可以在模板语法里进行一些简单的计算 -->
+	 <!-- 指令：以"v-"指令，用在开始标签 -->
+	
+		<!-- 【界面插值】 -->
+		<!-- 1、 {{}}语法，要解决双大括号闪现问题v-cloak+[v-cloak] -->
+		<!-- 2、v-text 指令，将你的数据当作普通文本往页面上插入 -->
+		<!-- 3、v-html 指令，将你的数据当作超文本语言往页面上插入 -->
+		<!-- 4、v-pre 指令，将模板里的{{}}识别作普通文本 -->
+		<div id="app" v-cloak>
+			姓名：{{mystudent.name}}
+			<br>
+			年龄：{{(new Date).getFullYear()-(new Date(mystudent.birth).getFullYear())}}
+			<br>
+			介绍：{{mystudent.desc}}	
+		</div>
+		
+		<div id="otherapp">
+			<p>{{msg}},今天是周三</p>
+			<p v-text="msg+'v-text指令'"></p>
+			<p v-text="hello"></p>
+			<p v-html="msg"></p>
+			<p v-html="hello"></p>
+			
+			<p v-pre>{{这个是我的文章标题}}</p>
+		</div>
+		
+		
+	</body>
+</html>

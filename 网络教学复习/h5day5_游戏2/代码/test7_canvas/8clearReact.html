@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				background: white;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			window.onload = function() {
+				canvas = document.getElementById("mycanvas");
+				canvas.width = 300;
+				canvas.height = 300;
+				ctx = canvas.getContext("2d");
+				draw1();
+				draw2();
+			}
+
+			function draw1() {
+				ctx.save(); //默认状态入栈
+				ctx.strokeStyle = "red";
+				ctx.lineWidth = 20;
+				ctx.beginPath();
+				ctx.fillStyle = "pink"
+				ctx.lineTo(20, 20);
+				ctx.lineTo(280, 20);
+				ctx.lineTo(280, 280);
+				ctx.lineTo(20, 280);
+				ctx.closePath();
+				ctx.stroke();
+				ctx.fill();
+				ctx.restore();
+			}
+			function draw2() {
+				//规划
+				ctx.beginPath();
+				ctx.rect(120, 120, 120, 70);
+				//状态
+				ctx.strokeStyle = "red";
+				ctx.fillStyle = "yellow";
+				ctx.lineWidth = 4;
+				//线条绘制
+				ctx.stroke();
+				//填充绘制
+				ctx.fill();
+			}
+			function myClear() {
+				ctx.clearRect(100, 100, 150, 50);
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+		<button onclick="myClear();">点我清除</button>
+	</body>
+</html>

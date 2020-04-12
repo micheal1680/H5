@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<pre>
+			【一】组件数据属性为function
+			组件复用，组件数据相互独立
+			
+			【二】父向子传值 props   
+			父：	:mytype="faType"
+			子：	props:["mytype"] 	模板：{{mytype}} 	js: this.mytype
+			
+			【三】子向父传值 自定义事件$emit("事件名",value);
+			父：	@"事件名"="myMethods"	methods:{   myMethods:function(value){  ……  }    }
+			子：	axios.get().then(function(res){	this.$emit("事件名",res.data)	})
+			
+			【四】访问父子组件的值
+			子--》父组件/根节点的值	this.$parent/this.$root
+			父--》子组件的值		this.$children	父模板：<test ref="mytest"></test>  父对象：this.$refs.mytest
+			
+			【五】无父子嵌套关系之间传递值--中央事件总线bus
+			bus.js: 	import Vue from "vue";	export default new Vue();
+			
+					div#app
+					
+					my-teacher  	my-student  	my-xiaozu
+					
+					my-lingdao
+			
+			my-lingdao：	import bus from "bus.js"	bus.$emit("kaichuta",value);
+			my-student:	import bus from "bus.js"	mounted-function: bus.$on("kaichuta",function(value){	//value	})
+			
+			vuex 状态管理工具
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+		</pre>
+	</body>
+</html>

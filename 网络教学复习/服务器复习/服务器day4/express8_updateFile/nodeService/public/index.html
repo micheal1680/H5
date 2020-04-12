@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script type="text/javascript" src="./jquery-3.1.0.min.js"></script>
+	</head>
+	<body>
+		<form enctype='multipart/form-data' method='post'>
+			<input type="file" id="choose"/>
+		</form>
+		<button onclick="handle()">上传</button>
+		<img class="newImg" />
+		<script>
+			function handle() {
+				let file = document.getElementById("choose").files[0];
+				// //验证文件后缀名是否为图片,否则是可以上传任何文件
+				// let finename = file["name"];
+				// console.log(finename);
+				// let patt=/.+(.JPEG|.jpeg|.JPG|.jpg|.PNG|.png)$/;
+				// let result=patt.test(finename);
+				// if(!result) {
+				// 	alert("图片格式不对");
+				// 	return;
+				// }
+				let formData = new FormData();
+				formData.append("fileData", file);
+				$.ajax({
+					url: '/profile.do',
+					type: 'post',
+					dateType:'text',
+					data: formData,
+					async: false,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success: function(data) {
+						// $(".newImg").attr("src", data.filePath);
+						document.querySelector(".newImg").src=data.filePath;
+					} 
+				})
+			}
+		</script>
+	</body>
+</html>

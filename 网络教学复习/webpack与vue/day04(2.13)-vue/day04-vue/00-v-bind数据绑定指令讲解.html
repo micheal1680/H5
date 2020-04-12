@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			.mystyle {
+				background-color: blue;
+			}
+			.mynewstyle {
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak :class="style">
+			{{msg}}
+			
+			{{$data.msg}}
+			
+			<br>
+			<a :href="mylink">查询，咨询</a>
+			
+			<button type="button" @click="changeLink">前端专业知识查询</button>
+			
+			<button type="button" @click="changStyle">切换页面风格</button>
+			
+		</div>
+		
+		
+	</body>
+</html>

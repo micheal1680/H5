@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//一、空类
+			class A {
+			}
+			let a = new A();
+			a.toString();
+		</script>
+		<script type="text/javascript">
+			//构造函数是为了初始化对象
+			//当创建对象时会触发构造函数的执行.
+			class Stu {
+				constructor() {
+					console.log("创建了对象");
+					//this指刚刚创建的对象
+					this.name="小明";
+					this.showName= function(){
+						console.log(this.name);
+					}
+				}
+			}
+			let s1 = new Stu();
+			s1.showName();//小明
+		</script>
+		<script type="text/javascript">
+			// function Teacher(name, age) {
+			// 	this.name = name;
+			// 	this.age = age;
+			// 	this.show = ()=>{
+			// 		console.log(this.name, this.age);
+			// 	}
+			// }
+			// Teacher.prototype.teach = function() {
+			// 	console.log("教书");
+			// }
+			//语法糖
+			class Teacher {
+				constructor(name, age) {
+					//实例成员
+				    this.name = name;
+					this.age = age;
+					this.show = ()=>{
+						console.log(this.name, this.age);
+					}
+				}
+				//原型成员
+				teach() {
+					console.log("教书");
+				}
+				//静态成员方法  就是为函数对象增加成员
+				static m() {
+					console.log("m()....");
+				}
+			}
+			//原型成员
+			Teacher.prototype.major="H5";
+			Teacher.max = 1000;//静态成员变量
+			let t1 = new Teacher("鲁振操", 20);
+			let t2 = new Teacher("蒋应龙", 30);
+			t1.show();//鲁振操 20
+			t2.show();//蒋应龙 30
+			t1.teach();//教书
+			t2.teach();//教书
+			console.log(t1.major, t2.major);//H5 h5
+			t1.major = 'java';
+			console.log(t1.major, t2.major);//java h5
+			//访问静态成员
+			Teacher.m();
+			console.log(Teacher.max);
+			
+			//Object中有toString();
+			//Teacher类继承了Object类
+			//所以Teacher类的对象可以访问Object类中的方法
+			t1.toString();
+		</script>
+	</body>
+</html>

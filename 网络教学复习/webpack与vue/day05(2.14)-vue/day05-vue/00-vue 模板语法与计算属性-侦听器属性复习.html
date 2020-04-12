@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+			一、
+			数据单向绑定v-bind
+			双向绑定v-model：input_text---》input       input_checkbox---》change
+			
+			view<--view model原理：数据劫持--订阅者--发布者
+			view-->view model原理：事件监听
+			
+			二、
+			条件渲染  v-if....v-else-if....v-else/v-show
+			实现原理：v-if 是条件不满足时dom 元素不渲染
+				v-show 是条件不满足时dom 元素style="display:none"
+				visibility:hidden 界面元素位置仍然保留
+			
+			三、
+			v-for 循环渲染
+			<div v-for="(mystudent,i) in students" :key="i">
+				姓名：{{mystudent.name}}
+				头像：<img :src="mystudent.imgSrc">
+				          <div class="mytitle" :style="{backgroundImg:url(mystudent.imgSrc)}"></div>
+			</div>
+			
+			四、
+			vue 计算属性computed/侦听器属性watch  methods 配置项：
+				相同点：都可以将计算过程从html 模板解放出来
+				不同点：computed是有计算缓存--适用于当一个值受其他多个值影响时，watch是计算缓存---适用于当一个值影响其他多个值的时候，有methods 使用几次就计算几次
+				
+			【html】
+			<div v-for="(mystudent,i) in arrJG" :key="i">{{mystudent.name}}</div>
+			
+			【js】
+			data:{
+				arr:[{name:"sish",grade:88},{name:"test",grade:58}]
+			},
+			computed:{
+				arrJG:{
+					get:function(){
+						return this.arr.filter(function(item,index,oldarr){
+							return item.grade>=60;
+						})
+					},
+					set:function(){
+					
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+		</pre>
+	</body>
+</html>

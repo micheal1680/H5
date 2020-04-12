@@ -1,0 +1,13 @@
+div>span {
+	display: inline-block;
+	margin: 5px;
+	background: #282Ccc;
+}
+
+div>span:hover {
+	background: #282C34;
+	cursor: pointer;
+}
+div>span:active {
+	background: red;
+}

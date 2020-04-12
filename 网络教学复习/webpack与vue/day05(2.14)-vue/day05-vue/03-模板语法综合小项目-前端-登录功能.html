@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->	
+		<div id="app">
+			
+			<form action="" v-if="!loginStaste">
+				用户名：<input type="text" v-model="username" /><br>
+				密&nbsp;&nbsp;&nbsp;码：<input type="password" v-model="password" />
+				
+				<br><br>
+				<button type="button" @click="handleLogin">登录</button>
+			</form>
+			
+			<div v-if="loginStaste">
+				<!-- spa：simple page application -->
+				<h4>用户登录之后可以看到的列表页面</h4>
+			</div>
+			
+			
+			
+		</div>
+		
+		
+	</body>
+</html>

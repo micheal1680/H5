@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			<h4>讲师姓名</h4>
+			表达式进行计算：{{teacher.firstName+teacher.secondName}}
+			
+			<!-- 计算属性computed 与方法methods调用的计算之间的区别: computed计算之后有缓存，methods调用一次计算一次 -->
+			<br>
+			计算属性：{{fullname}} <br>
+			计算属性：{{fullname}} <br>
+			计算属性：{{fullname}} <br>
+			<br>
+			调用methods 方法：{{getFullName()}}<br>
+			调用methods 方法：{{getFullName()}}<br>
+			调用methods 方法：{{getFullName()}}<br>
+			
+			
+			<br><br><br><br>
+			<button type="button" @click="changeFirst">修改姓</button>
+		</div>
+		
+		
+	</body>
+</html>

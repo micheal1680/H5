@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// function getName(cb) {
+			// 	setTimeout(() => {
+			// 		let name = '小怡';
+			// 		cb(name); //调用函数
+			// 	}, 3000);
+			// }
+			// function test() {
+			// 	//就要得到getName中的name的值
+			// 	getName(function(data) {
+			// 		console.log(data); //小怡
+			// 	});
+			// }
+			// test();
+			function getName() {
+				let p = new Promise(function(resolve, reject) {
+					setTimeout(() => {
+						let name = '小怡';
+						resolve(name);//从进行状态转为成功状态
+					}, 3000);
+				});
+				return p;
+			}
+			function test() {
+				let p = getName();
+				p.then(function(data){//监听成功状态
+					console.log(data);//小怡
+				})
+			}
+			test();
+		</script>
+	</body>
+</html>

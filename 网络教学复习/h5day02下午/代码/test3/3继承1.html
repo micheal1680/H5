@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//A继承了Object
+			class A {
+				constructor(mya) {
+				    this.a = mya;
+				}
+				m1() {
+					console.log("A m1()")
+				}
+			}
+			//B类继承了A类, 所以B类的对象就可以访问A类中继承下来的成员
+			class B extends A {
+				constructor(a, b) {
+					super(a);
+					this.b = b;
+				}
+				m2() {
+					console.log("B m2()")
+				}
+			}
+			let b1 = new B(100,200);//a:100, b:200
+			console.log(b1.a);//100;
+			console.log(b1.b);//200;
+			b1.m1();
+			b1.m2();
+			b1.toString();
+		</script>
+	</head>
+	<body>
+		1.继承只能单继承
+		2.继承的意义
+		(1)继承是为了代码的复用
+		(2)继承是类型上的包含关系,可以用是不表示
+	</body>
+</html>

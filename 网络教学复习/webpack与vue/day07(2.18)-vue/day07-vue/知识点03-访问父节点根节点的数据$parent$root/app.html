@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.myContainer {
+				background-color: blue;
+				color: white;
+				width: 100%;
+				height: 600px;
+			}
+			
+			.myTeach {
+				background-color: lightblue;
+				height: 400px;
+				width: 400px;
+				margin: 0 auto;
+			}
+			
+			.mylingdap {
+				background-color: #888;
+				height: 200px;
+				width: 200px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="app" class="myContainer">
+			<h4>华清远见成都中心</h4>
+			<b>总人数：{{totalNum}}</b>
+			
+			
+			<button type="button" @click="addTeacher">新增了一个老师</button>
+			
+			<!-- 访问父/根节点中的数据 this.$parent/this.$root-->
+			<my-teacher class="myTeach"></my-teacher>
+			
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

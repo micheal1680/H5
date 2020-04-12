@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		可以为变量赋值； 当作实参；用于自调用
+		<script type="text/javascript">
+			let show = () => {
+				console.log("我是函数1");
+			}
+			show();
+		</script>
+		<script type="text/javascript">
+			function m1(cb) {
+				cb();
+			}
+			m1(() => {
+				console.log("我是函数2");
+			});
+		</script>
+		<script type="text/javascript">
+			(() => {
+				console.log("我是函数3");
+			})();
+
+			((a, b) => {
+				let c = a + b;
+				console.log(c);
+			})(100, 200);
+		</script>
+
+		<script type="text/javascript">
+			let f1 = a => {
+				console.log("f1");
+			}
+			f1(100)
+
+			let f2 = () => console.log("f2");
+			f2();
+
+			// let f3 = (a,b)=>{
+			// 	return a+b;
+			// }
+			let f3 = (a, b) => a + b;
+			console.log(f3(1000, 2000));
+		</script>
+		
+		<script type="text/javascript">
+			var name = '小华';
+			let stu = {
+				name: '小明',
+				showName: ()=>{
+					console.log(this.name);
+				}
+			}
+			stu.showName();
+			stu.showName.bind(window)();
+		</script>
+		<script type="text/javascript">
+			(function m(){
+					console.log("自调用");
+			})();
+		</script>
+	</body>
+</html>

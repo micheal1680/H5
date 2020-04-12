@@ -1,0 +1,10 @@
+ul>li {
+	background-color: greenyellow;
+}
+ul>li:hover {
+	background-color: #61DAFB;
+	cursor: pointer;
+}
+ul>li:active {
+	background-color: #282C34;
+}

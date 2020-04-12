@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			.outer {
+				width: 200px;
+				height: 200px;
+				border: 2px solid blue;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.inner {
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.little {
+				width: 50px;
+				height: 50px;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			<!-- 事件绑定 v-on:,简写为@-->
+			<input type="text" value="" v-on:change="getInput" />
+			
+			<br><br><br><br>
+			<p>事件修饰符、按键修饰符，eg:回车事件监听</p>
+			用户名：<input type="text" @keyup.enter="getUsername">
+			<div class="outer" @click="handleOuter">
+				<!-- @click.stop 与 @click.enter 阻止冒泡 -->
+				<div class="inner" @click.stop="handleInner">
+					<div class="little" @click="handleLittle"></div>
+				</div>
+			</div>
+			<a href="" @click.prevent="handleLink">阻止a 标签的默认事件</a>
+			
+		</div>
+		
+		
+	</body>
+</html>

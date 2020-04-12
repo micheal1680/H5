@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>班级管理</title>
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+		</script>
+		<script type="text/javascript">
+			//监听函数在文档加载结束后自动执行
+			$(document).ready(function(){
+				show();
+			});
+			//显示所有班级信息
+			function show() {
+				$.ajax({
+					url:'/Clazz.do',
+					type:'post',
+					dataType:'text',
+					data:{//传参数
+						method:'queryAll'
+					},
+					success(clazzArray) {
+						clazzArray = JSON.parse(clazzArray);
+						$("#showClazzTable").html("");//把table中所有内容清空
+						let clazz = null;
+					    for(let i=0; i<clazzArray.length; i++) {
+							clazz = clazzArray[i];
+							let date = new Date(clazz.birth);
+							let mydate = 1900+date.getYear()+"-"+(1+date.getMonth())+"-"+date.getDate();
+							$("#showClazzTable").append("<tr><td>"+clazz.id
+							+"</td><td>"+clazz.name
+							+"</td><td>"+clazz.major
+							+"</td><td>"+mydate+"</td><td><button onclick='deleteById("+clazz.id+")'>删除</button></td><td><button onclick='update("+clazz.id+", \""+clazz.name+"\", \""+clazz.major+"\", \""+mydate+"\")'>修改</button></td><td><a href='javascript:toStu("+clazz.id+")'>该班学生</a></td></tr>")
+						}
+					}
+				});
+			}
+			
+			
+			
+			function deleteById(id) {
+				let flag = window.confirm("是否真要删除");
+				if(flag==false) {
+					return;
+				}
+				$.ajax({
+					url:'/Clazz.do',
+					type:'post',
+					dataType:'text',
+					data:{//传参数
+						method:'delById',
+						id:id
+					},
+					success(r) {
+						r = JSON.parse(r);
+						if(r==1) {//成功删除了一条
+							show();
+						}else {
+							alert("删除失败");
+						}
+					}
+				}); 
+			}
+			
+			function update(id, name, major, birth) {
+				$("#delClazzDiv").css("display","block");
+				$("#oldId").html(id);
+				$("#newId>input").val(id);
+				$("#oldName").html(name);
+				$("#newName>input").val(name);//val是为input中的value赋值
+				$("#oldMajor").html(major);
+				$("#newMajor>input").val(major);
+				$("#oldBirth").html(birth);
+				$("#newBirth>input").val(birth);
+			}
+			function sureUpdate() {
+				let id = $("#newId>input").val();//取出input中value的值 
+				let newName = $("#newName>input").val();
+				let newMajor = $("#newMajor>input").val();
+				let newBirth =  $("#newBirth>input").val();
+				$.ajax({
+					url:'/Clazz.do',
+					type:'post',
+					dataType:'text',
+					data:{//传参数
+						method:'updateClazz',
+						id:id,
+						newName:newName,
+						newMajor:newMajor,
+						newBirth:newBirth
+					},
+					success(r) {
+						r = JSON.parse(r);
+						if(r>0) {
+							alert("修改成功");
+							show();//重新显示
+							$("#delClazzDiv").css("display","none");
+							
+						} else {
+							alert("修改失败");
+						}
+					},
+					error(r) {
+						console.log(r);
+					}
+				});
+			}
+			function cancleUpdate() {
+				$("#delClazzDiv").css("display","none");
+			}
+		</script>
+		<script type="text/javascript">
+			function addClazz() {
+				$("#addClazzDiv").css("display","block")
+			}
+			function sureAdd() {
+				let addName = $("#addName>input").val();
+				let addMajor = $("#addMajor>input").val();
+				let addBirth = $("#addBirth>input").val();
+				$.ajax({
+					url:'/Clazz.do',
+					type:'post',
+					dataType:'text',
+					data:{//传参数
+						method:'addClazz',
+						addName:addName,
+						addMajor:addMajor,
+						addBirth:addBirth
+					},
+					success(r) {
+						r = JSON.parse(r);
+						if(r==1) {
+							alert("增加成功");
+							show();//重新显示
+							$("#addClazzDiv").css("display","none")
+						} else {
+							alert("增加失败");
+						}
+					},
+					error(r) {
+						console.log(r);
+					}
+				});
+			}
+			function cancleAdd() {
+				$("#addClazzDiv").css("display","none")
+				$("#addClazzDiv input").val("");
+			}
+			//跳转到stu.html
+			function toStu(id) {
+				 location.href="stu.html?clazzId="+id;
+			}
+		</script>
+	</head>
+	<body>
+		<p>下面显示所有班级的信息</p>
+		<button onclick="addClazz()">增加一个班级</button>
+		<div>
+			<table id="showClazzTable" border="1" cellspacing="0">
+				<tr><td>id</td><td>name</td><td>major</td><td>开班时间</td><td>删除</td><td>修改</td><td>该班学生</td></tr>
+			</table>
+		</div>
+		<div id="delClazzDiv" style="display: none;">
+			<table border="1" cellspacing="9" cellpadding="0">
+				<tr>
+					<td>目前</td>
+					<td>修改成</td>
+				</tr>
+				<tr>
+					<td id='oldId'>23</td>
+					<td id='newId'><input readonly="true"></input></td>
+				</tr>
+				<tr>
+					<td id="oldName">H5班</td>
+					<td id="newName"><input></input></td>
+				</tr>
+				<tr>
+					<td id="oldMajor">H5工程师</td>
+					<td id="newMajor"><input></input></td>
+				</tr>
+				<tr>
+					<td id="oldBirth">2019-2-3</td>
+					<td id='newBirth'><input></input></td>
+				</tr>
+				<tr>
+					<td><button onclick="sureUpdate()">确定</button></td>
+					<td><button onclick="cancleUpdate()">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	
+		<div id="addClazzDiv" style="display: none;">
+			<table border="1" cellspacing="9" cellpadding="0">
+				<tr>
+					<td >名字</td>
+					<td id="addName"><input></input></td>
+				</tr>
+				<tr>
+					<td>班级专业</td>
+					<td id="addMajor"><input></input></td>
+				</tr>
+				<tr>
+					<td>开班时间</td>
+					<td id='addBirth'><input></input></td>
+				</tr>
+				<tr>
+					<td><button onclick="sureAdd()">确定</button></td>
+					<td><button onclick="cancleAdd()">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

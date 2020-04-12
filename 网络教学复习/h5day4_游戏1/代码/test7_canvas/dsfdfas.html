@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<canvas id="myCanvas" style="border: 20px solid green;"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("myCanvas");
+			canvas.width = 400;
+			canvas.height = 400;
+			var context = canvas.getContext("2d");
+			var active = false;
+			var lastPoint = {
+				x: 0,
+				y: 0
+			}
+			var curPoint = {
+				x: 10,
+				y: 10
+			}
+			init();
+			window.setInterval(function() {
+				draw();
+			}, 20);
+
+			function draw() {
+				if(active) {
+					context.beginPath();
+					context.lineTo(lastPoint.x, lastPoint.y);
+					context.lineTo(curPoint.x, curPoint.y);
+					context.stroke();
+				}
+			}
+			function init() {
+				context.lineCap  = "round";
+				context.lineJoin= "round";
+				context.lineWidth = 5;
+				context.strokeStyle = "aqua";
+				canvas.onmousedown = function(e) {
+					event.preventDefault()
+					active = true;
+					curPoint = windowToCanvas(e.clientX, e.clientY);
+					lastPoint = windowToCanvas(e.clientX, e.clientY);
+				};
+				canvas.onmouseup = function(e) {
+					event.preventDefault()
+					active = false;
+					
+				};
+				canvas.onmousemove = function(e) {
+					event.preventDefault()
+					if(active) {
+						lastPoint = curPoint;
+						curPoint = windowToCanvas(e.clientX, e.clientY);
+					}
+				};
+				canvas.onmouseout = function(e) {
+					event.preventDefault()
+					active = false;
+				}
+			}
+			function windowToCanvas(windowX, windowY) {
+				var box = canvas.getBoundingClientRect();
+				var x = windowX - box.left - 20;
+				var y = windowY - box.top - 20;
+				return {
+					x: x,
+					y: y
+				};
+			}
+		</script>
+	</body>
+
+</html>

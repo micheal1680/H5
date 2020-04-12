@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				background: palegoldenrod;
+			}
+		</style>
+		<script type="text/javascript">
+			let canvas = null;
+			let ctx = null;
+			window.onload = function() {
+				canvas = document.getElementById("mycanvas");
+				canvas.width=300;
+				canvas.height=300;
+				ctx = canvas.getContext("2d");
+				draw1();
+			}
+			function draw1() {
+				//规划
+				ctx.beginPath();//表示规划开始
+				ctx.lineTo(30,30);//表示路径起点
+				ctx.lineTo(100,100);//表示路径到达点
+				ctx.lineTo(200, 100);
+				ctx.lineTo(200, 50);
+				ctx.closePath();//闭合
+				//设置状态
+				ctx.lineWidth=20;
+				ctx.strokeStyle="red";
+				ctx.fillStyle="blue"
+				//绘制
+				ctx.stroke();//绘制线
+				ctx.fill();//填充绘制
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+	</body>
+</html>

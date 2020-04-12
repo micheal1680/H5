@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        [v-cloak] {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+
+        <p>{{msg}}</p>
+        <p>用户姓名：{{user.name}}</p>
+        <p>数据：{{num}}</p>
+        <button type="button" @click="changeName">修改姓名</button>
+
+        <br>
+        关键词：<input type="text" v-model="keyWord">
+        <p>用户输入的关键词：{{keyWord}}</p>
+
+        <button type="button" @click="changeNum">数据+1</button>
+        <button type="button" @click="myDestroy">销毁vm</button>
+
+
+    </div>
+</body>
+</html>

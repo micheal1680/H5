@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function mm() {
+				
+			}
+			function Stu() {
+				this.show = function () {
+					console.log("这是学生");
+				}
+			}
+			Stu.prototype.study = function() {
+				console.log("学习");
+			}
+			let s1 = new Stu();
+			s1.show();
+			s1.study();
+		</script>
+	</body>
+</html>

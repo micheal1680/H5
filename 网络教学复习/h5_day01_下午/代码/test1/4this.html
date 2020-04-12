@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//window.a = 20;
+			var a = 20;
+			//window.fm = ...
+			function fm() {
+				console.log(this.a);
+			}
+			var obj = {
+				a: 2,
+				fn: fm
+			};
+			//window.fm();
+			fm();//20
+			obj.fn();//2
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

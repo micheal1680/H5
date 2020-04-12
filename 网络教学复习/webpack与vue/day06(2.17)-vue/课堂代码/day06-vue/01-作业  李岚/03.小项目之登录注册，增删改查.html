@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- 登录页面 -->
+        <div v-if="isShow=='loginPage'">
+            用户名：<input type="text" v-model="userName">
+            <br><br><br>
+            密&nbsp;&nbsp;&nbsp;码：<input type="password" v-model="passWord">
+            <br><br><br>
+            <button type="button" @click="handleLogin">登录</button>
+
+            <button type="button" @click="handleRegist">注册</button>
+        </div>
+
+        <!-- 用户列表页面 -->
+        <div v-else-if="isShow=='listPage'">
+            <div v-for="(item,index) in msg" :key="index">
+                <span>用户：{{index+1}}</span>
+                <br>
+                用户名：<span>{{item.username}}</span>
+                <br>
+                密&nbsp;&nbsp;&nbsp;码：<span>{{item.password}}</span>
+                <br>
+            
+                <button type="button" @click="deleteUser(item.id)">删除用户</button>
+                <button type="button" @click="modifyUser(item.id,item.username,item.password)">修改用户</button>
+                <br><br><br>
+            </div>
+        </div>
+
+        <!-- 用户修改页面 -->
+        <div v-else>
+            用户名：<input type="text" v-model="afterModifyUser">
+            <br>
+            密&nbsp;&nbsp;&nbsp;码：<input type="text" v-model="afterModifyPassW">
+            <br><br>
+            <button type="button" @click="finishModify">提交修改</button>
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>
+

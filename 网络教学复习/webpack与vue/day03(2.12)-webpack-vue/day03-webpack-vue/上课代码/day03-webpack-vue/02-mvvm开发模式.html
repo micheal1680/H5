@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" @click="handleClick">
+			{{msg}}
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+		<script type="text/javascript">
+			//model 数据层
+			var data="后端请求回来的数据，分数100";
+			
+			// vm--view model--视图模型层
+			var vm=new Vue({
+				el:"#app",//el--element
+				data:{
+					msg:"网速有点卡"
+				},
+				methods:{
+					handleClick(){
+						console.log(this==vm)//true
+						this.msg=data;
+					}
+				}
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

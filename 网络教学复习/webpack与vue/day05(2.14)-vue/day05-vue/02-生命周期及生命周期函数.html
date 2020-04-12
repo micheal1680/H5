@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		
+		<!-- 生命周期：一个vm 对象的创建、挂载、更新、销毁 -->
+		<div id="app">
+			
+			<div v-cloak>
+				<h4 v-cloak @click="changeData">{{msg}}</h4>
+				
+				<div v-cloak class="stuname">{{student.name}}</div>
+				<button type="button" @click="changeName">修改姓名</button>
+				<button type="button" @click="myDestroy">点击销毁</button>
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,51 @@
+习题1：
+下面代码的执行结果是多少？为什么？
+			var animal = "人";
+			let obj = {
+				animal:'狗',
+			}
+			let getAnimal = ()=>this.animal;
+			console.log(getAnimal());  //结果是：‘狗’（因为箭头函数的this指向对象函数即obj）
+			console.log(getAnimal.call(obj));  //结果是：‘人’（因为.call（obj）之后的this指向为window）
+
+习题2：
+下面代码的执行结果是多少？为什么？
+			var adder = {
+				base:1,
+				add:function(a) {
+					var f = v=>v+this.base;
+					return f(a);
+				},
+				addThruCall:function isFun(a) {
+					var f = v=>v+this.base;
+					var b = {
+						base:2
+					};
+					return f.call(b,a);
+				}
+			};
+			console.log(adder.add(1));   //结果是：2
+			console.log(adder.addThruCall(1));  //结果是: 3
+
+习题3：
+es6是es5的语法糖，请问，什么是语法糖？
+
+答: 指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖能够增加程序的可读性，从而减少程序代码出错的机会。
+
+习题4：
+es6中，类中的成员有哪些类型？
+答：实例成员、原型成员、对象成员、静态成员
+
+习题5：
+子类能继承父类中哪些类型的成员
+答：子类继承父类之后，可以拥有父类的某些状态和行为（子类复用了父类的功能和状态）
+子类继承父类的那些成员可以根据访问修饰符来判断：
+1.若父类中的成员使用public/protected修饰，子类继承；
+2.若父类和子类在同一个包中，此时子类继承父类中的default修饰的成员；
+3.若父类中的成员使用private修饰，子类无法继承，因为private只能在本类中访问；
+4.父类的构造器，子类不能继承，因为构造器必须和当前类的类名相同
+
+习题6：
+静态成员方法中的this指什么对象
+
+答：静态成员方法中不能用this和super关键字。因为this代表的是调用这个函数的对象的引用，而静态方法是属于类的，不属于对象，静态成员方法成功加载之后，对象还不一定存在

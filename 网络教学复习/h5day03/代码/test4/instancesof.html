@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>instanceof</title>
+		<script type="text/javascript">
+			//GirlStu -> Stu -> Object
+			class Stu {
+				constructor() {
+				}
+			}
+			class GirlStu extends Stu {
+				constructor() {
+					super();
+				}
+			}
+			class Teacher {
+				
+			}
+			let s1 = new Stu();
+			console.log(s1 instanceof Stu);//true
+			let gs1 = new GirlStu();
+			console.log(gs1 instanceof GirlStu);//true
+			console.log(gs1 instanceof Stu);//true	
+			console.log(gs1 instanceof Object);//true	
+			console.log(gs1 instanceof Teacher);//false;
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

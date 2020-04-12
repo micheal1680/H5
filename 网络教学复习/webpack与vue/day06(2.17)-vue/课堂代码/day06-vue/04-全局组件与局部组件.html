@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			.bigbtn {
+				width: 100px;
+				height: 40px;
+				border-radius: 20px;
+				border: 1px solid transparent;
+			}
+			
+			.btncolor1 {
+				background-color: lightblue;
+				color: red;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.btncolor2 {
+				background-color: #ccc;
+				color: black;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.btncolor3 {
+				background-color: orange;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+			}
+			
+			.mynav {
+				display: flex;
+				list-style: none;
+				background-color: #ccc;
+			}
+			.mynav li{
+				width: 80px;
+				height: 20px;
+				text-align: center;
+				line-height: 20px;
+			}
+			
+			.myproduct {
+				display: flex;
+				list-style: none;
+			}
+			
+			.myproduct li{
+				width: 150px;
+				height: 150px;
+				background-color: pink;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		
+		<div id="otherapp">
+			<my-nav></my-nav>
+			<my-nav></my-nav>
+			
+			<my-product></my-product>
+			<my-product></my-product>
+			<my-product></my-product>
+			{{msg}}
+		</div>
+		
+		<div id="app">
+			<h1>{{msg}}</h1>
+			<!-- v-show首次渲染速度更慢 -->
+			<!-- v-if 频繁切换时渲染效率不高 -->
+			<div v-if="showPage=='main'">
+				<my-nav></my-nav>
+				<h4>首页页面--搜索栏</h4>
+				<button type="button" @click='hanlePage'>跳转到列表页</button>
+			</div>
+			<div v-if="showPage=='list'">
+				<my-nav></my-nav>
+				<h4>列表页面</h4>
+			</div>
+			
+			
+			<!-- //局部组件 只能用在该vm 对应元素上 -->
+			<my-product></my-product>
+			<my-product></my-product>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

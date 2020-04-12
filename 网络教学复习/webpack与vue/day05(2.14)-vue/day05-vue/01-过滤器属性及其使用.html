@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			
+			<div v-for="item in arrnew">
+				<div v-html="item.name"></div>
+				<div v-html="item.grade"></div>
+			</div>
+			
+			<br>
+			<h4>过滤器：只能在{{}}或者v-bind: 中使用</h4>
+			<div v-for="item in arr">
+				姓名：<div>{{item.name|mynameReverse}}</div>
+				分数：<div :title="item.grade|mygradeColor" v-html="$options.filters.mygradeColor(item.grade)" ></div>
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>

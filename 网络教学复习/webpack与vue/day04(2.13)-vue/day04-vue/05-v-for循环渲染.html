@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- view 视图层 -->
+		<div id="app" v-cloak >
+			<!-- 循环渲染v-for/key -->
+			
+			<div v-for="(mitem,i) in mydata" :key="i">
+				姓名：{{mitem.studenname}}
+				<br>
+				分数：{{mitem.grade}}
+				<br>
+				索引：{{i}}				
+				<br><br>
+			</div>
+			<div v-for="item in 5">
+				文本
+			</div>
+			
+			
+			<!-- <div>
+				姓名：{{mydata[0].studenname}}
+				<br>
+				分数：{{mydata[0].grade}}
+			</div>
+			<div>
+				姓名：{{mydata[1].studenname}}
+				<br>
+				分数：{{mydata[1].grade}}
+			</div>
+			<div>
+				姓名：{{mydata[2].studenname}}
+				<br>
+				分数：{{mydata[2].grade}}
+			</div>
+			 -->
+			
+		</div>
+		
+		
+	</body>
+</html>
