@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用类构造魔塔</title>
+    <!-- 该游戏实现步骤：1.构造游戏地图；2. 构造游戏人物；3.使游戏人物可以自由移动；4.构造游戏的其他事物；5.让游戏人物吃掉某些事物-->
+    <style>
+        .mm {
+            width: 820px;
+            position: relative;
+            display: flex;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .gamebox {
+            width: 600px;
+            height: 600px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            font-size: 0
+        }
+
+        #hp {
+            width: 220px;
+            height: 40px;
+            color: red;
+            background-color: aqua;
+        }
+
+        #key {
+            width: 220px;
+            height: 40px;
+            color: yellow;
+            background-color: pink;
+        }
+
+        #jian {
+            width: 220px;
+            height: 40px;
+            color: red;
+            background-color: aqua;
+        }
+        #left {
+            width: 220px;
+            height: 600px;
+            background-color: #5C490F;
+            position: absolute;
+            left: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mm">
+        <div class="gamebox"></div>
+        <div id="left">
+            <div id="hp">目前你的血量有：100</div>
+            <div id="key">拥有钥匙：0 把</div>
+            <div id="jian">你有剑：0 把</div>
+        </div>
+    </div>
+    <script>
+        class Game {
+            constructor() {    //此为类的构造函数，在其里面写属性，而属性是该类的实例化对象的，因此这里有this
+                this.Map = [   //用二维数组来实现游戏地图
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 0, 0, 0, 7, 0, 0],
+                    [0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 4, 0, 3, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 6, 0, 0],
+                    [0, 0, 0, 0, 5, 0, 0, 0, 0, 0],
+                    [0, 0, 9, 0, 0, 0, 0, 8, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                ];
+                this.GameBox = document.getElementsByClassName('gamebox')[0];
+                this.Hero = {
+                    hp: 100,
+                    key: 0,
+                    jian: 0
+                }
+                this.monster1 = {
+                    hp: 50
+                }
+                this.monster2 = {
+                    hp: 100
+                }
+                this.monster3 = {
+                    hp: 160
+                }
+                this.monster4 = {
+                    hp: 160
+                }
+            }
+            // 构造地图
+            CreateMap() {
+                this.GameBox.innerHTML = '';  //由于this.GameBox.appendChild(CreateDom)，即每执行一次都会加载一张地图，目的在于将之前的地图清除掉，免得出现多地图的情况
+                for (let i = 0; i < this.Map.length; i++) {
+                    for (let j = 0; j < this.Map[i].length; j++) {
+                        console.log(this.Map[i][j]);
+                        let CreateDom = document.createElement('img'); //新创建一个img元素CreateDom，用于放图片
+                        CreateDom.alt = '图片加载失败';
+                        CreateDom.style.width = '60px';
+                        CreateDom.style.height = '60px'; //图片当没有no-repeated时，图片会自动重复，直至填满父级元素空间为止
+                        if (this.Map[i][j] == 0) {
+                            CreateDom.src = 'imgs/背景.png';
+                        } else if (this.Map[i][j] == 1) {
+                            CreateDom.src = 'imgs/人物.png';
+                        } else if (this.Map[i][j] == 2) {
+                            CreateDom.src = 'imgs/怪1.png';
+                        } else if (this.Map[i][j] == 4) {
+                            CreateDom.src = 'imgs/药水1.png';
+                        } else if (this.Map[i][j] == 3) {
+                            CreateDom.src = 'imgs/钥匙1.png';
+                        } else if (this.Map[i][j] == 5) {
+                            CreateDom.src = 'imgs/怪2.png';
+                        } else if (this.Map[i][j] == 6) {
+                            CreateDom.src = 'imgs/怪3.png';
+                        } else if (this.Map[i][j] == 7) {
+                            CreateDom.src = 'imgs/钥匙2.png';
+                        } else if (this.Map[i][j] == 8) {
+                            CreateDom.src = 'imgs/剑.png';
+                        } else if (this.Map[i][j] == 9) {
+                            CreateDom.src = 'imgs/怪9.png';
+                        }
+                        this.GameBox.appendChild(CreateDom)
+                    }
+                }
+            }
+            Sstart() {
+                console.log('游戏开始')
+                this.CreateMap()
+            }
+            move() {
+                let that = this;
+                window.onkeydown = function (e) {
+                    console.log(e.keyCode)     //keyCode:左：37  上：38  右：39  下：40
+                    //获取当前人物的坐标
+                    let NowPositionI = that.GetpersonPosition()[0]   //由于GetpersonPosition()返回[i, j]，i在数组中下标为0，j在数组中下标为1
+                    let NowPositionJ = that.GetpersonPosition()[1]
+                    let NextPositionI = that.GetpersonPosition()[0];
+                    let NextPositionJ = that.GetpersonPosition()[1];
+                    if (e.keyCode == 37) {
+                        //人物即将要到达的下一个坐标(往左)
+                        NextPositionI = that.GetpersonPosition()[0];    //此处是对坐标进行重新赋值，因此不能再次声明
+                        NextPositionJ = that.GetpersonPosition()[1] - 1;
+                        //人物即将要到达的下一个坐标(往右)
+                    } else if (e.keyCode == 39) {
+                        NextPositionI = that.GetpersonPosition()[0];
+                        NextPositionJ = that.GetpersonPosition()[1] + 1;
+                        //人物即将要到达的下一个坐标(往上) - 1;
+                    } else if (e.keyCode == 38) {
+                        NextPositionI = that.GetpersonPosition()[0] - 1;
+                        NextPositionJ = that.GetpersonPosition()[1];
+                        //人物即将要到达的下一个坐标(往下)
+                    } else if (e.keyCode == 40) {
+                        NextPositionI = that.GetpersonPosition()[0] + 1;
+                        NextPositionJ = that.GetpersonPosition()[1];
+                    }
+                    // 将二维数组里面的值进行交换
+                    if (that.Jundeg(NextPositionI, NextPositionJ)) {
+                        let create = that.Map[NowPositionI][NowPositionJ];
+                        that.Map[NowPositionI][NowPositionJ] = that.Map[NextPositionI][NextPositionJ];
+                        that.Map[NextPositionI][NextPositionJ] = create;
+                        that.CreateMap()
+                    }
+                }
+            }
+            //获取人物的位置
+            GetpersonPosition() {
+                for (let i = 0; i < this.Map.length; i++) {
+                    for (let j = 0; j < this.Map[i].length; j++) {
+                        if (this.Map[i][j] == 1) {
+                            return [i, j]
+                        }
+                    }
+                }
+            }
+            // 之前的代码运行之后有一个bug，就是当人物到达边界时，假如到达最左边，再按上、下、右建都没有效果了，要解决这个问题，最好就是设置一个函数
+            Jundeg(nexti, nextj) {
+                if (nexti < 0 || nexti > 9 || nextj < 0 || nextj > 9) {
+                    return false
+                } else {
+                    this.MeetKey(nexti, nextj);
+                    this.MeetMedicine(nexti, nextj);
+                    this.Meetmonster(nexti, nextj);
+                    this.Meetdao(nexti, nextj);
+                    return true
+                }
+            }
+            MeetKey(nexti, nextj) {
+                if (this.Map[nexti][nextj] == 3) {
+                    console.log('遇到了钥匙')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.key += 1;
+                    document.getElementById("key").innerHTML = `你拥有 ${this.Hero.key} 把钥匙`
+                } else if (this.Map[nexti][nextj] == 7) {
+                    console.log('遇到了钥匙')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.key += 1;
+                    document.getElementById("key").innerHTML = `你拥有 ${this.Hero.key} 把钥匙`
+                }
+                else {
+                    console.log('没有遇到钥匙')
+                }
+            }
+            MeetMedicine(nexti, nextj) {
+                if (this.Map[nexti][nextj] == 4) {
+                    console.log('遇到了药品')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.hp += 10;
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                } else {
+                    console.log('没有遇到药品')
+                }
+            }
+            Meetdao(nexti, nextj) {
+                if (this.Map[nexti][nextj] == 8) {
+                    console.log('遇到了剑')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.jian += 1;
+                    document.getElementById("jian").innerHTML = `你有: ${this.Hero.jian} 把剑`;
+                } else {
+                    console.log('没有遇到剑')
+                }
+            }
+            Meetmonster(nexti, nextj) {
+                if (this.Map[nexti][nextj] == 5 && this.Hero.hp < this.monster2.hp) {
+                    console.log('遇到怪物2')
+                    this.Map[nexti][nextj] = 5
+                    this.Map[NowPositionI][NowPositionJ] == 0
+                } else if (this.Map[nexti][nextj] == 5 && this.Hero.hp >= this.monster2.hp) {
+                    console.log('遇到怪物2')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.hp += 10;
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                } else if (this.Map[nexti][nextj] == 2 && this.Hero.hp >= this.monster1.hp) {
+                    console.log('遇到怪物1')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.hp += 10;
+                    alert("恭喜你的血量：+10！")
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                } else if (this.Map[nexti][nextj] == 2 && this.Hero.hp < this.monster1.hp) {
+                    console.log('遇到怪物1')
+                    this.Map[nexti][nextj] = 2
+                    this.Map[NowPositionI][NowPositionJ] = 0
+                } else if (this.Map[nexti][nextj] == 6 && this.Hero.hp >= this.monster3.hp) {
+                    console.log('遇到怪物3')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.hp += 30;
+                    alert("恭喜你的血量：+30！")
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                } else if (this.Map[nexti][nextj] == 6 && this.Hero.hp < this.monster3.hp) {
+                    console.log('遇到怪物3')
+                    this.Map[NowPositionI][NowPositionJ] = 0
+                    this.Map[nexti][nextj] = 6
+                    this.Hero.hp -= 30;
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                    alert("很遗憾你的血量：-30！")
+                } else if (this.Map[nexti][nextj] == 9 && this.Hero.hp < this.monster4.hp) {
+                    this.Map[nexti][nextj] = 9
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                    alert("很遗憾你死了！")
+                }
+                else if (this.Map[nexti][nextj] == 6 && this.Hero.hp >= this.monster4.hp) {
+                    console.log('遇到怪物4')
+                    this.Map[nexti][nextj] = 0
+                    this.Hero.hp += 50;
+                    alert("恭喜通关!")
+                    document.getElementById("hp").innerHTML = `目前你的血量有: ${this.Hero.hp}`;
+                } else {
+                    console.log('没有遇到怪物')
+                }
+
+            }
+        }
+        let NewGame = new Game()
+        NewGame.Sstart()
+        NewGame.move()
+
+
+    </script>
+</body>
+
+</html>

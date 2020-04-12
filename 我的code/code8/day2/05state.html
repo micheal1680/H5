@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+        .mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 实现：点击按钮，控制组件的显示和隐藏，完成显示和隐藏的切换
+用到了 三目运算符 ，三目运算符是真的好用 -->
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        // react 组件名必须采用驼峰命名法，且首字母必须要大写
+        class MyApp extends React.Component {
+            // 构造器
+            constructor(props) {
+                super();
+                // 设置状态（在构造器内部）（页面是静态的，即不会有任何值发生改变时，只需要使用属性即可，但是当页面上值需要有变化时，就需要状态和属性一起使用，因此用到状态就一定要用到构造器）
+                this.state = {
+                    show: "block"
+                }
+            }
+            // 事件函数（在构造器外部）
+            change() {
+                // 改变状态
+                this.setState({
+                    show: this.state.show == "block" ? "none" : "block"
+                })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.change.bind(this)}>点击切换显示</button>
+                        <div className="mydiv" style={{ display:this.state.show }}>我是一个盒子</div>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <div>
+                <MyApp />
+            </div>,
+            document.getElementById("app")
+        )
+
+
+    </script>
+
+</body>
+
+</html>

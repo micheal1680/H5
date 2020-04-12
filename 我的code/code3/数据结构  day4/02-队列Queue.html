@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>队列：先进先出</title>
+</head>
+<body>
+    <script>
+    {
+        class Queue{
+            constructor(){
+                this.items=[]
+            }
+            push(item){
+                this.items.push(item)
+            }
+            dequeue(){
+                return this.items.shift()
+            }
+            enqueue(){
+                return this.items.push()
+            }
+            peek(){
+                return this.items[0]
+            }
+            isempty(){
+                return this.items.length==0
+            }
+            clear(){
+                return this.items=[]
+            }
+            size(){
+                return this.items.length
+            }
+            getitems(){
+                return this.items
+            }
+        }
+        let NewQueue=new Queue()
+        NewQueue.push(1)
+        NewQueue.push(2)
+        NewQueue.push(3)
+        console.log(NewQueue)
+        NewQueue.dequeue()
+        console.log(NewQueue)
+    }
+    
+    
+    </script>
+</body>
+</html>

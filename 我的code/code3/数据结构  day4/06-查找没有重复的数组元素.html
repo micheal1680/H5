@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Array {
+            constructor() {
+                this.items = []
+            }
+            add(item) {
+                this.items.push(item)
+            }
+            choose() {
+                for (let i = 0; i < this.items.length; i++) {
+                    let num = 0;
+                    for (let j = 0; j < this.items.length; j++) {
+                        if (this.items[i] == this.items[j]) {
+                            num++;
+                        }
+                    }
+                    if (num !== 1) {  //重复次数大于1（即有重复数据的）
+                        console.log(num)
+                    } else {
+                        console.log(this.items[i]) //重复次数为1，即没有重复的数据，都会打印出来，第一个数据就是第一个没有重复的数组元素
+                    }
+                }
+                return true
+            }
+        }
+        let NewArray = new Array();
+        NewArray.add(2);
+        NewArray.add(2);
+        NewArray.add(1);
+        NewArray.add(3);
+        console.log(NewArray)
+        console.log(NewArray.choose())
+
+    </script>
+</body>
+
+</html>

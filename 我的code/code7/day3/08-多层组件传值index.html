@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+    #father{
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    #son{
+      width: 300px;
+      height: 200px;
+      background-color: blue;
+    }
+    #app{
+      width: 300px;
+      height: 400px;
+      background-color: yellow;
+    }
+
+  </style>
+</head>
+
+<!-- 父向子传值，与属性有关，即是通过属性来进行传值的；
+     子向父传值，与事件有关，即是通过事件来进行传值的 -->
+<!-- 多组件进行传值（祖父传值给父，父传值给子） -->
+<body>
+
+<div id="app" v-cloak> 
+  <h3>这是祖父节点</h3>
+  <p>
+    {{student.name}}
+  </p>
+
+  <com-father :myname="student.name" @myevent="changeName">
+  </com-father>
+</div>
+
+
+</body>
+
+<!-- 一个Vue对象，多个组件 -->
+</html>

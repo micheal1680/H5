@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Array {
+            constructor() {
+                this.items = []
+            }
+            add(item) {
+                this.items.push(item)
+            }
+            review() {
+                let Arr1 = new Array();
+                let Arr2 = new Array();
+                let Arr = [Arr1, Arr2];
+                for (let i = 0; i < this.items.length; i++) {
+                    if (this.items[i] >= 0) {
+                        Arr1.add(this.items[i])
+                    }
+                    else {
+                        Arr2.add(this.items[i])
+                    }
+                }
+                return Arr;
+            }
+        }
+        let NewArray = new Array();
+        NewArray.add(1)
+        NewArray.add(2)
+        NewArray.add(0)
+        NewArray.add(-1)
+        NewArray.add(-2)
+        console.log(NewArray.review())   //[[1,2,0],[-1,-2]]
+    </script>
+</body>
+
+</html>

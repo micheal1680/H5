@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <!-- 组件：作用是对代码进行封装，这里的一个mydiv就是一个组件，mydiv是自定义标签 -->
+    <mydiv mycolor="red" myfont="30px">
+      <span>詹姆斯</span>
+      <span slot="second">科比</span>
+      <span slot="third">乔丹</span>
+    </mydiv>
+    <mydiv></mydiv>
+    <mydiv></mydiv>
+
+    <!-- 行内样式绑定的语法 -->
+    <!-- 要写多个样式时 -->
+    <div :style="{backgroundColor:bac,color:fs}">行内样式的标签</div>
+  </div>
+</body>
+
+<!-- 一个Vue对象，多个组件 -->
+</html>

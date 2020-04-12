@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>魔塔</title>
+    <style>
+        .gamebox {
+            width: 600px;
+            height: 600px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            font-size: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gamebox"></div>
+    <script>
+        const Gamebox = document.getElementsByClassName('gamebox')[0];
+        let ArrayTwo = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+        //构建地图
+        function CreateMap() {
+            Gamebox.innerHTML = '';
+            for (let i = 0; i < ArrayTwo.length; i++) {
+                for (let j = 0; j < ArrayTwo[i].length; j++) {
+                    console.log(ArrayTwo[i][j]);
+                    let CreateDom = document.createElement('img');
+                    CreateDom.alt = '图片加载失败';
+                    CreateDom.style.width = '60px';
+                    CreateDom.style.height = '60px';
+                    if (ArrayTwo[i][j] == 0) {
+                        CreateDom.src = 'imgs/背景.png';
+                    } else if (ArrayTwo[i][j] == 1) {
+                        CreateDom.src = 'imgs/人物.png';
+                    } else if (ArrayTwo[i][j] == 2) {
+                        CreateDom.src = 'imgs/怪1.png';
+                    }
+                    Gamebox.appendChild(CreateDom)
+
+
+                }
+            }
+        }
+
+        CreateMap()
+        window.onkeydown = function (e) {
+            console.log(e.keyCode)     //keyCode:左：37  上：38  右：39  下：40
+            console.log(GetpersonPosition())
+            //获取当前人物的坐标
+            let NowPositionI = GetpersonPosition()[0]
+            let NowPositionJ = GetpersonPosition()[1]
+            let NextPositionI = GetpersonPosition()[0];
+            let NextPositionJ = GetpersonPosition()[1];
+            if (e.keyCode == 37) {
+                //人物即将要到达的下一个坐标(往左)
+                NextPositionI = GetpersonPosition()[0];    //此处是对坐标进行重新赋值，因此不能再次声明
+                NextPositionJ = GetpersonPosition()[1] - 1;
+                //人物即将要到达的下一个坐标(往右)
+            } else if (e.keyCode == 39) {
+                NextPositionI = GetpersonPosition()[0];
+                NextPositionJ = GetpersonPosition()[1] + 1;
+                //人物即将要到达的下一个坐标(往上)
+            } else if (e.keyCode == 38) {
+                NextPositionI = GetpersonPosition()[0]- 1;
+                NextPositionJ = GetpersonPosition()[1];
+                //人物即将要到达的下一个坐标(往下)
+            } else if (e.keyCode == 40) {
+                NextPositionI = GetpersonPosition()[0] + 1;
+                NextPositionJ = GetpersonPosition()[1];
+            }
+            // 将二维数组里面的值进行交换
+            if (Jundeg(NextPositionI, NextPositionJ)) {
+                let create = ArrayTwo[NowPositionI][NowPositionJ];
+                ArrayTwo[NowPositionI][NowPositionJ] = ArrayTwo[NextPositionI][NextPositionJ];
+                ArrayTwo[NextPositionI][NextPositionJ] = create;
+                CreateMap()
+            }
+        }
+        //获取人物的位置
+        function GetpersonPosition() {
+            for (let i = 0; i < ArrayTwo.length; i++) {
+                for (let j = 0; j < ArrayTwo[i].length; j++) {
+                    if (ArrayTwo[i][j] == 1) {
+                        return [i, j]
+                    }
+                }
+            }
+        }
+
+        // 之前的代码运行之后有一个bug，就是当人物到达边界时，假如到达最左边，再按上、下、右建都没有效果了，要解决这个问题，最好就是设置一个函数
+        function Jundeg(nexti, nextj) {
+            if (nexti < 0 || nexti > 9 || nextj < 0 || nextj > 9) {
+                return false
+            } else {
+                return true
+            }
+        }
+
+    </script>
+</body>
+
+</html>

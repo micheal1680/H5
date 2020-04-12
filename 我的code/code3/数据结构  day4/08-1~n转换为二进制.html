@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Stack {
+            constructor() {
+                this.items = []
+            }
+            push(item) {
+                this.items.push(item)
+            }
+            pop() {
+                return this.items.pop()   //pop()函数是有返回值的函数，因此不仅可以执行这个函数，还有return
+            }
+            peek() {    //Top—返回栈最上方的元素，并不删除
+                return this.items[this.items.length - 1]
+            }
+            isempty() {
+                return this.items.length == 0
+            }
+            clear() {
+                this.items = []
+            }
+            size() {
+                return this.items.length
+            }
+            getitems() {
+                return this.items
+            }
+        }
+        class Data {
+            constructor(data) {
+                this.data = data;
+                this.rem = null;
+                this.stack = new Stack();
+                this.stringnum = ''
+            }
+            change() {
+                    while (this.data > 0) {   //这个while起到阻止后面代码执行的效果，它会不断循环，直到不再满足循环条件，才会执行打印那串代码
+                        this.rem = this.data % 2;
+                        this.stack.push(this.rem);
+                        this.data = parseInt(this.data / 2)
+                    }
+                    console.log(this.stack.getitems())
+                    while (!this.stack.isempty()) {
+                        this.stringnum += this.stack.pop()   //将stack里面的元素倒过来存放到stringnum里面(在将stack最后的元素添加进stringnum的同时将其在stack中进行删除)
+                    }
+                    return this.stringnum
+            }
+            both(){
+                for (let i = 1; i < 20; i++) {
+                    this.data = i;
+                }
+                return this.data;
+            }
+        }
+        let newchangedata = new Data()
+        console.log(newchangedata.change())
+        console.log(newchangedata.both())
+
+
+    </script>
+</body>
+
+</html>

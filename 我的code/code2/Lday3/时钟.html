@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        setInterval(function () {
+            var dt = new Date;
+            var com = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate() + ' ' +(dt.getHours()<10? '0':' ') +dt.getHours() + ':' +(dt.getMinutes()<10? '0':' ')+ dt.getMinutes() + ':' +(dt.getSeconds()<10? '0':' ')+ dt.getSeconds();
+            document.querySelector('div').innerHTML = com;
+        }, 1000)
+
+        //由于时钟是以秒计的，一秒钟更新一次时间，因此这里设置时钟更新时间的等待时间为1s=1000ms;
+        //在hours的获取前面加上+(dt.getHours()<10? '0':' ')，是为了当hours小于10时，在hours前面添上0，比如显示为09，而不是9.
+        // (dt.getHours()<10? '0':' ')用的知识点是：三目运算符
+
+
+    </script>
+</body>
+
+</html>

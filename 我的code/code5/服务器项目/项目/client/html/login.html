@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        form{
+            width: 300px;
+            height: 150px;
+            background-color: lightblue;
+            /* border: 1px solid #ccc; */
+            margin: 50px auto;
+        }
+        #btn{
+            margin-left: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: lightseagreen;">登录页面</h1>
+    <form action="">
+        用户名: <input type="text" placeholder="请输入用户名" name="username"><br><br> 
+        密　码: <input type="password" placeholder="请输入密码" name="password"><br><br>
+        <input type="button" id="btn"  value="登录">
+    </form>
+
+
+    <script>
+        document.querySelector("input[type='button']").onclick = function () {
+            let name = document.querySelector("input[type='text']").value;
+            let pwd = document.querySelector("input[type='password']").value;
+            console.log(pwd)
+
+            $.ajax({
+                url: `http://localhost:3000/user/login?username=${name}&password=${pwd}`,
+                type: "GET",
+                success: data => {
+                    console.log(data)
+                    if (data.code == -1) {
+                        alert(data.msg);
+                    } else if (data.code == -2) {
+                        alert(data.msg);
+                    } else if (data.code == 1) {
+                        alert("登录成功")
+                        console.log("id----" + data.aid)
+                        sessionStorage.setItem("aid", data.aid);
+                        window.location.href = "./ClothManagement.html"
+                    }
+                },
+                error: err => {
+                    console.log(err)
+                }
+            })
+
+            // $.post("http://localhost:3000/user/login", {
+            //     username: name,
+            //     password: pwd
+            // }, function (data) {
+            //     console.log(data)
+            //     if (data.code == -1) {
+            //         alert(data.msg);
+            //     } else if (data.code == -2) {
+            //         alert(data.msg);
+            //     } else if (data.code == 1) {
+            //         alert("登录成功")
+            //         window.location.href = "./CakeManagement.html"
+            //     }
+            // })
+        }
+    </script>
+</body>
+
+</html>

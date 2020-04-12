@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>比优先级的队列（队列的扩展）</title>
+</head>
+
+<body>
+    <!-- priropty：优先级   element:数据 -->
+</body>
+<script>
+    {
+        class Element{
+            constructor(element, priropty){
+                this.element=element;
+                this.priropty=priropty;
+            }
+        }
+        class Queue {
+            constructor() {
+                this.items = []
+            }
+            // 队列内的元素访问顺序是和元素的优先级有关的，优先级越高，就越先访问。这里讨论两种情况来构建算法，1.队列为空；2.队列不为空。当队列为空时，元素不用再去比较优先级，直接将其追加在队列末尾即可，因为此时本来只有该元素本身，当队列不为空时，就需要跟之前已经存在的元素比较优先级。
+            push(element, priropty) {
+                let NewElement = new Element(element, priropty)
+                if (!this.isempty()) {
+                    let added = false
+                    for (let i = 0; i < this.size(); i++) {
+                        if (NewElement.priropty > this.items[i].priropty) {
+                            this.items.splice(i, 0, NewElement)  //插入数据
+                            added = true;
+                            break;
+                        }
+                    }
+                    if (!added) {
+                        this.items.push(NewElement)
+                    }
+                }else{
+                    this.items.push(NewElement)
+                }
+            }
+            dequeue() {
+                return this.items.shift()
+            }
+            peek() {
+                return this.items[0]
+            }
+            isempty() {
+                return this.items.length == 0
+            }
+            clear() {
+                return this.items = []
+            }
+            size() {
+                return this.items.length
+            }
+            getitems() {
+                return this.items
+            }
+        }
+        let NewQueue = new Queue()
+        NewQueue.push('我是数据1', 1)
+        NewQueue.push('我是数据2', 1)
+        NewQueue.push('我是数据3', 2)
+        console.log(NewQueue.getitems())
+    }
+
+</script>
+
+</html>

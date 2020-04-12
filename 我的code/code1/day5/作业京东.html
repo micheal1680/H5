@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid #ccc;
+            /* border-bottom: none; */
+            box-sizing: border-box;
+            width: 132px;
+            height: 38px;
+            position: relative;
+        }
+
+        .box img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .box .text {
+            border: 1px solid #ccc;
+            background-color: red;
+            width: 22px;
+            height: 18px;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            right: 70%;
+            top: 0;
+        }
+
+        .box .myspan {
+            color: red;
+            font-size: 12px;
+            position: absolute;
+            right: 10%;
+            top: 25%;
+        }
+
+        .box:hover {
+            border: 1px solid red;
+            border-bottom: none;
+        }
+        .box:hover+div {
+            visibility: visible;
+            border: 1px solid red;
+            /* border-top: none; */
+            transition: 2s;
+            /* transform: scale(2); */
+        }
+        .box:hover+div::before{
+            
+            border-top: 1px solid red;
+            width: 188px;
+
+        }
+
+        .box2 {
+            border: 1px solid #ccc;
+            width: 320px;
+            height: 70px;
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+            visibility: hidden;
+            display: inline-block;
+            transition: 2s;
+
+        }
+
+        .box2 img {
+            width: 60px;
+            height: 50px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: inline-block;
+        }
+
+        .box2 span {
+            font-size: 14px;
+            color: #ccc;
+            position: absolute;
+            top: 25px;
+            left: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="img/gouwu.png" alt="">
+        <div class="text">0</div>
+        <span class="myspan">我的购物车</span>
+    </div>
+    <div class="box2">
+        <img src="img/che.png" alt="">
+        <span>购物车中还没有商品，赶紧选购吧</span>
+    </div>
+</html>

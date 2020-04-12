@@ -1,0 +1,103 @@
+.shop{
+    width: 1280px;
+    height: 329px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.shop-head{
+    height: 64px;
+    line-height: 64px;
+    background: #fff;
+    padding: 0 16px;
+}
+.shop-head-img{
+    width: 104px;
+    height: 26px;
+    margin-right: 16px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+.mybelike{
+    font-size: 14px;
+    color: rgba(0,0,0,.38);
+}
+.more-href{
+    margin-right: 0;
+    float: right;
+    font-size: 14px;
+    color: rgba(0,0,0,.38);
+}
+.more-href:hover{
+    color: #ff4400;
+}
+.shop-con{
+    background: #fff;
+    padding: 0 16px;
+    margin-top: 1px;
+    box-sizing: border-box;
+    width: 1280px;
+    height: 264px;
+}
+.shop-container{
+    display: block;
+    float: left;
+    width: 304px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.shop-tab{
+    height: 14px;
+    line-height: 14px;
+    margin: 16px 0;
+}
+.tab-title{
+    font-size: 14px;
+    color: rgba(0,0,0,.87);
+    margin-right: 16px;
+}
+.shop-tab:hover .tab-title{
+    color: #ff4400;
+}
+.item-container{
+    height: 202px;
+    width: 304px;
+}
+.img-left{
+    width: 101px;
+    height: 202px;
+    float: left;
+    // overflow: hidden;
+    margin-right: 1px;
+}
+.img-left img{
+    display: block;
+}
+.img-left-1{
+    width: 101px;
+    height: 101px;
+}
+.img-left-2{
+    width: 101px;
+    height: 100px;
+    margin-top: 1px;
+}
+.img-right{
+    height: 202px;
+    width: 202px;
+    float: left;
+}
+.img-right img{
+    width: 100%;
+    height: 100%;
+}
+.item-container::after{
+    content: '';
+    display: block;
+    clear: both;
+    zoom: 1;
+    height: 0;
+    width: 0;
+}
+.shop-con a:last-child{
+    margin-right: 0;
+}

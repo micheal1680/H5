@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 有错 */
+        .d1 {
+            width: 220px;
+            height: 200px;
+            position: relative;
+        }
+
+        .d1 img {
+            width: 220px;
+            height: 200px;
+        }
+
+        .hour {
+            width: 6px;
+            height: 60px;
+            background-color: #000;
+            position: absolute;
+            top: 40px;
+            left: 107px;
+        }
+
+        .min {
+            width: 3px;
+            height: 70px;
+            background-color: #000;
+            position: absolute;
+            top: 30px;
+            left: 108.5px;
+            transform: rotate(30deg);
+        }
+
+        .sec {
+            width: 2px;
+            height: 78px;
+            background-color: red;
+            position: absolute;
+            top: 22px;
+            left: 109px;
+            transform: rotate(60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3617113852,583850630&fm=26&gp=0.jpg" alt="">
+        <div class="hour">
+        </div>
+        <div class="min">
+        </div>
+        <div class="sec">
+        </div>
+    </div>
+    <script>
+        (function (document) {
+            var doc = document;
+            var ele = {
+                eleHour: doc.getElementsByClassName("hour")[0],
+                eleMin: doc.getElementsByClassName("min")[0],
+                eleSec: doc.getElementsByClassName("sec")[0],
+                timer: null
+            };
+            function Time(hour, min, sec) {
+                this.hour = hour;
+                this.min = min;
+                this.sec = sec;
+                Object.defineProperty(Time.prototype, "constructor", {
+                    enumerable: false,
+                    value: Time
+                })
+                Time.prototype = {
+                    setHourT: function () {
+                        return this.hour * 30 + 0.5 * this.min + 0.5 / 60 * this.sec;
+                    },
+                    setMinT: function () {
+                        return this.min * 6 + 0.1 * this.sec;
+                    },
+                    setSecT: function () {
+                        return this.sec * 6;
+                    }
+                };
+                ele.timer = setInterval(function () {
+                    var nowTime = new Date(),
+                        h = nowTime.getHours();
+                    m = nowTime.getMinutes();
+                    s = nowTime.getSeconds();
+                    var time = new Time(h, m, s);
+                    ele.eleSec.style.transform = "rotate(" + time.setSecT() + "deg)";
+                    ele.eleMin.style.transform = "rotate(" + time.setMinT() + "deg)";
+                    ele.eleHour.style.transform = "rotate(" + time.setHourT() + "deg)";
+                }, 1000)
+                // 清除定时器
+                return function () {
+                    clearInterval(ele.timer);
+                }
+             (document);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

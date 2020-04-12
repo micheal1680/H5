@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1);
+
+        setTimeout(function(){
+            console.log(2);
+        },0);
+
+        for(var i=0;i<5;i++){
+            setTimeout(function(){
+                console.log(i);
+            },0)
+        }
+        
+        console.log(3);
+    
+    
+    //最终打印结果为：1 3 2 5（5个）
+    //创建定时器的setTimeout和setInterval都是异步任务，即时等待时间设置为0，也必须要等同步任务执行完之后才能执行，
+    //所以打印顺序是：1  3  （定时器的），又因为js是单线程的，即有执行顺序的，所以对于异步任务就采取顺序依次执行，
+    //而在这个题中，实际上正常的setTimeout和for循环是之前就执行了的，是内部的函数才是等同步任务完成之后再根据所设置的
+    //等待时间进行执行，也就是说，之前setTimeout就执行了，已经创建了定时器。因此打印顺序为：
+    //1 3 2 5(打印5个5)
+    
+    </script>
+</body>
+</html>

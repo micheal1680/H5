@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 栈内存：存储地址  堆内存：存储数据
+        例如：var a=3    a是地址，在栈内存中存放，3是数据，在堆内存中存放
+        链表：是用于存储数据的另外一种方式，不同于数组，链表中的元素在内存中并不是连续放置的（存储有序的元素集合）
+        链表：从头部开始寻找元素，最后一个元素的指针指向为：null（空）
+    链表：可以只开辟一个栈空间，里面用链接来指向数据，就不用再开辟另外的空间，因此用链表来对数据增删查改所用内存就比数组要小很多，也方便很多
+    链表：链表的每个元素及链表的节点 = 本身数据+指向下一个元素的指针
+    单向链表（单链表）是链表的一种，其特点是链表的链接方向是单向的，对链表的访问要通过顺序读取从头部开始；链表是使用指针进行构造的列表；又称为结点列表，
+    因为链表是由一个个结点组装起来的；其中每个结点都有指针成员变量指向列表中的下一个结点； -->
+
+    <!-- 头节点：头结点的数据域可以不存储任何信息，头结点的指针域存储指向第一个结点的指针（即第一个元素结点的存储位置）。头结点的作用是使所有链表（包括空表）的头指针非空，
+        并使对单链表的插入、删除操作不需要区分是否为空表或是否在第一个位置进行，从而与其他位置的插入、删除操作一致 
+    
+    链表头部 = 链表第一个元素-->
+</body>
+<script>
+    {
+        // 构建当前的节点类
+        class Node {
+            constructor(element) {
+                this.element = element;  //节点的属性1：数据
+                this.next = null    //节点的属性2：指针
+            }
+        }
+        // 构建链表
+        class LinkedList {
+            constructor() {
+                this.head = null;   //this.head：链表的头部，此时代表链表中没有任何元素
+                this.length = 0;
+            }
+            // isEmpty(){
+            //     return this.length===0
+            // }
+            append(element) {
+                let node = new Node(element);  //将实例化对象node作为一个属性
+                let cu = this.head;
+                if (this.head == null) {    //此时代表链表中没有任何元素（判断头部是否为空）
+                    this.head = node
+                } else {
+                    while (cu.next) {
+                        cu = cu.next    //cu:当前循环到的结点
+                    }
+                    cu.next = node   //node：当前结点
+                }
+                this.length++
+            }
+
+            // 往链表中的固定位置插入元素
+            insert(element,position){
+                if(position>=0&&position<=this.length-1){
+                    let node=new Node(element)//实例化对象，node表示新插入的结点
+                    if(position==0){      //大概就分为两种情况，往头部位置插入和其他部位插入
+                        node.next=this.head;    //现在的=之前的 这样的格式（或者 插入元素之前的=插入之后的）
+                        this.head=node
+                    }else{
+                        let cu=this.head;
+                        let pre=null;
+                        let num=0;
+                        while(num<position){
+                            pre=cu;
+                            cu=cu.next
+                            num++;
+                        }
+                        pre.next=node;
+                        node.next=cu;
+                    }
+                    this.leength++
+                }else{
+                    return false
+                }
+            }
+
+            //删除链表中的某个元素
+            removeAt(position) {
+                if (position >= 0 && position <= this.length) {
+                    if (position == 0) {
+                        this.head = this.head.next
+                    } else {
+                        let num = 0;   //num的作用：用于标记下标
+                        let cu = this.head;
+                        let pre = null
+                        while (num < position) {
+                            pre = cu;
+                            cu = cu.next;
+                            num++
+                        }
+                        pre.next = cu.next;
+                    }
+                    this.length--
+                } else {
+                    return false
+                }
+            }
+            getHead() {
+                return this.head
+            }
+        }
+        let NewLinkedList = new LinkedList()
+        NewLinkedList.append(1)
+        NewLinkedList.append(2)
+        NewLinkedList.append(3)
+        console.log(NewLinkedList.getHead())   //链表：由于链表有指针，因此只需要获取头部元素就可以看到它后面的元素，即链表的头部元素可以遍历链表所有的元素
+        // 链表和数组不同,如果是数组要访问第i个元素,直接数组名+[i],就像S[i]这样就可以.但是链表因为内存是不连续的,不能通过这种方式访问,
+        // 必须从第一个节点开始,一个一个的往下找,所以要先找到第i-1个结点,然后从这个结点中取得i结点的地址,这样才能访问i结点.
+        NewLinkedList.removeAt(0)   //删除了链表的头部元素，即第一个元素。第二个元素自动变成头部元素
+        console.log(NewLinkedList.getHead())
+        NewLinkedList.insert(4, 0)
+        console.log(NewLinkedList.getHead())
+    }
+
+
+</script>
+
+</html>

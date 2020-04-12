@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bigbox {
+            width: 400px;
+            height: 400px;
+            border: 30px solid #48495D;
+            box-sizing: border-box;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+
+        img {
+            width: 340px;
+            height: 340px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            transition: all 3s;
+            
+        }
+
+        .secondbox {
+            width: 320px;
+            height: 320px;
+            margin: 10px;
+            border: 30px solid rgba(255, 255, 255, 0.2);
+            box-sizing: border-box;
+        }
+
+        .smallbox {
+            width: 260px;
+            height: 260px;
+            border: 10px solid #FFF;
+            box-sizing: border-box;
+        }
+        .secondbox:hover{
+            border: 10px solid rgba(255, 255, 255, 0.2);
+        }
+        .secondbox:hover .smallbox{
+            border: 0;
+            
+        }
+        .secondbox:hover img{
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bigbox">
+        <div class="secondbox">
+            <div class="smallbox">
+                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2723882683,1751134593&fm=26&gp=0.jpg"
+                    alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

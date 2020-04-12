@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 双向链表：每个元素中既有指向下一个元素的指针，还有指向上一个元素的指针
+        双向链表(双链表)是链表的一种。和单链表一样，双链表也是由节点组成，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。
+    单向链表的重要参数：头部    双向链表的重要参数是头部和尾部 （双向就是比单向增加了尾部元素和指向上一个元素的指针）-->
+    <script>
+        // 往双向链表中添加元素
+        class Node{
+            constructor(element){
+                this.element=element;
+                this.prev=null;
+                this.next=null
+            }
+        }
+        class DoubleLinkedList{
+            constructor(){
+                this.head=null;
+                this.tail=null;
+                this.length=0
+            }
+            // 往双向链表中插入元素（此时从尾部开始添加元素）
+            append(element){
+                let node=new Node(element)
+                if(!this.head){    //当头部为空时
+                    this.head=node; 
+                    this.tail=node;     //因此新插入的这个结点既是链表的头部结点又是尾部结点
+                }else{    //当头部不为空时
+                    node.prev=this.tail;     //从右往左赋值
+                    this.tail.next=node;
+                    this.tail=node;   //刷新链表的尾部元素节点，即现在的尾部结点就是新添加的这个结点node
+                }
+                this.length++
+            }
+            // 从双向链表中固定位置处删除元素
+            removeAt(position){
+                if(position>=0&&position<=this.length-1){     //1.规定范围，只有在这个范围里面才能进行删除操作
+                    if(this.length==1){   //（1）当双向链表长度为1时
+                        this.head=null;   
+                        this.tail=null;
+                    }else{     //（2）当双向链表长度大于1时
+                        if(position==0){    // <1>当删除头部元素时
+                            this.head.next.prev=null;
+                            this.head=this.head.next  //刷新头部
+                        }else if(position==this.length-1){  // <2>当删除尾部元素时
+                            this.tail.prev.next=null;
+                            this.tail=this.tail.prev  //刷新尾部
+                        }else{  // <3>当删除链表中间的元素时
+                            let cu=this.head;
+                            let prev=cu.prev;  //cu：指当前结点
+                            let next=cu.next;
+                            let num=0;
+                            while(num<position){
+                                cu=cu.next;
+                                prev=cu.prev;
+                                next=cu.next;
+                                num++;
+                            }
+                            prev.next=next; //这一段就相当于a,b,c； b.prev=prev, b.next=next,即a为prev,c为next，然后让prev.next=a.next=next=c，next.prev=c.prev=prev=a，直接跳过b，也就相当于删除了b.通过这样来实现删除链表中间的元素
+                            next.prev=prev;
+                        }
+                    }
+                    this.length--    //链表的长度减1是删除操作之后一定会发生的操作，因此写在整个删除操作的内部
+                }else{  //2.不在规定范围内，就不执行代码
+                    return false
+                }
+
+            }
+        }
+        let NewDoubleLinkedList=new DoubleLinkedList()
+        NewDoubleLinkedList.append(1)
+        NewDoubleLinkedList.append(2)
+        NewDoubleLinkedList.append(3)
+        console.log(NewDoubleLinkedList)
+        NewDoubleLinkedList.removeAt(0)
+        console.log(NewDoubleLinkedList)
+    </script>
+</body>
+</html>

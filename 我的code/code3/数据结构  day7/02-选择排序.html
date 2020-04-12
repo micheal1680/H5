@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 选择排序：找最小的值往最前面放（找到数据结构中的最小值并将其放置在第一位，接着找到第二小的值并将其放在第二位，以此类推）
+        class ArrayList {
+            constructor() {
+                this.array = []
+            }
+            insert(item) {
+                this.array.push(item)
+            }
+            toString() {
+                return this.array.join()
+            }
+            selectionSort() {
+                let length = this.array.length,
+                    indexMin;
+                for (let i = 0; i < length; i++) {
+                    indexMin = i;
+                    for (let j = i; j < length; j++) {
+                        if (this.array[indexMin] > this.array[j]) {
+                            indexMin = j
+                        }
+                    }
+                    if (i !== indexMin) {
+                        let aux = this.array[i];
+                        this.array[i] = this.array[indexMin];
+                        this.array[indexMin] = aux;
+                    }
+                }
+                return this.array;
+            }
+        }
+        let NewArray=new ArrayList();
+        NewArray.insert(5);
+        NewArray.insert(4);
+        NewArray.insert(3);
+        NewArray.insert(2);
+        NewArray.insert(1);
+        console.log(NewArray.toString())
+        console.log(NewArray.selectionSort())
+
+    </script>
+</body>
+
+</html>

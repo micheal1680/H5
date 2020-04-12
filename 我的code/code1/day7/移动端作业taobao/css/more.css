@@ -1,0 +1,21 @@
+.more{
+    width: 100%;
+    height: 3rem;
+}
+.more1{
+    width: 96%;
+    height: .6rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    border: .02rem solid #ccc;
+    margin: .12rem;
+}
+.more1 .mm1{
+    width: 48%;
+    border-right: .02rem solid #ccc;
+    color: #ccc;
+}
+.more a{
+    font-size: .28rem;
+}

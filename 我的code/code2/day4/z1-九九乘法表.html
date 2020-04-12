@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //九九乘法表，打印到第六行截止
+        //方法1：
+        for(var j=1; j<7; j++){
+            for(var i=1; i<=j; i++){
+                var re=i * j;
+                document.write(`<td>${i} * ${j} = ${re}  &nbsp;&nbsp;&nbsp;&nbsp`);
+            }
+            document.write("<br/>");
+        }
+
+        //方法2：
+        label:
+        for(var j=1; j<10; j++){
+            for(var i=1; i<=j; i++){
+                if(j == 7){
+                    break label;
+                }
+                var re=i * j;
+                document.write(`<td>${i} * ${j} = ${re}  &nbsp;&nbsp;&nbsp;&nbsp`);
+            }
+            document.write("<br/>");
+        }
+        //由于此部分目的是跳出整个循环，且此为嵌套循环即有两个循环，因此若只写break，则跳出的是自身循环，
+        //结果是只去掉了第7行，若要跳出整个循环，就得在大循环外命一个变量（可以随便命名，如label），代表了整个大循环，
+        //然后break label；即跳出整个循环，去掉第7行以及后面的所有
+
+
+
+
+
+
+
+       //去掉九九乘法表中的第二列
+        for(var j=1; j<10; j++){
+            for(var i=1; i<=j;i++){
+                if(i == 2){
+                    continue;//此题只需要跳出本循环，因此不用另外命名一个大变量，直接continue即可
+                }
+                var re=i * j;
+                document.write(`<td>${i} * ${j} = ${re}  &nbsp;&nbsp;&nbsp;&nbsp`);
+            }
+            document.write("<br/>");
+        }
+
+     
+
+
+
+
+
+
+
+    
+       //去掉九九乘法表中的第七行
+       for(var j=1; j<10; j++){
+            for(var i=1; i<=j; i++){
+                if(j == 7){
+                    break;
+                }
+                var re=i * j;
+                document.write(`<td>${i} * ${j} = ${re}  &nbsp;&nbsp;&nbsp;&nbsp`);
+            }
+            document.write("<br/>");
+        }
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>  

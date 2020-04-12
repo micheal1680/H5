@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+
+<body>
+    <!-- 内容：实际传递属性；默认属性；延展属性 -->
+    <div id="app"></div>
+
+    <!-- type="text/babel"必须加上，babel的作用在于将jsx语句转换为浏览器可以识别的js语句 -->
+    <script type="text/babel">
+ 
+        // react项目的开发也是组件化开发的思想，但是写react组件的方法有2种：1.函数（又分为：普通函数和箭头函数）；2.类   （若数据内容少，可以考虑采用函数来写组件，但是一般情况下都是采用“类”的方法来写react组件）
+        // 使用MyApp组件
+        class MyApp extends React.Component {
+            render() {
+                console.log(this.props);
+                console.log(this.props.title)
+                // render()是渲染函数，这里是返回一个jsx对象(用小括号括起来)，return里面就是jsx，要往页面添加内容，就是用jsx语句，js语句必须要用{}括起来，css样式语句也要用{}括起来
+                return (
+                    <div>
+                    {/*jsx里面的注释也是属于js的东西，因此也需要用{}括起来。接收实际传递的属性title*/}
+                        <h1>论文标题：{this.props.title}</h1>
+                        <p>爱好1：{this.props.joy1}</p>
+                        <p>爱好2：{this.props.joy2}</p>
+                        <p>爱好3：{this.props.joy3}</p>
+                    </div>
+                )
+            }
+        }
+
+// 在类外面设置组件的默认属性，实际传递的属性优先级高于默认属性。即优先使用实际传递的属性，若没有实际传递属性 ，就使用默认属性
+        MyApp.defaultProps={
+            title:"like this",
+            joy1:"篮球"
+        }
+
+
+        // 在类外面设置延展属性
+        MyApp.props={
+            title:"思想境界到达了一定的高度",
+            joy1:"网球",
+            joy2:"听歌",
+            joy3:"看剧"
+        }
+
+        // ReactDOM.render(参数1，参数2)    其中参数1是要渲染到页面的内容，参数2是渲染到哪里
+        // 声明MyApp组件
+        ReactDOM.render(
+            <div>
+            {/*渲染的是两个MyApp组件*/}
+                <MyApp title="基于H5的音乐平台" />
+                {/*使用延展属性给组件传递多个属性，这是一个新的MyApp组件，它传递的是延展属性里面的所有属性。注意多个属性的表示方式*/}
+                <MyApp {...MyApp.props}/>
+            </div>,
+            document.getElementById("app")
+        )
+
+    </script>
+
+</body>
+
+</html>

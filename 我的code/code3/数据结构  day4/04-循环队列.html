@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>约瑟夫环（Josphons）（队列的扩展）</title>
+</head>
+
+<body>
+    <!-- 约瑟夫环算法： 2，4，5，7，9  -> 7,9,2,4,5 ->  9,2,4,5  -> 5,9,2,4  ->  9,2,4  ->  2,4  ->  4,2  ->  2 -->
+</body>
+<script>
+    {
+        class Queue {
+            constructor() {
+                this.items = []
+            }
+            push(item) {
+                this.items.push(item)
+            }
+            dequeue() {
+                return this.items.shift()
+            }
+            peek() {
+                return this.items[0]
+            }
+            isempty() {
+                return this.items.length == 0
+            }
+            clear() {
+                return this.items = []
+            }
+            size() {
+                return this.items.length
+            }
+            getitems() {
+                return this.items
+            }
+        }
+        let NewQueue = new Queue()
+
+
+        class Jos {
+            constructor(numlist, num) {
+                this.Queue = new Queue();//将实例化对象变成自己的一个属性
+                this.num = num;
+                for (let i = 0; i < numlist.length; i++) {
+                    this.Queue.push(numlist[i])
+                }
+            }
+            Skill() {
+                let Skiler = ''
+                while (this.Queue.size() > 1) {
+                    for (let i = 0; i < this.num; i++) {
+                        this.Queue.push(this.Queue.dequeue())
+                    }
+                    Skiler = this.Queue.dequeue()
+                    console.log('删除了' + Skiler)
+                }
+                return this.Queue.dequeue()
+            }
+        }
+        let NewJos = new Jos([2, 4, 5, 7, 9], 3)
+        console.log(NewJos.Skill())
+    }
+</script>
+
+</html>

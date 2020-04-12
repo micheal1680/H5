@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        width: 500px;
+        height: 208px;
+        list-style: none;
+        overflow: hidden;
+    }
+    img{
+        width: 500px;
+        height: 208px;    
+        animation: mymove 3s;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    @keyframes mymove{
+        0% {
+            left: 0;
+        }
+        30%{
+            left: 0;
+        }
+        50%{
+            left: -500px;
+        }
+        70%{
+            left: -500px;
+        }
+    }
+</style>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2723882683,1751134593&fm=26&gp=0.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3623223417,2831240896&fm=26&gp=0.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1480678393,1097650434&fm=111&gp=0.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=595789599,1247771364&fm=26&gp=0.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .mydiv{
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        .uu{
+            width: 1500px;
+            height: 400px;
+            overflow: hidden;
+            transition: lixu  8s;
+        }
+        .uu li{
+            width: 500px;
+            height: 400px;
+            float: left;
+        }
+        .uu li img{
+            width: 500px;
+            height: 400px;
+        }
+        .btn{
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            bottom: 30px;
+            left: 210px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn li{
+            width : 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #e0d0d0;
+            list-style: none;
+            cursor: pointer;  
+            /* 鼠标移入出现小手 */
+        }
+        @keyframes lixu{
+            0%{
+                left: 0;
+            }
+            40%{
+                left: -500px;
+            }
+            70%{
+                left: -1000px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用js制作一个轮播图  轮播图的制作：有一个布局视口和一个视觉视口
+    其中：布局视口：用于存放所有的图片，常用ul标签，宽=图片宽*图片数量，高=图高；
+         视觉视口：用于播放轮播的图片，宽高即图片宽高-->  
+    <div class="mydiv">
+        <ul class="uu">
+            <li>
+                <img src="./img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/3.jpg" alt="">
+            </li>
+        </ul>
+        <ul class="btn">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var btn=document.querySelectorAll('.btn>li')
+       for (var i=0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                console.log(i); //打印3，因为这里循环的时候，函数不执行，当点击的时候，函数执行打印3
+            }
+        }
+
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

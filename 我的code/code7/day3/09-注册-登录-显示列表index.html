@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div v-if="mainPage">
+      <p>{{msg}}</p>
+      <br>
+      搜索：
+      <input type="text" v-model="keyWord" />
+      <ul>
+        <li v-for="item in employees">
+          <p v-html="$options.filters.iTemName(item.name,keyWord)"></p>
+          <p>员工工资:{{item.salary}}</p>
+          <p>员工部门:{{item.deptid}}</p>
+        </li>
+      </ul>
+    </div>
+    <!-- 登录页面 -->
+    <div v-if="loginPage">
+      用户名：<input type="text" placeholder="请输入用户名" v-model="username" @change="userChange" />
+      <span style="color: pink;">{{userhit}}</span>
+      <br><br>
+      密　码：<input type="password" placeholder="请输入密码" v-model="passW" @change="passWChange" />
+      <span style="color: pink;">{{passWhit}}</span>
+      <br><br>
+      <button type="button" @click="userLogin">登录</button>
+      <button type="button" @click="pagechange">注册</button>
+    </div>
+    <!-- 注册页面 -->
+    <div v-if="rigisterPage">
+      用户名：<input type="text" placeholder="请输入用户名" v-model="username" @change="userChange" />
+      <span style="color: pink;">{{userhit}}</span>
+      <br><br>
+      密　码：<input type="password" placeholder="请输入密码" v-model="passW" @change="passWChange" />
+      <span style="color: pink;">{{passWhit}}</span>
+      <br><br>
+      <button type="button" @click="userindex">确认注册</button>
+  </div>
+</div>
+</body>
+
+</html>

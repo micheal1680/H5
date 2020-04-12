@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 1rem=50px*/
+html{
+    font-size: calc((100*100vw) / 750);
+}
+body{
+    font-size: 0.28rem;
+}
+a{
+    text-decoration: none;
+    color: #5D656B;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    /* padding: 2px 20px; */
+    border-top: 1px solid #ccc;
+    width: 100%;
+    z-index: 88;
+    /* margin-bottom: 43px;
+    flex: 1;
+    overflow:auto;设置了这个之后，可能滚动条里面的内容会与底部导航栏
+    发生重叠，可能是因为底部为透明，因此给底部设置一个颜色即可解决 */
+    background-color: #fff;;
+}
+.footer .a{
+    color: #5D656B;
+    font-size: .28rem;
+}
+.footer i{
+    font-size: 0.4rem;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- class：类    类是es6里面新增的一种js写法
+    这种写法的基本框架是（也是当没有继承的时候的写法）：
+    class 类名{
+        constructor(形参){            
+            属性和方法代码(属性用this.来写，其中this指向当前的实例化对象)
+        }
+        函数代码
+    }
+    let 对象=new 类名（传实参）   //对类实例化对象，（）里面的是要传递的参数
+    对象.函数的函数名()           //调用函数
+
+
+
+
+    当有继承时：
+    （类与类之间要想有联系，就用extends，但是类要有联系，必须得父类先定义，后定义子类，才能继承，即顺序不能乱。因为类不能提升。
+    这样一来，父类将自己所有的属性和方法传递给子类，子类可以调用父类的所有属性和方法，而子类里面的操作，不会影响到父类，要对类增加属性或方法，
+    可以就在connstructer构造函数里面增加即可，js文件有很多写法：事件、类、特效等等，以经验为参考）
+
+    class 父类名{
+        constructor(){
+            属性和方法代码
+        }
+        函数代码
+    }
+    class 子类名 extends 父类名{
+        constructor(形参){
+            super();    //当有继承时，在子类中，必须要写super()，并且要写在构造函数constructor的首位
+            属性和方法代码
+        }
+        函数代码
+    }
+    let 对象=new 类名（传实参）   //对类实例化对象，（）里面的是要传递的参数
+    对象.函数的函数名()           //调用函数
+
+除了实例化对象和调用函数，其他实现功能的东西全部都要写在 类class 里面
+-->
+    <script>
+        class Parent1{
+            constructor(){
+                this.name = '吴彦祖';
+            }
+            getParentData(){
+                console.log(this.name)
+                return this.name
+            }
+        }
+        class Game extends Parent1{
+            constructor(name1,name2){
+                // console.log(name1,name2)
+                super();
+                this.age = 18;
+                this.sex ='nan';
+                // console.log(this.age);
+                // console.log(this.sex)
+            }
+            GetAge(){
+                console.log(this.age)
+                return this.age
+            }
+            GetName(){
+                console.log(this.name)
+                this.getParentData()
+            }
+
+
+        }
+        
+        let NewGame = new Game('NAME1','NAME2')
+        NewGame.GetAge()
+        NewGame.GetName()
+        // let NewGame2 = new Game('name1','name2')
+
+        
+        
+    </script>
+</body>
+</html>

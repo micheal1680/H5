@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #Mygame{
+            border: 1px solid #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="Mygame" width="400" height="400"></canvas>
+</body>
+<script>
+    const Mygame=document.getElementById('Mygame');
+    const ctx=Mygame.getContext('2d');
+    class rect{
+        constructor(x,y,w,h,color){
+            this.x=x;
+            this.y=y;
+            this.w=w;
+            this.h=h;
+            this.color=color;
+        }
+        DrawRect(){
+            ctx.beginPath();
+            ctx.fillStyle=this.color;
+            ctx.fillRect(this.x,this.y,this.w,this.h)
+        }
+    }
+    class Model{
+        constructor(w,h,lw,lh){
+            this.w=w;  //画布的宽度
+            this.h=h;  //画布的高度
+            this.lw=lw; //lw:横向的格子个数
+            this.lh=lh; //lh:纵向的格子个数
+            this.ModelArray=[];
+            this.ModelHead = null;
+            this.set=null;
+            this.direaction='down';
+
+        }
+        SetModel(){
+            for(let i=1;i<5;i++){
+                let NewRect=new rect(i*16,16,16,16,'blue')  //(横坐标，纵坐标，网格宽度，网格高度)
+                this.ModelArray.splice(0,0,NewRect)
+            }
+        }
+        DrawModel(){
+            for(let i=0;i<this.ModelArray.length;i++){
+                if(i==0){
+                this.ModelHead = this.ModelArray[i];
+                this.ModelArray[i].color='blue';
+                }else{
+                    this.ModelArray[i].color='blue';
+                }
+                this.ModelArray[i].DrawRect()
+            }
+        }
+        DrawLine(){
+            const linewidth=this.w/this.lw;
+            const lineheight=this.h/this.lh;
+            for(let i=1;i<this.lw;i++){  
+                ctx.moveTo(i*linewidth,0)
+                ctx.lineTo(i*lineheight,this.h)
+                ctx.stroke()
+            }
+            for(let i=1;i<this.lh;i++){
+                ctx.moveTo(0,i*lineheight)
+                ctx.lineTo(this.w,i*lineheight)
+                ctx.stroke()
+            }
+        }
+        Start(){
+            this.DrawLine();
+            this.SetModel();
+            this.DrawModel();
+            this.ChangeDireaction();
+            this.ModelMove();
+
+        }
+        ChangeDireaction(){
+            let that=this;
+            window.onkeydown=function(e){
+                console.log(e.keyCode);
+                if(e.keyCode==37){
+                    that.direaction='left'
+                }else if(e.keyCode==39){
+                    that.direaction='right'
+                }else if(e.keyCode==40){
+                    that.direaction='down'
+                }
+            }
+        }
+        createnewrect(x,y,w,h,color){
+            if(this.jundeg(x,y)){
+                let NewRect=new rect(x,y,w,h,color);
+                this.ModelArray.unshift(NewRect);
+                this.DrawModel()
+            }else{
+                alert('游戏结束')
+                clearInterval(this.set);
+            }
+
+        }
+        ModelMove(){
+            this.set=setInterval(()=>{
+                if(this.direaction=='left'){
+                    this.createnewrect(this.ModelHead.x-16,this.ModelHead.y,16,16,'blue')
+                }else if(this.direaction=='right'){
+                    this.createnewrect(this.ModelHead.x+16,this.ModelHead.y,16,16,'blue')
+                }else if(this.direaction=='down'){
+                    this.createnewrect(this.ModelHead.x,this.ModelHead.y+16,16,16,'blue')
+                }
+            },1000)
+        }
+        jundeg(x,y){
+            if(x<0||x>400-2||y<0||y>400-2){
+                return false
+            }else{
+                return true
+            }
+        }
+    }
+    let NewGame=new Model(Mygame.width,Mygame.height,25,25);   //25：网格个数
+    NewGame.Start()
+</script>
+</html>

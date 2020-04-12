@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 加上逻辑运算符的任何东西返回值是：布尔类型数据，即true或false。
+    空对象{}、空数组[] 的返回值都是true，数组本身也是对象类型-->
+    <script>
+    var obj={};
+    console.log(!!obj);  //true 空对象是true，！true=false，再！则是true
+
+
+
+    // 对象的地址引用  obj1里面存储的只是{username:'张三'}的引用地址，下面所有的操作完全适用于数组（因为数组本身也是属于对象）
+    var obj1={username:'张三'};
+    var obj2={username:'张三'};  //虽然obj1和obj2所被赋的值一样，但是这里obj2是新创建的对象且被赋值，因此obj2 生成了一个新的存储空间
+                                 // 因此，obj1和obj2所存储的引用地址不同，所以他们并不相等
+    console.log(obj1==obj2);//false   
+
+    //同一个地址引用
+    var obj3={age:'12'};
+    var obj4=obj3;  //这里是obj3将{age:'12'}的引用地址赋给了obj4，即obj3和obj4存储的是同一个引用地址，指向的是同一个存储空间
+    console.log(obj3==obj4);//true
+    obj4.username='李四';
+    obj3.height='180cm';
+    console.log(obj3,obj4);//由于这里obj3和obj4指向的是同一个存储空间，因此无论是对obj3还是对obj4增加属性，都是对指向的空间进行操作，并且obj3还是对obj4时钟相等。 
+
+
+
+    
+
+
+
+
+    // 实例化对象是object，有原型__proto__，而原型__proto__本身也是object，也有原型，形成原型链，直到null结束，而实例化对象继承原型的方法与函数功能
+    //prototype是构造函数的原型，__proto__是实例化对象的原型，但是__proto__==prototype（返回true）
+    </script>
+</body>
+</html>

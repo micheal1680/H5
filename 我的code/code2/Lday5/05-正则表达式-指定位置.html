@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 指定位置
+        var tel='15983872345';
+        var telReg=/^1[3456789]\d{9}$/;//在表单验证里面，我们需要验证整个输入框的值
+        // ^1[3456789]\d{9}$： ^是首字符的标识符，^1表示第一个字符是1；而$是结束的标识符，\d{9}$是指结尾有9个数字。
+        console.log(telReg.test(tel));  //true
+        // 这里判断tel是否满足telreg的验证，即：第一个数字是1 ，第二个数字是3456789中的任意一个，接下来是有9个数字然后就结束。tel是满足的，因此返回true.
+        
+    
+
+    
+    
+    </script>
+</body>
+</html>

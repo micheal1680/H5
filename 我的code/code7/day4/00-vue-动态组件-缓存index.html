@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #nav{
+            width: 100%;
+            height: 50px;
+            background-color: blue;
+            color: white;
+        }
+        #nav li{
+            float:left;
+            display: flex;
+            align-items: center;
+            width: 80px;
+            height: 50px;
+            margin-left: 50px;
+            list-style: none;
+        }
+    
+    
+    </style>
+</head>
+<body>
+<div id="app">
+<ul id="nav" @click="changePage">
+    <li>首页</li>
+    <li>列表页面</li>
+</ul>
+<!-- 动态组件component，is 属性的值决定要渲染的组件 -->
+<!-- keep-alive的使用：用于缓存组件，在组件created阶段设置cache，（cache就相当于是浏览器的一个小型数据库），
+    当组件重新渲染时，从cache 根据name把缓存取出来，（这样可以减少重新渲染某个组件时，进行再次请求，发起请求就是重新加载，会造成资源的浪费） -->
+    <!-- keep-alive有两个属性:exclude/include.其中include里面的东西就是指那些进行缓存了的页面(include设置那些需要缓存，exclude设置哪些不需要缓存) -->
+<keep-alive include="mainPage"> 
+<component :is="pageId"></component>
+</keep-alive>
+
+
+</div>
+</body>
+</html>

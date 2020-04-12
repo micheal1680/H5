@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 	(1)事件源(this获取)
+					产生事件的对象,本示例中就是button
+				(2)事件
+					本示例中就是click
+				(3)事件处理函数
+					本示例中就是test()函数
+			 */
+			function test(srcObj) {
+				//srcObj就是事件源对象button
+				let mydiv = document.getElementById("mydiv");
+				// console.log(this);//这是window对象
+				console.log(srcObj);//button
+				if(srcObj.innerHTML=="播放") {
+					srcObj.innerHTML="停止";
+					mydiv.innerHTML = "音乐正在播放中....";
+				}else if(srcObj.innerHTML == "停止") {
+					srcObj.innerHTML = "播放"
+					mydiv.innerHTML = "音乐可以播放";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="window.test(this);">播放</button>
+		<div id="mydiv">
+			音乐可以播放
+		</div>
+	</body>
+</html>

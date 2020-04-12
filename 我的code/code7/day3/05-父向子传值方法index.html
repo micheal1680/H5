@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  
+  </style>
+</head>
+
+<!-- 父向子传值有以下几种方法 -->
+
+<body>
+<!-- 方法一 ：最标准-->
+
+<div id="app" v-cloak> 
+    <input type="text" v-model="keyWord">
+    <button type="button">百度一下</button> 
+  <my-word v-for="item in myWords" :words="item">
+  </my-word>
+</div>
+
+
+
+
+
+
+<!-- 方法二 -->
+  <!-- <div id="app" v-cloak>
+    <input type="text" v-model="keyWord">
+    <button type="button">百度一下</button> -->
+
+    <!-- 组件传值：父组件向子组件传值，slot插槽 -->
+    <!-- <my-word v-for="item in myWords">
+      {{item.title}}
+      <span slot="content">{{item.content}}</span>
+      <span slot="another">{{item.another}}</span>
+    </my-word>
+  </div> -->
+</body>
+
+<!-- 一个Vue对象，多个组件 -->
+</html>

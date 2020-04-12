@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[]; //创建一个空数组
+        arr[0]=1; //给这个空数组赋值，数组元素的下标规定从0开始一直到arr.length-1结束
+
+
+        //打印出从1~100的数
+        for (var i=0;i<100;i++){
+            arr[i]=i+1;
+            console.log(arr[i]);
+        }
+    
+
+
+       //实际元素个数超出定义数组长度的情况
+       var arr = new Array(1,2,3);
+       arr[0]=0; //本来数组下标为0的元素是1，这行代码将下标为0的元素修改成为0
+       arr[4]=null; //数组长度以实际元素个数为准，这儿命了下标为4即数组第5个元素，相当于给数组增加了一个元素null
+       arr[5]=undefined; //这儿命了下标为5即数组第6个元素，相当于给数组增加了一个元素undefined
+       console.log(arr);  //结果为：0，2，3，empty，null，undefined
+    
+    
+    
+    </script>
+</body>
+</html>

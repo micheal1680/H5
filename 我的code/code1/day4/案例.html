@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .btn{
+            position: relative;
+            overflow: hidden;
+        }
+        .top {
+            height: 30px;
+            border: 1px solid #ccc;
+            background-color: #777777;
+            font-size: 18px;
+            padding: 8px 6px;
+            color: #F0EEDA;
+        }
+
+        .middle {
+            height: 400px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .bottom {
+            height: 50px;
+            border: 1px solid #ccc;
+            background-color: #777777;
+            color: #F0EEDA;
+        }
+        .left{
+            padding-left: 8px;
+            display: inline-block;
+            float: left;
+        }
+        .right{
+            height:200px;
+            font-size: 18px; 
+            display: inline-block;
+            float: right;  
+            position: absolute; 
+            right: 0; bottom: 100px;                
+        }
+        .right .p1{
+            width: 420px;
+            height: 110px;
+        }
+        .right .h1{
+            background-color: #2196F3;
+            text-align: center;
+            padding: 24px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <div class="top">
+            <a href="">主页</a>
+            <a href="">新闻</a>
+            <a href="">练习我们</a>
+            <a href="">关于我们</a>
+        </div>
+        <div class="middle">
+            <div class="left">
+                <a href="">HTML5</a>
+                <a href="">CSS</a>
+                <a href="">JavaScript</a>
+                <a href="">Node.js</a>
+                <a href="">Vue.js</a>
+                <a href="">React.js</a>
+                <a href="">小程序</a>
+            </div>
+            <div class="right">
+                <div class="hh">
+                    <h1 class="h1">这是标题</h1>
+                </div>
+                <div>
+                    <h1>HTML5</h1>
+                    <p class="p1">万维网的核心语言，标准通用标记语言下的一个应用超文本标记语言（HTML）的第五次重大修稿（这是一项推荐标准，外语原文：W3C Recommendation、见本处参考资料原文内容：)。
+                        2014年10月29日，万维网联盟宣布，经过接近8年的艰苦努力，该标准规范终于指定完成。</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div>底部文本</div>
+        </div>
+    </div>
+</body>
+
+</html>

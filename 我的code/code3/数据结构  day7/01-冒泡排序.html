@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ArrayList{
+            constructor(){
+                this.array=[]
+            }
+            insert(item){
+                this.array.push(item);
+            }
+            toString(){
+                return this.array.join();
+            }
+            // 冒泡排序  ：找最大的值不断的往后面移动(冒泡排序比较任何两个相邻的项，如果第一个比第二个大，则交换它们)
+            bubbleSort(){
+                let length=this.array.length;
+                for(let i=0;i<length;i++){
+                    for(let j=0;j<length-1;j++){
+                        if(this.array[j]>this.array[j+1]){
+                            let aux=this.array[j];
+                            this.array[j]=this.array[j+1];
+                            this.array[j+1]=aux;
+                        }
+                    }
+                }
+                return this.array  //这是个函数方法，需要返回值，否则会得到unde
+            }
+        }
+        let newArray=new ArrayList();
+        newArray.insert(5)
+        newArray.insert(4)
+        newArray.insert(3)
+        newArray.insert(2)
+        newArray.insert(1)
+        console.log(newArray.toString())   //5,4,3,2,1
+        console.log(newArray.bubbleSort())  //[1,2,3,4,5]
+        console.log(newArray.bubbleSort()[1])
+
+
+    
+    
+    </script>
+</body>
+</html>

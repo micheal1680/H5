@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 函数里边的能访问外边的，优先访问自己函数里边的 -->
+        <!-- 函数外边的不能访问函数里边的 -->
+        <!-- 全局与局部作用域，他们是相对的 -->
+    <script>
+    var a=123;
+
+    function test() {
+        var  b=123;
+        function demo(){
+            var c=234;
+            document.write(b);//函数里边的能访问外边的,b的定义在该函数外，相当于其全局变量，可以访问，所以返回123
+            document.write(a);//函数里边的能访问外边的,a的定义在该函数外,且是整个函数的全局变量，所以返回123
+        }
+        demo();
+        // 表示运行demo函数
+
+        document.write(c);//函数外边的不能访问函数里边的，因此报错
+    }
+
+    test();
+    // 表示运行函数test,若没有这行代码，则没有任何结果
+    
+    
+    
+    </script>
+</body>
+</html>

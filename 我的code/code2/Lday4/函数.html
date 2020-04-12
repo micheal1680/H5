@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 即使在数组之上没有Math.max这个方法，可以用apply把Math.max这个方法劫持过来用在数组的身上
+        console.log(Math.max.apply(arr,arr)); //第一个arr是指方法劫持用在arr身上，第二个arr是指传参 传的是数组arr。
+    
+        //  call：实现类的传承（把笔记补全）
+        // 方法劫持：apply、call、bind三种
+        // 三者区别：都会改变this的指向，但是apply和call会执行函数，返回函数处理之后的结果，而bind不会执行函数，返回函数体
+    
+    </script>
+</body>
+</html>

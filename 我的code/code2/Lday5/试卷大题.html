@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js试卷题1
+        // 方法1
+        var arr = [-1, -2, 1, 10, 4, 5, 8];
+        arr = arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr[arr.length - 1]);
+        // 方法2
+        var arr = [-1, -2, 1, 10, 4, 5, 8];
+        arr = arr.sort(function (a, b) {
+            return b - a;
+        });
+        console.log(arr[0]);
+        // 方法3
+        var arr = [-1, -2, 1, 10, 4, 5, 8];
+        var max = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+            max = max < arr[i + 1] ? arr[i + 1] : max;
+        }
+        console.log(max);
+
+
+        // 题2
+        var str1 = 'miao-wei-ke-tang';
+            function firstUpperCase(str) {
+            str = str.split('-');//在每个小横线(-)处进行分解，得到["miao", "wei", "ke", "tang"]
+            // 字符串转换为数组，里面的分解之后的元素以逗号，分开
+                for(var i=1;i<str.length;i++){
+                    str[i]=str[i][0].toUpperCase()+str[i].substring(1);
+                }
+                // 把处理好的数组用空字符串连接起来
+                return str.join('');
+            }
+            console.log(firstUpperCase(str1)); //miaoWeiKeTang
+
+            // 题3
+            var str2 = "    miao v     ";
+            var str2 = str2.replace(/\s+/g, ' ');
+            console.log(str2);
+
+
+            //  题4
+            var str = 'abcabcabcabcabcabda';
+            var arr = [];
+            var n = 0;
+            while (str.indexOf('ab', n) != -1 && n < str.length) {
+                arr.push(str.indexOf('ab', n));
+                n = str.indexOf('ab', n) + 2;
+            }
+            console.log(arr);
+        //其中：indexof(所要进行检索的字符串，所检索的字符串出现次数)。这个方法用于
+        // 检索目标字符串出现的位置。
+         
+        // 题5
+        
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法1：用Array构造函数创建
+        var arr=new Array(); //建立一个空数组[]
+        var arr1=new Array(20);//建立一个长度为20的数组，其中由于没有具体的数组，因此用20*empty填充
+        //其实数组的实际长度跟（）里面的数据并没有太大影响，这个数据只是数组长度的第二选择，主要还是要看实际上命了
+        //多少个元素，如果命了10个元素，但是（）里面是9，那么数组长度返回值还是为10；
+        //当有var color=['red','blue','green'];若遇到color.length=1时，则console.log(color)之后得到的为：['red']，即多余的元素被去掉了
+
+
+       //方法2：使用数组字面量表示方法创建
+       var color=['red','blue','green'];//数组格式：数组名=[数组元素].元素之间用逗号隔开，元素用''括起来
+       var names=[];
+
+    
+    </script>
+</body>
+</html>

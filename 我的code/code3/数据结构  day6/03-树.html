@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二叉搜索树</title>
+</head>
+
+<body>
+    <!-- 整个HTML是一个DOM树数据结构，根节点就是html标签 
+    树：是通过指针来保存数据的，有点类似于链表。树里面的节点的数据类型可以是栈、数组、队列、数字等等
+    线程与进程的区别：
+    对于操作系统来说，一个任务就是一个进程（Process）（例如：打开word）,在一个进程内部，要同时干多件事，（比如在word里面同时写字、查拼写错误、打印）
+    就需要同时运行多个“子任务”，我们把进程内的这些“子任务”称为线程（Thread）。由于每个
+    进程至少要干一件事，所以，一个进程至少有一个线程。
+    callback回调函数的作用:
+    回调函数：通过函数指针（地址）调用的函数，其作用是：对特定的事件或条件进行响应。如果你把函数
+    的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。-->
+</body>
+<script>
+    class Node {
+        constructor(key) {
+            this.key = key;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    class Tree {
+        constructor() {
+            this.root = null;
+        }
+        insert(key) {
+            let node = new Node(key)
+            if (this.root) {
+                this.insertNode(this.root, node)
+            } else {
+                this.root = node
+            }
+        }
+        insertNode(node, newnode) {
+            if (newnode.key >= node.key) {
+                if (node.right == null) {
+                    node.right = newnode;
+                }
+                else {
+                    this.insertNode(node.right, newnode)
+                }
+            } else {
+                if (node.left == null) {
+                    node.left = newnode
+                }
+                else {
+                    this.insertNode(node.left, newnode)
+                }
+            }
+        }
+        printf(value) {
+            console.log(value)
+        }
+        // inOrderTraverse（）这个方法就是用来使用回调函数的，因为要用这个方法来调用其他的方法，因此（）里面填的就是一个指代其他函数的东西，因此这里填回调函数callback
+        inOrderTraverse(callback) {    //callback是回调函数，在这里作为参数
+            this.inOrderTraverseNode(this.root, callback);
+        }
+        // 遍历二叉树：先序遍历 （根 左 右）
+        inOrderTraverseNode(node, callback) {
+            if (node !== null) {
+                callback(node.key)
+                this.inOrderTraverseNode(node.left, callback);
+                this.inOrderTraverseNode(node.right, callback);
+                // // 中序遍历  （左 根 右）
+                // this.inOrderTraverseNode(node.left, callback);
+                // callback(node.key)
+                // this.inOrderTraverseNode(node.right, callback);
+                // // 后序遍历  （左 右 根）
+                // this.inOrderTraverseNode(node.left, callback);
+                // this.inOrderTraverseNode(node.right, callback);
+                // callback(node.key)
+            }
+        }
+        // 获取二叉树中的最小值  （最小值在二叉树的最左侧）
+        getMin(){
+            let node=this.root;
+
+            if(node){
+                while(node&&node.left!==null){
+                    node=node.left;
+                }
+            }
+            console.log(node.key)
+            return node.key
+        }
+        // 获取二叉树中的最大值  （最小值在二叉树的最右侧）
+        getMax(){
+            let node=this.root;
+
+            if(node){
+                while(node&&node.right!==null){
+                    node=node.right
+                }
+            }
+            console.log(node.key)
+            return node.key
+        }
+        getRoot(){
+            console.log(this.root)
+        }
+    }
+    let NewTree=new Tree()
+    NewTree.insert(11)  //最先加入的节点就是根节点，后面加入的节点会根据此根节点而进行调整到适合的位置（调整准则：左节点的值小于根节点，右节点的值大于根节点）
+    NewTree.insert(7)
+    NewTree.insert(15)
+    NewTree.insert(6)
+    NewTree.insert(8)
+
+    NewTree.inOrderTraverse(NewTree.printf)   //11 7 6 8 15
+    NewTree.getMin()  //6
+    NewTree.getMax()  //15
+    NewTree.getRoot() //11
+
+
+
+
+</script>
+
+</html>

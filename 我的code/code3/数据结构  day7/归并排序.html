@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //归并排序 （其与快速排序才是实际操作运用的）
+    class ArrayList{
+        constructor(){
+            this.array=[]
+        }
+        insert(item){
+            this.array.push(item)
+        }
+        toString(){
+            return this.array.join()
+        }
+        mergeSort(){
+            this.array=mergeSortRec(this.array);
+        }
+        mergeSortRec(array){
+            let length=array.length;
+            if(length===1){
+                return array;
+            }
+            let mid=Math.floor(length/2),
+            left=array.slice(0,mid),
+            right=array.slice(mid,length);
+
+            return merge(mergeSortRec(left),mergeSortRec(right));
+        }
+        merge(left,right){
+            let result=[],
+            il=0,
+            ir=0;
+            while(il<left.length&&ir<right.length){
+                if(left[il]<right[ir]){
+                    result.push(left[il++])
+                }else{
+                    result.push(right[ir++])
+                }
+            }
+            while(il<left.length){
+                result.push(left[il++])
+            }
+            while(ir<right.length){
+                result.push(right[ir++])
+            }
+            return result;
+        }
+    }
+    let NewArray=new ArrayList()
+    NewArray.insert(8)
+    NewArray.insert(7)
+    NewArray.insert(6)
+    NewArray.insert(5)
+    NewArray.insert(4)
+    NewArray.insert(3)
+    NewArray.insert(2)
+    NewArray.insert(1)
+    console.log(NewArray.toString())
+    console.log(NewArray.mergeSort())
+
+
+
+    </script>
+</body>
+</html>

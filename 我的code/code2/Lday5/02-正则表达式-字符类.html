@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str='hcqyj的官网 123 是hqyj.com';
+        // 匹配方括号内的任意字符  []表任意字符
+        var reg=/[hc1]/g;  //内是所要匹配的内容，在//后面加一个g表示匹配全部目标内容 
+        console.log(str.match(reg));
+ 
+        // 匹配方括号内的内容之外的任意字符
+        var reg1=/[^hc1]/g;
+        console.log(str.match(reg1));
+
+        //  \d:代表数字（数字的值范围是：0~9）； digit
+        var reg2=/\d/g;
+        console.log(str.match(reg2));
+
+        //  \s:代表空格 ；space
+        var reg3=/\s/;
+        console.log(str.match(reg3));  //由于没有加g，因此只匹配了第一个空格（下标是8），就不再匹配了
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>

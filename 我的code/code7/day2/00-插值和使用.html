@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* [v-cloak]是属性选择器 */
+        [v-cloak] {
+            display: none;
+        }
+        .myinfom{
+            width: 300px;
+            height: 400px;
+            background-color: pink;
+            border: 1px solid #000;
+        }
+        .myloginform{
+            width: 300px;
+            height: 400px;
+            background-color: #ccc;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- vue与webpack工具结合使用写项目，步骤：
+    1.package.json以及webpack.config.js进行相应的完善；
+    2.若package.json里面已经存在了本项目需要的模块，那么只需要在命令窗口输入：cnpm i  就可以下载完所有的模块；
+    3.cnpm i --save-dev vue  (下载Vue);
+    4.配置webpack. config.js, resolve;
+    5.修改webpack. config.js入口，创建入口文件html/css/js.
+    6.编写源代码，js--import Vue from "vue" ；
+    7.编译：npm run dev-->
+    <div id="app">
+        <p @click="changeName" v-cloak>学生姓名:{{student.name}}</p>
+        <p @click="changeGrade" v-cloak>学生成绩:{{student.grade}}</p>
+        <p @click="changeAge" v-cloak>学生年龄:{{student.age}}</p>
+    </div>
+
+
+    <br><br><br>
+    <!-- 插值和过滤器 -->
+    <div id="myapp">
+        <!-- 三种插值方式：{{}} 、v-pre、v-html-->
+        {{msg}};
+        <p v-pre>{{msg}}</p>
+        <br><br>
+        {{info}}
+        <p v-html="info"></p>
+        <!-- 表达式 -->
+        <br>
+        当前年份：{{(new Date).getFullYear()}}
+        <br><br>
+        连接起来的字符串是：{{getinfocanvas()}}
+        <!-- 过滤器 -->
+        <p>年龄：{{student.birth|getAge}}</p>
+        <!-- |：是通道符，即student.birth的值可以传给getAge函数 -->
+
+        <!-- 实例 -->
+        <p>性别：{{student.gender==0?"男生":"女生"}}</p>
+        <!-- <p>性别：{{getgener()==0?"男生":"女生"}}</p>    -->
+    </div>
+</body>
+
+</html>
+
+<!-- 处理Vue dom对象上双括号闪现问题解决方法：
+1、v-cloak
+具体实现：
+[v-cloak] {
+  display: none;
+}    style标签里面写
+加上
+<div v-cloak>
+  {{ message }}
+</div>
+2、使用v-text
+把<p class="productName">{{item.name}}</p>替换成<p class="productName" v-text="item.name"></p>完美解决
+-->

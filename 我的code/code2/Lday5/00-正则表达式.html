@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // globle:全局     
+        var str = 'hcqyj的官网123是hqyj.com';
+        // 简单的创建方法   这种模式不支持表达式（或变量），就只支持字面量（直接量）。相当于 ：对象.
+        var reg = /hqyj/; //     reg :代表正则表达式，/ /内是正则表达式的值
+        // var reg=/hpyj/g;  这个g表示globe表全局，即表示匹配全部的hqyj
+        var r = str.match(reg);//match()是string的一个函数方法，作用是匹配。所以str.match()是匹配函数
+        console.log(r);
+
+
+        // 标准方式  支持表达式(或变量) ，相当于 ：对象的 []
+        var a = '官网';
+        var regexp = new RegExp(a);   //a是变量
+        console.log(str.match(regexp));
+    </script>
+</body>
+
+</html>

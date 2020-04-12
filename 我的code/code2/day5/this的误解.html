@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn() { //此处就是调用fn函数，因为fn()就是在调用，只不过此处的对象是window
+            var a="fnA";
+            this.fm();
+        }
+        
+        function fm(){
+            console.log(this.a);//此时this指代的对象就是obj，而且obj有fm，因此可以调用fm,输出"roger"
+        }
+
+        var obj={
+            a:"roger",
+            fm:fm     //第一个fm叫什么无所谓，但是第二个fm是指代this.fm里面的fm,才能调用function函数fm
+        }
+        fn.call(obj);//利用call强行将对象由window变为obj
+
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+        #Mygame {
+            border: 1px solid #000000
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="Mygame" width="600" height="600"></canvas>
+    <script>
+        const Mygame = document.getElementById('Mygame');
+        const ctx = Mygame.getContext('2d');
+        class rect {
+            constructor(x, y, w, h, color) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+                this.color = color
+            }
+            DrawRect() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x + 2, this.y + 2, this.w - 5, this.h - 5)
+            }
+        }
+        class Snake {
+            constructor(w, h, lw, lh) {
+                this.w = w;
+                this.h = h;
+                this.lw = lw;
+                this.lh = lh;
+                this.SnakeHead = null;
+                this.SnakeArray = [];
+                this.direction = 'right';
+                this.set = null
+            }
+            SetSnake() {
+                for (let i = 1; i < 5; i++) {
+                    let NewRect = new rect(i * 24, 24, 25, 25, 'blue');
+                    this.SnakeArray.splice(0, 0, NewRect)
+                }
+
+            }
+            //画蛇添头
+            DrawSnake() {
+                for (let i = 0; i < this.SnakeArray.length; i++) {
+                    if (i == 0) {
+                        this.SnakeArray[i].color = 'red'
+                        this.SnakeHead = this.SnakeArray[i];
+                    } else {
+                        this.SnakeArray[i].color = 'green'
+                    }
+                    this.SnakeArray[i].DrawRect()
+                }
+
+            }
+
+            DrawLine() {
+                const lineWidth = this.w / this.lw
+                const lineHeight = this.h / this.lh
+                for (let i = 1; i < this.lw; i++) {
+                    ctx.moveTo(i * lineWidth, 0);
+                    ctx.lineTo(i * lineWidth, this.h)
+                    ctx.stroke()
+                }
+                for (let i = 1; i < this.lh; i++) {
+                    ctx.moveTo(0, i * lineHeight);
+                    ctx.lineTo(this.w, i * lineHeight);
+                    ctx.stroke()
+                }
+            }
+            ChangeDirection() {
+                let that = this
+                window.onkeydown = function (e) {
+                    console.log(e.keyCode)
+                    if (e.keyCode == 37) {
+                        that.direction = 'left'
+                    } else if (e.keyCode == 38) {
+                        that.direction = 'up'
+                    }
+                    else if (e.keyCode == 39) {
+                        that.direction = 'right'
+                    }
+                    else if (e.keyCode == 40) {
+                        that.direction = 'down'
+                    }
+                }
+            }
+            Start() {
+                this.DrawLine();
+                this.SetSnake();
+                this.DrawSnake();
+                this.snakeMove()
+                this.ChangeDirection()
+
+            }
+            clearRect() {
+                for (let i = 0; i < this.SnakeArray.length; i++) {
+                    ctx.clearRect(this.SnakeArray[i].x + 2, this.SnakeArray[i].y + 2, this.SnakeArray[i].w - 5, this.SnakeArray[i].h - 5)
+                }
+
+            }
+            createNewrect(x, y, w, h, color) {
+                if (this.jundeg(x, y)&&this.MeetBody(x,y)) {
+                    let NewRect = new rect(x, y, w, h, color);
+                    this.SnakeArray.pop();
+                    this.SnakeArray.unshift(NewRect)
+                    this.DrawSnake()
+                } else {
+                    alert('游戏结束')
+                    clearInterval(this.set);
+                }
+
+            }
+            snakeMove() {
+                this.set = setInterval(() => {
+                    console.log(this.direction)
+                    this.clearRect()
+                    if (this.direction == 'right') {
+                        this.createNewrect(this.SnakeHead.x + 24, this.SnakeHead.y, 25, 25, 'blue')
+
+                    } else if (this.direction == 'left') {
+                        this.createNewrect(this.SnakeHead.x - 24, this.SnakeHead.y, 25, 25, 'blue')
+                    }
+                    else if (this.direction == 'down') {
+                        this.createNewrect(this.SnakeHead.x, this.SnakeHead.y + 24, 25, 25, 'blue')
+                    }
+                    else if (this.direction == 'up') {
+                        this.createNewrect(this.SnakeHead.x, this.SnakeHead.y - 24, 25, 25, 'blue')
+                    }
+                }, 250);
+
+
+            }
+            jundeg(x, y) {
+                if (x < 0 || x > 600-2 || y < 0 || y > 600-2) {
+
+                    return false
+                } else {
+                    return true
+                }
+
+            }
+            MeetBody(x,y){
+                for(let i = 0 ;i<this.SnakeArray.length;i++){
+                    if(this.SnakeArray[i].x ==x&&this.SnakeArray[i].y==y){
+                        return false
+                    }
+                }
+                return true
+            }
+        }
+        let NewGame = new Snake(Mygame.width, Mygame.height, 25, 25);
+        NewGame.Start()
+    </script>
+
+
+</body>
+
+</html>

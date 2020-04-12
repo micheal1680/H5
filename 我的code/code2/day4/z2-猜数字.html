@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javascript</title>
+</head>
+<body>
+    <script>
+        var i = prompt("请输入您猜的数字")
+        while(i>0){
+            if(i>5 && i<=10){
+                alert("猜大了!")
+                i = prompt("请输入您猜的数字")
+            } else if(i<5){
+                alert("猜小了!")
+                i = prompt("请输入您猜的数字")
+            }else{
+                alert("猜对了!")
+            }
+        }
+
+    </script>
+</body>
+</html>

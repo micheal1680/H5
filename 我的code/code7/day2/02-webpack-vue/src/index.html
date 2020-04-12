@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+  <p>{{msg}}</p>
+  <br>
+  搜索：
+ <input type="text" v-model="keyword"/>
+
+ <ul>
+   <li v-for="item in employees">
+     <p>员工姓名:{{item.name}</p>
+     <p>员工工资:{{item.salary}}</p>
+     <p>员工部门:{{item.deptid}}</p>
+   </li>
+ </ul>
+   
+  </div>
+</body>
+
+</html>

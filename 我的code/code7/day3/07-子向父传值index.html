@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  
+  </style>
+</head>
+
+
+<!-- 子向父进行传值 -->
+<body>
+
+<div id="app" v-cloak> 
+  <my-search @myevent="handleclick"></my-search>
+
+  <ul>
+    <li v-for="p in Person">{{p.name}}</li>
+  </ul>
+</div>
+
+
+</body>
+
+<!-- 一个Vue对象，多个组件 -->
+</html>

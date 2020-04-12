@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>circle（循环）</title>
+</head>
+<body>
+    <!-- 双向环形（循环）链表：末尾节点的后继节点是表头，表头节点的直接前驱是末尾节点;
+    当表头节点只有指针没有数据时，说表头为空-->
+</body>
+<script>
+    class Node{      //Node这个类，代表节点（结点）这个类
+         constructor(element){
+             this.element=element;
+             this.prev=null;
+             this.next=null
+         }
+    }
+    class CirculateLinkedList{
+        constructor(){
+            this.length=0;
+            this.head=null;
+            this.tail=null;
+        }
+        // 往双向链表中添加元素，从尾部开始添加
+        append(element){
+            let node=new Node(element);  //node：所要添加的这个元素结点    cu:当前结点（即操作目标结点，常用在删除、修改这些操作的时候）
+            if(!this.head){
+                this.head=node;
+                this.tail=node;
+                this.head.next=this.tail;
+                this.tail.prev=this.head
+            }else{
+                this.tail.next=node;
+                node.next=this.head;
+                node.prev=this.tail;
+                this.head.prev=node;
+                this.tail=node;
+            }
+            this.length++
+        }
+        // 从双向链表中删除元素（有点类似循环队列）
+        removeAt(position){
+            if(position>=0&&position<=this.length-1){
+                if(this.length==1){
+                    this.head=null;
+                    this.tail=null;
+                }else{
+                    if(position==0){
+                        this.head.next.prev=this.tail;
+                        this.head=this.head.next;
+                    }else if(position==this.length-1){
+                        this.tail.prev.next=this.head;
+                        this.tail=this.tail.prev;
+                    }else{
+                        let cu=this.head;
+                        let prev=cu.prev;
+                        let next=cu.next;
+                        let num=0;
+                        while(num<position){
+                            cu=cu.next;
+                            prev=cu.prev;
+                            next=cu.next;
+                            num++;
+                        }
+                        prev.next=next;
+                        next.prev=prev;
+                    }
+                }
+                this.length--
+            }else{
+                return false
+            }
+        }
+        getHead(){
+            console.log(this.head) 
+        }
+    }
+    let NewCirculateLinkedList=new CirculateLinkedList()
+    NewCirculateLinkedList.append(1)
+    NewCirculateLinkedList.append(2)
+    NewCirculateLinkedList.append(3)
+    NewCirculateLinkedList.getHead()
+
+
+</script>
+</html>

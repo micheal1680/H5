@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件源对象.onclick=事件处理函数</title>
+	</head>
+	<body>
+		<div id="mydiv">
+			这是我的div
+		</div>
+		<script type="text/javascript">
+			//获取事件源mydiv
+			let mydiv = document.getElementById("mydiv");
+			//为事件源mydiv添加事件监听函数
+			mydiv.onclick = function() {
+			    //this就是事件源对象mydiv
+				this.innerHTML = "我被点了";
+				this.style.color = "red";
+			}
+			let stu = {name:"小明"};
+			//为stu对象增加一个对象成员函数
+			stu.show = function() {
+				console.log(this.name);
+			}
+			stu.show();
+			
+			
+		</script>
+	</body>
+</html>

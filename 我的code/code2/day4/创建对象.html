@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //字面量的方法
+        var person={
+            name:"帅哥",
+            action:function(){
+                alert("H5前端");
+            }
+        };
+
+
+
+
+
+
+        //工厂模式的方法
+        // 对象.属性（标准格式）；   this.属性（即this指代对象）    
+        function createPerson(name) {
+            var o = new Object;//即创建对象o
+            o.name = name;
+            o.action = function () {
+                alert("H5前端");
+            }
+            return o;
+        }
+
+        var person = createPerson('帅哥');
+ 
+
+
+
+
+
+       //构造函数的方法
+       function person(name){
+           this.name = name;
+           this.action= function(){  //action:成员方法的名字（成员方法也是this对象的一个属性，只不过它是一个函数）
+               alert("H5前端");  //填写的是要求弹框显示的内容
+           };
+       }
+       var person = new person('帅哥');
+
+
+
+
+    </script>
+</body>
+
+</html>

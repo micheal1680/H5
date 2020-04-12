@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  
+  </style>
+</head>
+
+<!-- 两个组件之间通过你中央控制总线Bus实现响应的联系，Bus多用于兄弟组件之间传值 -->
+<!-- 兄弟组件之间进行传值 -->
+<body>
+
+<div id="app" v-cloak> 
+  <my-nav></my-nav>
+  <my-content></my-content>
+</div>
+
+</body>
+
+<!-- 一个Vue对象，多个组件 -->
+</html>

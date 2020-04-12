@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // reduce：累计运算
+    var arr=[1,2,3,4,5,6];
+    var sum=arr.reduce(function(a,b){
+        console.log(a,b);
+        return Math.pow(b,a);   //pow(x,y)返回x的y次幂
+    },1);  //这里的1是累计运算的初始值，赋给a
+    console.log(sum);
+
+    // Infinity: js 里面最大的值
+    // -Infinity: js 里面最小的值
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+</head>
+
+<body>
+    <!-- 父组件向子组件传递属性 -->
+    <div id="app"></div>
+
+
+    <script type="text/babel">
+        class Son extends React.Component {
+            render() {
+                return (
+                    <div>
+                        {/*获取子组件中的name属性的值，值是从父组件中传过来的*/}
+                        {/*此处的this是指向Son，因此this.props.name是指Son组件的属性*/}
+                        <p>姓名：{this.props.name}</p>
+                    </div>
+                )
+            }
+        }
+
+        class Father extends React.Component {
+            render() {
+                return (
+                    <div>
+                    {/*此处的两个Son组件中都有name属性，刚好都可以传递给Son组件*/}
+                        <Son name="张三"/>
+                        {/*父组件将属性xxx的值传递给子组件的name属性*/}
+                        {/*此处的this指向Father组件，说明这个Son组件里面的name属性是来自于Father组件里面的xxx属性*/}
+                        <Son name={this.props.xxx}/>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            // 渲染一个<Father/>组件，即两个<Son/>组件，而每个<Son/>组件都是一个段落，因此网页上有两个段落
+            <Father xxx="这是父组件的数据"/>,
+            document.getElementById("app")
+        )
+    </script>
+
+</body>
+
+</html>

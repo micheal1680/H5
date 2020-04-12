@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            border-radius: 50px; /*要写成胶囊式的按钮，则该值应该是所设的盒子的高度的一半*/
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- V层 -->
+        默认语句    
+    </div>
+    <!-- vue.js适用于MVVM模式，因此MVC模式不能引入vue.js，否则无效，引入的应该是jQury.js -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script>
+        // 数据层（M层）
+        var msg="就是这样";
+        // 控制层（C层）
+        $("div").click(function(){
+            this.innerHTML=msg;
+        })
+    </script>
+
+<!-- 如果使用MVC的模式来做：首先要保证值改变前后即点击前后盒子都有样式，因此写样式的选择器必须是点击前后共有的选择器，这里就是div，对最大的盒子写样式，里面的内容无论怎么变，其样式还在 -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //计数器
+        function count(){
+            var n = 0;
+            n++;  
+            return n;
+        }
+        console.log(count());  //1
+
+
+        function mycount(){
+            var n = 0;
+            return function(){  //mycount函数返回值是一个函数
+                return ++n;
+            }
+        }
+        let my1 =mycount();   //let是es6中的语法
+        console.log(my1());  //1
+        console.log(my1());  //2
+        console.log(my1());  //3  mycount函数返回值是一个函数，要用到n,而此处n一直在引用中，即“引用在，空间不灭”因此是返回3而不是1
+    
+        //练习：实现sum(3,4)  sum(3)(4)  的返回值都是7
+        function sum(a,b){  //sum里面的是形参，是局部变量，处处可以引用形参
+            sum=a+b;
+        }
+        sum(3,4); //传（实）参
+        // sum(3)(4);
+        console.log(sum);
+        
+
+        //函数中若没有return，则没有返回值，那么打印返回值：即console.log(fn())时返回undefined。
+        //函数中必须有return才能得到返回值，且return只能出现在函数中
+
+    </script>
+</body>
+</html>

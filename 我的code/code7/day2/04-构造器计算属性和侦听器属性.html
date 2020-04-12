@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+     <!-- computed属性比methods属性更加的节约资源与成本，因为computed在页面上无论写几个，都只执行一次，只占用一个空间，而methods写几次就执行几次，就占用几个空间（可以去看控制台打印结果） -->
+    <p>computed:{{fullName}}</p>
+    <p>computed:{{fullName}}</p>
+    <p>methods:{{getfullName()}}</p>
+    <p>methods:{{getfullName()}}</p>  
+    <button type="button" @click="changefirst">点击修改姓</button>
+    <button type="button" @click="changesecond">点击修改名</button>
+
+
+    <!-- watch:侦听器属性 -->
+    <button type="button" @click="changefirst">点击修改姓</button>
+    <button type="button" @click="changesecond">点击修改名</button>
+
+  </div>
+</body>
+
+</html>

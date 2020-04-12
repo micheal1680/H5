@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				background: pink;
+			}
+			div:hover {
+				background: beige;
+				cursor: pointer;
+			}
+			div:active {
+				background: #008000;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = ()=>{
+				let mydiv = document.getElementById("mydiv");
+				mydiv.addEventListener("click", function(){
+					//this是就事件源mydiv
+					this.innerHTML = "我被点了";
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="mydiv">
+			这是div
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.top-img{
+    height: 80px;
+    background-image: url("https://img02.hua.com/pc/images/pc_newuser_order_100.png?v");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 100% 80px;
+}

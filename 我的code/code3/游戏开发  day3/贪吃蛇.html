@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+        #Mygame {
+            border: 1px solid #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        #score {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- this.h:画布高度 this.lw:横向网格个数 this.linewidth:每个网格的宽度 
+        类和canvas写游戏的区别：前者构建地图和人物等事物用js完成，而后者构建地图和事物是用canvas的完成，但是相同点是实现动作逻辑都是用js完成的，canvas算是js的新增的技术-->
+    <canvas id='Mygame' width="600" height="600"></canvas>
+    <div id="score">目前你的分数是：0 分</div>
+</body>
+<script>
+    const Mygame = document.getElementById('Mygame');
+    const ctx = Mygame.getContext('2d')
+    class rect {
+        constructor(x, y, w, h, color) {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+            this.color = color;
+        }
+        DrawRect() {  //这是将所创建的矩形框渲染即画到画布上的执行方法（这是类rect里面的方法，不是函数）
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x + 2, this.y + 2, this.w - 5, this.h - 5)
+        }
+    }
+
+    class Snake {
+        constructor(w, h, lw, lh) {
+            this.w = w;
+            this.h = h;
+            this.lw = lw;
+            this.lh = lh;
+            this.SnakeHead = null;
+            this.SnakeArray = [];
+            this.direction = 'right';
+            this.set = null
+            this.food = {
+                x: null,
+                y: null,
+                color: null
+            }
+            this.score = 0
+        }
+        SetSnake() {
+            for (let i = 1; i < 5; i++) {
+                let NewRect = new rect(i * 24, 24, 25, 25, 'blue');
+                this.SnakeArray.splice(0, 0, NewRect)
+            }
+        }
+        DrawSnake() {
+            for (let i = 0; i < this.SnakeArray.length; i++) {
+                if (i == 0) {
+                    this.SnakeArray[i].color = 'red'
+                    this.SnakeHead = this.SnakeArray[i];
+                } else {
+                    this.SnakeArray[i].color = 'green'
+                }
+                this.SnakeArray[i].DrawRect()
+            }
+        }
+        DrawLine() {  //类的方法
+            const linewidth = this.w / this.lw;
+            const lineheight = this.h / this.lh;
+            for (let i = 1; i < this.lw; i++) {
+                ctx.moveTo(i * linewidth, 0)
+                ctx.lineTo(i * linewidth, this.h)
+                ctx.strokeStyle = '#ccc'
+                ctx.stroke();
+            }
+            for (let i = 1; i < this.lh; i++) {
+                ctx.moveTo(0, i * lineheight)
+                ctx.lineTo(this.w, i * lineheight)
+                ctx.stroke()
+            }
+        }
+        ChangeDirection() {
+            let that = this     //这里的onkeydown函数是window的，因此若此处是this.direction，则this指的是window，而这个函数处于类class里面，因此是属于实例化对象的，所以得将this换成that来代替从而指代实例化对象
+            window.onkeydown = function (e) {
+                console.log(e.keyCode)   //keyCode是固定写法，keycode浏览器解析不出来
+                if (e.keyCode == 37) {
+                    that.direction = 'left'
+                } else if (e.keyCode == 38) {
+                    that.direction = 'up'
+                } else if (e.keyCode == 39) {
+                    that.direction = 'right'
+                } else if (e.keyCode == 40) {
+                    that.direction = 'down'
+                }
+            }
+        }
+        Start() {
+            this.DrawLine();
+            this.SetSnake();
+            this.DrawSnake();
+            this.snakeMove();
+            this.ChangeDirection();
+            this.Food()
+        }
+        clearRect() {
+            for (let i = 0; i < this.SnakeArray.length; i++) {
+                ctx.clearRect(this.SnakeArray[i].x + 2, this.SnakeArray[i].y + 2, this.SnakeArray[i].w - 5, this.SnakeArray[i].h - 5)
+            }
+        }
+        createNewrect(x, y, w, h, color) {
+            if (this.jundeg(x, y) && this.MeetBody(x, y)) {
+                let NewRect = new rect(x, y, w, h, color);
+                if (this.isEatFood(x, y, w, h, color)) {
+                    this.SnakeArray.pop();
+                }
+                this.SnakeArray.unshift(NewRect)
+                this.DrawSnake()
+            } else {
+                alert('游戏结束')
+                clearInterval(this.set);
+            }
+        }
+        snakeMove() {
+            this.set = setInterval(() => {
+                this.clearRect()
+                if (this.direction == 'right') {
+                    this.createNewrect(this.SnakeHead.x + 24, this.SnakeHead.y, 25, 25, 'blue')
+                } else if (this.direction == 'left') {
+                    this.createNewrect(this.SnakeHead.x - 24, this.SnakeHead.y, 25, 25, 'blue')
+                } else if (this.direction == 'up') {
+                    this.createNewrect(this.SnakeHead.x, this.SnakeHead.y - 24, 25, 25, 'blue')
+                } else if (this.direction == 'down') {
+                    this.createNewrect(this.SnakeHead.x, this.SnakeHead.y + 24, 25, 25, 'blue')
+                }
+            }, 200);
+        }
+        jundeg(x, y) {
+            if (x < 0 || x > 600 - 2 || y < 0 || y > 600 - 2) {
+                return false
+            } else {
+                return true
+            }
+        }
+        MeetBody(x, y) {
+            for (let i = 0; i < this.SnakeArray.length; i++) {
+                if (this.SnakeArray[i].x == x && this.SnakeArray[i].y == y) {
+                    return false
+                }
+            }
+            return true
+        }
+        Food() {
+            this.food.x = parseInt(Math.random() * 600 / 24) * 24;
+            this.food.y = parseInt(Math.random() * 600 / 24) * 24;
+            this.SnakeArray.map((item, index) => {    //es6的一种循环方式
+                if (item.x == this.food.x && item.y == this.food.y) {
+                    return this.Food()     //递归（自调用）
+                } else {
+                    return false
+                }
+            })
+            console.log(this.food.x, this.food.y);
+            let foodRect = new rect(this.food.x, this.food.y, 25, 25, 'yellow')
+            foodRect.DrawRect()
+        }
+        isEatFood(x, y, w, h, color) {
+            if (x == this.food.x && y == this.food.y) {
+                this.score += 10;
+                document.getElementById('score').innerHTML = `目前你的分数是：${this.score} 分`
+                this.Food()
+                return false    //此处返回false的原因：当遇到食物并吃掉它时，返回值为false，因此createNewrect()方法里的this.isEatFood(x, y, w, h, color)为false，则this.SnakeArray.pop();就不会执行，就可以达到：吃掉食物之后蛇的长度增加1的效果
+            } else {
+                return true
+            }
+        }
+
+    }
+    let NewGame = new Snake(Mygame.width, Mygame.height, 25, 25); //横向和纵向都是25个网格
+    NewGame.Start()
+
+</script>
+
+</html>

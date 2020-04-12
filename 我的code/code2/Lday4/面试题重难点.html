@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 变量提升、如何进行提升。函数里面调用函数是全局的，例如：
+        var name = 'lixi';
+        function echo() {
+            console.log(name);  //打印lixi，这里用的是对象window的变量，是全局变量
+        }
+        function env() {
+            var name = 'eve';
+            echo();
+        }
+        env();
+// 还有一个面试题，讲的是关于函数的声明提升
+
+
+// 学习js：了解有哪些函数和方法，掌握这些方法和函数的作用功能，还有如何调用这些函数与方法，代码结构怎么写。
+// 前提：调用函数的对象或其原型拥有这些函数或方法。
+
+
+
+        // 下标从0开始
+        var arr=[1,2,3,4,5,6];
+        sum=0;
+        for(i=1;i<arr.length;i++)
+        sum+=arr[i];
+        console.log(sum); //20  因为下标永远从0开始，此题是从下标为1开始加，因此为：2+3+4+5+6=20
+
+
+    //!!:就是强制把一个变量的数据类型转成布尔值。而空数组[]和空对象{}都是true，因此有：
+    console.log(!![]);//true
+    console.log(!!{});//true
+    console.log(!!2);//true
+
+
+    // 逗号表达式
+    for(i=0,j=0; i<6,j<10; i++,j++){
+        k=i+j;
+    }
+    console.log(k);//18  这里是逗号表达式的使用。对于i<6,j<10;循环继续的判断依据以分号前的最后一项为准，即循环是否继续是以j<10是否成立为准。
+    // 当i=6,j=6时，由于j<10成立，因此循环继续，直到i=j=10时，j<10不再成立，跳出循环，不再执行k=i+j;（因为k=i+j;在循环内）
+    // 所以打印18
+
+    // 当k=i+j;在for循环外部时
+    for(i=0,j=0; i<6,j<10; i++,j++){
+    }     //for循环的标准格式为：for（）{}。当{}内只有一行代码时，可以省略{}，但是当{}内没有代码时，{}必须加上，因为如果不加，就会把接下来的那一行代码
+    // 默认在for循环内部，引发错误执行。此题若不加{}，则打印结果为18.
+    k=i+j;
+    console.log(k);//20   当i=j=10时，j<10不再成立，跳出循环，执行k=i+j;打印20
+
+
+    </script>
+</body>
+
+</html>

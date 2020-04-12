@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON.stringify:将目标进行深度复制的方法，面试常考
+        // JSON.parse:把JSON格式的字符串转换成对象
+        // JSON本身也是一个对象 
+        var json=[{
+            username:"张三",
+            age:28,
+            gender:'男'
+        },{
+            username:'小芳',
+            age:16,
+            gender:'女',
+            scores:{
+                math:98,
+                english:88,
+                chinese:90
+            },
+            honby:['跑酷','唱歌']
+        }];
+      
+      console.log(json[1].honby[0]); //用 . 获取属性
+      console.log(json[0],json[1]);
+    // 下标从0开始
+    
+    
+
+
+    
+    
+    
+    </script>
+    <script>
+    // 变量提升、如何进行提升。函数里面调用函数是全局的，例如：
+    var name='lixi';
+    function echo(){
+        console.log(name);  //打印lixi，这里用的是对象window的变量，是全局变量
+    }
+    function env(){
+        var name='eve';
+        echo();
+    }
+    env();
+    
+    </script>
+
+</body>
+</html>

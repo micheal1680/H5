@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <style>
+        #Mygame {
+            border: 1px solid #000000
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="Mygame" width="600" height="600"></canvas>
+    <script>
+        const Mygame = document.getElementById('Mygame');
+        const ctx = Mygame.getContext('2d');
+        class rect {
+            constructor(x, y, w, h, color) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+                this.color = color
+            }
+            DrawRect() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x+2, this.y+2, this.w-5, this.h-5)
+            }
+        }
+        // let NewRect = new rect(48,48,24,24);
+        // NewRect.DrawRect()
+        // let NewRect1 = new rect(72,48,24,24);
+        // NewRect1.DrawRect()
+        class Snake {
+            constructor(w, h, lw, lh) {
+                this.w = w;
+                this.h = h;
+                this.lw = lw;
+                this.lh = lh;
+                this.SnakeHead = null;
+                this.SnakeArray = [];
+                this.direction = 'right'
+            }
+            SetSnake() {
+                for (let i = 1; i < 5; i++) {
+                    let NewRect = new rect(i*24, 24, 25, 25,'blue');
+                    this.SnakeArray.splice(0,0,NewRect)
+                }
+               
+            }
+            //画蛇添头
+            DrawSnake(){
+                for(let i = 0;i<this.SnakeArray.length;i++){
+                    if(i==0){
+                        this.SnakeArray[i].color = 'red'
+                        this.SnakeHead = this.SnakeArray[i];
+                    }else{
+                        this.SnakeArray[i].color = 'green'
+                    }
+                    this.SnakeArray[i].DrawRect()
+                }
+                
+            }
+
+            DrawLine() {
+                const lineWidth = this.w / this.lw
+                const lineHeight = this.h / this.lh
+                for (let i = 1; i < this.lw; i++) {
+                    ctx.moveTo(i * lineWidth, 0);
+                    ctx.lineTo(i * lineWidth, this.h)
+                    ctx.stroke()
+                }
+                for (let i = 1; i < this.lh; i++) {
+                    ctx.moveTo(0, i * lineHeight);
+                    ctx.lineTo(this.w, i * lineHeight);
+                    ctx.stroke()
+                }
+            }
+            Start() {
+                this.DrawLine();
+                this.SetSnake();
+                this.DrawSnake();
+                
+            }
+
+        }
+        let NewGame = new Snake(Mygame.width, Mygame.height, 25, 25);
+        NewGame.Start()
+        let set =  setInterval(() => {
+            if(NewGame.direction =='right'){
+                for(let i = 0;i<NewGame.SnakeArray.length;i++){
+                    ctx.clearRect(NewGame.SnakeArray[i].x+2,NewGame.SnakeArray[i].y+2,NewGame.SnakeArray[i].w-5,NewGame.SnakeArray[i].h-5)
+                }
+                let SnakeHead = NewGame.SnakeHead;
+                console.log(SnakeHead);
+                let NewRect = new rect(SnakeHead.x+24,SnakeHead.y,25,25,'blue');
+                NewGame.SnakeArray.pop();
+                NewGame.SnakeArray.unshift(NewRect)
+                NewGame.DrawSnake()
+
+            }
+        }, 2000);
+    </script>
+</body>
+
+</html>

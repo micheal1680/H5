@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var keyword="篮球";
+        var str='篮球，英文（basketball），起源于美国马萨诸塞州，是1891年12月21日由詹姆斯·奈史密斯创造，是奥运会核心比赛项目，是以手为中心的身体对抗性体育运动。'
+        var kReg=new RegExp(keyword,'g');
+        str=str.replace(kReg,'<span style="color:red">'+keyword+'</span>');
+// replace(要被修改的对象，修改之后的东西)
+        document.querySelector('div').innerHTML=str;
+
+
+
+       var keyword='冬装';
+       var str='冬装，顾名思义就是冬天穿的服装，冬装主要有：羽绒服、夹克、毛衣';
+       var kReg=new RegExp(keyword,'g');
+       str=str.replace(kReg,'夏装');
+       document.querySelector('div').innerHTML=str;
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* [v-cloak]是属性选择器 */
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div v-if="Loginform">
+      用户名：<input type="text" v-model="username"/>
+      密　码: <input type="password" v-model="passW"/>
+      <button type="button" @click="userLogin">登录</button>
+    </div>
+    
+    <br><br>
+
+    <div v-else v-for="(item,index) in students" :key="index">
+    <p>学生姓名：{{item.name}}</p>
+    <p>学生成绩：{{item.grade}}</p>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

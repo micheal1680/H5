@@ -1,0 +1,13 @@
+.order{
+    width: 100%;
+    height: .8rem;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: .02rem solid #ccc;
+    align-items: center;
+}
+.order a:hover{
+    /* display: inline-block; */
+    color: #FF5000;
+    text-decoration:1px solid #FF5000;
+}

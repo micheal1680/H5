@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=new Array(1,2,3,4,5,6);
+        console.log(arr);
+        var student=[{
+            username:'roger',
+            price:'80000'
+        },{
+            username:'James',
+            price:'78000'
+        },{
+            username:'Kobe',
+            price:'88000'
+        }];
+
+        // 可以判断数组里面是否包含指定条件的元素
+        var r=arr.find(function(value,ind,array){
+            return value==30;
+        });
+        console.log(r);    //undefined
+
+        // findIndex用的很多：根据指定的条件找到对应的元素的下标，如果找不到就返回-1
+        var r1=student.findIndex(function(student){
+            return student.price==80000;
+        });
+        console.log(r1);//0
+
+        var r2=student.findIndex(function(student){
+            return student.price==90000;
+        });
+        console.log(r2);//-1
+
+
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

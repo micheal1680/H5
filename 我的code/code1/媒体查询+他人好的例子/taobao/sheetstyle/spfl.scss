@@ -1,0 +1,39 @@
+.spfl{
+    font-family: Lantinghei SC;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.spfl-con{
+    width: 1280px;
+    margin: auto;
+    position: relative;
+}
+.spfl-con-nav{
+    height: 48px;
+    line-height: 48px;
+    width: 100%;
+    text-align: center;
+}
+.spfl-title{
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+    float: left;
+}
+.spfl-img img{
+    width: 22px;
+    vertical-align: middle;
+    margin-left: 16px;
+    margin-right: 24px;
+}
+.oversea-nav{
+    font-size: 16px;
+    font-weight: 500;
+}
+.oversea-nav a{
+    color: #000;
+    margin-left: 40px;
+}
+.oversea-nav a:first-child{
+    margin-left: 0;
+}

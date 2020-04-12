@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var fn = ()=>{
+        console.log(this);//window，箭头函数的this指向window
+    }
+    fn();
+
+
+
+    var obj={
+        name:'李旭',
+        f:()=>{
+            console.log(this.name);//什么都没有，因为this指向window，window没有name属性
+            console.log(this);//window
+        }
+    }
+    obj.f();
+    
+    </script>
+</body>
+</html>

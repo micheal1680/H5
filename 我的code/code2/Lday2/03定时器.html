@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建定时器时，时间单位为毫秒，这里设置等待时间为3秒，
+        setTimeout(function(){
+            console.log("这是只执行一次的定时器");
+        },3000);
+    
+        setInterval(function(){
+            console.log("这是不断执行的定时器")
+        },3000);
+    
+    
+    //以上是2种创建定时器的方法，即setTimeout(函数,等待时间)；setInterval(函数,等待时间)，
+
+    //动画：定时器  定时器里面的函数可以接受参数
+    setInterval(function(a,b){console.log(a,b);},1000,200,300);  //打印200，300
+    </script>
+</body>
+</html>

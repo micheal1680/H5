@@ -1,0 +1,54 @@
+.my{
+    width: 100%;
+    height: 4rem;
+    background-color: #FF5000;
+}
+.my1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 1.62rem;
+}
+.my11{
+    width: .98rem;
+    height: .98rem;
+    background-image: url(../img/logo.png);
+    background-position: right bottom;
+}
+.my12 span{
+    font-size: .44rem;
+    width: 2.4rem;
+    height: .48rem;
+    color: #fff;
+}
+.my12 .ok{
+    width: 2.9rem;
+    height: .42rem;
+}
+.myimg1{
+    width: .4rem;
+    height: .4rem;
+    background-image: url("https://gw.alicdn.com/tfs/TB1bpH2e2WG3KVjSZFgXXbTspXa-471-120.png_48x48q90_.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: .4rem .4rem;
+}
+.myimg2{
+    width: .4rem;
+    height: .4rem;
+    background-image: url("https://gw.alicdn.com/tfs/TB1tcovekL0gK0jSZFxXXXWHVXa-54-54.png_48x48q90_.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  .4rem .4rem;
+}
+.mymimi{
+    width: 100%;
+    height: 1.22rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 
+}
+.mymimi a{
+    color: #fff;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 插入排序：
+        class ArrayList{
+            constructor(){
+                this.array=[]
+            }
+            toString(){
+                return this.array.join()
+            }
+            createNonSortedArray(size){
+                for(let i=size;i>0;i--){
+                    this.array.push(i);
+                }
+            }
+            insertionSort(){
+                let length=this.array.length,
+                j,temp;
+                for(let i=1;i<length;i++){
+                    j=i;
+                    temp=this.array[i];
+                    while(j>0&&this.array[j-1]>temp){
+                        this.array[j]=this.array[j-1];
+                        j--;
+                    }
+                    this.array[j]=temp;
+                }
+                return this.array;
+            }
+        }
+        let newArray=new ArrayList()
+        newArray.createNonSortedArray(5);
+        console.log( newArray.toString());
+        console.log( newArray.insertionSort())
+    
+    
+    
+    </script>
+</body>
+</html>

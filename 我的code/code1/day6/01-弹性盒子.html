@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        border: 1px solid #ccc;
+        width: 220px;
+        height: 80px;
+        display: flex;
+        flex-direction: row-reverse;
+        /* 此处设置了换行但是没有换行，是因为项目不够，还不到一行 */
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+        /* 这条把center那条给覆盖了 */
+        align-items: stretch;
+    }
+    .box div{
+        background-color: blue;
+    }
+    </style>
+</head>
+<body>
+    <di class="box">
+        <div>item1</div>
+        <div>item2</div>
+        <div>item3</div>
+    </div>
+</body>
+</html>
