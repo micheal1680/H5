@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-04-函数-函数的形参和实参</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>函数的参数非常自由；</h3>
+        <ol>
+            <li>调用函数时传递的参数，全部保存在一个类数组arguments里面，函数内部可用；</li>
+            <li>如果传递的实参少于形参个数，则多出的形参是undefined；</li>
+            <li>
+                如果你想给参数设置默认值，也许下面的方法是一个很好的选择：
+                <pre>
+                    function divide(a, b){
+                        var a = a || 0;//常用的设置默认值的方式
+                        var b = b || 1;
+                        return a/b;
+                    }
+                </pre>
+            </li>
+            <li>如果传递的实参多余形参，没毛病；</li>
+            <li>
+            终上所述，看个小码；
+            <pre>
+                function divide(a, b){
+                    var a = a || 0;//常用的设置默认值的方式
+                    var b = b || 1;
+                    return a/b;
+                }
+                console.log(divide(1));
+                console.log(divide(3,2,1));
+            </pre>
+            </li>
+        </ol>
+        <h3>arguments.callee属性和函数.caller属性；</h3>
+        <ol>
+            <li>callee属性指当前正在执行的函数；</li>
+            <li>caller属性指当前正在执行的函数的函数；非标准，大部分浏览器支持；</li>
+            <li>严格模式下不可用，会报错；</li>
+            <li>
+                走一波代码：
+                <pre>
+                    function fn () {
+                        console.log(arguments.callee); 
+                    }
+                    fn();
+                </pre>
+                再来个小代码：
+                <pre>
+                    function a () {
+                        console.log(a.caller);
+                        console.log(arguments.callee.caller);
+                    }
+                    function b () {
+                        console.log('函数b');
+                        console.log(b.caller);
+                        a();
+                    }
+                    b();
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        function a () {
+            console.log(a.caller);
+            console.log(arguments.callee.caller);
+        }
+        function b () {
+            console.log('函数b');
+            console.log(b.caller);
+            a();
+        }
+        b();
+    </script>
+</body>
+</html>

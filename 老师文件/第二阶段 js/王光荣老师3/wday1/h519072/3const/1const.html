@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+        1.const声明的变量是不能变的变量，又叫常量
+		2.使用const声明变量的时候，就要立即赋值，之后不能再次被赋值
+		3.const变量的作用域与let变量完全相同,即和let一样只使用在当前
+		块中，不可出块。
+	<script type="text/javascript">
+		const x = 100;
+		console.log(x);//100
+		// x = 200;报错
+		
+		function show() {
+			const max = "小明";
+			// const min;直接报错
+			console.log(max);//小明
+			// max = "小明";直接报错
+		}
+		show();
+		
+		function test() {
+			if(true) {
+				const xxx = "宝玉";
+			}
+			// console.log(xxx);//报错
+		}
+		test();
+	</script>
+	</body>
+</html>

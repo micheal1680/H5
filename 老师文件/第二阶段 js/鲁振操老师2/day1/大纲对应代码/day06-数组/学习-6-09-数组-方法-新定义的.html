@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-09-数组-新定义的方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>酷炫的一些新方法，超赞；</h3>
+        <ol>
+            <li>
+                forEach():遍历数组元素，并调用指定的函数；<br>
+                forEach调用的函数的三个参数依次为<code>数组元素、元素索引、数组本身</code>；<br>
+                forEach不支持break；小二，上代码了；
+                <pre>
+                    var a = ['h', 'q', 'y', 'j'];
+                    //打印每一个元素
+                    a.forEach(function (value) {
+                        console.log(value);
+                    });
+                    //修改每一个元素的值
+                    a.forEach(function (value, i, arr) {
+                        arr[i] = value + arr[i+1];
+                    });
+                    console.log(a);
+                </pre>
+            </li>
+            <li>
+                map():类似forEach，为每个元素调用指定函数，该函数一般<code>有返回值</code>；<br>
+                该操作返回一个新数组，不会修改原始数组；<br>
+                不写代码而试图去理解知识点的程序员是异教徒程序员；
+                <pre>
+                    var a = ['h', 'q', 'y', 'j'];
+                    var b = a.map(function (v) {
+                        return v + v;
+                    });
+                    console.log(a);
+                    console.log(b);
+                </pre>
+            </li>
+            <li>
+                filter():返回数组的子集，是否返回当前元素是根据调用的函数来判断的; <br>
+                调用的函数参数是数组的元素； <br>
+                来一段82年的代码压压惊；
+                <pre>
+                    var a       = [1,2,23,34,5,6,78,98,9];
+                    var oddnum  = evennum = [];
+                    //奇数
+                    oddnum = a.filter(function(v) {
+                        return v%2;
+                    });
+                    //偶数
+                    evennum = a.filter(function(v) {
+                        return v%2 == 0;
+                    });
+                    console.log(a);
+                    console.log(oddnum);
+                    console.log(evennum);
+                </pre>
+            </li>
+            <li>
+                every()和some():对数组的所有元素执行函数检查; 区别：<br>
+                every()：当每个元素都返回true是才返回true； <br>
+                some()：当每个元素都返回false才返回false； <br>
+                什么鬼，我好像闻到了一丝丝 && 和 || 的味道；
+                <pre>
+                    var a       = [1,2,23,34,5,6,78,98,900];
+                    var oddnum  = evennum = 0;
+                    //检查是不是都小于100
+                    oddnum = a.every(function(v) {
+                        return v < 100;
+                    });
+                    //至少有一个大于100
+                    evennum = a.some(function(v) {
+                        return v > 100;
+                    });
+                    console.log(oddnum); //false
+                    console.log(evennum); //true
+                </pre>
+            </li>
+            <li>
+                reduce和reduceRight：使用指定的函数对数组元素进行组合，生成一个值；<br>
+                参数1：要执行的函数，有返回值； <br>
+                参数2：传递给函数的默认值，可忽略；
+                <pre>
+                    var a       = [1,2,23,34,5,6,78,98,900];
+                    //求和，默认值为0
+                    //运算过程：
+                    //0+1 = 1,然后1+1 = 2，然后2+23 = 25，然后25 + 34 = 59，...
+                    var n = a.reduce(function (x, y) {
+                        return x + y;
+                    }, 0);
+                    console.log(n);
+
+                    //求积
+                    var m = a.reduce(function (x, y) {
+                        return x*y;
+                    } ,1);
+                    console.log(m);
+                    //求最大值，可以不设置默认值
+                    var max = a.reduce(function (x, y) {
+                        return x>y?x:y;
+                    });
+                    console.log(max);
+                </pre>
+                reduceRight又是什么情况那？
+            </li>
+            <li>
+                indexOf()和lastIndexOf：搜索指定的元素并返回其索引，不存在返回-1；<br>
+                猜一猜哪个是从后面往前搜索？笑死<br>
+                参数1：要搜索的元素；<br>
+                参数2：从数组的哪个位置开始搜索，可省略，默认0；
+                <pre>
+                    //注意类型
+                    var a = [1,2,23,34,5,6,78,98, 23,900];
+                    var n = a.indexOf(23);//返回下标2
+                    console.log(n);
+                    var m = a.indexOf(23, 3);//从下标3开始搜索，返回下标8
+                    console.log(m);
+                    var p = a.lastIndexOf(23);//返回下标8
+                    console.log(p);
+                </pre>
+            </li>
+            lastIndexOf又是什么情况那？后面往前找呗。
+        </ol>
+    </div>
+    <script>
+        //注意类型
+        var a       = [1,2,23,34,5,6,78,98, 23,900];
+        var n = a.indexOf(23);//返回下标2
+        console.log(n);
+        var m = a.indexOf(23, 3);//从下标3开始搜索，返回下标8
+        console.log(m);
+        var p = a.lastIndexOf(23);//返回下标8
+        console.log(p);
+    </script>
+</body>
+</html>

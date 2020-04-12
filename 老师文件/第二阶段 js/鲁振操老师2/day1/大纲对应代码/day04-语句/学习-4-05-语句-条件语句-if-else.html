@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-05-语句-条件语句-if/else</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>条件语句是通过判断表达式的值来确定是执行还是跳过某些语句(分支)</h3>
+        <h3>if(如果): </h3>
+        <ol>
+            <li>
+                第一种形式：
+                <pre>
+                    if(expression){
+                        statements;
+                    }
+                </pre>
+            </li>
+            <li>
+                第二种形式：
+                <pre>
+                    if(expression){
+                        statements 1;
+                    }
+                    else{
+                        statements 2;
+                    }
+                </pre>
+            </li>
+            <li>括住表达式的圆括号是必须的；</li>
+            <li>
+                括住语句主体的大括号在只有一个语句的时候，是可以省略的； <br>
+                但是往往我们总是给语句主体加上大括号，即便只有一个语句；<br>
+                这样可以很好的避免语句歧义及阅读困难问题；
+            </li>
+                
+            
+        </ol>
+
+        <h3>else if：else和if之间有空格</h3>
+        <ol>
+            <li>
+                当有多个分支时我们使用else if实现：
+                <pre>
+                    if(expression){
+                        statements 1;
+                    }
+                    else if(expression){
+                        statements 2;
+                    }
+                    else if(expression){
+                        statements 3;
+                    }
+                    else(expression){
+                        statements 4;
+                    }
+                </pre>
+            </li>
+            <li>
+                搞笑的是else if并不是真正的JavaScript语句，
+                他是多个<code>if/else</code>连在一起的惯用写法；
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

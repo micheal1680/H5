@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个变量  赋值为true
+        var found = true;
+        var lost = false;
+
+        var str = ""; // 空字符串 
+        var str2 = "string";
+
+        var re = Boolean(str);
+        console.log(re); // false
+
+        var re2 = Boolean(str2);
+        console.log(re2); // true
+
+        var num = 1; // true  非零数值转换为true
+        var num2 = 0; // 0 转化为false
+        console.log(Boolean(num),Boolean(num2));
+
+        var x; // undefined
+        console.log(Boolean(x)); // false
+
+        var obj = {}; // 不是空对象
+        var car = null; // 空对象
+
+        console.log(Boolean(obj),Boolean(car)); // true  false
+    </script>
+</body>
+
+</html>

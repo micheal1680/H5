@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-03-数组-稀疏数组</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>稀疏数组是指从0开始的索引不连续的数组；</h3>
+        <ol>
+            <li>
+                代码真是好东西；
+                <pre>
+                    var arr = new Array(5);
+                    arr[10] = 6;
+                    arr[100] = 56;
+                    console.log(arr);
+                </pre>
+                这就是稀疏数组，你玩我那？
+            </li>
+        </ol>
+    </div>
+    <script>
+        var arr = new Array(5);
+        arr[10] = 6;
+        arr[100] = 56;
+        console.log(arr);
+
+    </script>
+</body>
+</html>

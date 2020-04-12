@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三目运算符</title>
+</head>
+
+<body>
+    <script>
+        //条件操作符
+        //  布尔表达式 ? 结果一 : 结果二
+        // 布尔表达式 真(true) ==> 结果一
+        //            假(false) ==> 结果二
+        var a = 10,
+            b = 20;
+
+        // a大于b  返回 a和b的和  否者返回 "a应该大于b"
+        var re = (a > b) ? (a + b) : "a应该大于b";
+        // re
+        console.log(re); // "大于"
+
+        var x = 20;
+        x += 10;// 30
+        // x + = 20; // 错误
+
+        // a++ 
+        // 30
+        x = x++;
+        x = ++x;
+        // 
+        console.log(x);//? 30  31
+
+        console.log(1 + (- (+ (+ + (- (+ 1))))))
+    </script>
+</body>
+
+</html>

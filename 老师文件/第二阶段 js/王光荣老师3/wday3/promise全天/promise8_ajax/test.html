@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#mydiv {
+				color: red;
+				font-size: 20px;
+				width: 250px;
+				background: beige;
+			}
+			#mydiv:hover {
+				background: bisque;
+				cursor: pointer;
+			}
+			#mydiv:active {
+				background: blueviolet;
+			}
+		</style>
+		<script type="text/javascript">
+			function getData() {
+				//使用Promise封装了ajax的异步操作
+				let promise = new Promise(function(resolve, reject){
+					//得到一个访问服务器的对象
+					let xmlhttp=new XMLHttpRequest();
+					//监听对服务器的访问
+					xmlhttp.onreadystatechange=function(){
+						if(xmlhttp.readyState==4 && xmlhttp.status==200) {//成功
+							let data = xmlhttp.responseText;//得到服务器返回的数据
+							resolve(data);//成功到服务器数据
+						}else if(xmlhttp.readyState==4 && xmlhttp.status==404) {//失败
+							reject("服务器正在维护中...")
+						}
+					};
+					//设置访问服务器的路径等信息
+					xmlhttp.open("GET","http://192.168.1.123:9999/getStr.do",true);
+					//向服务器发出访问,这是一个子线程,即是一个异步操作
+					xmlhttp.send();
+				});
+				promise.then(function(v){
+					let mydiv = document.querySelector("#mydiv");
+					mydiv.innerHTML = v;
+				}).catch(function(v){
+					let mydiv = document.querySelector("#mydiv");
+					mydiv.innerHTML = "真失败";
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			通过获取服务器的一个字符串，用来替换mydiv中的文本
+		</div>
+		<div>
+			　　为贯彻落实十八届三中全会精神，推进国家治理体系和治理能力现
+			代化，2013年12月30日，国家艺术基金成立。
+			　　从一开始<div id="mydiv" onclick="getData()">测试的地方</div>既是裁判员又是运动员，资金往往只能在文化系
+			统内部“体内循环”。同时，文化行政部门往往有心“管天下”，但苦于资
+			金规模和地域、部门限制，而只能“管脚下”。这样的管理模式，以财政
+			直接资助和政府部门管理文化经费为基本特点，存在着文化投入分散、缺位和越位并存，资金管理链条长、使用效益不高等问题。
+			　　为消除传统文化资金投入机制的弊端，国家艺术基金成立后，基金
+			的申报主体面向全社会，不分国有、民营，不分单位、个人，只要符合
+			条件就可申请基金资助。
+			　　六年来，我们看到大量民营文艺机构以及不少新文艺群体，在项
+			目申请和经费支持上，与国家级文艺院团站到了同一起跑线上，只要项
+			目符合条件，都可以获得国家艺术基金的支持。
+			　　不仅如此，文化行政部门也从具体的项目评审和资金运用中抽身
+			，把项目的评审权、资金的分配权交给专家——让专业的人，干专业的事。
+			　　六年来，国家艺术基金建立了数千人的专家库，从编导演到服化
+			道，再到财务营销推广，涵盖各环节、各领域。
+		</div>
+	</body>
+</html>

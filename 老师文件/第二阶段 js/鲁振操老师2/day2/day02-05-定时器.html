@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时器</title>
+</head>
+<body>
+    <script>
+    // 时间的单位是毫秒
+    setTimeout(function(){
+        console.log('我是只执行一次的定时器');
+    }, 3000);
+
+    // 会不断执行
+    setInterval(function(){
+        console.log('我会不断的执行');
+    }, 3000);
+    // 需求：进来立即执行一次，然后每3s不断的执行一次
+    function st(){
+        console.log('先立即执行一次，然后不断执行');
+        setTimeout(st, 3000);
+    }
+    st();
+    
+
+    
+    </script>
+</body>
+</html>

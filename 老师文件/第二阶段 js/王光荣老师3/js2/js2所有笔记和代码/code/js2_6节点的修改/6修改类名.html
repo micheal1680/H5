@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.aa {
+				color: red;
+			}
+			.bb {
+				font-size: 40px;
+			}
+			.cc {
+				border: 1px solid red;
+			}
+		</style>
+		<script type="text/javascript">
+			function addAll() {
+				let div1 = document.getElementById("div1");
+				let classList = div1.classList;
+				classList.add("aa");
+				classList.add("bb");
+				classList.add("cc");
+				
+				//检查是否存在指定的class HTMLElement.property.contains("styleName");
+				console.log(classList.contains("cc"))//is have class cc
+			}
+		</script>
+	<body>
+		<button type="button" onclick="addAll()">addAll</button>
+		<div id="div1">div1</div>
+	</body>
+</html>

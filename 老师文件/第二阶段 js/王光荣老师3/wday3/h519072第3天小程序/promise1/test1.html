@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1(cb) {
+				console.log("开始");
+				window.setTimeout(()=>{
+					console.log("处理事情....");
+					cb();
+				}, 5000);
+				console.log("结束");
+			}
+			
+			f1(function(){
+				console.log("处理事情结束")
+			});
+		</script>
+	</body>
+</html>
+A

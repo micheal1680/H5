@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-06-正则表达式-指定匹配位置</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>指定匹配位置；</h3>
+        <ol>
+            <li>
+                指定位置：
+                <pre>
+                    字符                    含义
+                    ------------------------------------------------------------------
+                    ^                       匹配字符串的开头
+                    $                       匹配字符串的结尾
+                    \b                      匹配单词的边界，但是不包含空格
+                    (?=p)                   零宽正向先行断言，要求接下来的字符与p匹配
+                                            但不能包括匹配p的那些字符
+                    (?!p)                   零宽负向先行断言，要求接下来的字符不与p匹配
+                </pre>
+            </li>
+            <li>
+                什么是零宽断言？
+                <pre>
+                    我们说断言一般是指零宽断言，它匹配到的内容不会保存到匹配结果中去，只是用于指定一个位置而已。
+                </pre>
+                正向断言匹配案例：
+                <pre>
+                    var p       = /javascript(?=:)/ig;
+                    var str1    = 'i love javascript，yes，javascript is very 好的脚本语言';
+                    var arr1    = str1.match(p);//没有匹配
+                    console.log(arr1);
+
+                    var str2    = '什么是javascript？javascript:是一个运行在浏览器端的解释型语言;JavaScript:这是标准写法';
+                    var arr2    = str2.match(p);
+                    console.log(arr2);//匹配两个
+                    console.log(str2.search(p));//14
+                </pre>
+                负向断言刚好相反：
+                <pre>
+                    var p       = /javascript(?![\s:])/ig;//不能以空格或者冒号结束
+                    var str1    = 'i love javascript，yes，javascript is very 好的脚本语言';
+                    var arr1    = str1.match(p);//匹配一个
+                    console.log(arr1);
+
+                    var str2    = '什么是javascript？javascript:是一个运行在浏览器端的解释型语言;JavaScript:这是标准写法';
+                    var arr2    = str2.match(p);
+                    console.log(arr2);//匹配一个
+                    console.log(str2.search(p));//3
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var p       = /javascript(?![\s:])/ig;//不能以空格或者冒号结束
+        var str1    = 'i love javascript，yes，javascript is very 好的脚本语言';
+        var arr1    = str1.match(p);//匹配一个
+        console.log(arr1);
+
+        var str2    = '什么是javascript？javascript:是一个运行在浏览器端的解释型语言;JavaScript:这是标准写法';
+        var arr2    = str2.match(p);
+        console.log(arr2);//匹配一个
+        console.log(str2.search(p));//3
+    </script>
+</body>
+</html>

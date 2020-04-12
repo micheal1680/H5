@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-14-类型值变量-作为属性的变量</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>作为属性的变量</h3>
+        <ol>
+            <li>使用var声明变量时，作为全局对象的一个属性，无法通过delete运算符删除；</li>
+            <li>不使用var，直接给一个未声明的变量赋值，该变量是可以delete的；</li>
+            <li>不使用var，使用关键词this给一个变量赋值，也是可以delete的；</li>
+        </ol>
+    </div>
+    <script>
+        this.a=1;
+        var r = delete a;
+        console.log(r);
+        console.log(a);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js变量作用域及变量提升</title>
+</head>
+<body>
+    <script>
+        console.log(a);  //undefined  打印结果也跟代码所处的位置有关，虽然后面有所引用的全局变量的定义，但是由于前面没有，因此就导致:形参没有传递实参。返回undefined
+        var a = 100;
+        var b = 20;
+        function fn(){ //{b}
+            console.log(b); //undefined  打印的b是函数内部的形参亦局部变量，跟打印a同理，与所处位置有关
+            var b = 200;  //处于函数内部，且有var声明，说明是创建了一个新的变量，因此是局部变量，跟全局变量的b不是同一个变量
+            a = 200;  //虽在函数内部，但是没有var声明，因此对它进行变量提升，但是只对声明进行提升，变成Window的一个变量，因此成为全局变量，相当于对全局变量a进行重新赋值。
+        }
+        fn();
+        console.log(b);//20  //函数外部的console.log()，就是对全局变量的打印
+        console.log(window.b);//20
+        console.log(a);//200
+
+        //变量提升
+        console.log(f);  //结果：f(){}
+        function f(){}
+        var  f = 100;
+        var f = function(){}
+    
+    </script>
+</body>
+</html>

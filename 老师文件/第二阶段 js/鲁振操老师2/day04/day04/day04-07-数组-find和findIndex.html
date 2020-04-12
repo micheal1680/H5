@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        // filler：过滤器
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        console.log(arr);
+        var students = [{
+            username: '王磊',
+            salary: 8000
+        },
+        {
+            username: '罗鑫',
+            salary: 8001
+        },
+        {
+            username: '刘西宇',
+            salary: 7500
+        },
+        {
+            username: '肖晗',
+            salary: 7600
+        }
+        ];
+        //可以判断数组里面是否包含指定条件的元素
+        var r = arr.find(function (value, ind, array) {
+            return value == 30;
+        });
+        console.log(r);
+        // findIndex用的很多：根据指定的条件找到对应的元素的下标 如果找不到返回-1
+        var r1 = students.findIndex(function(stu) {
+            return stu.salary == 7000;
+        });
+        console.log(r1);
+    </script>
+</body>
+
+</html>

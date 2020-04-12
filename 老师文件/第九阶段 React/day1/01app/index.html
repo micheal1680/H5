@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+
+    <style>
+        .title {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="border: 1px solid blue;"></div>
+
+    <div class="demo"></div>
+
+    <!-- type="text/babel"表示将jsx转为js， 只有为babel时，script内部才能写jsx -->
+    <script type="text/babel">
+        // render(jsx, 想要将jsx显示在哪儿)
+        let cc = {
+            color: "blue"
+        }
+        ReactDOM.render(
+            <h1 id="one" style={{color: "green"}}>hello react!</h1>,
+            document.getElementById("app")
+        )
+        
+        let mytitle = "this is title";
+        let imgSrc = "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2717595227,1512397782&fm=26&gp=0.jpg";
+        ReactDOM.render(
+            (<div>
+                <h1 className="title"> { mytitle } </h1>
+                <input type="text" /><br/><br/>
+                <img src={imgSrc} />
+                <p>我是段落</p>
+            </div>),
+            document.querySelector(".demo")
+        )
+
+        /*
+        * 1. 多个标签并列时，必须包裹在一个根标签内，可以任意换行，可以加括号
+        * 2. 标签必须闭合，如<br />等
+        * 3. class使用className替代
+        * 4. jsx中使用js代码时，使用{}括起来
+        * 5. 可以使用style内联样式，形式如{{color: "green"}}
+                - 外层{}表示在jsx中使用js代码
+                - 内层{}表示js中形容样式的代码方式
+        */
+    </script>
+</body>
+</html>

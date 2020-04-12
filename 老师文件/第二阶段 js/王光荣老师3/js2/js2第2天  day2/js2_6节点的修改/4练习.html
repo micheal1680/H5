@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        tr:nth-child(2n){
+            background-color: aqua;
+        }
+        tr:nth-child(2n+1){
+            background-color: burlywood;
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 事件：点击一次“增加”按钮，使表格增加一行元素 -->
+    <button onclick="add()">增加</button>  
+    <table id="mytable" border="1" cellspacing="0" cellpadding="10px">
+        <tr>
+            <th>id</th>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>年龄</th>
+            <td>删除</td>
+        </tr>
+    </table>
+</body>
+<script>
+    function add(){  //事件处理函数add()
+        // 创建所要增加的那一行元素tr
+        let tr=document.createElement("tr");
+        // 创建在这一行里面所要增加的列元素td
+        let tdID=document.createElement("td");
+        let id=Math.floor(Math.random()*1000);   //这里存在一个bug，因为正常情况下id不能重复，而这里不能保证不重复。但是这里不影响对表格的操作
+        tdID.innerHTML=id;
+        tdID.id=id;
+
+        let tdname=document.createElement("td");
+        tdname.innerHTML="小花";
+
+        let tdnum=document.createElement("td");
+        tdnum.innerHTML=Math.floor(Math.random()*100);
+
+        let tdAge=document.createElement("td");
+        tdAge.innerHTML=Math.floor(Math.random()*100);
+
+        let tdDel=document.createElement("td");
+        tdDel.innerHTML='<a href="javascript:del('+id+')">删除</a>';//这里采用“伪链接“的方法，即点击删除，就执行del()函数。del()函数内的形参得用'+id+'的方式才能获取到参数，才能实现删除的效果(这里也有表示字符串的单双引号的混用)
+        //  往这一行tr里面添加列元素td
+        tr.appendChild(tdID);
+        tr.appendChild(tdname);
+        tr.appendChild(tdnum);
+        tr.appendChild(tdAge);
+        tr.appendChild(tdDel);
+        // 获取表格，往表格里面添加这一行元素tr
+        let mytable=document.getElementById("mytable");
+        mytable.appendChild(tr);
+    // 直至于此，该事件顺利完成一次。若再次点击“增加”按钮，该事件就会再次触发执行
+    }
+ 
+    function del(id){
+        let td=document.getElementById(id);
+        td.parentElement.remove();
+    }
+    // 说明：这里通过获取列元素id,从而删除它的父元素tr。从而达到点击删除，就删除掉该行的效果。
+    // 但是删除效果并不是“增加”这个事件的效果，因此不能放在“增加”事件里面写，必须单独拿出来写。
+
+</script>
+</html>

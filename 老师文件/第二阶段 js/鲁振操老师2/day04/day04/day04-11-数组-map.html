@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        // map:循环对每个元素进行指定操作，回调函数可以返回值，并可以赋值给变量
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        var arr1 = arr.map(function(value, ind, array){
+            return '<li>'+value+'</li>';
+        });
+        console.log(arr);
+        console.log(arr1);
+
+        //forEach的回调函数没有返回值
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        var arr1 = arr.forEach(function(value, ind, array){
+            return value*2;
+        });
+        console.log(arr);
+        console.log(arr1);
+
+    </script>
+</body>
+
+</html>

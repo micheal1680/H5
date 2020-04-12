@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<!-- 
+		<div class="example">
+		    <p class="slogan" align="center" id="5" data_max="300">
+		        xxx,你最帅
+		    </p>
+		</div> 
+	-->
+		<script type="text/javascript">
+			let div = document.createElement("div");
+			// div.className = "example";
+			let classList = div.classList;
+			classList.add("example");
+			
+			let p = document.createElement("p");
+			p.className="slogan"
+			// p.align="center"
+			p.setAttribute("align","center");
+			// p.id="5"
+			p.setAttribute("id","5");
+			// p.dataset.max = 300;
+			p.setAttribute("data-max", "300");
+			p.innerHTML = "xxx,你最帅";
+			
+			div.appendChild(p);
+			document.body.appendChild(div);
+		</script>
+	</body>
+</html>

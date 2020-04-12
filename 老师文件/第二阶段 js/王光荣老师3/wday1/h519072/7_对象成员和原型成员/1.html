@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 对象成员与原型成员的不同就是：类型不同；
+			 先有原型和原型成员，再有对象和对象成员 -->
+		<script type="text/javascript">
+			function Stu(name, age) {
+				//对象成员
+				this.name = name;
+				//对象成员
+				this.age = age;
+				//对象成员
+				this.show = function() {
+					alert(this.name+":"+this.age);
+				}
+			}
+			//原型成员
+			Stu.prototype.showType=function(){
+			    alert(this.xxx);
+			}
+			//原型成员
+			Stu.prototype.xxx = "秦可青";
+			
+			let stu = new Stu("小明", 30);
+			//[ 对象成员
+			// stu.hight = 1.8;
+			// //对象成员
+			// stu.showHight=function() {
+			// 	console.log(this.hight);
+		    // }  ]  //[ ]里面这一段代码没有任何作用，而且会造成代码逻辑混乱，实例化对象想要追加新的属性，得在所属类上进行追加才有用
+				
+			//访问对象成员
+			stu.show();
+			console.log(stu.name);
+			console.log(stu.age);
+			//访问原型成员
+			stu.showType();
+			console.log(stu.xxx);
+
+		// 拓展：
+		// 成员属性是直接声明在对象自身上！！而原型属性是声明在对象的__proto__上！！！
+		// 在我们使用“对象名.属性名”访问一个属性时，会先访问成员属性，如果成员属性中找不到，JS会沿着对象的原型链，
+		// 继续通过__proto__向上查找，也就找到了原型属性。 这就是我们可以使用“对象名.属性名”访问成员属性和原型属性的原因。
+</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				let nameInput = document.querySelector("#name");
+				//值改变事件
+				nameInput.onchange = function() {
+					// this:就是事件源nameInput
+					document.getElementById("div1").innerHTML = this.value;
+				}
+				//得到焦点事件
+				nameInput.onfocus = function() {
+					console.log("进入了iniput")
+				}
+				//失去焦点事件
+				nameInput.onblur = function() {
+					console.log("出了iniput")
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="name" value="fdsafdsa"/>
+		<div id="div1"></div>
+	</body>
+</html>

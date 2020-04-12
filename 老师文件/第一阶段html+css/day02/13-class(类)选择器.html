@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* li{
+            color: red;
+        } */
+        .top-ul-li2{
+            text-decoration: underline;
+            font-style: italic;
+        }
+        .active{
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.类选择器用（.）进行标识，后面紧跟类（class）名
+        .类名{属性：属性值;属性：属性值;}
+        2.类名它是和标签的class属性对应的值相关联的
+        3.长词组可以用中横线连接，但是不要用 _ 连接
+           命名不要用纯数字和中文，要用英文，见名知意
+        4.一个标签可以有多个类名,并且多个标签之间可以拥有相同的类名
+        5.类选择器和标签之间是多对多的关系
+     -->
+    <ul class="top-ul">
+        <li>列表1</li>
+        <li class="top-ul-li2 active">列表2</li>
+        <li class="active">列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!--pages/sort/sort.wxml-->
+<view class="title">选项卡切换效果</view>
+<scroll-view class="navTabBar" enable-flex="{{true}}" scroll-left="{{0}}"px scroll-x="{{true}}">
+  <view bindtap="changeActive" data-id="{{index}}" class="tag {{active==index?'active':''}}" wx:for="{{arrayTags}}">
+    {{item}}
+  </view>
+</scroll-view>

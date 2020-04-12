@@ -1,0 +1,118 @@
+/* pages/xioami/xiaomi.wxss */
+
+/* 引入外部文件: 路径要写相对路径 */
+@import "iconfont.wxss";
+
+/* 导航栏 */
+
+.nav {
+    width: 750rpx;
+    height: 130rpx;
+    background-color: #fe6701;
+    display: flex;
+    align-items: center;
+    padding-top: 50rpx;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    position: static;
+}
+
+/* 图标 */
+
+.mi {
+    color: #fe6701;
+    padding: 10rpx;
+    background-color: #fff;
+    margin-left: 30rpx;
+}
+
+.xiaomi {
+    color: #fff;
+    margin-left: 15rpx;
+}
+
+/* 搜索栏 */
+
+.search {
+    width: 320rpx;
+    height: 60rpx;
+    background-color: #fff;
+    border-radius: 30rpx;
+    color: #ccc;
+    line-height: 60rpx;
+    margin-left: 30rpx;
+    padding-left: 20rpx;
+}
+
+.search::after {
+    content: "搜索商品";
+    font-size: 28rpx;
+}
+
+/*  */
+
+.lunbo-img {
+    width: 750rpx;
+}
+
+/* 分类 */
+
+.sort {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sort image {
+    width: 150rpx;
+    height: 158.3334rpx;
+}
+
+/* 商品 */
+
+.goods {
+    background-color: #ccc;
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+
+.goods-inner {
+    border-radius: 10rpx;
+	background-color: #fff;
+}
+
+.hot-recommend {
+    
+}
+
+.hot-title {
+    padding: 30rpx;
+    font-weight: bolder;
+    color: #666;
+}
+
+.hot-img {
+    width: 100%;
+}
+
+.goods-info {
+    padding: 25rpx;
+    line-height: 48rpx;
+}
+
+/* color font- text- line- */
+
+.info-text {
+    font-size: 24rpx;
+    color: #ccc;
+}
+
+.info-price {
+    font-size: 28rpx;
+    color: #fe6701;
+}

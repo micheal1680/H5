@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-17-语句-其他语句-use strict</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>use strict是将后续的代码解析为严格代码；</h3>
+
+        <ol>
+            <li>严格模式下禁止使用with；</li>
+            <li>严格模式下所有的变量都要先声明；</li>
+            <li>
+                严格模式下调用函数的this值是undefined；下面这段小代码不加"use strict"的区别；
+                <pre>
+                    "use strict";
+                    function fn(){
+                        console.log(this);
+                    }
+                    fn();
+                </pre>
+            </li>
+            <li>严格模式和普通模式有很多细微差别，记住很困难，基本原则是：<code>写代码要严谨</code>，不要偷懒，不要觉得当前代码可以正常运行即可；</li>
+        </ol>
+    </div>
+    <script>
+        "use strict";
+        function fn(){
+            console.log(this);
+        }
+        fn();
+    </script>
+</body>
+</html>

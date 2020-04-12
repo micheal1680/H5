@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第五天-10-对象-属性getter和setter</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>存取器属性；</h3>
+        <ol>
+            <li>属性值可以由一个或两个方法替代，这两个方法就是getter和setter；</li>
+            <li>
+                由getter和setter定义的属性，称为“存取器属性”；
+                一般的只有一个值的属性称为“数据属性”；
+            </li>
+            <li>查询存取器属性的值，用getter；拥有getter则该属性可读；</li>
+            <li>设置存取器属性的值，用setter；拥有setter则该属性可写；</li>
+            <li>
+                定义一个简单的有存取器属性的对象：不看例子你根本不知道在说什么
+                <pre>
+                var myobj = {
+                    //数据属性
+                    myname:'yourname',
+                    birthday:'1983-05-17',
+                    get myage(){
+                        return (new Date().getFullYear()) - new Date(this.birthday).getFullYear();
+                    },
+                    set myage(value){
+                        this.birthday = value;
+                    }
+                };
+                myobj.myage = '1998-08-22';
+                console.log(myobj.myage);
+                </pre>
+                再来看一个例子：
+                <pre>
+                var getnum = {
+                    get octet(){return Math.floor(Math.random()*256);},
+                    get uint16(){return Math.floor(Math.random()*65536);},
+                    get int16(){return Math.floor(Math.random()*65536) - 32768;}
+                };
+                //只读属性
+                console.log(getnum.octet);
+                console.log(getnum.uint16);
+                console.log(getnum.int16);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

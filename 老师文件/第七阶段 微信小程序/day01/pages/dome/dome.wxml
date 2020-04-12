@@ -1,0 +1,38 @@
+<!--pages/dome/dome.wxml-->
+<!-- 组件: text组件 -->
+<text hidden="true" selectable="true" decode="true" space="ensp">文&amp;&apos;        本组件 &nbsp; &lt; &gt;
+	<text>第二个文本组件</text>
+<!-- <view>view</view> 无效 -->
+</text>
+<!-- view: 视图容器 -->
+<view hidden="true" hover-class="my-hover" hover-start-time="2000" hover-stay-time="3000" hover-stop-propagation="true" id="view" class="view">
+    视图容器
+</view>
+<!-- hover-class: 点击儿子会触发父亲(祖先)的hover-class
+	hover-stop-propagation: 设置为true可以阻止冒泡: 阻止祖先节点出现点击态
+ -->
+<view hidden="true" class="father" hover-class="hover-father">
+    父亲
+    <view class="son" hover-class="hover-son">
+        儿子 &nbsp;
+    </view>
+</view>
+
+<!-- 图片 -->
+<!-- 绝对路径: 本地和网络
+	相对路径: 本地和网络
+ -->
+ <!-- 
+	默认的宽度和高度: 320*240
+	为了保持页面的纯洁性
+  -->
+<image hidden="true" src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"/>
+<!-- 本地的性对路径 -->
+<image hidden="true" src="../../images/cat.jpg"></image>
+<!-- 本地的绝对路径: 以/开始直接代表项目的根目录 -->
+<!-- mode: 缩放/裁剪模式 -->
+<image hidden="true" mode="widthFix" class="img" src="/images/cat.jpg"></image>
+
+<image hidden="true" mode="center" class="img" src="/images/cat.jpg"/>
+
+<view class="box"></view>

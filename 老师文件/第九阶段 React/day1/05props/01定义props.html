@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            // 构造器：使用组件时调用,需要使用props作为参数
+            constructor(props) { 
+                super();
+
+                console.log(props);
+            }
+            render() {
+                return (
+                    <div>
+                       <h1> { this.props.title } </h1> 
+                       <a href={this.props.address} target={this.props.methods}> { this.props.title } </a> <br />
+                       <img src={ this.props.logo }/>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <MyApp title="百度一下" logo="http://www.baidu.com/img/bd_logo1.png" address="http://www.baidu.com" methods="_blank"/>
+                <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+
+        // props定义：
+        // 1.在使用组件时，通过键值对的方式声明
+        // 2.在组件内部通过“this.props.键名”获取属性值，需要用{}括起来
+    </script>
+</body>
+</html>

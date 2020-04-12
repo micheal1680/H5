@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-09-表达式和运算符-算术表达式-位运算符</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>位运算符对数字的二进制数据进行更低层级的按位运算，高级，然而不常用；</h3>
+        <ol>
+            <li>位运算要求操作数是整数；</li>
+            <li>位运算会将NaN、Infinity、-Infinity转换为0；</li>
+            <li>按位于：&，对操作数的二进制表示逐步执行AND操作；</li>
+            <li>按位或：|，对操作数的二进制表示逐步执行OR操作；</li>
+            <li>按位异或：^，对操作数的二进制表示逐步执行XOR操作，一个为1另一个不为1才返回1；</li>
+            <li>按位或：~，对操作数的二进制表示所有位取反；</li>
+            <li>左移：<<，对操作数的二进制表示进行左移，移动位数由第二个操作数指定；新的一位用0补充，并舍弃第32位；左移1位相当于*2，左移2位相当于*4，以此类推；</li>
+            <li>带符号右移：>>，右边溢出的位忽略；如果是正数，左边最高位补0；如果是负数，左边最高位补1；右移1位相当于/2,右移2位相当于/4，不要余数，以此类推；</li>
+            <li>无符号右移：>>>，和带符号右移一样，只是左边的最高位总是补0；</li>
+        </ol>
+    </div>
+    <script>
+        var a = 12;
+        var b = 10;
+       
+    </script>
+</body>
+</html>

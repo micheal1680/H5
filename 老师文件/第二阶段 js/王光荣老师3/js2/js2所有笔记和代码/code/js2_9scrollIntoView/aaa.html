@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body> 
+	12345567
+<script type="text/javascript">
+	window.onmouseup = function() {
+		console.log(window.getSelection().toString());
+		let bool = document.execCommand("selectAll",false,null);
+		console.log(bool); 
+	}
+</script>
+	</body>
+</html>

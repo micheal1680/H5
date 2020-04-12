@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6多行字符串</title>
+</head>
+
+<body>
+    <script>
+        var text = `第一行
+            第二行
+            第三行`;
+        console.log(text);
+        // 模板字符串
+        var name = "张三";
+        var age = 15;
+        var sex = "男";
+        // 字符串连接符 + 
+        console.log("姓名" + name + ",年龄"+age +"岁,性别"+sex);
+        console.log(`姓名${name},年龄${age}岁,性别${sex}`);
+        var str = "stringstring"; // 12
+        console.log(str.length); // 12
+        // indexOf() 返回的是查询字符串第一次出现的位置的下标,如果没有找到则返回-1
+        console.log(str.indexOf("gst"));// 5
+        // 在str中截取一段字符串成为一个新的字符串,原字符串不会改变
+       
+        // console.log(str.substring(0,6));// [0,5)
+        // console.log(str);
+        // console.log(str.slice(0,-1));// s
+        // console.log(str.substr(6,60));
+
+        var str2 = "   我是好人   我经常扶老奶奶过马路\n   ";
+        console.log(str2)
+        console.log(str2.trim());
+
+        console.log(str.charAt(60));// s
+
+    </script>
+</body>
+
+</html>

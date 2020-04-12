@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let arr = [
+            <h1>我是标题</h1>,
+            <p>我是段落</p>,
+            <div>我是盒子</div>
+        ]
+
+        //为数组中的每一个虚拟节点对象添加key值
+        let newArr = [];
+        arr.forEach((ele, index) => {
+            newArr.push(<li key={index}>{ele}</li>)
+        });
+        ReactDOM.render(
+            <div>
+                <ul>
+                    { newArr }
+                </ul>
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

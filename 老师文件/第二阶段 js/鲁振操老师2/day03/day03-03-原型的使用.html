@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型的使用-轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mydiv, .mydiv1{
+            width: 590px;
+            height: 472px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mydiv ul, .mydiv1 ul {
+            width: 1770px;
+            height: 472px;
+            overflow: hidden;
+            transition: all 1.3s;
+
+        }
+        .mydiv ul{
+            width: 2950px;
+
+        }
+        .mydiv ul li, .mydiv1 ul li {
+            list-style-type: none;
+            float: left;
+            width: 590px;
+            height: 472px;
+        }
+
+        .mydiv .btn, .mydiv1 .btn {
+            position: absolute;
+            bottom: 10px;
+            width: 160px;
+            height: 30px;
+            left: 255px;
+        }
+
+        .mydiv .btn li, .mydiv1 .btn li {
+            width: 15px;
+            height: 15px;
+            margin: 7px 5px;
+            border-radius: 50%;
+            background-color: rgb(184, 175, 175);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mydiv">
+        <ul class="imgs">
+            <li><img src="./img/1.jpg"></li>
+            <li><img src="./img/2.jpg"></li>
+            <li><img src="./img/3.jpg"></li>
+            <li><img src="./img/4.jpg"></li>
+            <li><img src="./img/5.jpg"></li>
+        </ul>
+        <ul class="btn">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <div class="mydiv1">
+        <ul class="imgs">
+            <li><img src="./img/1.jpg"></li>
+            <li><img src="./img/2.jpg"></li>
+            <li><img src="./img/3.jpg"></li>
+        </ul>
+        <ul class="btn">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script src="./js/Rotation.js"></script>
+    <script>
+        new Rotation('.mydiv').auto();
+        var r = new Rotation('.mydiv1');
+        console.log(r);
+    </script>
+</body>
+
+</html>

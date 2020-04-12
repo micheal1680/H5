@@ -1,0 +1,19 @@
+/* pages/sort/sort.wxss */
+.title{
+  font-size: 32rpx;
+  color: red;
+  text-align: center;
+}
+.navTabBar{
+  width: 750rpx;
+  height: 80rpx;
+  /* display: flex;
+  justify-content: space-between； */
+}
+.tag{
+  display: inline-block;
+  padding: 0 16rpx;
+}
+.active{
+  color: red
+}

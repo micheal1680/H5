@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dog =
+			{
+				type:"狗",
+				age:1,
+				say:function() {
+					console.log("汪汪");
+				},
+				//es6写法
+				sleep() {
+					console.log(this.type,"睡觉");
+				}
+			};
+			console.log(dog.type);//狗
+			dog.say();//汪汪   say是一个函数，而say也是对象dog的一个属性，因此dog.say()让函数执行，打印出“汪汪”。
+			dog.sleep();//狗 睡觉   sleep是一个函数，也是dog的一个属性，只不过这里用的是es6的写法
+		</script>
+	</body>
+</html>

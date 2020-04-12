@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+				function add() {
+					let box = document.getElementById("box");
+					box.innerText = "<span style='color:red'>网络</span>"
+				}
+				function get() {
+					let box = document.getElementById("box");
+					console.log(box.innerText);
+				}
+		</script>
+	</head>
+	<body>
+		<button onclick="add()">加入</button>
+		<button onclick="get()">get</button>
+		<div id="box">
+			大幅度所担负
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 11em;
+            border: 1px solid #000000;
+            word-wrap: break-word;
+            /*在长单词或 URL 地址内部进行换行*/
+        }
+
+        /* 单词拆分 */
+        p.test1 {
+            width: 9em;
+            border: 1px solid #000000;
+            word-break: keep-all;
+            /*只能在半角空格或连字符处换行*/
+        }
+
+        p.test2 {
+            width: 9em;
+            border: 1px solid #000000;
+            word-break: break-all;
+            /*允许在单词内换行*/
+        }
+    </style>
+</head>
+
+<body>
+    <p class="test"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word
+        will break and wrap to the next line.</p>
+    <p class="test1"> This paragraph contains some text. This line will-break-at-hyphenates.</p>
+    <p class="test2"> This paragraph contains some text: The lines will-break-at-hyphenates.</p>
+</body>
+
+</html>

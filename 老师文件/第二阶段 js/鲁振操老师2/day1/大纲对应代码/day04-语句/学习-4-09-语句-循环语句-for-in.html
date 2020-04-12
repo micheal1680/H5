@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-09-语句-循环语句-for-in</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>for..in:循环语句</h3>
+        <ol>
+            <li>
+                for...in循环的语法结构：
+                <pre>
+                    for(variable in object){
+                        statement; //代码块
+                    }
+                </pre>
+                循环出来object里所有属性的属性名或者元素的下标，好绕，看例子，秒懂；
+                <pre>
+                    var personobj = {
+                        name: '你叫什么？',
+                        sex: '男',
+                        weight: '160'
+                    };
+                    for (var x in personobj) {
+                        document.write('属性:' + x + '，值:' + personobj[x] + '<br />');
+                    }
+
+                    var arr = [1,2,3,4,5];
+                    for(var i in arr){
+                        console.log(i);
+                        console.log(arr[i]);
+                    }
+                </pre>
+            </li>
+            <li>
+                再看看下面的代码会发生什么：
+                <pre>
+                    var personobj = {
+                        name: '你叫什么？',
+                        sex: '男',
+                        weight: '160'
+                    };
+                    var arr = new Array();
+                    var i = 0;
+                    for(arr[i++] in personobj);
+                    console.log(arr);
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

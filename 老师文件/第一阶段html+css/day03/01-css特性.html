@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mydiv{
+            color: red;
+        }
+        .mydiv{
+            color: blue;
+        }
+        .mydiv2{
+            font-weight: 900;
+            color: red;
+            text-decoration: underline;
+        }
+        .mydiv2 a{
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.层叠性
+        2.继承性：（1）文本属性和字体属性都有继承性
+                  （2）在CSS的继承中不仅仅是儿子可以继承, 只要是后代都可以继承 
+                  (3)a标签的颜色和下划线的设置不能继承，必须对a标签本身进行设置
+        3.优先级
+     -->
+     <!-- 
+         1.class名写错了
+         2.文件没有保存
+         3.类名前面没有加 .
+      -->
+     <div class="mydiv">我是div</div>
+     <div class="mydiv2">
+         <p>我是段落</p>
+         <a href="#">空链接</a>
+         <del>￥299</del>
+         <u>带下划线的标签</u>
+     </div>
+</body>
+</html>

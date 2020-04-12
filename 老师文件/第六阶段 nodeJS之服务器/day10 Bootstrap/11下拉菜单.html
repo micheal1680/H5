@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>下拉菜单</title>
+
+    <!-- cdn引入css文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .dropup {
+            margin-top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            请选择城市
+            <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+            <li><a href="#">成都</a></li>
+            <li><a href="#">北京</a></li>
+            <li><a href="#">上海</a></li>
+            <li><a href="#">深圳</a></li>
+            <li><a href="#">重庆</a></li>
+        </ul>
+
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            请选择课程
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header">嵌入式课程</li>
+            <li><a href="#">C语言 </a></li>
+            <li><a href="#">汇编 </a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">H5课程</li>
+            <li><a href="#">HTML </a></li>
+            <li><a href="#">CSS </a></li>
+            <li class="divider"></li>
+        </ul>
+    </div>
+
+    <div class="btn-group btn-group-justified">
+            <a href="" class="btn btn-group">新浪</a>
+            <a href="" class="btn btn-group">百度</a>
+            <a href="" class="btn btn-group">谷歌</a>
+    </div>
+
+    <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" placeholder="Username">
+    </div>
+    
+    
+
+
+</body>
+
+</html>

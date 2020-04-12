@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for_in</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            name: "张三",
+            age: 28,
+            job: "程序员",
+            sayName: function () {
+                alert(this.name);
+            }
+        }
+
+        for (var key in o) {
+            console.log(`${key}:${o[key]}`);
+        }
+
+        var  arr = [1,2,3,4,5,"张三"];
+        console.log(arr)
+        for (var index in arr) {
+            console.log(`${index}:${arr[index]}`);// 属性
+        }
+
+        // 声明一个对象 打印属性和值 使用: 链接
+        // 声明一个数组 打印下标和内容 使用: 链接
+    </script>
+</body>
+
+</html>

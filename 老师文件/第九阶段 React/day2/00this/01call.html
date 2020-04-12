@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function show(...val) {
+            console.log(val)
+            console.log(this[0]);
+        }
+
+        // show();
+        // call将this指向数组对象，第二参数开始表示可变参数
+        //call改变了this的指向，同时执行了函数
+        show.call(["xxx"], 1, 2, 3, 4, 5)
+    </script>
+</body>
+
+</html>

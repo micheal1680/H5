@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul>li {
+				list-style: none;
+				display: inline-block;
+			}
+
+			ul>li>a {
+				text-decoration: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				let myaudio = document.getElementById("myaudio");
+				let ul = document.querySelector("ul");
+				//播放
+				ul.children[0].onclick = function() {
+					myaudio.play();
+				}
+				//暂停
+				ul.children[1].onclick = function() {
+					myaudio.pause();
+				}
+				//静音
+				ul.children[2].onclick = function() {
+					myaudio.muted = true;
+				}
+				//恢复 取消静音
+				ul.children[3].onclick = function() {
+					myaudio.muted = false;
+				}
+				//音量+
+				ul.children[4].onclick = function() {
+					if (myaudio.volume <= 0.9) {
+						myaudio.volume += 0.1;
+					}
+				}
+				//音量-
+				ul.children[5].onclick = function() {
+					if (myaudio.volume >= 0.1) {
+						myaudio.volume -= 0.1;
+					}
+				}
+				//快进
+				ul.children[6].onclick = function() {
+					myaudio.playbackRate = 4;
+				}
+				//慢放
+				ul.children[7].onclick = function() {
+					myaudio.playbackRate = 0.5;
+				}
+				ul.children[8].onclick = function() {
+					myaudio.stop();
+				}
+				//监听当前播放时长
+				myaudio.addEventListener("timeupdate", function(e) {
+					// console.log("当前播放了多久",e.timeStamp);
+					// console.log("总时长",myaudio.duration*1000);
+					let a = e.timeStamp/(myaudio.duration*1000);
+					let b = a*100;
+					let c = Math.floor(b);
+					console.log("进度百分比", c);
+					let out = document.getElementById("out");
+					out.style.width = c+"px";
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+			#context {
+				position: relative;
+				width: 100px;
+				height: 20px;
+			}
+			#in {
+				width: 100px;
+				height: 20px;
+				background: yellow;
+				position: absolute;
+			}
+			#out {
+				width: 0px;
+				height: 20px;
+				background: green;
+				position: absolute;
+			}
+		</style>
+		<div id="context">
+			<div id="in">
+			</div>
+			<div id="out">
+			</div>
+		</div>
+		<!-- 这里用controls，可以看到控制面板，这个控制面板的样式是默认的，如果想要改面板的样式，可以用js完成，那就要自己写播放按钮和进度条这些东西 -->
+		<audio id="myaudio" controls autoplay>   
+			<source src="00mv-img/menu.mp3" type="audio/mp3">
+			<source src="00mv-img/menu.ogg" type="audio/ogg">
+		</audio>
+		<ul>
+			<li>
+				<a href="###">播放</a>
+			</li>
+			<li>
+				<a href="###">暂停</a>
+			</li>
+			<li>
+				<a href="###">静音</a>
+			</li>
+			<li>
+				<a href="###">恢复</a>
+			</li>
+			<li>
+				<a href="###">音量+</a>
+			</li>
+			<li>
+				<a href="###">音量-</a>
+			</li>
+			<li>
+				<a href="###">快进</a>
+			</li>
+			<li>
+				<a href="###">慢放</a>
+			</li>
+			<li>
+				<a href="###">停止</a>
+			</li>
+		</ul>
+	</body>
+</html>

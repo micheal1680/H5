@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Parent1{
+            constructor(){
+                this.name = '吴彦祖';
+            }
+            getParentData(){
+                console.log(this.name)
+                return this.name
+            }
+        }
+        class Game extends Parent1{
+            constructor(name1,name2){
+                // console.log(name1,name2)
+                super();
+                this.age = 18;
+                this.sex ='nan';
+                // console.log(this.age);
+                // console.log(this.sex)
+            }
+            GetAge(){
+                console.log(this.age)
+                return this.age
+            }
+            GetName(){
+                console.log(this.name)
+                this.getParentData()
+            }
+
+
+        }
+        
+        let NewGame = new Game('NAME1','NAME2')
+        NewGame.GetAge()
+        NewGame.GetName()
+        // let NewGame2 = new Game('name1','name2')
+
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<!-- 	vue与webpack 结合写项目，步骤如下：	
+		1、package.json 以及webpack.config.js
+		2、cnpm i 
+		3、cnpm i--save-dev vue
+		4、配置webpack.config.js，resolve
+		5\修改webpack.config.js入口，创建入口文件html/css/js 、
+		6、编写源代码，js--import Vue from "vue"
+		7、npm run dev
+		 -->
+		 
+		 <!-- 处理vue dom对象上双大括号闪现问题v-cloak v-text-->
+		<div id="app" v-text>
+			<!-- @--》v-on:绑定事件 -->
+			<p @click="changeName">学生姓名：{{student.myname}}</p>
+			<p>学生成绩：{{student.grade}}</p>
+			<p>学生年龄：{{student.age}}</p>
+		</div>
+		
+		<div id="myapp">
+			{{student.grade}}
+		</div>
+		
+		
+	</body>
+</html>

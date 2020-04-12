@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>读写数组</title>
+</head>
+
+<body>
+    <script>
+        var arr = [0, 12, 2, 3, 4, 5, 6, 7]; // 6 数组下标从0开始  
+        console.log(arr[0]); // 0
+        // 打印arr的最后一个数据
+        console.log(arr[arr.length - 1]);
+        // 数组的长度 数组下标从零开始,那么length-1
+
+
+
+        // 
+        // console.log(arr[0]);
+        // console.log(arr[1]);
+        // console.log(arr[2]);
+        // console.log(arr[3]);
+        // 遍历数组  让循环的初始变量i递增 , 将i作为下标,使用[]取值
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+        // 写数据
+        arr[6] = "a";
+        console.log(arr);
+
+
+
+        var a = new Array(5); // 创建一个大小为5的数组
+        console.log(a);
+        // 稀疏数组: 数组中元素不连续的数组
+        a[0] = 0;
+        a[4] = 4;
+        a[100] = 100; // empty填充
+        console.log(a);
+
+        // 添加数据 push() 在数组末尾添加元素,返回值为数组的新长度
+        // arr.push(8);
+        arr.push(8,9,10);
+        console.log(arr);
+
+        // 添加数据 unshift()  在数组头部添加数据,返回值为数组的新长度
+        arr.unshift(-2,-1);
+        console.log(arr);
+
+
+    </script>
+</body>
+
+</html>

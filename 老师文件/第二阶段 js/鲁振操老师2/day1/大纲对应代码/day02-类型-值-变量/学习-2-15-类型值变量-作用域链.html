@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-15-类型值变量-作用域链</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>作用域链</h3>
+        <ol>
+            <li>JavaScript里的全局代码或者函数，都有一个与之对应的作用域链；</li>
+            <li>作用域链可以理解为对象的列表，或叫对象的链表，他们是按优先级顺序排列的；</li>
+            <li>这些对象就定义了一段代码或者函数的“作用域中”的变量；</li>
+            <li>在全局代码(就是不是函数的代码，好扯~~)中，作用域链由一个全局对象组成；</li>
+            <li>
+                在无嵌套的函数中，作用域链有两个对象：<br>
+                一、定义函数参数和局部变量的对象； <br>
+                二、定义全局变量的对象；<br>
+                如果是嵌套函数，则作用域链上至少三个对象；
+            </li>
+            <li>
+                当代码运行需要<code>变量解析</code>(就是查找需要的变量的值)的时候，<br>
+                就在作用域链(有顺序的对象或者链表)里面寻找对应的变量，<br>
+                一旦找到就使用该变量并结束寻找；<br>
+                如果作用域链里面找不到对应的变量，则抛出错误；
+            </li>
+
+        </ol>
+    </div>
+</body>
+</html>

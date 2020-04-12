@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 30px;
+            /* 设置字体粗细 */
+            /* 其可用属性值：bolder、bold、normal、lighter、100~900（100的整数倍） */
+            /* font-weight: 900; */
+            /* 设置字体风格 */
+            /* font-style: italic; */
+
+            /* 各种字体之间必须使用英文状态下的逗号“,”分隔。 */
+            /* 
+                1. 中文字体需要加英文状态下的引号，英文字体一般不需要加引号。
+                当需要设置英文字体时，英文字体名必须位于中文字体名之前。例如：font-family: Arial, "微软雅黑"; 。
+                2. 如果字体名中包含空格、#、$等符号，则该字体必须加英文状态下的单引号或双引号，例如：font-family: "Times New Roman";。
+            */
+            font-family: "Times New Roman",Arial,'微软雅黑','\9ED1\4F53';
+
+            /* font:font-style font-weight font-size/line-height font-family;   */
+            /* 使用font属性时，必须按照上面语法格式中的顺序书写，不能更换顺序，各个属性以空格隔开。
+	            其中不需要的属性可以省略（取默认值），但必须保留font-size、font-family属性，否则font属性将不起作用。 */
+            font: italic bolder 26px/50px "Times New Roman";
+
+            /* 设置字体行高 */
+            /* line-height: 50px; */
+        }
+        i{
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div>我是div</div>
+
+    <i>我是i</i>
+
+
+</body>
+</html>

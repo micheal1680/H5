@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+
+<body>
+    <script>
+        var tel = '15983872345';
+
+        var telReg= /^1[3456789]\d{9}$/;//在表单验证里面，我们需要验证整个输入的框值
+        console.log(telReg.test(tel));
+
+    </script>
+</body>
+
+</html>

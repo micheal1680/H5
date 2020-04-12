@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数的参数</title>
+</head>
+
+<body>
+    <script>
+        function add(a, b) {
+            console.log(arguments); //类数组，不是真正的数组，不具备数组对象的方法
+            // arguments.push(3);
+            //设置默认值  b=0
+            /*
+            if(!b){
+                b = 0;
+            }
+            b = b || 0;   //熔断机制
+            return a + b;
+            */
+            var sum = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+        console.log(add(12, 23));  //35
+        console.log(add(12));   //12
+        console.log(add(1, 2, 3, 4));   //10  依次传参，最后得到：（（1+2）+3）+4=10
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        
+        class MyApp extends React.Component {
+
+            constructor(props) {
+                super();
+
+                this.state = {
+                    name: "狗狗",
+                    address: "https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E8%90%8C%E5%AE%A0&hs=2&pn=2&spn=0&di=14960&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&ie=utf-8&oe=utf-8&cl=2&lm=-1&cs=2717595227%2C1512397782&os=1953688621%2C2621173702&simid=3357827066%2C342112339&adpicid=0&lpn=0&ln=30&fr=ala&fm=&sme=&cg=&bdtype=0&oriquery=%E8%90%8C%E5%AE%A0&objurl=http%3A%2F%2Fimg2.51tietu.net%2Fupload%2Fwww.51tietu.net%2F2016-042704%2F20160427042049nwwwnycazz2.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bc8ptjp7_z%26e3BgjpAzdH3F15g2o7AzdH3Fdbmn9_z%26e3Bip4s&gsm=&islist=&querylist=",
+                    imgUrl: "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2717595227,1512397782&fm=26&gp=0.jpg"
+                }
+            }
+
+            sendAjax(e) {
+                // alert(111)
+                e.preventDefault();
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.github.com/users/" + this.state.name,
+                    success: function(data) {
+                        console.log(data)
+                        this.setState({
+                            name: data.login,
+                            address: data.html_url,
+                            imgUrl: data.avatar_url
+                        })
+                    }.bind(this),
+                    error: function(err) {
+                        console.log(err)
+                    }
+                })
+            }
+
+            handleChange(e) {
+                this.setState({
+                    name: e.target.value
+                })
+            }
+
+            render() {
+                return(
+                    <div>
+                        <form onSubmit={this.sendAjax.bind(this)}>
+                            <input placeholder="请输入姓名" value={this.state.name} onChange={this.handleChange.bind(this)}/>
+                            <button>点击发送ajax请求</button><br />
+                        </form>
+                        <h2> <a href={this.state.address}>{this.state.name}</a> </h2>
+                        <img src={this.state.imgUrl}/>
+                    </div>
+                )
+            }
+        }
+
+        
+        ReactDOM.render(
+            <div>
+                <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 1rem=50px*/
+html{
+    font-size: calc((100*100vw) / 750);
+}
+body{
+    font-size: 0.28rem;
+    /* flex: 1;
+    overflow:auto; */
+}
+.big{
+    width: 100%;
+    position: relative;
+}
+.top{
+    width: 100%;
+    height: .08rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 .5rem;
+    box-sizing: border-box;
+
+}
+.t1{
+    width: .48rem;
+    height: .48rem;
+    position: absolute;
+    top: .2rem;
+
+}
+.t1 img{
+    width: .48rem;
+    height: .48rem;
+    display: inline-block;
+}
+.t2{
+    width: 6.5rem;
+    height: .88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .36rem;
+}
+.con1{
+    width: 6.5rem;
+    height: 1rem;
+    padding: .2rem 0;
+    margin: .4rem 0 0 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: .88rem;
+    left: .5rem;
+    border-bottom: 1px solid #ccc;
+}
+.con1 input{
+    width: 6.5rem;
+    height: .58rem;
+    border: none;
+    color: #999999;
+    font-size: .36rem;
+}
+.con2{
+    width: 6.5rem;
+    height: 1rem;
+    padding: .2rem 0;
+    margin: .4rem 0 0 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 2.2rem;
+    left: .5rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.con2 input{
+    width: 6.5rem;
+    height: .58rem;
+    border: none;
+    color: #999999;
+    font-size: .36rem;
+}
+.con2 span{
+    width: 1.92rem;
+    height: .58rem;
+    padding: 0 .2rem;
+    /* box-sizing: border-box; */
+    font-size: .28rem;
+    line-height: .58rem;
+    color: #999999;
+}

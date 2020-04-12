@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-08-正则表达式-String支持正则表达式的方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>那些支持正则表达式的String对象方法；</h3>
+        <ol>
+            <li>
+                search(regexp)：参数是正则表达式，返回<code>第一个</code>匹配的子串位置； <br>
+                找不着返回-1；<br>
+                因为只返回第一个匹配子串，所以忽略修饰符g；<br>
+                如果参数不是正则表达式则转成正则表达式；
+                <pre>
+                    var pattern     = /hqyj/ig; //这里面的g是多余的
+                    var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+                    var first       = str.search(pattern);
+                    console.log(first); //8，如果把修饰符i去掉返回值是？
+                    console.log(str.search('是'));
+                </pre>
+            </li>
+            <li>
+                replace(var1, var2)：第一个参数是正则表达式，第二个参数是要替换成的字符串；<br>
+                如果第一个参数不是正则表达式，则直接把对应的字符串替换为第二个字符串；<br>
+                如果修饰符有g，会全部替换，否则只替换第一个；
+                <pre>
+                    var pattern     = /hqyj/ig; //如果去掉i 或 j 会怎样？
+                    var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+                    var right       = str.replace(pattern, 'farsight');
+                    console.log(right);
+                </pre>
+            </li>
+            <li>
+                match(regexp)：参数是正则表达式，返回匹配的结果，数组； <br>
+                如果有修饰符g则全部匹配，否则只匹配你第一个；
+                <pre>
+                    var pattern     = /hqyj|farsight/ig; //如果去掉i 或 j 会怎样？
+                    var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+                    var allname     = str.match(pattern);
+                    console.log(allname);
+                </pre>
+            </li>
+            <li>
+                split()：用指定字符串把字符串分割成数组； <br>
+                参数支持字符串和<code>正则表达式</code>；
+                <pre>
+                    var pattern     = /\s*,\s*/ig; //如果去掉i 或 j 会怎样？
+                    var str         = '华清远见的简称是HQyj , 还是hqyj ,那还是farsight那？';
+                    var allname     = str.split(',');
+                    console.log(allname);
+                    var allno       = str.split(pattern);//看下两个分割效果的差别
+                    console.log(allno);
+                </pre>
+
+            </li>
+        </ol>
+    </div>
+    <script>
+        var pattern     = /\s*,\s*/ig; //如果去掉i 或 j 会怎样？
+        var str         = '华清远见的简称是HQyj , 还是hqyj ,那还是farsight那？';
+        var allname     = str.split(',');
+        console.log(allname);
+        var allno       = str.split(pattern);//看下两个分割效果的差别
+        console.log(allno);
+    </script>
+</body>
+</html>

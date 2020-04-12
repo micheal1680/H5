@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一元操作符: ++  -- + - 
+        // 位操作符: ~ & | ^
+        // 逻辑操作符: ! && ||
+        // 乘性操作符: * / %
+        // 加性操作符: + - 
+        // 比较运算符: < > <= >=  返回一个布尔值  == !=
+        var a = 6 > 5; // 布尔类型的值
+        console.log(a); // true
+
+        console.log(6 < 5); // false 
+
+        console.log(5 <= 5); // true 
+
+        console.log(6 >= 5); // true
+
+        var str = "Ab"; // 65 98
+        var str2 = "ab"; // 97 99
+        //toLowerCase()// 将字符串转为全小写
+        // toUpperCase()// 全大写
+        console.log(str.toUpperCase()); // 97>97 
+
+        var b = "45b"; // Number() ==> NaN
+        console.log(Number(b)); // NaN
+
+        console.log(NaN != NaN); // true
+
+        var obj = {
+            name: "张三"
+        }
+
+        var obj2 = {
+            name: "张三"
+        }
+
+        var obj3 = obj;
+        obj = {
+            id: 1
+        }//   对象obj被再次赋值，将原来的属性换成了id属性，就没有了以前的name属性了
+        
+        
+
+        console.log(obj == obj2); // false
+        console.log(obj == obj3); // false
+
+        // in
+
+        console.log("name" in obj);// false // 
+        console.log("id" in obj);// true // 
+        // false false true false true
+    </script>
+</body>
+
+</html>

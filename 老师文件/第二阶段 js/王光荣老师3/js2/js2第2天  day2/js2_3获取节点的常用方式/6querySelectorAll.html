@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//querySelectorAll("css选择器");同时定义在Document和Element中
+				//得到当前文档中所有类名为myspan的元素组成的数组
+				//这里数组中的元素分别为span1, span2,span3,span4,span5,span6
+				let a = document.querySelectorAll(".myspan");
+				for(let i=0; i<a.length; i++) {
+					let span = a[i];
+					console.log(span.innerHTML);
+				}
+				console.log("=====================================")
+				let mydiv1 = document.getElementById("mydiv1");
+				//得到mydiv1中所有类名为myspan的元素组成的数组
+				//这里数组中的元素分别为span4,span5,span6
+				let spanArray = mydiv1.querySelectorAll(".myspan");
+				for(let i=0; i<spanArray.length; i++) {
+					let span = spanArray[i];
+					console.log(span.innerHTML);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<span class="myspan">span1</span>
+			<span class="myspan">span2</span>
+			<span class="myspan">span3</span>
+		</div>
+		<div id="mydiv1">
+			<span class="myspan">span4</span>
+			<span class="myspan">span5</span>
+			<span class="myspan">span6</span>
+		</div>
+	</body>
+</html>

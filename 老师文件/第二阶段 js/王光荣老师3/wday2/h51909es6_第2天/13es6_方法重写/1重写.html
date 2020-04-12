@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>重写</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Person {
+				constructor() {
+				}
+				study() {
+					console.log("学习....");
+				}
+			}
+			class Stu extends Person {
+				constructor() {
+					super();
+				}
+				//重写
+				study(major) {
+					console.log("专业学习"+major);
+				}
+				show() {
+					this.study("科学");
+				}
+			}
+			let s1 = new Stu();
+			s1.study("H5");
+			s1.show();
+		</script>
+	</body>
+</html>

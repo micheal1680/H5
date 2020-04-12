@@ -1,0 +1,13 @@
+1.获取对象的方法？（）内置对象直接写内置对象名就可获取，否则就要 类.对象才能获取
+2.Document.prototype:指Document的原型属性（Document的原型函数）。因为queryselector是定义在Document.prototype中的，即定义在
+Document的原型函数中的，因此document可以将queryselector方法从原型那继承过来，就用document.queryselector调用queryselector方法。
+对于其他的DOM树的其他方法，同理理解。
+3.element指元素或对象。比如数组
+4.DOM树中有常用的两大类：document和element（文档中的元素：即标签）。
+如：（由于queryselector同时定义在document和element中）
+有：document.queryselector(即queryselector方法针对整个文档)和mydiv.queryselector（即queryselector方法针对某个元素或对象）
+5.css放在head中，js放在body的最后，目的在于：先加载样式，再加载文档（这样保证页面加载出来时文档是有样式的），最后加载动态效果（因为js加载量太大，放在最后）
+6.element.prototype.mychildren=function(){ }：这里的function是一个原型函数，即在element的原型函数上增加一个新的函数，这个函数可以被它的所有对象继承。
+7.dom树，节点修改两大重点;
+其中：dom树：左边父类，右边子类，父类的属性传给子类，因此父类的功能比子类功能少，因为子类可以增加自己的属性
+8.节点的分类：标签节点、文本节点、属性节点 三类。

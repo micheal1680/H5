@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+        function add(a, b) {
+            return a + b; //return 后面的代码不会再执行  
+            //return是一个函数结束的标志，并且也只有函数中才有return，没有return，即没有返回值，那么返回的都是undefined。因此函数必须要有return，并且函数中return返回的都是由consol.log打印的最终返回值的计算表达式。（比如：a+b）
+            console.log(5);  //由于return之后的代码根本不会被执行，因此也就什么都没有。
+        }
+
+        var a = add(1, 2);
+        console.log(a);  //3
+
+        // let n = 1*2*3*4...*N; 递归函数  自己调用自己
+        function  mul(n){
+            if(n==1) return 1;
+            return n * mul(n-1);
+        }
+        console.log(mul(10));  //返回的是：10的阶乘（3628800）
+
+
+    </script>
+</body>
+
+</html>

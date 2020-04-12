@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // break: 跳出循环,不在执行后面的循环
+        // continue: // 跳过当前循环,执行后面的循环
+        var a = 0;
+        l:
+            for (var i = 0; i < 10; i++) { // 1 2
+                for (var j = 0; j < 10; j++) { // 5
+                    if (j == 5) {
+                        continue l;                        
+                    }
+                    a++;
+                }
+            }
+        console.log(a);  //50
+       
+        var a1 = 0;
+        forhere:
+            for (var i = 0; i < 10; i++) { // 1 
+                for (var j = 0; j < 10; j++) { // 5 
+                    if (j == 5) {
+                        break forhere;                        
+                    }
+                    a1++;
+                }
+            }
+        console.log(a1);  //5
+
+
+        var num = 0;
+        for (let index = 0; index < 10; index++) {
+            if(index == 3){
+                continue;
+            }
+            num ++;
+        }
+        console.log(num);  //9
+
+        // 九九
+    </script>
+</body>
+
+</html>

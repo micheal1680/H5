@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            var a = 29,
+                b = 30;
+            return a + b;
+            a = 20;
+            console.log(a);
+            return a + b; // 50
+        }
+        var re = fn();
+
+        function fn2(a) {
+            // if (a > 10) {
+            //     return a;
+            // } else {
+            //     return 10;
+            // }
+
+            if(a>10){
+                return a;
+            }
+            return 10;
+        }
+
+        fn2(30)
+    </script>
+</body>
+
+</html>

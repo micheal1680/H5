@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax请求</title>
+</head>
+<body>
+    <button onclick="sendAjax()">发送原生ajax请求</button>
+
+    <script>
+        // 发送ajax请求
+        function sendAjax() {
+            // 1.创建XMLHttpRequest对象
+            let xmr = new XMLHttpRequest();
+            // 2.打开连接 参数1表示请求方式，参数2是请求地址
+            xmr.open("get", "http://localhost:3000/index");
+            // 3.发送请求
+            xmr.send();
+
+            xmr.onreadystatechange = function() {
+                console.log(xmr);
+                // 成功请求到数据
+                if(xmr.readyState == 4 && xmr.status == 200) {
+                    console.log(xmr.responseText);
+                    // responseText中保存了服务器响应的数据，是一个json字符串
+                    let result = JSON.parse(xmr.responseText); //将json字符串转为json对象类型
+                    console.log(typeof result)
+                    
+                    if(result.code == 1) {
+                        //跳转页面
+                        window.location.href = "./index.html"
+                    }
+                }
+            }
+        }
+    
+    </script>
+</body>
+</html>

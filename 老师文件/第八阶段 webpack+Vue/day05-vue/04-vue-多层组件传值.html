@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			
+			#app {
+				height: 500px;
+				background-color: pink;
+			}
+			
+			#father{
+				height: 300px;
+				background-color: blue;
+			}
+			
+			#son{
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+<!-- 		嵌套传值:
+			父向儿子
+			父向"孙子"
+		
+		
+		
+			
+		父向子：自定义属性----props或$attrs接收值
+		子向父：触发自定义事件$emit----事件处理函数接收值
+		
+		并列组件传值：
+			中央事件总线bus----bus.$emit("站台",value……)---bus.$on("同一个站台",function(data){ //接收值 }) -->
+
+		<div id="app" v-cloak>
+			<h4>这儿是GrandPa 节点</h4>
+			<p>
+				{{student.name}}
+			</p>
+			
+			<!-- 多层组件传值 -->
+			<!-- 祖父向孙子组件传值：vm 对象$attrs 属性，保存父向子传递的属性值(非props，非style,非class) -->
+			
+			<!-- 孙子向祖父节点传值：vm对象的自定义事件$listeners -->
+			<com-father :myname="student.name" @myevent="changeName"></com-father>
+			
+		</div>
+		
+		
+		
+		
+
+	</body>
+</html>

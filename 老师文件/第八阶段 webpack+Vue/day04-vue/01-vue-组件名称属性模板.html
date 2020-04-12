@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 标签:标签名、属性、模板结构 -->
+		<!-- 组件,eg：swipper、autoplay、小圆点等 -->
+		
+		<div id="app" v-cloak>
+			<mydiv mycolor="yellow"></mydiv>
+			
+			<mydiv></mydiv>
+			<mydiv></mydiv>
+			<!-- 行内样式绑定的语法 -->
+			<div :style="{backgroundColor:bgcValue}">app标签内部的div</div>
+		</div>
+
+
+
+	</body>
+</html>

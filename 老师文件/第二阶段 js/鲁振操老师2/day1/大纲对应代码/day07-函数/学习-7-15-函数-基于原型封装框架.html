@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-07-函数-作为命名空间的函数及构造函数</title>
+    <style>
+        .myclass{
+            border:1px solid #FF0000;
+            width:200px;
+            height: 200px;
+            float: left;
+        }
+
+        #myclass{
+            border:1px solid #000000;
+            width:300px;
+            height: 300px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="myclass">修改盒子样式1</div>
+    <div class="myclass">修改盒子样式2</div>
+    <div class="myclass">修改盒子样式3</div>
+    <div id="myclass">修改盒子样式4</div>
+    <input type="text" name="mytext" value="" class="mytext">
+
+    <script>
+        //封装一个框架，用于修改指定元素的css
+        (function(){
+            //这里面的代码是私有空间
+            var jQuery = window.jQuery = function (selector) {
+                return new jQuery.prototype.init(selector);
+            };
+            jQuery.prototype.init = function (selector){
+                this.element      = document.querySelectorAll(selector);
+                return this;
+            }
+            jQuery.fn                       = jQuery.prototype;
+            jQuery.prototype.init.prototype = jQuery.fn;
+            jQuery.fn.init.prototype        = jQuery.fn;
+
+            //在原型上扩展方法
+            /*
+                用-把属性名分割成数组
+                然后把元素的第一个字母大写，元素的下标从1开始
+                property：字符串，属性名
+            */
+            jQuery.prototype.firstupper = function up(property) {
+                var pa = property.split('-');
+                var sp = pa[0];
+                for (var i = 1; i < pa.length; i++) {
+                    //把第一个字母大写：pa[i].substring(0, 1).toUpperCase()
+                    //substring：截取字符串
+                    //toUpperCase：转成大写
+                    sp += pa[i].substring(0, 1).toUpperCase() + pa[i].substring(1);
+                }
+                return sp;
+            };
+            jQuery.prototype.css = function (obj, value) {
+                //根据属性值改变css样式
+                for (var i = 0; i < this.element.length; i++) {
+                    if(arguments.length == 1){
+                        for (var property in obj) {
+                            property = this.firstupper(property);
+                            this.element[i].style[property] = obj[property];
+                        }
+                    }else{
+                        this.element[i].style[obj] = value;
+                    }
+                }
+                //返回this，支持链式操作
+                return this;
+            };
+            //把事件和元素关联在一起
+            var eventlist = ['click', 'mouseover', 'mouseout', 'focus', 'keyup', 'input', 'blur', 'dblclick', 'mousemove'];
+            for (var i = 0; i < eventlist.length; i++) {
+                //这里一定要使用闭包，把事件名称传递到内部
+                //eventname：是一个动态属性名，需要以[]的形式关联起来
+                jQuery.prototype[eventlist[i]]    = function(eventname){
+                    return function (fn) {
+                        for (var j = 0; j < this.element.length; j++) {
+                            this.element[j]['on' + eventname] = fn;
+                        }
+                        //返回this，支持链式操作
+                        return this;
+                    }
+                }(eventlist[i]);
+            }
+            //通过window全局对象加属性的方式，把局部变量暴露出去
+            window.$ = jQuery;
+        })();
+        
+        console.log($('#myclass'));
+        $('#myclass')
+        .css({
+            color:'#FFF',
+            borderRadius:'8px',
+            backgroundColor:'#123'
+        }).css('font-family', '微软雅黑');
+
+
+        $('#myclass')
+        .mouseover(function(e) {
+            console.log(e.relatedTarget);
+        })
+        .mouseout(function(e) {
+            console.log(e.relatedTarget);
+        });
+
+    </script>
+</body>
+</html>

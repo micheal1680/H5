@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-06-函数-给函数定义属性</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>这是要把函数玩坏的节奏吗？</h3>
+        <ol>
+            <li>
+                给函数定义一个属性；
+                <pre>
+                    //给函数定义属性
+                    countIncrea.a = 0;
+                    function countIncrea () {
+                        return ++countIncrea.a;
+                    }
+                    console.log(countIncrea ());
+                    console.log(countIncrea ());
+                    console.log(countIncrea ());
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        //给函数定义属性
+        countIncrea.a = 0;
+        function countIncrea () {
+            return ++countIncrea.a;
+        }
+        console.log(countIncrea ());//1
+        console.log(countIncrea ());//2
+        console.log(countIncrea ());//3
+
+    </script>
+</body>
+</html>

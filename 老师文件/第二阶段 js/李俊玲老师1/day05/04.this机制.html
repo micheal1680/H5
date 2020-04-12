@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function identify() {
+            return this.name.toUpperCase();
+        }
+
+        function sayHello() {
+            var greeting = "Hello, I'm " + identify.call(this);
+            console.log(greeting);
+        }
+        var person1 = {
+            name: "zhangsan"
+        };
+        var person2 = {
+            name: "Reader"
+        };
+        // 将person1绑定在identify上
+        var name = identify.call(person1);
+        name = identify.call(person2);
+        sayHello.call(person1);
+        sayHello.call(person2); // 显式的绑定了对象,更改了this的指向
+    </script>
+</body>
+
+</html>

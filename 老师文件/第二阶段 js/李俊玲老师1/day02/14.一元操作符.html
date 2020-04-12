@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一元操作符</title>
+</head>
+
+<body>
+    <script>
+        // 递增递减
+        // ++   --
+        // ++age  --age  符号在前 先+1/-1在操作
+        // age++  age--  符号在后 先操作再+1/-1
+
+        // var age = 29;
+        // ++age;
+
+        var age = 29;
+        age = age + 1;
+        console.log(age); //30
+
+        // var height = 188;
+        // --height;
+
+        var height = 188;
+        height = height - 1;
+        console.log(height); // 187
+
+        var weight = 150;
+        // var newNum = weight++; // 后置递增  先赋值 再加一
+        var newNum = ++weight; // 前置递增 先加一 
+
+        console.log(newNum); // 151
+
+        var a = 2;
+        console.log(a--); // 2
+        console.log(a); // 1
+
+        // 练习
+        // var s1 = "2";
+        // var s2 = "z";
+        // var b = false;
+        // var f = 1.1;
+        // var o = {
+        //     valueOf: function () {
+        //         return -1;
+        //     }
+        // };
+        // s1++;
+        // s2++;
+        // b++;
+        // f--;
+        // o--;
+
+        // var s1 = "01";
+        // var s2 = "1.1";
+        // var s3 = "z";
+        // var b = false;
+        // var f = 1.1;
+        // var o = {
+        //     valueOf: function () {
+        //         return -1;
+        //     }
+        // };
+        // s1 = +s1; // 1
+        // s2 = +s2; // 1.1
+        // s3 = +s3; // NaN
+        // b = +b; // 0
+        // f = +f; // 1.1
+        // o = +o; // -1
+        var s1 = "01";
+        var s2 = "1.1";
+        var s3 = "z";
+        var b = false;
+        var f = 1.1;
+        var o = {
+            valueOf: function () {
+                return -1;
+            }
+        };
+        //s1=+s1--->Number(s1)
+
+        s1 = -s1; // -1
+        s2 = -s2; //-1.1
+        s3 = -s3; // NaN
+        b = -b; // -0
+        f = -f; // -1.1
+        o = -o; // 1
+    </script>
+</body>
+
+</html>

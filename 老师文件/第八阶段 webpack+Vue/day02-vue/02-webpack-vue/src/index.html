@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+	[v-cloak] {
+		display: none;
+	}
+	
+	.mylogin {
+		height: 400px;
+		border: 1px solid black;
+	} 
+	
+	.myloginform {
+		height: 200px;
+		border: 1px solid black;
+		background-color: #ccc;
+	}
+</style>
+</head>
+<body>
+
+<!-- 
+v-html 
+v-on:     --》简写为@
+v-pre 
+v-text 
+v-cloak
+ -->
+ 
+<!-- 	
+ v-bind:-----》简写为 :
+ v-if / v-show 区别：v-if控制节点是否渲染(是否存在)/ v-show 判断是否添加display:none
+ 
+ v-model
+ v-for 
+ 自定义指令
+ 
+ -->
+<div id="app" v-cloak>
+	
+	<!-- v-show="loginPage" -->
+	<div v-if="loginPage">
+		{{msg}}
+		<p>学生1 号的姓名：{{students[0].myname}}</p>
+		<p>学生1 号的成绩：{{students[0].grade}}</p>
+		
+		<p>学生2 号的姓名：{{students[1].myname}}</p>
+		<p>学生2 号的成绩：{{students[1].grade}}</p>
+	</div>
+	
+	<!-- v-bind: 绑定值 -->
+	<div :class="myform" v-else>
+		<button @click="changePage">修改界面主题</button><br>
+		用户头像：<img :src="logoImg" width="100px" height="50px"><br>
+		用户名：<input type="text" name="username"/>
+		<br>
+		密  码：<input type="password" name="password"/><br>
+		<button type="button" @click="userLogin">点击登录</button>
+	</div>
+	
+	
+	
+	
+	
+</div>
+
+
+
+</body>
+</html>

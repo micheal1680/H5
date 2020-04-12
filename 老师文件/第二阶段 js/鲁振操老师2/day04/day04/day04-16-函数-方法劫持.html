@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        function fn(a, b, c) {
+
+        }
+
+        console.log(fn.length); //形参个数
+
+        var arr = [1, 12, 34, 5, 7, 6, 78, 9];
+        console.log(Math);
+        console.log(Math.max(1, 12, 34, 5, 7, 6, 78, 9));
+        // 把Math.max这个方法劫持过来用在数组的身上
+        console.log(Math.max.apply(arr, arr));
+
+        //使用call实现方法劫持
+        // 人类
+        function Person(username, age, gender){
+            this.username = username;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        // 老师类  类的继承实现方式
+        function Teacher(username, age, gender, course){
+            Person.call(this, username, age, gender);
+            this.course = course;
+        }
+
+        var t1 = new Teacher('鲁老师', '30', '男', 'H5');
+        console.log(t1);
+
+
+    </script>
+</body>
+
+</html>

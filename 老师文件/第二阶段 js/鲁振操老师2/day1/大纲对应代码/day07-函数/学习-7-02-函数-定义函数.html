@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-02-函数-函数定义</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>使用function定义一个函数；</h3>
+        <ol>
+            <li>
+                定义函数的语法结构很简单；
+                <pre>
+                    function fn(形参){
+                        函数体;
+                        return 返回值;
+                    }
+                </pre>
+                看看别人写的函数，那叫一个帅；
+                <pre>
+                    //看一些权威函数
+                    //计算两个坐标点之间的距离
+                    function distance (x1, y1, x2, y2) {
+                        var x = x2 - x1;
+                        var y = y2 - y1;
+                        return Math.sqrt(x*x + y*y).toFixed(2);
+                    }
+                    console.log(distance(3, 5, 8, 20));
+
+                    //定义一个表达式函数
+                    var square = function (h) {
+                        return h*h;
+                    }
+                    console.log(square(3));
+
+                    //定义一个递归函数
+                    // 求阶层
+                    function factorial (n) {
+                        if(n==1) return 1;
+                        return n*factorial(n-1);
+                    }
+                    console.log(factorial(10));
+                    //函数后面跟小括号表示直接执行该函数
+                    var add = function (a,b) {
+                        return a+b;
+                    }(23, 302);
+                    console.log(add);
+                </pre>
+            </li>
+        </ol>
+        <h3>函数是可以嵌套的；</h3>
+        <ol>
+            <li>
+                函数可以嵌套在其他函数里面，也就是在函数里面可以定义函数(感觉半句废话)；
+                <pre>
+                    //计算两个坐标点之间的距离
+                    function distance (x1, y1, x2, y2) {
+                        function square(h) { return h*h;}
+                        return Math.sqrt(square(x2-x1) + square(y2-y1)).toFixed(2);
+                    }
+                </pre>
+            </li>
+            <li>被嵌套的函数可以访问嵌套他们的函数的变量或参数；</li>
+            <li>
+                嵌套的函数不会从调用他的函数中继承this； <br>
+                如果想使用外层函数的this，需要把他保存到一个变量中；
+            </li>
+        </ol>
+    </div>
+    <script>
+        //看一些权威函数
+        //计算两个坐标点之间的距离
+        function distance (x1, y1, x2, y2) {
+            function square(h) { return h*h;}
+            return Math.sqrt(square(x2-x1) + square(y2-y1)).toFixed(2);
+        }
+        console.log(distance(3, 5, 8, 20));
+    </script>
+</body>
+</html>

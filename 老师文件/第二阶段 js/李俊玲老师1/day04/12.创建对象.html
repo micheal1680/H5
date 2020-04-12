@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建对象</title>
+</head>
+
+<body>
+    <script>
+        // 1. 字面量创建: 会产生大量重复代码
+        var person1 = {
+            name: "张三",
+            age: 29,
+            job: "软件工程师",
+            sayName: function () {
+                alert(this.name)
+            }
+        }  //这仅仅是一个对象的创建，并没有要实现任何功能，只是说明了创建的对象person1有name、age、job、sayname这几个属性而已，而且属性sayname是一个函数，若这个执行可以弹出弹框
+        // var person2 = {
+        //     name: "李四",
+        //     age: 29,
+        //     job: "医生",
+        //     sayName: function () {
+        //         alert(this.name)
+        //     }
+        // }
+
+        //2. 工厂模式创建
+
+        function createPerson(name, age, job) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function () {
+                alert(this.name);
+            }
+            return o;
+        }
+
+        var person2 = createPerson("王五", 39, "消防员");
+        var person3 = createPerson("刘七", 9, "学生");
+        person2.sayName();
+
+        // 3.构造函数模式 
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function () {
+                alert(this.name);
+            }
+        }
+
+        // 通过new 去堆空间申请一片空间 将这片空间的引用赋值给this  将this返回,
+        var person4 = new Person("蒋八", 70, "花农");
+        var person5 = new Person("赵六", 15, "服务员");
+        person4.sayName();
+        person4.job = "退休";
+        person5.sayName();
+        console.log(person4.job, person5.job)
+        
+        // 4.new关键字
+        var obj1 = new Object();
+        obj1.name = "嘿嘿";
+        console.log(obj1);
+        var obj2 = new Date();
+        console.log(obj2);
+        var obj3 = new Array();
+        console.log(obj3);
+
+        // 5.Object.create()
+    
+        var arr = Object.create([11,22,33]); //new Array(11,22,33)
+        console.log(arr);
+        var test = Object.create(null); // {}
+        console.log(test)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p>段落1</p>
+        <p>段落2</p>
+        <p>段落3</p>
+        <p>段落4</p>
+        <p>段落5</p>
+    </div>
+
+    <!-- 在线引用cdn中的文件 -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        // 找到div中的第一个p元素
+        // $("div > p:first-of-type").css("color", "hotpink");
+        // $("div p:first-of-type").css("color", "red");
+        // $("div").children().first().css("color", "blue");
+        $("div p").first().css("color", "purple");
+    </script>
+
+</body>
+
+</html>

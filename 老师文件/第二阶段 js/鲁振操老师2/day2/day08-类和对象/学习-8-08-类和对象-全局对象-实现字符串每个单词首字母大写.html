@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第八天-08-类和对象-全局对象-String-字符串每个单词首字母大写</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3> 英文单词首字母大写，其它字母全部小写，并删除多余空格；</h3>
+        把字符串 <br>
+        <code>zhuanye sHIYU     zhuANzhu, zhuoshi 卓识源于 yuanjian</code> <br>
+        转成 <br>
+        <code>Zhuanye Shiyu Zhuanzhu, Zhuoshi 卓识源于 Yuanjian</code>
+    </div>
+    <script>
+        //首字母大写，其他字母全部小写
+        var str = 'zhuanye sHIYU     zhuANzhu, zhuoshi 卓识源于 yuanjian';
+        function firstUpperCase(str) {
+            if (!str) {
+                return '';
+            }
+            var str         = str.toLowerCase();
+            var strarray    = str.split(' ');
+            var uppera      = strarray.map(firstupper);
+            function firstupper(item, index) {
+                if (!item) {
+                    return null;
+                }
+                return item[0].toUpperCase() + item.slice(1);
+            }
+            //去除空元素
+            for (var i = 0; i < uppera.length; i++) {
+                if(!uppera[i]){
+                    uppera.splice(i, 1);
+                    i--; //这坑也是没谁了
+                }
+            }
+            return uppera.join(' ');
+        }
+        str = firstUpperCase(str);
+        console.log(str);        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p>
+			子类的构造函数中super
+			1.必须要使用super(<参数....>)调用父类的构造函数,并且如果构造函数中有使用this的情况下，
+			super(<参数...>)在所有的this代码之前，实战中建议永远super()位于第一条语句。
+			这是因为子类实例的构建，基于父类实例
+			2.super(...)可以带参数，也可以不参
+		</p>
+		<script type="text/javascript">
+			class Person {
+				constructor() {
+					console.log("Person....")
+				}
+			}
+			class Stu extends Person {
+				constructor(age) {
+					super();
+					console.log("Stu.....")
+					this.age = age;
+				}
+			}
+			let s1 = new Stu(20);
+			console.log(s1.age);//20;
+		</script>
+	</body>
+</html>

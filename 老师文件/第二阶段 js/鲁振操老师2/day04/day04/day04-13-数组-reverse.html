@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1,2,3];
+        console.log(arr.reverse());
+        // 回文：上海自来水来自海上
+        // 写一个函数：判断一个字符串是不是回文
+        function reverse(str){
+            return str == str.split('').reverse().join('');
+        }
+        var str = '上海自来水来自海上';
+        console.log(reverse(str));
+        var str1 = '回文';
+        console.log(reverse(str1));
+
+        var str1 = '12321';
+        console.log(reverse(str1));
+
+    </script>
+</body>
+
+</html>

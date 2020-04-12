@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button"value="new"onclick="open('new.html','_blank') ">  在原窗口加载该页面
+    <input type="button" value="new"onclick="window.location='new.html';">  在原窗口加载一个新页面
+    <input type="button" value="new"onclick="location.assign('new.html');">  在原窗口加载一个新页面
+    <form target="_blank" action="new.html">
+        <input type="submit" value="new">
+    </form>在新窗口加载一个新页面
+
+    <!-- input标签的使用：
+          1.<input> 标签用于搜集用户信息；
+          2. 根据不同的 type 属性值，输入字段拥有很多种形式。输入字段可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等等；
+          3.在 HTML 中，<input> 标签没有结束标签，是单标签。
+        
+        在html中的常用属性：
+         1.alt: 值为text，定义图像输入的替代文本；
+         2.checked： 值为checked，规定此 input 元素首次加载时应当被选中。（checked=“checked”）
+         3.disabled： 值为disabled，当 input 元素加载时禁用此元素。
+         4.form：值为formname，规定输入字段所属的一个或多个表单。
+         5.max： 值为number或data，规定输入字段的最大值。请与 "min" 属性配合使用，来创建合法值的范围。
+         6.min： 值为number或data，规定输入字段的最小值。请与 "max" 属性配合使用，来创建合法值的范围。
+         7.readonly： 值为readonly，规定输入字段为只读。
+         8.multiple： 值为multiple，如果使用该属性，则允许一个以上的值
+         9.name： 值为field_name，定义 input 元素的名称。
+         10.required： 值为required，指示输入字段的值是必需的。
+         11.src： 值为URL，定义以提交按钮形式显示的图像的 URL。（URL就是网址）
+         12.step： 值为number，规定输入字的的合法数字间隔。
+         13.type： 值可以取：button（按钮） checkbox（复选框） file hidden image password radio reset（重置） submit（提交） text（文本域） ，规定 input 元素的类型。（因此创建一个按钮有2种方法，直接用botton标签和类型为botton的input标签）
+         14.value： 值为value，规定 input 元素的值。
+
+         使用例子：<input type=radio> 表示点选框,就是一个圆圈,选中后中间多出一个点；
+                  单选框： （form表示：表单）
+               <form>
+　　             <input type="radio" name="..." value="..." checked />
+               </form> 
+               注意：同一组的name值要相同。
+
+                  复选框：
+               <form>
+　　            <input type="checkbox" name="..." value="..." checked />
+               </form>
+    -->
+</body>
+</html>

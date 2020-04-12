@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHTML</title>
+</head>
+<body>
+    <div class="myDiv">旧内容</div>
+
+    <script>
+        //  1. 选中元素myDiv
+        document.querySelector(".myDiv").innerHTML = "新内容";
+    // 对网页上选中的内容进行修改。
+    // querySelector选中的是该选择器的第一个元素，而这里div里面只有一个元素。
+    // 用querySelectorAll才是选中该选择器中的所有元素。
+    </script>
+</body>
+</html>

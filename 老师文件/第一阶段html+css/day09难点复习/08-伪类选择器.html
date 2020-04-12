@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input:focus {
+            outline: none;
+            border: 1px solid red;
+        }
+
+        input:disabled {
+            background-color: #f00;
+        }
+
+        .input2:checked+span {
+            color: red;
+        }
+
+        ul li:not(.notborder) {
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* .box div:first-child{
+            color: red;
+        } */
+        /* .box div:first-of-type{
+            color: red;
+        } */
+        .box div:nth-child(2n-1) {
+            color: red;
+        }
+
+        div:empty{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        :root {
+            /*匹配文档的根元素*/
+            background-color: #dde6ef;
+        }
+        a:hover:nth-of-type(2){
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="04-凹凸文字.html">凹凸文字</a>
+    <a href="04-凹凸文字.html">凹凸文字</a>
+    <a href="04-凹凸文字.html">凹凸文字</a>
+    <a href="04-凹凸文字.html">凹凸文字</a>
+    <a href="04-凹凸文字.html">凹凸文字</a>
+
+    <input type="text">
+    <input type="password">
+
+    <input type="text" disabled>
+    <input type="checkbox" class="input2" /><span>篮球</span>
+    <input type="checkbox" class="input2" /> <span>足球</span>
+
+    <ul>
+        <li>列表1</li>
+        <li>列表2</li>
+        <li class="notborder">列表3</li>
+    </ul>
+    <div></div>
+
+    <div class="box">
+        <!-- <p>我是一个duanluo </p> -->
+        <div>我是div1</div>
+        <div>我是div2</div>
+        <div>我是div3</div>
+        <div>我是div4</div>
+    </div>
+    <div></div>
+
+</body>
+
+</html>

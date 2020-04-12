@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运算符</title>
+</head>
+<body>
+    <script>
+    //    var a = 1 + 2 + ''; 
+    //    console.log(a);  结果：3  //数字在前面，因此“+”就是加号，优先满足数字相加，再满足字符串连接
+
+    //    var a = ''+ 1 + 2; 
+    //    console.log(a);  结果：12 //字符串在前，优先满足字符串相连，加号充当字符串连接符
+
+    //    var b = '123';
+    // //    console.log(typeof Number(b));
+    //    console.log(typeof (b/1));    这两句效果相同，即可以利用除号“/”来转换数据类型，它会将对象转换为所需的数据类型。
+
+    // //    逻辑运算符
+    //     var a = (b=0) && (c=2);
+    //     console.log(a);
+    //     console.log(b);
+    //     console.log(c);  //逻辑与：第一个为真，返回第二个的值；第一个为假，则第二个根本就不会再编译，直接返回第一个的值。此处b=0,为假，因此c=2没进行编译，所以打印c时直接报错。
+
+        // var d = (e=1) || (f=2);
+        // console.log(d, e);
+        // console.log(f);  //逻辑或：第一个为假，则返回第二个的值；第一个为真，则第二个不会再进行编译，直接返回第一个的值。
+        /*
+        a && (v=100);
+        if(a){
+            v=100;
+        }
+        */
+        // 三目运算符
+        // 逗号运算符
+        for (var i = 0, j=0; j< 5, i < 10; i++, j++){
+            // 代码块  如果只有一个语句，大括号可以省略
+        } ;
+        console.log(i+j);
+    </script>
+</body>
+</html>

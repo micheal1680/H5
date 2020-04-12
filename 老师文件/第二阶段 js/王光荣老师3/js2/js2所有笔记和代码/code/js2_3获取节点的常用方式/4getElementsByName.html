@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>你</title>
+        <script type="text/javascript">
+            function test() {
+				//得到h1和div组成的数组
+                var a = document.getElementsByName("showRed");
+                a[0].align="center";
+                a[1].style.color="red";
+            }
+        </script>
+    </head>
+    <body>
+         <h1 align="right" name="showRed">居中</h1>
+         <div name="showRed" id="mydiv">内容</div>
+		 
+         <button onclick="test();">测试</button>
+    </body>
+</html>

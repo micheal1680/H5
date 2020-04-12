@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-04-语句-声明语句</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>用于声明变量的var</h3>
+        <ol>
+            <li>
+                变量var之后跟随的是要声明的变量列表；
+                可以指定或不指定初始值，不指定初始值则默认值是undefined；
+            </li>
+            <li>
+                在函数体内用var声明的变量是局部变量；
+                在全局代码中用var声明的变量是全局变量；
+                那么在函数体内不用var直接使用变量并赋值会是什么情况？
+            </li>
+            <li>var声明的变量无法用delete删除；</li>
+        </ol>
+        <h3>用于定义函数的function</h3>
+        <ol>
+            <li>
+                函数声明的语法格式如下：
+                <pre>
+                    //functionname是函数名称，如：addnum
+                    //arg1, arg2, arg3...称为函数的形参，可有可无
+                    //函数体的大括号是必须的，里面可以放任意多的语句
+                    function functionname(arg1, arg2, arg3...){
+                        statements
+                    }
+                </pre>
+            </li>
+            <li>在定义函数时，并不执行函数体内的语句；</li>
+            <li>函数名后跟小括号，代表执行函数，也就是会执行函数体(大括号)里面的语句；</li>
+            <li>和变量提升类似，function声明的函数(名及其函数体)会提升到作用域最前面；</li>
+            <li>
+                写两个函数看看吧：
+                <pre>
+                    //求和
+                    function add(a, b){
+                        return a +b;
+                    }
+                    var a = add(1,2);
+                    console.log(a);
+
+                    //递归函数求阶层：1*2*3*4*5...*n
+                    function factorial(n){
+                        if(n==1) return 1;
+                        return n*factorial(n-1);
+                    }
+                    var f = factorial(5);
+                    console.log(f);
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+</head>
+<body>
+<div id="app" >
+	
+	<p>{{msg}}</p>
+	<p>用户姓名{{user.name}}</p>
+	<p>数据:{{num}}</p>
+	<button type="button" @click="changName">修改姓名</button>
+	<br>
+	
+	关键词：<input type="text" v-model="keyWord" />
+	<p>用户输入的关键词：{{keyWord}}</p>
+	<button type="button" @click="changNum">数据+1</button>
+	<button type="button" @click="myDestroy">销毁vm</button>
+</div>
+
+
+
+</body>
+</html>

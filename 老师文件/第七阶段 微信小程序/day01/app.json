@@ -1,0 +1,17 @@
+{
+	"pages": [
+		"pages/xioami/xiaomi",
+		"pages/dome/dome",
+		"pages/index/index",
+		"pages/logs/logs"
+	],
+	"window": {
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#f00",
+		"navigationBarTitleText": "19/12/11",
+		"navigationBarTextStyle": "black",
+		"backgroundColor": "#ff0"
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json"
+}

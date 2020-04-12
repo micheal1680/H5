@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 300px;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				margin: 0 auto;
+				border-radius: 30px;/*胶囊式按钮：高度的一半*/
+				background-color: blue;
+				color: white;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+<!-- 		
+		m：数据
+		v：视图
+		c：逻辑处理
+		 -->
+		
+		<div>
+			<p>默认描述语句</p>
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+		<script type="text/javascript">
+			var msg="周五你们放假，我们搬公司";//model 数据层
+			
+			$("div").click(function(){
+				this.innerHTML=msg;
+			})// controller 控制层
+			
+			
+			
+			// var vm={
+			// 	$el:"div",
+			// 	$children:[
+			// 		{
+			// 			$el:"p",
+			// 			$children:[],
+			// 			$data:{
+			// 				msg:"默认描述语句"
+			// 			}
+			// 		}
+			// 	]
+			// }
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

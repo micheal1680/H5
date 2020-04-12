@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-08-数组-常用方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>数组对象有哪些方法我们可以使用；</h3>
+        <ol>
+            <li>
+                join()：
+                数组中的元素转换成字符串并连接在一起；
+                默认是逗号(,)连接，可以指定连接符号；
+                <pre>
+                    var students = [
+                                    ['张三', 20],
+                                    ['李四', 21],
+                                    ['王五', 22],
+                                    ['小六', 23]
+                                ];
+                    console.log(students.join());
+                    console.log(students.join('|'));
+                </pre>
+            </li>
+            <li>
+                reverse()：把数组中的元素顺序反转；
+                <pre>
+                    var students = [
+                                    ['张三', 20],
+                                    ['李四', 21],
+                                    ['王五', 22],
+                                    ['小六', 23]
+                                ];
+                    console.log(students.reverse().join('|'));
+                    console.log(students);
+                </pre>
+            </li>
+            <li>
+                sort()：对数组中的元素排序并返回排序后的值；
+                没有参数时按字母排序，会把元素转换成字符串；
+                <pre>
+                    var a = ['a', 'd', 'f', 'b', 'k','c'];
+                    a.sort();
+                    console.log(a);
+                </pre>
+                对<code>元素是数字的数组</code>进行排序时，是需要注意的；
+                <pre>
+                    //下面的排序结果可能不是你想要的
+                    var a = [1, 23, 9, 12, 80];
+                    a.sort();
+                    console.log(a);
+                    //也许下面的排序才是你想要的
+                    var a = [1, 23, 9, 12, 80];
+                    a.sort(function (a,b) {
+                        /* 从小到大，a在前面，返回负值 */
+                        // return a-b;
+                        /*从大到小*/
+                        return b-a;
+                    });
+                    console.log(a);
+                </pre>
+            </li>
+            <li>
+                concat()：数组连接，连接后<code>返回一个新数组</code>，千言万语不如代码十行：
+                <pre>
+                    //猜一猜他们会打印什么到控制台？
+                    var a = ['h', 'q', 'y', 'j'];
+                    console.log(a.concat('h5'));
+                    console.log(a = a.concat('javaee', '嵌入式'));
+                    console.log(a.concat(['AR/VR', 'Python']));
+                    console.log(a.concat(['AR','VR'], ['Python',['AI', '大数据', '运维自动化']]));
+                </pre>
+            </li>
+            <li>
+                slice()：截取数组，两个参数，指定开始和结束位置；<br>
+                参数支持负数，表示从后面往前面数，第一个-1, 依次-2,-3...；<br>
+                <pre>
+                    var a = ['h', 'q', 'y', 'j'];
+                    console.log(a.slice(0, 2));
+                    console.log(a.slice(2, 2));//指定同一个位置会怎样？
+                    console.log(a.slice(2));
+                    console.log(a.slice(-2));
+                    console.log(a.slice(-2, -1));
+                    console.log(a.slice(-2, -3));//这种会怎样？
+                </pre>
+            </li>
+            <li>
+                splice()：插入、删除元素的通用方法，哎哟，这么牛逼，好怕；<br>
+                感觉插入、删除元素的其他方法可以去死了；<br>
+                <code>会直接修改元数组</code>；<br>
+                参数1：操作起始位置；<br>
+                参数2：操作元素个数，为空表示到结尾，为0表示插入元素，大于0表示替换元素；<br>
+                参数n：新的元素，代表要插入的元素；
+                <pre>
+                    ar a = ['h', 'q', 'y', 'j'];
+                    a.splice(2); //从下标2开始删除
+                    console.log(a);
+                    a.splice(2, 0, 1, 2, 3);//从下标2开始添加元素
+                    console.log(a);
+                    a.splice(2, 1, 'y', 'j');//从下标2开始添加元素
+                    console.log(a);
+                    a.splice(1, 0, ['H5', '嵌入式']);//这里插入数组元素会怎么样那？
+                    console.log(a);
+                </pre>
+            </li>
+            <li>
+                push():在数组的结尾添加一个或多个元素，返回新数组的长度；<br>
+                pop():移除数组最后一个元素，返回移除的元素；<br>
+                unshift():在数组的开头添加一个或多个元素，返回新数组的长度；<br>
+                shift():删除数组第一个元素，并返回删除的元素；<br>
+                <code>这四个函数都是在原始数组上进行修改</code>
+            </li>
+            <li>
+                toString():将数组的所有元素转换成字符串，并用逗号连接起来并输出;
+                让我想起来join();
+                <pre>
+                    var a = [
+                                'h', 'q', 
+                                ['H5', '嵌入式'], {x:1, y:2},'y',
+                                function () {console.log('我是函数');}, 
+                                'j'
+                            ];
+                    console.log(a.toString());
+                    console.log(a.join('|'));
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var a = [
+                    'h', 'q', 
+                    ['H5', '嵌入式'], {x:1, y:2},'y',
+                    function () {console.log('我是函数');}, 
+                    'j'
+                ];
+        console.log(a.toString());
+        console.log(a.join('|'));
+
+
+        var a = ['h', 'q', 'y', 'j'];
+                    a.splice(2, 1); //从下标2开始删除
+                    console.log(a);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="Stu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="BasketBallStu.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let bbs = 
+			new BasketBallStu("小明",30,"女"); 
+			bbs.study();
+			bbs.sleep();
+			bbs.playBaskedBall();
+			console.log(bbs.name);
+			console.log(bbs.age);
+			console.log(bbs.sex);
+			bbs.toString();
+			
+			let s1 = new Stu("小明",30, "女");
+			s1.study();
+			let str = s1.toString();
+			console.log(str);
+		</script>
+	</body>
+</html>

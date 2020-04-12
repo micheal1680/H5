@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-07-正则表达式-修饰符</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>正则表达式支持修饰符；</h3>
+        <ol>
+            <li>
+                修饰符放在正则表达式的后边界之后：
+                <pre>
+                    字符                    含义
+                    ----------------------------------------------------------------
+                    i                       不区分大小写
+                    g                       全部匹配
+                    m                       多行匹配模式，^表示开始，$表示结束
+                </pre>
+                看个例子：
+                <pre>
+                    var emailp = /^\w{1}[\w_\-]{2,31}@[\w]{1,}\.(com|com\.cn|gov|net|edu)$/ig;
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

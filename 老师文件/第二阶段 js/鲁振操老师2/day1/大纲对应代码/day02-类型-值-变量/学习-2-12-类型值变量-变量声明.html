@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-12-类型值变量-变量声明</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>变量声明</h3>
+        <ol>
+            <li>
+                JavaScript中使用一个变量之前需要先声明；
+                使用没有声明的变量会报错;
+            </li>
+            <li>
+                使用var来声明一个变量：JavaScript是弱类型语言，不需要设置类型
+                <pre>
+                    //一次声明一个变量
+                    var name;
+                    var age;
+                    //一次声明多个变量
+                    var a,b,c;
+                    //如果var声明的变量没有赋值，则初始值是undefined
+                    //声明变量的同时可以赋值（初始值）
+                    var h = '华清远见';
+                    var q=1, y=2, j=3;
+                </pre>
+            </li>
+            <li>
+                给一个没有声明的变量赋值是可以的，然而能不这么干就不要这么干；
+                请养成使用var声明变量的好习惯；
+            </li>
+
+        </ol>
+    </div>
+    <script>
+        var a=1;
+        console.log(a);
+
+    </script>
+</body>
+</html>

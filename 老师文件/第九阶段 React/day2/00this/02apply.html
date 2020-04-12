@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function show(...val) {
+            console.log(val)
+            console.log(this[0]);
+        }
+
+        // show();
+        // apply将this指向数组对象,第二个参数要传递一个数组类型
+        //apply改变了this的指向，同时执行了函数
+        show.apply(["yyy"], [11, 22, 33]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+        .container {width: 230px; height: 340px; border-top: 1px solid red; background-color: #ccc; text-align: center;}
+        .title {font-size: 40px; color: #444}
+        .logo {width: 50px; height: 50px;}
+        .box {display: inline-block; width: 50px; height: 50px; background-color: #666; text-align: center; line-height: 50px; color: #fff; font-size: 20px;}
+        .flag {font-size: 30px; color: #666; margin: 6px;}
+    
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class CountDown extends React.Component {
+            constructor(props) {
+                super();
+
+                // 闪购结束时间
+                this.endTime = new Date(2020, 0, 14, parseInt(props.shoptime) + 2, 0, 0);
+                console.log(this.endTime);
+                this.state = {
+                    time: this.endTime - new Date() //得到一个毫秒值，使用结束时间-当前时间
+                }
+                console.log(this.state.time)
+                
+
+                setInterval(() => {
+                    this.setState({
+                        time: this.state.time-1000
+                    })
+                }, 1000)
+
+                /**
+                * time -- 返回结束时间-当前时间的毫秒值
+                * 每隔1秒要将秒数-1    time-1000
+                * 时： time/1000/60/60
+                * 分： time/1000/60%60
+                * 秒： time/1000%60
+                */
+
+            }
+
+            render() {
+                return(
+                    <div className="container">
+                        <h2 className="title"> { this.props.shoptime }:00场 </h2>
+                        <img className="logo" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2548792388,987290469&fm=26&gp=0.jpg"/>
+                        <p>距离结束还有</p>
+                        <span className="box"> { this.state.time <= 0 ? "00" : ( Math.floor(this.state.time/1000/60/60) < 10 ? ("0" + Math.floor(this.state.time/1000/60/60)) : Math.floor(this.state.time/1000/60/60)) }</span> 
+                        <span className="flag">:</span> 
+                        <span className="box"> { this.state.time <= 0 ? "00" : (Math.floor(this.state.time/1000/60%60) < 10 ? ("0" +　Math.floor(this.state.time/1000/60%60)) : Math.floor(this.state.time/1000/60%60)) } </span> 
+                        <span className="flag">:</span> 
+                        <span className="box">{ this.state.time <= 0 ? "00" :  (Math.floor(this.state.time/1000%60) < 10 ? ("0" + Math.floor(this.state.time/1000%60)) : Math.floor(this.state.time/1000%60))}</span>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <CountDown shoptime="12"/>
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

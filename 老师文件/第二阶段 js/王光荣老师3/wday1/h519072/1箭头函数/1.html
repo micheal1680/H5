@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function aa() {
+				console.log("aa");
+			}
+			function bb(a) {
+				a();  //此处a的后面跟上一个(),说明a是函数
+			}
+			window.bb(window.aa); //bb函数的执行，其中a函数就是aa函数
+			bb(function(){
+				console.log("匿名函数");
+			});
+			// bb(()=>{
+			// 	console.log("箭头函数");
+			// });
+			
+			bb(()=>{
+				console.log("箭头函数1");
+				console.log("箭头函数2");
+			});
+			//当箭函数的函数体只有一条代码的时候,
+			//可以省略花括号    (就只有这一种情况可以省略，其他不可以))
+			bb(()=>console.log("箭头函数"));
+			bb(()=>{
+				console.log("箭头函数1");
+				console.log("箭头函数2");
+			});
+			
+			//当箭头函数有参数
+			function f1(m) {
+				m("小明",30);
+			}
+			//调用f1函数
+			f1(function(name,age){
+				console.log(name);//小明
+				console.log(age);//30
+			});
+			//箭头函数
+			f1((name,age)=>{
+				console.log(name);//小明
+				console.log(age);//30
+			});
+			
+			function f2(m) {
+				m("小明");
+			}
+			//当箭头函数只有一个参数时,可以省掉()
+			f2(name=>{
+				console.log(name);
+			})
+			//当箭头函数只有一个参数时,可以省掉()
+			f2(name=>console.log(name))
+			
+			var x = 0;
+			window.setInterval(function(){
+				console.log(this.x++);
+			},400);
+			
+			window.setInterval(()=>{
+				console.log(this.x++);
+			},400);
+		</script>
+	</body>
+</html>

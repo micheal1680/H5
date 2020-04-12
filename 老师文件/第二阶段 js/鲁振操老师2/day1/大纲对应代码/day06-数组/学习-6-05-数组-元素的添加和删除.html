@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-05-数组-元素的添加和删除</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>元素的添加和删除；</h3>
+        <ol>
+            <li>
+                元素的添加；
+                <pre>
+                    var arr = ['h', 'q', 'y', 'j'];
+                    arr[4] = 'five'; //指定索引，添加元素
+                    console.log(arr);
+
+                    arr.push('one');//在末尾添加元素
+                    console.log(arr);
+                    arr.push('two_1', 'two_2');
+                    console.log(arr);
+
+                    arr.unshift('first');//在开头添加元素
+                    console.log(arr);
+                    arr.unshift('first_1', 'first_2');//两个元素一次加入
+                    console.log(arr);
+                </pre>
+            </li>
+            <li>
+                元素的删除：
+                <pre>
+                    var arr = ['h', 'q', 'y', 'j'];
+                    delete arr[2]; //删除一个指定元素，注意和下面的区别
+                    console.log(arr);
+                    arr.pop();//删除最后一个元素
+                    console.log(arr); 
+
+                    arr.shift();//删除第一个元素
+                    console.log(arr); 
+
+                    delete arr[0]; //删除一个指定元素
+                    console.log(arr);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var arr = ['h', 'q', 'y', 'j'];
+        delete arr[2]; //删除一个指定元素，注意和下面的区别
+        console.log(arr);
+        arr.pop();//删除最后一个元素
+        console.log(arr); 
+
+        arr.shift();//删除第一个元素
+        console.log(arr); 
+
+        delete arr[0]; //删除一个指定元素
+        console.log(arr);
+
+    </script>
+</body>
+</html>

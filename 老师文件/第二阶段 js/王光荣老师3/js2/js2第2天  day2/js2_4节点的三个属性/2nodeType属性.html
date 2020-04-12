@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>nodeName属性</title>
+	</head>
+	<body>
+		<div>
+		</div>
+		<h1 align="center">标题1</h1>
+		<h1 align="center">标题2</h1>
+	</body>
+	
+	<script type="text/javascript">
+		// 元素.childNodes--->得到元素中嵌套的所有直接子节点数组
+		let body = document.body;
+		//得到body元素中嵌套的所有子节点数组
+		let a = body.children;
+		for(let i=0; i<a.length; i++) {
+			let e = a[i];
+			if(e.nodeType==1) {//判断节点是否为元素节点
+				console.log(e.nodeName, e.nodeType);
+			}
+		}
+	</script>
+</html>

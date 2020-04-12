@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>获取播放时间及总时间</title>
+		<style>
+			ul>li {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            list-style: none;
+        }
+    </style>
+	</head>
+
+	<body>
+		<video controls id="myvideo">
+			<source src="00mv-img/buy.mp4" type="video/mp4">
+		</video>
+		<input type="range" name="time" id="time" min="0" max="100" value="0">
+		<script>
+			
+			var totaltime = 0;
+			//获取视频的总时间
+			var timer = setInterval(function() {
+				var myaudio = document.getElementById("myvideo");
+				if (!totaltime) {					
+					totaltime = parseInt(myaudio.duration / 60);
+				} else {
+					clearInterval(timer)
+				}
+			}, 1000);
+
+			window.onload = function() {
+				let myvideo = document.querySelector('#myvideo');
+
+				//获取视频的总时间
+				console.log("总时长约为：" + totaltime+"分钟");
+				document.querySelector('#time').onchange = function() {
+					console.log("想设置的当前播放时间" + (this.value / 100) * totaltime)
+					myvideo.currentTime = (this.value / 100) * totaltime * 60;
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

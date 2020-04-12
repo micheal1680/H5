@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let和var</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let x = 100;
+			console.log(x);
+			
+			var y = 20;
+			console.log(x);
+			
+			console.log(x1);//undefined   这里对于用var声明的变量X1，先使用后声明，会打印undefined
+			//console.log(x2);//报错   这里对于用let声明的变量X2，先使用后声明,直接报错。
+			var x1 = 1000;
+			let x2 = 2000;
+			// 直接报错是一件好事，可以及时发现错误并解决，还有就是声明提升本身是件不好的事情，它会让代码变得更加复杂，应该规避它。
+			// 在实现相同的效果的前提之下，写代码所追求的就是： 简洁明了，通俗易懂，逻辑严谨。
+		</script>
+		
+		<h1>dfdsa</h1>
+		
+		<div id="mydiv1"></div>
+		<div id="mydiv2"></div>
+		<script type="text/javascript">
+			//根据id得到元素对象
+			//内置对象有: window, document, location
+			var mydiv1 = document.getElementById("mydiv1");
+			var mydiv2 = document.getElementById("mydiv2");
+			
+			function show() {
+				mydiv1.innerHTML = m;
+				// mydiv2.innerHTML = n;//报错
+			}
+			show();
+			var m = 1000;
+			let n = 2000;
+		</script>
+ 
+ 
+		 <script type="text/javascript">
+			//根据id得到元素对象
+			//内置对象有: window, document, location
+			var mydiv1 = document.getElementById("mydiv1");
+			var mydiv2 = document.getElementById("mydiv2");
+			
+			function show() {
+				var m = 1000;
+				let n = 2000;
+				mydiv1.innerHTML = m;
+				mydiv2.innerHTML = n;
+			}
+			show();
+			
+		 </script>
+	</body>
+</html>

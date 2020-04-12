@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+
+    <style>
+        .layui-input,
+        .layui-textarea,
+        .layui-input-block {
+            width: 300px;
+        }
+
+        .red {
+            color: red;
+            font-size: 18px;
+        }
+
+        .mybtn-location {
+            margin: 10px 0 20px 110px;
+        }
+    </style>
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">layui 后台布局</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">控制台</a></li>
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">用户</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">邮件管理</a></dd>
+                        <dd><a href="">消息管理</a></dd>
+                        <dd><a href="">授权管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <!-- 用户设置 -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退了</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="./CakeManagement.html">商品管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="./CakeManagement.html">商品管理</a></dd>
+                            <dd><a href="./AddProduct.html">添加商品</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item"><a href="">云市场</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <h2>添加商品</h2>
+                <hr>
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品名称<span class="red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" required lay-verify="required" placeholder="请输入商品名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">原价</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="oldprice" placeholder="请输入原价" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">现价<span class="red">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="newprice" required lay-verify="required" placeholder="请输入现价" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">分类<span class="red">*</span></label>
+                        <div class="layui-input-block">
+                            <select name="type" lay-verify="required">
+                                <option value=""></option>
+                                <option value="1">雪域口味</option>
+                                <option value="2">巧克力味</option>
+                                <option value="3">芝士口味</option>
+                                <option value="4">慕斯口味</option>
+                                <option value="5">鲜果口味</option>
+                                <option value="6">奶油口味</option>
+                                <option value="7">雪域特浓</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">活动</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="activity" required placeholder="请输入活动" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">商品描述<span class="red">*</span></label>
+                        <div class="layui-input-block">
+                            <textarea name="description" placeholder="请输入描述" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="button" class="layui-btn mybtn-location" id="uploadPicture">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formAdd">立即添加</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+
+    <!-- 引入layui中的所有组件 -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="../layui/layui.all.js"></script>
+    <script src="../js/uploadPicture.js"></script>
+    <script src="../js/addProduct.js"></script>
+
+</body>
+
+</html>

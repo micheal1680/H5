@@ -1,0 +1,42 @@
+<!--pages/xioami/xiaomi.wxml-->
+<!-- 小米Lite : 浏览器中的iphone6模式下寻找 -->
+<view class="con">
+    <!-- 导航栏,窗口 -->
+    <view class="nav">
+        <!-- 小米图标 -->
+        <view class="iconfont icon-xiaomi1 mi"></view>
+        <!-- 小米文本 -->
+        <view class="iconfont icon-xiaomi xiaomi"></view>
+        <!-- 搜索栏 -->
+        <view class="search">
+            <text class="iconfont icon-sousuo search-icon-text"></text>
+        </view>
+    </view>
+    <view class="nav box"></view>
+    <image mode="widthFix" class="lunbo-img" src="/images/lunbo1.jpg"></image>
+    <view class="sort">
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+    </view>
+    <view class="goods">
+        <view class="goods-inner">
+            <view class="hot-recommend">
+                <view class="hot-title">人气推荐</view>
+                <image class="hot-img" mode="widthFix" src="/images/lunbo1.jpg"></image>
+                <view class="goods-info">
+                    <view>迷你保温杯</view>
+                    <view class="info-text">小巧便携 / 小巧便携</view>
+                    <view class="info-price">￥49</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

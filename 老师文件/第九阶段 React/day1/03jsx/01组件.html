@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+
+    <link rel="stylesheet" href="./css/demo.css">
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="app-top">
+                    <ul>
+                        <li className="list-item">首页</li>
+                        <li className="list-item">文档</li>
+                        <li className="list-item">教程</li>
+                        <li className="list-item">社区</li>
+                    </ul>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector("#root")
+        )
+
+
+    </script>
+</body>
+
+</html>

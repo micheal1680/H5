@@ -1,0 +1,33 @@
+<!-- 所讲的内容 -->
+<!-- 
+	数据类型: Number String Boolean NULL Undefined Object
+
+	array function
+
+	对象的值可以是任意数据类型
+	array: 对象 数组 基本数据类型
+
+
+
+ -->
+
+ <!-- 
+	swiper
+	tabBar app.json
+	list : 最少两项,最多五项
+		text 
+		pagePath
+	数据绑定: 内容 {{数据}}
+			 属性: 写在"{{}}" true false  wx:for
+			 计算: 算数运算 三目运算...
+			 组合: 数组/对象
+	自定义轮播图面板指示点
+	选项卡
+
+	列表渲染: wx:for="{{数组}}"	wx:for-index="i" wx:for-item="element"
+		循环嵌套
+
+		将小米页面中的重复代码,简化  (wx:for)
+		实现选项卡切换效果
+		
+  -->

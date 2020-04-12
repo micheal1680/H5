@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this使用</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            var a = "fnA"
+            console.log(this.a);
+        }
+        var a = "全局A";
+        // 默认绑定全局对象window
+        fn(); // 全局A  window.fn()  在全局时调用访问的是全局的属性 
+
+        var obj = {
+            a: "OBJA",
+            fn: fn
+        }
+
+        obj.fn(); //OBJA  在对象中调用,this指向调用函数的对象 , 将obj的上下文环境传入函数中
+
+
+        function fm() {
+            console.log(this.a);
+        }
+
+
+        // 隐式绑定
+        var o2 = {
+            a: "O2A",
+            fm: fm
+        }
+
+        var o = {
+            a: "OA",
+            o2: o2
+        }
+
+        o.o2.fm(); // 最后一个调用函数的对象,会将上下文环境传入函数中  
+
+        // 失去隐式绑定
+        var b = o2.fm;
+        b(); // 全局A
+
+        //显式绑定
+
+        fm.call(this);
+    </script>
+</body>
+
+</html>

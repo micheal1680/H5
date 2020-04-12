@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.aa {
+				color: red;
+			}
+			.bb {
+				font-size: 40px;
+			}
+			.cc {
+				border: 1px solid red;
+			}
+			.dd {
+				color: green;
+				font-size: 30px;
+				border: 1px solid green;
+				width: 100px;
+				height:  100px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			function add() {
+				let div1 = document.getElementById("div1");
+				let list = div1.classList;
+				for(let i=0; i<list.length; i++) {
+					console.log(list[i], typeof list[i]);
+				}
+				//加入类
+				list.add("cc")
+			}
+			function removeOne() {
+				let div1 = document.getElementById("div1");
+				let classList = div1.classList;
+				classList.remove("aa")
+			}
+			function removeAll() {
+				let div1 = document.getElementById("div1");
+				let classList = div1.classList;
+				while(classList.length>0) {
+					classList.remove(classList[classList.length-1]);
+				}
+			}
+			function replace() {
+				let div1 = document.getElementById("div1");
+				//HTMLElement.property.className="styleName"; 
+				div1.className = "dd";
+				// let classList = div1.classList;
+				// classList.length===1
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="add()">add</button>
+		<button type="button" onclick="removeOne()">removeOne</button>
+		<button type="button" onclick="removeAll()">removeAll</button>
+		<button type="button" onclick="replace()">relace</button>
+		<div id="div1" class="aa bb">div1</div>
+	</body>
+</html>

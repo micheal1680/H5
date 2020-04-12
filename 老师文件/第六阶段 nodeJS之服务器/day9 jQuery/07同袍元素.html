@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>标题1</h1>
+    <h2>标题2</h2>
+    <h3>标题3</h3>
+    <h4>标题4</h4>
+    <h5>标题5</h5>
+    <h6>标题6</h6>
+
+
+
+    <!-- 在线引用cdn中的文件 -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+        $("h2").css("color", "blue").siblings().css("color", "red");
+    </script>
+
+</body>
+
+</html>

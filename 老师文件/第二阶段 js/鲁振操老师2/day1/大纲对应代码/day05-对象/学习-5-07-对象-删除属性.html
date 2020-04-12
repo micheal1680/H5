@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第五天-07-对象-删除属性</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>delete运算符可以删除对象的属性；</h3>
+        <pre>
+            delete person1.name;
+            delete person1.age;
+        </pre>
+        <ol>
+            <li>只能删除自有属性，不能删除继承属性；</li>
+            <li>delete删除成功或删除不存在的属性或没有副作用时，返回true；</li>
+            <li>
+                delete不能删除可配置性为false的属性；
+                <pre>
+                    var x = 1;
+                    delete this.x; //false
+                    function my(){}
+                    delete this.my;//false
+
+                    this.a = 100; //没有var
+                    delete a; //true
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

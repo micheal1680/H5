@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-13-语句-跳转语句-throw</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>throw用于抛出异常；</h3>
+        <ol>
+            <li>立即停止正在执行的程序，跳转至就近的逻辑异常处理程序；</li>
+            <li>
+                反正看不懂，写段代码看看：
+                <pre>
+                    function factorial (n) {
+                        if(isNaN(n)) throw new Error('请输入数字，HOHO');
+                        if(n == 1) return 1;
+                        return n*factorial(n-1);
+                    }
+                    var n = factorial(3);
+                    console.log(n);
+
+                    var n = factorial('a05');
+                    console.log(n);
+
+                    var n = factorial(5);
+                    console.log(n);
+
+                </pre>
+            </li>
+            
+        </ol>
+    </div>
+    <script>
+        function factorial (n) {
+            if(isNaN(n)) throw new Error('请输入数字，HOHO');
+            if(n == 1) return 1;
+            return n*factorial(n-1);
+        }
+        var n = factorial(3);
+        console.log(n);
+
+        var n = factorial('a05');
+        console.log(n);
+
+        var n = factorial(5);
+        console.log(n);
+    </script>
+</body>
+</html>

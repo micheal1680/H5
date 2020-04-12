@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box a{
+            display: block;
+            width: 240px;
+            height: 42px;
+            text-align: center;
+            line-height: 42px;
+            background-color: #9D9EA1;
+            color: #fff;
+            text-decoration: none;
+        }
+        .box a:hover{
+            background-color: #FF6700;
+        }
+        .box{
+            position: relative;
+        }
+        .rightcon{
+            width: 700px;
+            height: 400px;
+            background-color: #ccc;
+            position: absolute;
+            top: 0;
+            left: 240px;
+        }
+        .rightcon1{
+            z-index: 10;
+        }
+        .a1:hover+div{
+            z-index: 11;
+        }
+        .a2:hover+div{
+            z-index: 12;
+        }
+        .a3:hover+div{
+            z-index: 13;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="#" class="a1">手机 电话卡1</a>
+        <div class="rightcon rightcon1">
+                手机 电话卡1
+        </div>
+        <a href="#" class="a2">手机 电话卡2</a>
+        <div class="rightcon rightcon2">
+                手机 电话卡2
+        </div>
+        <a href="#" class="a3">手机 电话卡3</a>
+        <div class="rightcon rightcon3">
+                手机 电话卡3
+        </div>
+        <a href="#">手机 电话卡4</a>
+        <a href="#">手机 电话卡5</a>
+        <a href="#">手机 电话卡6</a>
+    </div>
+</body>
+</html>

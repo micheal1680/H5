@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .input1:focus{
+            /* background-color: #ccc; */
+            font-size: 30px;
+            /* 去除输入框聚焦的边框 */
+            outline: none;
+        }
+        /* 匹配选中的复选按钮或者单选按钮表单元素  */
+        input:checked+span{
+            color: red;
+        }
+        /* 匹配所有禁用的表单元素 （加属性disabled） */
+        input:disabled{
+            background-color: #f00;
+        }
+        /* 匹配所有启用的表单元素 */
+        input:enabled{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <input class="input1" type="text">
+    <input type="text" disabled><br>
+    <input type="text" ><br>
+
+    <input type="checkbox" checked><span>篮球</span>
+    <input type="checkbox"><span>跑步</span>
+    <input type="checkbox"><span>学习</span>
+
+</body>
+</html>

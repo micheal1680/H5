@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-04-表达式和运算符-属性访问表达式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>属性访问表达式得到一个对象的属性或者一个数组的元素值</h3>
+        <ol>
+            <li>有两种访问方式：点(.)、中括号([])；</li>
+            <li>点的访问方式更方便，中括号的访问方式使用所有情况；</li>
+            <li>说那么多干嘛，还是来个例子吧：
+                <pre>
+                    var a = {name:'yourname', age:22};
+                    var b = {
+                                p1:{name:'华子', age:22},
+                                p2:{name:'华耀', age:25},
+                                p3:{name:'华赓', age:24}
+                            };
+                    var c = [1,2,3,4,'a','b','c'];
+                    var d = [['a','b','c'],['d','e','f'],['g','h']];
+                    console.log(a.age);
+                    console.log(b.p2['name']); 
+                    console.log(c[4]); 
+                    console.log(d[2][1]); 
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var a = {name:'yourname', age:22};
+        var b = {
+                    p1:{name:'华子', age:22},
+                    p2:{name:'华耀', age:25},
+                    p3:{name:'华赓', age:24}
+                };
+        var c = [1,2,3,4,'a','b','c'];
+        var d = [['a','b','c'],['d','e','f'],['g','h']];
+        console.log(a.age);
+        console.log(b.p2['name']);
+        console.log(c[4]);
+        console.log(d[2][1]);
+    </script>
+</body>
+</html>

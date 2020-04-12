@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 用 + 选择自己的兄弟,只能选择到自己后面的第一个兄弟 */
+        .mydiv+div{
+            font-style: italic;
+        }
+        /* 用 ~ 选择自己所有的兄弟 */
+        .mydiv~div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="mydiv">我是div</div>
+    <!-- <p>我是p1</p> -->
+    <div>我是div1</div>
+    <div>我是div2</div>
+    <div>我是div3</div>
+    <div>我是div4</div>
+</body>
+</html>

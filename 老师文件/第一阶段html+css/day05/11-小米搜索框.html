@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+        .right-box{
+            /* display: inline-block; */
+            text-align: center;
+            width: 50px;
+            height: 46px;
+            float: left;
+            border: 1px solid  #e0e0e0;
+            border-left: 0;
+            box-sizing: border-box;
+        }
+        .box input{
+            width: 242px;
+            height: 46px;
+            border: 0;
+            border: 1px solid  #e0e0e0;
+            box-sizing: border-box;
+            float: left;
+        }
+        .right-box img{
+            /* vertical-align: middle; */
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 15px;
+            top: 13px;
+        }
+        .text-box{
+            position: absolute;
+            top: 12px;
+            right: 58px;
+            font-size: 12px;
+        }
+        .text-box span{
+            background-color: #eee;
+            display: inline-block;
+            padding: 2px 4px;
+        }
+        .text-box span:hover{
+            color: #ffffff;
+            background-color: #FF6700;
+        }
+        .box:hover input{
+            border: 1px solid  #ccc;
+        }
+        .box:hover .right-box{
+            border: 1px solid  #ccc;
+            border-left: 0;
+        }
+        input:focus+div{
+            display: none;
+        }
+        input:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text">
+        <div class="text-box">
+            <span>小米9 Pro 5G</span>
+            <span>Redmi Note 8</span>
+        </div>
+        <div class="right-box">
+            <img src="img/search.png" alt="">
+        </div>
+        
+    </div>
+</body>
+</html>

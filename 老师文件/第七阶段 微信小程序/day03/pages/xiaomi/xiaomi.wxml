@@ -1,0 +1,61 @@
+<!-- pages/xioami/xiaomi.wxml -->
+<!-- 小米Lite : 浏览器中的iphone6模式下寻找 -->
+<view class="con">
+    <!-- 导航栏,窗口 -->
+    <view class="nav">
+        <!-- 小米图标 -->
+        <view class="iconfont icon-xiaomi1 mi"></view>
+        <!-- 小米文本 -->
+        <view class="iconfont icon-xiaomi xiaomi"></view>
+        <!-- 搜索栏 -->
+        <view class="search">
+            <text class="iconfont icon-sousuo search-icon-text"></text>
+        </view>
+    </view>
+    <view class="nav box"></view>
+    <!-- lunbotu -->
+    <view class="lunbo">
+        <swiper autoplay="{{true}}" bindchange="bindChange" class="swiper" circular="true">
+            <swiper-item wx:for="{{imgArray}}">
+                <image class="lunbo-img" src="{{item}}" />
+            </swiper-item>
+        </swiper>
+        <view class="dots-container" style="width: {{imgArray.length * 20}}rpx">
+            <view wx:for="{{imgArray}}" class="dots {{current==index?'current':''}}"></view>
+        </view>
+    </view>
+    <view class="sort">
+        <block wx:for="{{sortImgSrc}}">
+            <image src="{{item}}"></image>
+        </block>
+    </view>
+    <view class="goods">
+        <view class="goods-inner">
+            <!-- 人气推荐 -->
+            <view class="hot-recommend">
+                <view class="hot-title">人气推荐</view>
+                <image class="hot-img" mode="widthFix" src="/images/lunbo1.jpg"></image>
+                <view class="goods-info">
+                    <view>迷你保温杯</view>
+                    <view class="info-text">小巧便携 / 小巧便携 / 小巧便携 / 小巧便携 / 小巧便携</view>
+                    <view class="info-price">￥49</view>
+                </view>
+            </view>
+            <!-- 商品展示 -->
+            <view class="goods-show">
+                <!-- 小项目 -->
+                <view wx:for="{{goodsShow}}" class="goods-item">
+                    <image mode="widthFix" class="item-img" webp="true" src="{{item.img}}"></image>
+                    <view class="item-info">
+                        <!-- 名称 -->
+                        <view>{{item.name}}</view>
+                        <!-- 介绍 -->
+                        <view class="item-introduction">{{item.introduction}}</view>
+                        <!-- 价格 -->
+                        <view class="info-price">￥{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

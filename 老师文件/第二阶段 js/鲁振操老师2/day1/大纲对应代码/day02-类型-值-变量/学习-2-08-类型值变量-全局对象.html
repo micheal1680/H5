@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-08-类型值变量-全局对象</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>全局对象</h3>
+        <ol>
+            <li>全局对象是全局定义的符号，在程序中可以直接用;</li>
+            <li>JavaScript解释器启动时，他将创建一个新的全局对象；</li>
+            <li>
+                常见全局对象：
+                <pre>
+                全局属性：如undefined、Infinity、NaN等；
+                全局函数：如parseInt()、eval()、isNaN()、toFixed()等；
+                构造函数：如Array()、String()、Date()等；
+                全局对象：如Math；
+                </pre>
+            </li>
+            <li>
+                在代码的最顶级，可以使用关键词this来引用全局对象，也可以使用window这个自身属性来引用；
+                如：
+                <code>this.alert(1);</code>
+                <code>window.alert(1);</code>
+            </li>
+            <li>
+                当我们声明一个全局变量时，这个全局变量就会作为全局对象的一个属性；
+                <pre>
+                    var a = 8 ;
+                    window.alert(this.a);
+                </pre>
+            </li>
+            <li>我们在写程序时最好把全局对象当做保留字，避免出现意外错误；</li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 在线引用cdn中的文件 -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+
+    <input type="text" placeholder="请输入...">
+    <button>点击获取input中的值</button>
+
+
+    <script>
+        // text()/html()/val()用于获取元素内部的内容
+        // 如果带有参数表示设置内容
+        
+        // 只设置文本
+        $(".one").text("这是一个<h1>标题</h1>段落");
+        // 如果有标签，那么会渲染标签效果
+        $(".two").html("这是一个<h1>标题</h1>段落");
+        // 获取输入框中的数据
+        $("input").val("默认数据");
+
+        $("button").on("click", function() {
+            console.log($("input").val());
+        })
+    </script>
+    
+</body>
+</html>

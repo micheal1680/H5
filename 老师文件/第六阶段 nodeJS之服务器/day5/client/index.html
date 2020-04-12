@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+
+    <!-- 引入JQuery库 -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+    <h1>主页</h1>
+    <input type="text" placeholder="用户名"><br><br>
+    <input type="password" placeholder="新密码"><br><br>
+    <button>修改密码</button>
+
+    <script>
+        (function(){
+            
+            document.querySelector("button").onclick = function() {
+                let username = document.querySelector("input[type='text']").value;
+                let newpwd = document.querySelector("input[type='password']").value;
+                
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/user/changepwd",
+                    data: `username=${username}&newpwd=${newpwd}`,
+                    success: function(data) {
+                        console.log(data)
+                        alert(data.msg);
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+                })
+            }
+        })()
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS获取和修改页面元素</title>
+    <style>
+        /* a {
+            text-decoration: none;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- 创建a标签: 获取a标签,更改字体为20px 字体颜色#f0f 去除下划线  -->
+    <a href="https://www.baidu.com">百度一下</a>
+    <div class="myDiv">myDiv内容2</div>
+    <div class="myDiv">myDiv内容</div>
+    <p class="myDiv"></p>
+
+    <script>
+        // 获取元素: querySelector(".myDiv")获取页面中第一个匹配的元素
+        var myDiv = document.querySelector(".myDiv");
+        console.log(myDiv.innerHTML);
+        myDiv.innerHTML = "新内容"
+        console.log(myDiv.innerHTML);
+
+        // 获取当前页面中所有匹配的元素, 返回值是类数组
+        console.log(document.querySelectorAll(".myDiv"));
+
+        // 更改元素样式
+        myDiv.style.width = "200px";
+        myDiv.style.height = "200px";
+        myDiv.style.backgroundColor = "#f00";
+
+        // 获取元素
+        var a = document.querySelector("a");
+        a.style.fontSize = "20px";
+        a.style.color = "#f0f";
+        a.style.textDecoration = "none";
+    </script>
+</body>
+
+</html>

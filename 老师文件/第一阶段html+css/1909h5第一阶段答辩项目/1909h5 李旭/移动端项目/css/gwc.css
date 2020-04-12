@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 1rem=50px*/
+html{
+    font-size: calc((100*100vw) / 750);
+}
+body{
+    font-size: 0.28rem;
+}
+.top{
+    width: 100%;
+    height: .88rem;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+.t1{
+    width: .88rem;
+    height: .88rem;
+    position: relative;
+}
+.t1 img{
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+    position: absolute;
+    left: .24rem;
+    top: .24rem;
+}
+.t2{
+    width: 5.74rem;
+    height: .88rem;
+    text-align: center;
+    line-height: .88rem;
+    font-size: .36rem;
+}
+.con1{
+    width: 100%;
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.con1 span{
+    font-size: 14px;
+}
+.con1 div{
+    width: 1.4rem;
+    height: .6rem;
+    background-color: red;
+    border-radius: .08rem;
+    text-align: center;
+    line-height: .6rem;
+    color: white;
+}
+.con2{
+    widows: 100%;
+    height: 5.12rem;
+    padding: 1.4rem 0 1.3rem;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #F7F7F7;
+}
+.con2 img{
+    width: 1.8rem;
+    height: 1.8rem;
+    display: inline-block;
+    position: absolute;
+    left: 2.8rem;
+}
+.con2 p{
+    font-size: .4rem;
+    position: absolute;
+    bottom: 1.3rem;
+    left: 1.54rem;
+}
+.con3{
+    width: 100%;
+    height: .24rem;
+    margin: .24rem 0;
+    font-size: .24rem;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ccc;
+}
+.con4{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.lii{
+    width: 3.74rem;
+    height: 4.96rem;
+    list-style: none;
+}
+.lii img{
+    width: 3.14rem;
+    height: 3.14rem;
+    display: inline-block;
+}
+.b1{
+    width: 3.14rem;
+    height: .72rem;
+    margin: .24rem 0 .08rem;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+.b2{
+    width: 3.14rem;
+    height: .48rem;
+    display: flex;
+}
+.price{
+    width: 2.54rem;
+    height: .48rem;
+}
+.b22{
+    width: .6rem;
+    height: .48rem;
+}
+.b22 img{
+    width: .4rem;
+    height: .4rem;
+    display: inline-block;
+}

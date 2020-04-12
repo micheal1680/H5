@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-07-函数-作为命名空间的函数</title>
+    <style>
+        .myclass{
+            border:1px solid #FF0000;
+            width:200px;
+            height: 200px;
+            float: left;
+        }
+
+        #myclass{
+            border:1px solid #000000;
+            width:300px;
+            height: 300px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="myclass">修改盒子样式1</div>
+    <div class="myclass">修改盒子样式2</div>
+    <div class="myclass">修改盒子样式3</div>
+    <div id="myclass">修改盒子样式4</div>
+    <input type="text" name="mytext" value="" class="mytext">
+
+    <script>
+        //封装一个框架，用于修改指定元素的css
+        (function(){
+            //这里面的代码是私有空间
+            var jQuery = function (selector) {
+                //根据选择器找到元素
+                var element     =  document.querySelectorAll(selector);
+                //允许的事件操作
+                var eventlist   = ['click', 'mouseover', 'mouseout', 'focus', 'keyup', 'input', 'blur', 'dblclick', 'mousemove']; 
+                //返回的对象
+                var returnobj   = new Object();
+                returnobj.css   = function (obj, value) {
+                    //用-把属性名分割成数组
+                    //然后把元素的第一个字母大写，元素的下标从1开始
+                    //css方法用，作为私有函数即可
+                    function up(property) {
+                        var pa = property.split('-');
+                        var sp = pa[0];
+                        for (var i = 1; i < pa.length; i++) {
+                            //把第一个字母大写：pa[i].substring(0, 1).toUpperCase()
+                            //substring：截取字符串
+                            //toUpperCase：转成大写
+                            sp += pa[i].substring(0, 1).toUpperCase() + pa[i].substring(1);
+                        }
+                        return sp;
+                    }
+                    //根据属性值改变css样式
+                    for (var i = 0; i < element.length; i++) {
+                        if(arguments.length == 1){
+                            for (property in obj) {
+                                property = up(property);
+                                element[i].style[property] = obj[property];
+                            }
+                        }else{
+                            element[i].style[obj] = value;
+                        }
+                    }
+                    //返回this，支持链式操作
+                    return this;
+                };
+                //把事件和元素关联在一起
+                for (var i = 0; i < eventlist.length; i++) {
+                    var eventname           = eventlist[i];
+                    //这里一定要使用闭包，把事件名称传递到内部
+                    //eventname：是一个动态属性名，需要以[]的形式关联起来
+                    returnobj[eventname]    = function(eventname){
+                        return function (fn) {
+                            for (var j = 0; j < element.length; j++) {
+                                var en = 'on' + eventname;
+                                element[j][en] = fn;
+                            }
+                            //返回this，支持链式操作
+                            return this;
+                        }
+                    }(eventname);
+                }
+                return returnobj;
+            };
+            //通过window全局对象加属性的方式，把局部变量暴露出去
+            window.jQuery = window.$ = jQuery;
+        })();
+        
+        $('.myclass').css({
+            color:'#FF0000',
+            borderRadius:'50%',
+            backgroundColor:'#123'
+        })
+        .css('font-family', '黑体');
+
+        $('.myclass').click(function(e) {
+            console.log('你现在点击的盒子内容：' + e.target.innerHTML);
+        });
+
+        $('#myclass').dblclick(function() {
+            console.log('打印到控制台');
+        });
+
+        $('#myclass')
+        .mouseover(function(e) {
+            console.log(e.relatedTarget);
+        })
+        .mouseout(function(e) {
+            console.log(e.relatedTarget);
+        });
+
+        jQuery('.mytext').input(function(e) {
+            console.log('你输入的内容是：' + this.value);
+        });
+        $('.mytext').focus(function () {
+            $('.mytext').css({
+                height:'25px',
+                border:'1px solid #234', 
+                margin:'5px',
+                outline:'none'
+            });
+        });
+
+    </script>
+</body>
+</html>

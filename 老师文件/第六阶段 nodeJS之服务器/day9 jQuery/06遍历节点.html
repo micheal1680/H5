@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <span>子元素1</span>
+                <span>子元素2</span>
+            </li>
+            <li>
+                <b>另外一个子元素</b>
+            </li>
+        </ul>
+    </div>
+
+
+     <!-- 在线引用cdn中的文件 -->
+     <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+     <script>
+        //  children找到所有的直接子元素，相当于css中的子元素选择器 >
+         $("ul").children().css("border", "1px solid red");
+
+        // find表示找到所有的后代元素，相当于css中的后代选择器 空格
+        // *表示所有子元素，可以指定子元素获取，如&("ul").find("span") -->找到ul下的所有span元素
+         $("ul").find("*").css("border", "1px solid blue")
+        
+     
+     </script>
+</body>
+</html>

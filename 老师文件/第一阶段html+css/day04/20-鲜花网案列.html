@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .con img{
+            width: 204px;
+            height: 226px;
+        }
+        .con{
+            position: relative;
+        }
+        .con p{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            /* 设置了定位属性的元素就会变成行内块级标签 */
+            width: 204px;
+            height: 40px;
+            background-color: rgba(35, 38, 40, 0.8);
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            background-color: #ccc;
+            text-align: center;
+        }
+        .box img{
+            width: 100px;
+            height: 116px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#" class="con">
+            <img src="https://img02.hua.com/m/home/img/m_home_category_new.png?0718" alt="">
+            <p>新品来袭</p>
+        </a>
+    </div>
+
+    <div class="box">
+        <img src="https://img02.hua.com/m/home/img/m_home_category_new.png?0718" alt="">
+        <p>我是span</p>
+    </div>
+</body>
+</html>

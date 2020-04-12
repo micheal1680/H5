@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String类型</title>
+</head>
+
+<body>
+    <script>
+        // 单引号和双引号都可以表示字符串
+
+        var str = "string";
+        var str2 = 'string2';
+        // 如果使用单引号开始则必须使用单引号结束
+        // var str3 = 'string3"; // 不可取
+
+        console.log("这是转义字符:换行\n", str);
+        console.log("这是转义字符:制表\t\n这是\u03a3转义字符:制表\t\n");
+        console.log("这是转义字符:这是转义\\字符:");
+        console.log('they\'re');
+        console.log('\x41'); //A
+        console.log('\u03a3'); //Σ  这是Unicode编码
+
+        var text = "This is the letter sigma: \u03a3.";
+        console.log(text.length);  //28 (\u03a3算一个字符，5个空格+2个符号+21字符=28)
+        text = "12";
+        console.log(text);
+
+        // 将其他值转换为字符串
+        var age = 11;
+        var ageAsString = age.toString(); // 字符串"11"
+        console.log(ageAsString);
+        var found = true;
+        var foundAsString = found.toString(); // 字符串"true"
+        console.log(foundAsString);
+        // null和undefined没有toString()方法
+        var test = undefined;
+        // console.log(test.toString());
+        // String() 转型函数 将其他类型的值转为string类型
+        console.log(String(age),String(found),String(test));
+
+        function toString2(value){
+            if(value === null){
+                return "null";
+            }
+            if(value === undefined){
+                return "undefined"
+            }
+
+            return value.toString();
+        }
+
+        console.log(toString2(age));
+        console.log(toString2(found));
+        console.log(toString2(test));
+
+        
+    </script>
+</body>
+
+</html>

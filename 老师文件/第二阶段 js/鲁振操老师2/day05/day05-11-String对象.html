@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>string对象</title>
+</head>
+<body>
+    <script>
+    var str = new String('mystringlength');
+    console.log(str);
+    // 字符串可以当做数组使用
+    console.log(str[3]);
+    // length属性获取字符串的长度
+    console.log(str.length);
+    // charAt
+    console.log(str.charAt(3));
+    //fontcolor
+    console.log(str.fontcolor('red'));
+
+    // padEnd  padStart repeat
+    console.log(str.repeat(3));
+    console.log(str.padStart(10, '0'));
+    var month = '12';
+    console.log(month.padStart(2, '0'));
+
+    // substr(start, length):字符串截取,从指定位置开始截取指定长度
+    // substring(start, end)：从指定位置开始截取到指定的结束位置，如果没有指定结束位置，一直截取到最后
+
+    var str1 = 'abCD';
+    console.log(str1.toLowerCase()); //把字符全部转换成小写
+    console.log(str1.toUpperCase()); //把字符全部转换成大写
+    // 验证码：验证码一般都是没有大小写要求
+    //  trim：去除空格--》只去除两端的空格
+    var str2 = '  my  name   is   lu  ';
+    console.log(str2);
+    console.log(str2.trim());
+    // 把字符串两端的空格去掉，把字符串内部多个空格合并为一个空格
+    console.log(str2.trim().replace(/\s+/g, ' '));
+    console.log(str2.sub());
+    //'My Name Is Lu'
+    console.log(firstUpperCase(str2));
+    function firstUpperCase(str){
+        //        去除两端空格  把多个空格替换成一个空格  把字符串转换成数组
+        str = str.trim().replace(/\s+/g, ' ').split(' ');
+        // 使用map来循环数组：可以接收回调函数的返回值
+        str = str.map(function(v){
+            //把第一个字符拿出来 转换成大写   剩余的字符直接连接到后面
+            return v.charAt(0).toUpperCase() + v.substring(1);
+        });
+        // 把处理好的数组用空格连接起来
+        return str.join(' ');
+    }
+    
+    </script>
+</body>
+</html>

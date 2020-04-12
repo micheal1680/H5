@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        // 每一个元素都要满足指定的条件
+        var r = arr.every(function (value, ind, array) {
+            return value < 6;
+        });
+        console.log(r);
+        // 其中一部分满足指定的条件
+        var r1 = arr.some(function (value, ind, array) {
+            return value < 6;
+        });
+        console.log(r1);
+        // 有没有学生的工资高于8000
+        var students = [{
+            username: '王磊',
+            salary: 8000
+        },
+        {
+            username: '罗鑫',
+            salary: 8001
+        },
+        {
+            username: '刘西宇',
+            salary: 7500
+        }
+        ];
+        var have = students.some(function(stu, ind){
+            return stu.salary >= 8000;
+        });
+        console.log(have);
+
+        var have1 = students.every(function(stu, ind){
+            return stu.salary >= 8000;
+        });
+        console.log(have1);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-11-表达式和运算符-逻辑表达式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>逻辑运算符：&&、||、!，返回布尔值；</h3>
+        <ol>
+            <li>逻辑&&：都为true时才返回true；一旦遇到false，后面的代码不会执行；</li>
+            <li>逻辑||：有一个为true时返回true；一旦遇到一个true，后面的代码不会再执行；</li>
+            <li>逻辑!：首先将操作数转换为布尔值，然后对布尔值取反；</li>
+            <li>
+                如何理解<code>后面的代码不再执行</code>：
+                <pre>
+                    var c = (a = 3) || (b = 4);
+                    console.log(a);
+                    console.log(b);
+                    console.log(c);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var c = (a = 3) || (b = 4);
+        console.log(a);//3
+        // console.log(b);//
+        console.log(c);//3  true?
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>图形编程</title>
+		<style type="text/css">
+			img {
+				width: 400px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<img src="00mv-img/img/km1.jpg" after="00mv-img/img/new-Image.jpg" >
+		
+		<script type="text/javascript">
+			var img=document.getElementsByTagName("img")[0];
+			
+			//在事件处理前预先加载图片资源
+			// (new Image()).src="00mv-img/img/new-Image.jpg"
+			img.onmouseenter=function(){
+				this.style.width="400px";
+				this.style.height="200px";
+				this.src=this.getAttribute("after")
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>

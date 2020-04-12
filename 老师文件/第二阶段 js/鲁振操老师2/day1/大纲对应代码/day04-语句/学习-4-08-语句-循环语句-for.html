@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-08-语句-循环语句-for</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>for:循环语句</h3>
+        <ol>
+            <li>
+                for循环的语法结构：
+                <pre>
+                    for(初始化语句; 循环判断条件; 计数器变量更新){
+                        statement; //代码块
+                    }
+                </pre>
+                不断的执行statement主体语句，直到判断条件不成立；
+            </li>
+            <li>
+                还是案例为王：
+                <pre>
+                    1,循环个数组；
+                    2，写个乘法口诀表；
+                    3，百钱百鸡
+                        公鸡5文钱一只，
+                        母鸡3文钱一只，
+                        小鸡1文钱三只，
+                        用100文钱买100只鸡， 
+                        问，公鸡，母鸡，小鸡各几只？
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var cock, hen, chick;
+        var money;
+        for (cock = 0; cock <= 20; cock++) {
+            for (hen = 0; hen <= 33; hen++) {
+                chick = 100 - hen - cock;
+                if (chick % 3 == 0) {
+                    money = cock * 5 + hen * 3 + chick / 3;
+                    if (money == 100) {
+                        document.write('母鸡有' + hen + '只，公鸡有' + cock + '只，小鸡有' + chick + '只;<br>')
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

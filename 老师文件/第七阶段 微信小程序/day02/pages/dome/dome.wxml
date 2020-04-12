@@ -1,0 +1,85 @@
+<!--pages/dome/dome.wxml-->
+<!-- es6中用模板字符串--${}表示变量，微信小程序中用模板字符串"{{}}"来表示变量 -->
+<view hidden="{{1}}" style="font-size: 40rpx;text-align:center;font-weight: bolder;">数据</view>
+
+<view hidden="{{1}}" style="width: 200rpx; height: 300rpx;background-color: #f00;">
+    hello world
+    <!-- 双向绑定: 变量均来自于data属性
+		变量没有存在于data中,不会报错
+		变量 常量
+		1. 内容
+		2. 属性值: 在""内
+		3. 可以进行运算 算术运算 三目运算
+		4. 路径运算
+		5. 组合 
+	 -->
+    {{test}} {{dome}}
+</view>
+<view hidden="{{1}}" class="box1{{dome}}" id="item-{{dome}}" style="width: {{width}}rpx; height: {{height}}rpx;background-color: #f00;">
+<!-- 结果为：3+3  即算数运算  结果我：6   即三目运算   。数据绑定可以做算数运算和三目运算-->
+    {{a + b}} + {{c}} {{length>3?length:3}} 
+
+</view>
+<!-- 类名可以取多个 ； id名只能有一个   这里的class类名取多个，这里用了三目运算即若length通过数据绑定获得的值大于5，则取'hide',若不大于，则取'' -->
+<view hidden="{{1}}" class="box {{length>5?'hide':''}}">
+    box
+</view>
+
+<view hidden="{{1}}">
+    {{person.name}} {{person.age}} {{person.gender}} {{person.xiongdi[0].name}} {{person.xiongdi[0].age}} {{person.xiongdi[0].gender}} {{person.xiongdi[1].name}} {{person.xiongdi[1].age}} {{person.xiongdi[1].gender}} {{person.xiongdi[2].name}} {{person.xiongdi[2].age}}
+    {{person.xiongdi[2].gender}} {{[dome,1,2,3,4,5]}}
+</view>
+
+<view hidden="{{true}}" style="font-size: 40rpx;text-align:center;font-weight: bolder;">事件</view>
+<!-- id class hidden style data-*  bind*  catch* -->
+
+<!-- 点击改变值 -->
+<button hidden="{{true}}" bindtap="changeName">{{name}}</button>
+<!-- 切换 -->
+<view hidden="{{true}}" class="con">
+    <text data-id="1" bindtap="changeActive" class="{{active == 1 ? 'active': ''}}">首页</text>
+    <text data-id="2" bindtap="changeActive" class="{{active == 2 ? 'active': ''}}">个人中心</text>
+
+</view>
+<!-- bind* 会触发祖先节点的函数 -->
+<view hidden="{{true}}" class="fu" bindtap="fu">
+    <view class="zi" bindtap="zi"></view>
+</view>
+<!-- catch* 会阻止触发祖先元素的函数 -->
+<view hidden="{{true}}" class="fu" catchtap="fu">
+    <view mark:myMark="last" class="zi" catchtap="zi"></view>
+</view>
+
+<!-- lunbotu -->
+<view class="lunbo">
+    <swiper autoplay="{{true}}" bindchange="bindChange" class="swiper" circular="true">
+        <swiper-item wx:for="{{imgArray}}">
+            <image class="lunbo-img" src="{{item}}" />
+        </swiper-item>
+    </swiper>
+    <view class="dots-container" style="width: {{imgArray.length * 20}}rpx">
+        <view wx:for="{{imgArray}}" class="dots {{current==index?'current':''}}"></view>
+    </view>
+</view>
+
+<view style="font-size: 40rpx;text-align:center;font-weight: bolder;">列表渲染</view>
+<!-- 循环次数与元素个数有关 与内容无关
+	下标 --index
+	元素值--item
+ -->
+ <!-- 列表渲染用微信小程序里的for循环即 wx:for -->
+<view hidden="{{true}}" wx:for="{{array}}" wx:for-index="i" wx:for-item="element1">
+	孙悟空
+	<view wx:for="{{element1}}" wx:for-index="j"  wx:for-item="element2">
+		{{element2}}
+	</view>
+</view>
+<button  bindtap = "fu">点击</button>
+<!-- 此处想要得到的是名字+分数   因此这里需要循环两个数组，而也就只有数组才能有for循环，因为只有数组才有下标。分别循环的是姓名属性所在的数组personStudent和每个人的分数所在的数组item.score-->
+<view wx:for="{{personStudent}}">
+	{{item.name}}
+	<view wx:for="{{item.score}}">
+  <!-- 这个item不同于以上的两个item，这里的item是指item.score数组中的元素值 -->
+		{{item}}
+	</view>
+</view>

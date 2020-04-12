@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+    <style>
+        .list {
+            width: 200px;
+            border: 1px solid red;
+        }
+        .listitem {
+            color: #222;
+            font-size: 30px;
+            font-weight: 600;
+        }
+        #myinput {
+            width: 300px;
+            height: 50px;
+            font-size: 30px;
+        }
+        button {
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            border: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class TodoList extends React.Component {
+            render() {
+                //从父组件将状态值通过props传递到子组件中，这个状态值就是我们要显示的数据
+                // this.props.items = [
+                //     {
+                //         text: '',
+                //         id: 1
+                //     }
+                // ]
+                let newArr = [];
+                this.props.items.forEach(element => {
+                    newArr.push(<li className="listitem" key={element.id}>{element.text}</li>)
+                });
+
+                return(
+                    <ul className="list">
+                        { newArr }
+                    </ul>
+                )
+            }
+        }
+        
+        class TodoApp extends React.Component {
+            constructor(props) {
+                super();
+
+                this.state = {
+                    // items: [
+                    //     {
+                    //         text: "西游记",
+                    //         id: 1
+                    //     },
+                    //     {
+                    //         text: "水浒传",
+                    //         id: 2
+                    //     }
+                    // ]
+                    items: [],
+                    text: ''
+                }
+            }
+
+            //表单提交时触发
+            handleSubmit(e) {
+                e.preventDefault();
+
+                //当输入框中没有数据时，不做提交操作
+                if(!this.state.text.length) {
+                    return;
+                }
+                
+                // 创建一个新的对象，添加到items列表中
+                const newItem = {
+                    text: this.state.text,
+                    id: Date.now()
+                }
+                
+                // 改变状态：push函数执行完之后会返回数组的长度，请慎用
+                this.setState({
+                    items: this.state.items.concat(newItem),
+                    text: '' //添加数据完成后清空输入框
+                })
+            }
+
+            //表单元素改变时触发
+            handleChange(e) {
+                this.setState({
+                    text: e.target.value
+                })
+            }
+
+            render() {
+                return(
+                    <div>
+                        <h1>TODO</h1>
+                        <TodoList items={this.state.items} />
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                            <label htmlFor="myinput">请输入数据</label><br />
+                            <input id="myinput" value={this.state.text} onChange={this.handleChange.bind(this)}/><br /><br />
+                            <button>Add #{this.state.items.length}</button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(
+            <TodoApp />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

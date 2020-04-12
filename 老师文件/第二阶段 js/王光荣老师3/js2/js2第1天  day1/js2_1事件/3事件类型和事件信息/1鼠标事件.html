@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			#div1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				margin-top: 50px;
+				margin-left: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			/**
+			 * (1)e.offsetX, e.offsetY的解释
+			 * 事件源左上角为坐标原点，往下是offsetY，往右是offsetX
+			 * (2)e.clientX, e.clientY
+			 * 浏览器窗口左上角为坐标原点，往下是clientY，往右是clientX
+			 */
+			window.addEventListener("load", function(){
+				let div1 = document.getElementById("div1");
+				div1.addEventListener("click", function(e){
+					// console.log(e.offsetX, e.offsetY);
+					// console.log(e.clientX, e.clientY);
+					console.log(e);    //这个e是MouseEvent的一个类，浏览器自带的。e有很多函数与方法。其中e.offsetX, e.offsetY就是。
+				})                     //offset是偏移的意思。    用 e.  就可以调用相关的方法。
+			})
+		</script>
+	</head>
+	
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

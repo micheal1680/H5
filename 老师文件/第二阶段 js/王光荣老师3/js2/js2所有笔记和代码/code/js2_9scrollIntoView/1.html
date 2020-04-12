@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>让元素滚动到视口</title>
+		<style type="text/css">
+			.menu {
+				position: fixed;
+			}
+			.menu>a {
+				height: 40px;
+				width: 70px;
+				line-height: 40px;
+				text-align: center;
+				display: inline-block;
+				margin-right: 5px;
+				background-color: blue;
+				color: white;
+				font-size: 14px;
+			}
+			.kongbai {
+				height: 900px;
+				padding-top: 50px;
+			}
+			.info {
+				background-color: red;
+			}
+			.products {
+				background-color: orange;
+			}
+			.contact {
+				background-color: purple;
+			}
+			.hr {
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+				<a href="###" goto="info">公司简介</a>|
+				<a href="###" goto="products">产品信息</a>|
+				<a href="###" goto="contact">联系方式</a>|
+				<a href="###" goto="hr">招聘信息</a>
+		</div>
+		
+		<div class="info kongbai">公司简介</div>
+		<div class="products kongbai">产品信息</div>
+		<div class="contact kongbai">联系方式</div>
+		<div class="hr kongbai">招聘信息</div>
+		<div class="kongbai">占地区域</div>	
+			
+			
+		<script type="text/javascript">
+			var anchors=document.querySelectorAll(".menu>a");
+			for(var i=0;i<anchors.length;i++){
+				anchors[i].onclick=function(){
+					  //获取a标签对应的div元素
+					  var div=document.querySelector("."+this.getAttribute("goto"))
+					  //将元素移动到视口区域
+					  div.scrollIntoView(true);
+				}
+			}
+		</script>
+	</body>
+</html>

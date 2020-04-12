@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function show() {
+				alert(1);
+			}
+		</script>
+	</head>
+	<body>
+		<!--<a href="javascript:show()"></a>  这种格式的是：伪链接.即当点击a标签时，执行show函数  -->
+		<a href="javascript:show()">伪连接:执行show()函数</a> 
+		<button onclick="addStu()">增加</button>
+		<table id="mytable" border="1" cellspacing="0" cellpadding="10px">
+			<tr>
+				<th>id</th>
+				<th>名字</th>
+				<th>学号</th>
+				<th>删除</th>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		function addStu() {
+			let tr = document.createElement("tr");
+			
+			//<td id='370'>370</td>
+			let tdId = document.createElement("td");
+			let id = Math.floor(Math.random()*1000);
+			tdId.innerHTML=id;
+			tdId.id=id;
+			
+			let tdName = document.createElement("td");
+			tdName.innerHTML="小明";
+			
+			let tdAge = document.createElement("td");
+			tdAge.innerHTML=Math.floor(Math.random()*100);
+			
+			let tdDel = document.createElement("td");
+			tdDel.innerHTML="<a href='javascript:del("+id+")'>删除</a>"
+			
+			tr.appendChild(tdId);
+			tr.appendChild(tdName);
+			tr.appendChild(tdAge);
+			tr.appendChild(tdDel);
+			
+			let mytable = document.getElementById("mytable");
+			mytable.appendChild(tr);
+		}
+		function del(id) {
+			let td = document.getElementById(id);
+			td.parentElement.remove();
+		}
+	</script>
+</html>

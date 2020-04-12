@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-01-正则表达式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>正则表达式：regular expression，是一个描述字符模式的对象；</h3>
+        <ol>
+            <li>JavaScript中的RegExp类表示正则表达式；</li>
+        </ol>
+
+        <h3>正则表达式的定义</h3>
+        <ol>
+            <li>
+                方式一：直接包含在一对斜杠(/)之间；
+                <pre>
+                    var pattern = /^hqyj/; //表示匹配以hqyj开头的字符串
+                </pre>
+                方式二：创建一个新的RegExp对象；
+                <pre>
+                    var pattern = new RegExp("^hqyj");
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

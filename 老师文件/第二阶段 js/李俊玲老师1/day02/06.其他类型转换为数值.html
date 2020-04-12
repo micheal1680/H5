@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 有三种方法：Number()、parseInt()、parseFloat()
+        // 其中：Number():可以用于任何数据类型转换成数值；
+        //      parseInt()、parseFloat():专门用于把字符串转换成数值；
+
+// 转换规则：
+// Number():        （以后统一使用number()来转换类型）
+// 1）如果是Boolean值，true和false将分别转换为1和0。
+// 2）如果是数字值，只是简单的传入和返回。
+// 3）如果是null值，返回0。  （比如：[]、{}、""）
+// 4）如果是undefined,返回NaN。  (NaN也是数值类型)
+// 5）如果是字符串，遵循下列规则：
+// 如果是字符串中只包含数字（包括前面带正号或负号的情况），则将其转换为十进制数值，即“1”变成1，“123”会变成123，而“011”会变成11（前导的零被忽略了）；
+// 如果字符串中包含有效的浮点格式，如“1.1”，则将其转换为对应的浮点数值（同样也会忽略前导零）；
+// 如果字符串中包含有效的十六进制格式，例如"0xf"，则将其他转换为相同大小的十进制整数值；
+// 如果字符串是空的（不包含任何字符），则将其转换为0；
+// 如果字符串中包含除上述格式之外的字符，则将其他转换成NaN.
+// 6)如果是对象，则调用对象的valueOf()方法，然后依照前面的规则转换返回的值。如果转换的结果是NaN，则调用的对象的toString()方法，然后再次依照前面的规则转换返回的字符串值。
+
+        var num1 = Number("Hello world!"); //NaN
+        var num2 = Number(""); //0      
+        var num3 = Number("000011"); //11
+        var num4 = Number("100abc"); //NaN
+        var num5 = Number(true); //1
+        var num6 = Number([]); //0,Number(["100"])值为100
+        var num7 = Number([100, 100]) //NaN
+
+
+        var num1 = parseInt("1234blue"); // 1234
+        var num2 = parseInt(""); // NaN，parseInt与Number的处理结果不一样
+        var num3 = parseInt("0xA"); // 10（十六进制数转换成十进制数）
+        var num4 = parseInt(22.5); // 22
+        var num5 = parseInt("070"); // 56（八进制数转换成十进制数- es3），70(es5)
+        var num6 = parseInt("70"); // 70（十进制数）
+        var num7 = parseInt("0xfh"); // 15（十六进制数转换成十进制数）
+
+        var num1 = parseFloat("1234blue"); //1234 （整数）
+        var num2 = parseFloat("0xA"); //0
+        var num3 = parseFloat("22.5"); //22.5
+        var num4 = parseFloat("22.34.5"); //22.34
+        var num5 = parseFloat("0908.5"); //908.5
+        var num6 = parseFloat("3.125e7"); //31250000
+    </script>
+</body>
+
+</html>

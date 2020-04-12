@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第五天-09-对象-枚举属性</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>for/in循环遍历对象中所有可枚举属性，把属性名称赋值给循环变量；</h3>
+        <ol>
+            <li>
+                对象继承的内置方法不可枚举；
+                <pre>
+                    var person = {name:'yourname', age:10};
+                    console.log(person.propertyIsEnumerable('toString')); //false
+                    for (v in person) {
+                        console.log(v); //打印name和age，不打印toString
+                    }
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var person = {name:'yourname', age:10};
+        console.log(person.propertyIsEnumerable('toString')); //false
+        for (v in person) {
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

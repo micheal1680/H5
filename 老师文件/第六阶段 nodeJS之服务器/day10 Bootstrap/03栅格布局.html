@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>栅格布局</title>
+
+    <!-- cdn引入css文件 -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+            background-color: pink;
+        }
+        .row {
+            margin-top: 20px;
+        }
+
+        .cell {
+            height: 200px;
+
+        }
+
+        .cell:first-of-type {
+            background-color: lightgreen;
+        }
+
+        .cell:nth-last-of-type(2) {
+            background-color: hotpink;
+        }
+
+        .cell:last-of-type {
+            background-color: purple;
+        }
+
+        .move {
+            height: 100px;
+        }
+        .move:first-of-type {
+            background-color: red;
+        }
+        .move:last-of-type {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- .row表示行，必须在容器.container内部
+            列必须在row内部
+            通过col-sm-num来指定横跨多少列
+            col-md-offset-num来指定偏移多少列
+         -->
+        <div class="row">
+            <div class="col-sm-2 cell"></div>
+            <div class="col-sm-8 cell"></div>
+            <div class="col-sm-2 cell"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 cell"></div>
+            <div class="col-sm-5 cell"></div>
+            <div class="col-sm-3 cell"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 move"></div>
+            <div class="col-md-6  col-md-offset-3 move"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-11-语句-跳转语句-break和continue</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>break用于结束一个循环</h3>
+        <h3>continue用于结束当次循环，并继续执行下一次循环</h3>
+        <ol>
+            <li>标签由标识符加冒号组成，如：gohere:；</li>
+            <li>标签标识符+冒号(:)+语句，就组成了标签语句；</li>
+            <li>break 和 continue可以使用语句标签；</li>
+            <li>
+                啥也不说了，看代码：
+                <pre>
+                    var a = 0;
+                    forouter_b:
+                    for (var i = 0; i < 10; i++) {
+                        for (var j = 0; j < 10; j++) {
+                            if(j == 5){
+                                break forouter_b;
+                            }
+                            a++;
+                        }
+                    }
+                    console.log(a);
+                </pre>
+                体会break后面加和不加语句标签的区别；
+                <pre>
+                    var a = 0;
+                    forouter_c:
+                    for (var i = 0; i < 10; i++) {
+                        for (var j = 0; j < 10; j++) {
+                            if(j == 5){
+                                continue forouter_c;
+                            }
+                            a++;
+                        }
+                    }
+                    console.log(a);
+                </pre>
+                体会continue后面加和不加语句标签的区别；
+            </li>
+        </ol>
+    </div>
+    <script>
+        var a = 0;
+        forhere:
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if(j == 5){
+                    continue forhere;
+                }
+                a++;
+            }
+        }
+        console.log(a);
+    </script>
+</body>
+</html>

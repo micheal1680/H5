@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Son extends React.Component {
+            render() {
+                return(
+                    <div>
+                        {/*子组件内部通过props使用父组件中的state值与事件处理函数，
+                        表单元素发生改变时，会触发父组件中的事件函数执行，并且传递了event对象*/}
+                       <input value={this.props.myData} onChange={this.props.handleChange}/>
+                       <h2>子组件： { this.props.myData } </h2>
+                    </div>
+                )
+            }
+        }
+        class Father extends React.Component {
+            constructor(props) {
+                super();
+                this.state = {
+                    xx: "这是父组件中的数据"
+                }
+            }
+            change(e) {
+                this.setState({
+                    xx: e.target.value
+                })
+            }
+            render() {
+                return(
+                    <div>
+                        <h1>父组件： { this.state.xx } </h1>
+                        {/*使用子组件时，通过属性传递状态值与更改状态的函数*/}
+                       <Son myData={this.state.xx} handleChange={this.change.bind(this)} />
+                    </div>
+                )
+            }
+        }
+      
+        ReactDOM.render(
+            <Father />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>

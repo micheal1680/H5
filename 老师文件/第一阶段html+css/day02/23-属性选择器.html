@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 选中有target属性的 a标签*/
+        a[target]{
+            text-decoration: none;
+        }
+        /* 选中class属性值为mya3的a标签 */
+        a[class=mya3]{
+            font-size: 30px;
+        }
+        /* 在input标签中筛选 选中type属性值中包含了ex的input标签 */
+        input[type*=ex]{
+            color: blue;
+        }
+
+        /*  在input标签中筛选 选中type属性值中包含了pa,并且属性值以pa开头的input标签 */
+        input[type^=pa]{
+            font-size: 34px;
+        }
+        /*  在input标签中筛选 选中type属性值中包含了xt,并且属性值以xt结尾的input标签 */
+        input[type$=xt]{
+            font-size: 34px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" target="_self" class="mya1">空链接1</a>
+    <a href="#" target="_blank">空链接2</a>
+    <a href="#" class="mya3">空链接3</a>
+    <div class="mya3">我是div</div>
+
+    <input type="text" value="页面一加载就要显示的内容">
+    <input type="password">
+    <input type="radio">男
+</body>
+</html>

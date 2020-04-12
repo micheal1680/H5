@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        var str = 'hcqyj的官网 123 是hqyj.com';
+        // 方括号内的任意字符
+        var reg = /[hc1]/g;
+        console.log(str.match(reg));
+
+        var reg1 = /[^hc1]/g;
+        console.log(str.match(reg1));
+
+        // \d：代表数字0-9 digit
+        var reg2 = /\d/g;
+        console.log(str.match(reg2));
+
+        // \s：代表空格  space
+        var reg3 = /\s/;
+        console.log(str.match(reg3));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            
+            render(){
+                return (
+                    <div>
+                        {/*this表示当前组件对象，当前组件内部有props对象*/}
+                        <h1>使用类定义组件-- {this.props.name}</h1>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <MyApp name="class" title="xxx"/>,
+            document.getElementById("root")
+        )
+    
+    
+    
+    </script>
+</body>
+
+</html>

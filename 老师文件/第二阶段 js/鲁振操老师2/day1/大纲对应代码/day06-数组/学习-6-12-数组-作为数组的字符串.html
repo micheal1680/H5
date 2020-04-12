@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-12-数组-作为数组的字符串</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>可以把字符串看成数组来访问；</h3>
+        <ol>
+            <li>把字符串看成数组，只能访问其中的“元素”，不能修改；
+                <pre>
+                    var str = 'hqyjhyn';
+                    console.log(str[4]); //charAt()：指定位置的字符
+                    console.log(str.charAt(4));//中括号的方式访问起来更方便
+                </pre>
+                数组的方法可以劫持过来使用在字符串上，这就很帅了；
+                <pre>
+                    //劫持数组的方法来使用
+                    var b = Array.prototype.map.call(str, function (v) {
+                        return v+v;
+                    });
+                    console.log(str);
+                    console.log(b);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var str = 'hqyjhyn';
+        console.log(str[4]); //charAt()：指定位置的字符
+        console.log(str.charAt(4));//中括号的方式访问起来更方便
+
+        var b = Array.prototype.map.call(str, function (v) {
+            return v+v;
+        });
+        console.log(str);
+        console.log(b);
+
+    </script>
+</body>
+</html>

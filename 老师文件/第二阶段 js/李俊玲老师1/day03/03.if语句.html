@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if语句</title>
+</head>
+
+<body>
+    <script>
+        // 从上到下 顺序执行: 顺序结构
+        console.log(1);
+        console.log(2);
+        console.log(3);
+
+        // if  : 分支结构 条件控制
+
+        //if(布尔表达式){ // 布尔表达式代表条件
+        // 语句块
+        // }
+
+        var num1 = 23,
+            num2 = 40;
+        // 三目运算==>if  
+
+        var max; //= num1 > num2 ? num1 : num2
+
+        if (num1 > num2) {
+            max = num1;
+        } else {
+            max = num2;
+        }
+        // 如果考试及格则通过
+        var score =  prompt("请输入你的分数"); // 90
+        // if(score>=60){
+        //     alert("恭喜你,通过此课程!");
+        // }
+
+
+        // if(布尔表达式){
+        //     // 为真时执行的语句块
+        // }else {
+        //     // 为假时执行的语句块
+        // }
+
+        // if(score>=60){
+        //     alert("恭喜你,通过此课程!");
+        // }else{
+        //     alert("恭喜你,你将再次见到我!");
+        // }
+
+        // if(){
+
+        // }else if(){
+
+        // }
+        // ...
+        // else{
+
+        // }
+        // 100
+        // 90  放假
+        // 70-89  改错
+        // 60-69  一遍
+        // 60以下 5遍
+
+        // 分数非法: 放在最开始判断 // 300a
+        if (score > 100 || score < 0 || isNaN(score)) {
+            // alert("分数非法");
+            // 判断分数是如何非法的
+            if (score > 100) {
+                alert("分数大于100");
+            } else if (score < 0) {
+                alert("分数小于0");
+            } else {
+                alert("你输入的不是数值");
+            }
+        } else if (score >= 90) {
+            alert("你可以放假了");
+        } else if (score >= 70 && score < 90) {
+            alert("你只需要改错即可"); 
+        } else if (score >= 60 && score < 70) { // 60<= score < 70 score >= 60 && score < 70
+            alert("抄一次试卷后交给我");
+        } else if (score < 60) {
+            alert("抄五次试卷后交给我");
+        }
+
+        var test = 40;
+        // 分支语句只会执行一条分支,只要满足条件1后,条件2到n即便满足也不会执行
+        if (test > 10) {
+            alert(test)
+        } else if (test > 6) {
+            alert(test)
+        }
+    </script>
+</body>
+
+</html>

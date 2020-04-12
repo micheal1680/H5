@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+        .box {
+            width: 1226px;
+            height: 460px;
+            border: 1px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+        .flash {
+            width: 1226px;
+            height: 460px;
+            overflow: hidden;
+        }
+        .flash li {
+            display: inline-block;
+        }
+
+        .flash li img {
+            width: 1226px;
+            height: 460px;
+        }
+
+        .point {
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
+
+        .point li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #000;
+            margin: 10px;
+        }
+
+        .point li:first-of-type {
+            background-color: red;
+        }
+        
+    
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="flash">
+            <li><img src="./img/p1.webp" alt=""></li>
+            <li><img src="./img/p2.webp" alt=""></li>
+            <li><img src="./img/p3.jpg" alt=""></li>
+            <li><img src="./img/p4.webp" alt=""></li>
+            <li><img src="./img/p5.webp" alt=""></li>
+        </ul>
+        <ul class="point">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- 在线引用cdn中的文件 -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <!-- 引入实现轮播图的js文件 -->
+    <script src="./js/lunbo.js"></script>
+</body>
+
+</html>

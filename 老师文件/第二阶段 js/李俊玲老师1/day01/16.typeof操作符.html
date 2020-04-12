@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>typeof操作符</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        {
+            a: 123,
+            b: "今天周一",
+            c: undefined,
+            d: undefined
+        }
+        
+        */
+        var a = 123;
+        console.log(typeof a); // number // 返回值: 类型名称(字符串)
+        var b = "今天周一";
+        console.log(typeof b); // string
+
+        var c = undefined;// 没有特别意义
+        var d;
+        console.log(typeof c , typeof d ); // undefined undefined
+
+        var e = true;
+        console.log(typeof e);  // boolean
+
+        var f = null;
+        console.log(typeof f); // object 规定 null 使用typeof时返回的值为object
+        var obj = {
+            name: "张三"
+        }
+        console.log(typeof obj);//object
+        var funName = function (){
+            console.log(1);
+        }
+        console.log(typeof funName); //function
+
+        // 考点: 
+        console.log(typeof (typeof (a)));// string
+
+        // 给没有定义的变量判定类型
+        console.log(typeof x); //undefined
+        
+    </script>
+</body>
+
+</html>

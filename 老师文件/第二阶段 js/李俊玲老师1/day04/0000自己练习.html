@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4,5,6];
+        for(var i=0;i<arr.length;i++){
+            console.log(arr[i]);
+        }
+        
+        for(i=1;i<10;i++){
+            for(j=1;j<=i;j++){
+                var re=i*j;
+                document.write(`${i}*${j}=${re}&nbsp&nbsp`);
+            }
+            document.write("</br>");
+        }
+
+        for(gj=0;gj<=20;gj++){
+            for(mj=0;mj<=33;mj++){
+                for(xj=0;xj<=100-gj-mj;xj++){
+                    if(gj*5+mj*3+xj/3==100&&gj+mj+xj==100){
+                        console.log(`公鸡：${gj}只；母鸡：${mj}只；小鸡：${xj}只`) //在字符串里面的符号为中文或英文都可以，区别就是中文字符占2字节，英文占1字节
+                    }
+                }
+            }
+        }
+    
+    
+    </script>
+</body>
+</html>

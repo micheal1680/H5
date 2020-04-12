@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var tel = prompt("请输入手机号:");
+        // 数字
+        // 11位
+        // 以1开头
+        var isNumberOne = tel.substring(0,1) == 1 ? true: false;
+        var isNumber = !isNaN(tel);
+        var isele = tel.length == 11 ? true:false;
+        if(isNumberOne && isNumber && isele){
+            alert("是合法手机号");
+        }else {
+            alert("输入数据有误.")
+        }
+        
+    
+    
+    </script>
+</body>
+</html>

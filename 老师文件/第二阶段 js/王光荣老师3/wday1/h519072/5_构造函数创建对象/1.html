@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Stu(name,age,sex) {
+				this.name = name;  //this.name的name是对象的属性，这个属性可以任意编写，不受限制；后面的name代表变量即形参，与函数后面的形参对应，因此二者不同。
+				this.age = age;
+				this.sex = sex;
+				this.show = function() {
+					console.log(this.name, this.age, this.sex);
+				}
+			}
+			let s1 = new Stu("王禅", 10000, "男");
+			let s2 = new Stu("伯拉图", 80, "男");
+			let s3 = s2;   //三个对象，共有5个内存空间（3个存储（new的时候空白）空间  +   2个引用地址空间（用于存储引用地址的））
+			// 因为let s3 = s2，所以s3和s2指向同一个引用地址空间
+			s1.show();  //s1是Stu类的一个对象，调用其属性show函数，this指向s1，打印"王禅", 10000, "男"
+			s2.show();  //同理，打印"伯拉图", 80, "男"
+			s3.show();  //与s2一样，打印"伯拉图", 80, "男"
+			
+			
+		</script>
+	</body>
+</html>

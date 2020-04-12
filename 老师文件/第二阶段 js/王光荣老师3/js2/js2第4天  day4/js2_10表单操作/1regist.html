@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			form {
+				display: block;
+				border: 1px solid red;
+				width: 176px;
+				margin-top: -88px;
+				height: 112px;
+				margin-left: -56px;
+				position: absolute;
+				left: 50%;
+				top:50%;
+			}
+		</style>
+		<script type="text/javascript">
+			// top left right
+			// static: 没有定位
+			// fixed: 相对于窗口定义  top left right
+			// relative: 相对自身定位  top left right
+			// absolute: 相对于非static的父元素定位  top left right
+			function check() {
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<form action="https://www.baidu.com" method="get" onsubmit="return check();">
+			名字:<input placeholder="名字" type="text" name="name" id="name" /><br />
+			密码:<input placeholder="密码" type="password" src="" /> <br>
+			<input type="submit" value="注册" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				display: block;
+				border: 1px solid red;
+				width: 300px;
+				margin-top: -150px;
+				height: 300px;
+				margin-left: -150px;
+				position: absolute;
+				left: 50%;
+				top:50%;
+			}
+		</style>
+		<script type="text/javascript">
+			// top left right
+			// static: 没有定位
+			// fixed: 相对于窗口定义  top left right
+			// relative: 相对自身定位  top left right
+			// absolute: 相对于非static的父元素定位  top left right
+			function regist() {
+				let form = document.forms[0];
+				form.submit();//表单提交
+			}
+			
+			function cleara() {
+				let form = document.forms[0];
+				form.reset();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<form enctype="multipart/form-data" action="http://192.168.1.103:9999/regist2.do" method="get">
+				名字:<input placeholder="名字" type="text" name="name" value="光荣"/><br />
+				密码:<input placeholder="密码" type="password" name="pwd" value="123456"/> <br>
+				性别:<input type="radio" name="sex"  value="boy"  checked="true"/>男孩
+					 <input type="radio" name="sex"  value="girl" />女孩
+					 <br />
+				爱好:<input type="checkbox" name="like" value="h5" />H5技术
+					<input type="checkbox"  name="like" value="物演" checked="checked"/>物演通论
+					<input type="checkbox"  name="like" value="大学" />四书大学
+				<br />
+				省份:
+				<select name="province">
+					<option value="shic">四川</option>
+					<option value="chongq">重庆</option>
+					<option value="beij">北京</option>
+				</select>
+				<br />
+				<input type="file" name="file"/>
+			</form>
+			<button onclick="regist();">注册</button>
+			<button onclick="cleara();">重置</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-03-语句-复合语句和空语句</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>用大括号将多条语句括起来就是复合语句</h3>
+        <ol>
+            <li>
+                例子是万能的：
+                <pre>
+                {
+                    var now     = new Date();
+                    var year    = now.getFullYear();
+                    var month   = now.getMonth() + 1;
+                    var day     = now.getDate();
+                    console.log('今天是'+year+'年'+month+'月'+day+'号');
+                }
+                </pre>
+            </li>
+            <li>你也看到了，语句块的结尾不需要分号；</li>
+            <li>整齐缩进的代码看上去更安逸，更容易理解；</li>
+            <li>
+                当需要把多条语句当做一条语句来执行时，需要用复合语句；比如循环；
+                <pre>
+                    var age = 1;
+                    while (age < 100) {
+                        document.write('我今年' + age + '岁了；');
+                        age++;
+                    }
+                </pre>
+            </li>
+            <li>
+                需要注意的是这里面的变量外面可以访问吗？
+                JavaScript说他没有传说中的块级作用域？
+                且听下回分解！
+            </li>
+        </ol>
+        <h3>空语句就是只有语句的结束符分号(;)，没有语句</h3>
+        <ol>
+            <li>
+                有没有觉的很气？有病吧，写个空语句干吗？什么都不干；<br>
+                我也这么认为，然而没有例子是万万不能的： <br>
+                这是空语句：
+                <pre>
+                    ; //没错，就是一个分号，并且只有一个分号
+                </pre>
+                只要思想不滑坡，看个使用空语句的例子感受下：
+                <pre>
+                    //实例万岁
+                    var h = new Array(5);
+                    console.log(h.length);
+                    for (var i = 0; i < h.length; h[i++]=i);
+                    console.log(h);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-14-表达式和运算符-更多无党派运算符</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>更多运算符</h3>
+        <ol>
+            <li>三元运算符：条件运算符(?:)，结构：条件?条件为true执行:条件为false执行；</li>
+            <li>
+                获取操作数类型:typeof，放在操作数前面(也可以使用小括号)，得到操作数类型(字符串)；
+                还是随便写几个代码：
+                <pre>
+                    X               typeof X
+                    ---------------------------
+                    undefined       "undefined"
+                    null            "object"
+                    true||false     "boolean"
+                    数字||NaN       "number"
+                    字符串          "string"
+                    函数            "function"
+                    内置对象        "object"
+                </pre>
+            </li>
+            <li>
+                delete：用来删除对象属性或数组元素；
+                也许有坑那，我们还是看看代码吧：
+                <pre>
+                    var arr = [1,2,3,4,5];
+                    delete arr[3];
+                    console.log(3 in arr);
+                    console.log(arr);
+                    console.log(arr.length);
+                </pre>
+            </li>
+            <li>
+                void：忽略计算结果并返回undefined；
+                使用案例，感受下加不加void的区别：
+                <a href="javascript:void(0)" onclick="alert('不会跳转')">点一下有void的</a> |
+                <a href="" onclick="alert('不会跳转')">点一下无void的</a> |
+                <a onclick="alert('不会跳转')">点一下无href的</a> |
+        </li>
+        <li>
+            逗号运算符：逗号(,)也算运算符？真搞笑; <br>
+            好了，看代码：
+            <pre>
+                var a=1, b=2, c=3;
+                console.log(b);
+                //等价于
+                var a=1;
+                var b=2;
+                var c=3;
+                console.log(b);
+            </pre>
+        </li>
+        </ol>
+    </div>
+    <script>
+        var a=1, b=2, c=3;
+        console.log(b);
+        //等价于
+        var a=1;
+        var b=2;
+        var c=3;
+        console.log(b);
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 234px;
+            height: 360px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin: 100px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .box:hover{
+            transform: translate(0,-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+        }
+        .box:hover .bottom{
+            height: 80px;
+        }
+        .bottom{
+            width: 100%;
+            height: 0;
+            background-color: #FF6700;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6f2493e6c6fe8e2485c407e5d75e3651.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="">
+        <p>6400万全场景四摄</p>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>

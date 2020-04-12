@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-11-数组-类数组对象</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>数组是一种特殊类型的对象；</h3>
+        <ol>
+            <li>有些对象看起来像数组，称为类数组；
+                <pre>
+                    //arguments是指函数收到的所有参数，是一个类数组
+                    function fn () {
+                        console.log(arguments);
+                        console.log(typeof arguments);
+                        console.log(Array.isArray(arguments));
+                    }
+                    fn(1,2,3,4);
+                </pre>
+                还有后面的DOM操作里面的查询节点，也是类数组；
+            </li>
+        </ol>
+    </div>
+    <script>
+        //类数组
+        function fn () {
+            console.log(arguments);
+            console.log(typeof arguments);
+            console.log(Array.isArray(arguments));
+        }
+        fn(1,2,3,4);
+    </script>
+</body>
+</html>

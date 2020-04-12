@@ -1,0 +1,15 @@
+@media screen and (min-width: 1100px) and (max-width: 1300px){
+            .box{
+                background-color: #ccc;
+            }
+        }
+@media screen and (min-width: 800px) and (max-width: 1099px){
+            .box{
+                background-color: #f00;
+            }
+        }
+@media screen and (max-width: 799px){
+            .box{
+                background-color: blue;
+            }
+        } 

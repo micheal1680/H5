@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-03-类型值变量-数字-存在的错误</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>浮点数在精度上存在一定的误差</h3>
+        <ol>
+            <li>实数有无数个;</li>
+            <li>
+                但是，JavaScript只能用浮点数表示其中有限的实数，
+                因为JavaScript采用的是二进制表示法，如：1/2,1/4,1/8, 1/256，
+                我们常用的是十进制，如1/10,1/100,1/10000，
+                那么如何精准的表示0.1这种非常简单的数字那？答案是并不能，尴尬不？；
+            </li>
+            <li>所以，在JavaScript中使用实数的时候，通常只是真实值的一个近似表示；</li>
+            <li>如何解决：可以先全部转成整数，运算完后再转回；</li>
+        </ol>
+
+        <script>
+            var a = 0.3 - 0.2;
+            var b = 0.2 - 0.1;
+            console.log(a);
+            console.log(b);
+            console.log(a==b);
+
+            //转成整数后再运算
+            var a = 0.3*10 - 0.2*10;
+            var b = 0.2*10 - 0.1*10;
+            console.log(a/10);
+            console.log(b/10);
+            console.log(a==b);
+        </script>
+    </div>
+</body>
+</html>

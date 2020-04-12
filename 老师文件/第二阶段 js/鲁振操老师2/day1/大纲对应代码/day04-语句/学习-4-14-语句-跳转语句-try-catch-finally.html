@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-14-语句-跳转语句-try-catch-finally</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>try-catch-finally是JavaScript的异常处理机制；</h3>
+
+        <ol>
+            <li>
+                语法结构是这样的：
+                <pre>
+                try{
+                    //我们自认为没有错误的 处理业务的代码
+                }
+                catch(e){
+                    //上面的业务处理代码报错了，这里才会执行
+                    //console.log(e);
+                }
+                finally{
+                    //这里总是会执行，哎哟，领导啊，总结发言
+                }
+                </pre>
+            </li>
+            <li>异常对象e里面有两个属性name和message，分别代表错误类型和错误描述信息；</li>
+            <li>
+                瞄一眼小案例：
+                <pre>
+                    try{
+                        console.log(a);
+                    }
+                    catch(e){
+                        console.log(e.name); //返回错误类型
+                        console.log(e.message); //错误描述
+                    }
+                    finally{
+                        console.log('大会到处结束');
+                    }
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var a = 90;
+        try{
+            console.log(a);
+        }
+        catch(e){
+            console.log(e.name); //返回错误类型
+            console.log(e.message); //错误描述
+        }
+        finally{
+            console.log('大会到处结束');
+        }
+       
+    </script>
+</body>
+</html>

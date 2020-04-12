@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数定义表达式</title>
+</head>
+
+<body>
+    <script>
+        function fun() {
+            var a = 20;
+            var b = 10;
+            return a + b;
+        }
+
+        fun();
+
+        // 表达式定义函数
+        var funName = function () {
+            var a = 20;
+            var b = 10;
+             return a + b; // 返回值
+        }
+        var re = funName();
+        console.log(re);
+
+        var string = new String("HelloWorld");
+        console.log(string.toString());
+
+        // 函数调用fun()表达式的值为返回值(如若没有返回值则为undefined)  
+
+        var s = "   ";
+        // s.substring()
+
+        var fn = function (x,y) {
+            // var x = x;
+            console.log(x);
+            console.log(y);
+        }
+
+        fn(2,3);
+    </script>
+</body>
+
+</html>

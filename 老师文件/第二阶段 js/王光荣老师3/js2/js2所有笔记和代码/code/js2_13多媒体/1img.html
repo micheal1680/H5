@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				let img = document.getElementById("img1");
+				img.onmouseenter = function() {    //onmouseenter是鼠标移入事件，这是对img的监听器
+					this.src = "./00mv-img/img/km1.jpg";
+				}
+				img.onmouseleave = function() {
+					this.src = "./00mv-img/img/km3.jpg";    //任何网络路径都需要做服务器来支持
+				}
+			}
+			function addImg1() {
+				let img = new Image();
+				img.src = "./00mv-img/img/km4.jpg";
+				document.body.appendChild(img);
+			}
+			function addImg2() {
+				let img = document.createElement("img");
+				img.src = "./00mv-img/img/km5.jpg";
+				document.body.appendChild(img);
+			}
+		</script>
+	</head>
+	<body>
+		<img id="img1" src="./00mv-img/img/km3.jpg" >
+		<img src="http://192.168.1.101:9999/km2.jpg" > 说明该图片来自服务器，192.168.1.101是服务器的ip地址，9999是该服务器的端口号，由于这里是一个img，因此域名为km2.jpg
+		<button onclick="addImg1()">加入图片1</button>
+		<button onclick="addImg2()">加入图片2</button>
+		<!-- 服务器域名的类型(根据用途分类)：        域名：域名也由若干部分组成，各部分之间用小数点分开，如：baidu.com
+			.com 用于商业公司
+			.org 用于组织、协会等
+			.net 用于网络服务
+			.edu 用于教育机构
+			.gov 用于政府部门
+		    .mil 用于军事领域   -->
+	</body>
+</html>

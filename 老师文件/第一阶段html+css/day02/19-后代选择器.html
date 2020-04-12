@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ul div{
+            color: #ff0000;
+        } */
+        ul div,a{
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        后代选择器又称包含选择器，用来选择后代，(有条件的)子子孙孙都会被选中 
+        后代选择器由多个选择器构成，中间以空格隔开，可以有多个空格，但是至少要有一个空格
+        后代选择器可以隔代选择
+    -->
+    <ul>
+        <li>列表1</li>
+        <li>
+            <div class="mydiv">我是div</div>
+            <a href="#">空链接</a>
+        </li>
+        <li>
+            <div>我是列表3里面的div</div>
+        </li>
+        <li>列表4</li>
+        <li>
+            <div class="mydiv">我是列表5里面的div</div>
+        </li>
+    </ul>
+</body>
+</html>

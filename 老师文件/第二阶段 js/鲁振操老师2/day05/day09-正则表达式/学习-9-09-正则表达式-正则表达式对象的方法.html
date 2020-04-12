@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-09-正则表达式-正则表达式对象的方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>正则表达式的方法；</h3>
+        <ol>
+            <li>
+                exec(str)：参数是字符串，对该字符串进行匹配检索；<br>
+                总是返回一个结果，并提供匹配的完整信息；再次执行会进行下次匹配；<br>
+                没找到返回null； 
+                <pre>
+                    var pattern     = /hqyj|farsight/ig; //如果去掉i 或 j 会怎样？
+                    var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+                    var allmatch1   = pattern.exec(str);
+                    var allmatch2   = pattern.exec(str);
+                    var allmatch3   = pattern.exec(str);
+                    var allmatch4   = pattern.exec(str);
+                    console.log(allmatch1);
+                    console.log(allmatch2);
+                    console.log(allmatch3);
+                    console.log(allmatch4);
+                </pre>
+            </li>
+            <li>
+                test(str)：对字符串进行检测，包含返回true，否则返回false；
+                <pre>
+                    var pattern     = /hqyj|farsight/ig; //如果去掉i 或 j 会怎样？
+                    var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+                    var allmatch1   = pattern.test(str);
+                    var allmatch2   = pattern.test(str);
+                    var allmatch3   = pattern.test(str);
+                    var allmatch4   = pattern.test(str);
+                    console.log(allmatch1);
+                    console.log(allmatch2);
+                    console.log(allmatch3);
+                    console.log(allmatch4);
+                </pre>
+                要求密码里面有大写字母、小写字母、特殊字符和数字
+                <pre>
+                    //密码：里面要求有大小写字母、特殊字符、数字
+                    var str = 'nihaoA!@#SS123_';
+                    var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\w\W]{6,}$/;
+                    console.log(reg.test(str));
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var pattern     = /hqyj|farsight/ig; //如果去掉i 或 j 会怎样？
+        var str         = '华清远见的简称是HQyj还是hqyj那还是farsight那？';
+        var allmatch1   = pattern.test(str);
+        var allmatch2   = pattern.test(str);
+        var allmatch3   = pattern.test(str);
+        var allmatch4   = pattern.test(str);
+        console.log(allmatch1);
+        console.log(allmatch2);
+        console.log(allmatch3);
+        console.log(allmatch4);
+
+        var str = 'nihao!@#SS123_';
+        var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\w\W]{6,}$/;
+        console.log(reg.test(str));
+
+    </script>
+</body>
+</html>

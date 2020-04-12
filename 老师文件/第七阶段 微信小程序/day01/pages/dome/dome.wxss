@@ -1,0 +1,57 @@
+/* pages/dome/dome.wxss */
+
+.view {
+    font-size: 20px;
+}
+
+#view {
+    width: 200px;
+    height: 200px;
+    background-color: #ff0;
+}
+
+.my-hover {
+    color: red;
+    font-size: 50px;
+}
+
+.father {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+}
+
+.son {
+    width: 100px;
+    height: 100px;
+    background-color: #ff0;
+    font-size: 30px;
+    color: red;
+}
+
+.hover-son {
+    font-size: 30px;
+    color: #fff;
+}
+
+.hover-father {
+    font-size: 30px;
+    color: #f0f;
+}
+
+
+.img {
+	width: 200px;
+	height: 200px;
+	background-color: #000;
+}
+/* rpx: 将屏幕宽度分为750rpx 
+	iphone6/7/8: 375px ==> 750rpx ==> 1px=2rpx 1rpx = 0.5px
+	375px==> 750rpx
+	iphone5: 320px ==> 750rpx  1px = 2.34rpx 1rpx = 0.42px
+ */
+.box {
+	width: 750rpx;
+	height: 500rpx;
+	background-color: #ff0;
+}

@@ -1,0 +1,47 @@
+/* pages/dome/dome.wxss */
+
+.title {
+    font-size: 40rpx;
+    color: red;
+    text-align: center;
+}
+
+.navTabBar {
+    display: flex;
+	height: 50rpx;
+}
+
+.tag {
+	padding: 0 40rpx;
+	flex-shrink: 0;
+}
+
+.active {
+    color: red;
+}
+
+.box {
+    width: 750rpx;
+    height: 300rpx;
+    border: 2rpx solid #ff0;
+    background-color: #f00;
+}
+
+.scroll-view {
+    width: 300rpx;
+    height: 400rpx;
+}
+
+.scroll-view1 {
+	width: 400rpx;
+    height: 400rpx;
+	display: flex;
+}
+
+.box1 {
+	width: 300rpx;
+    height: 300rpx;
+    border: 2rpx solid #ff0;
+    background-color: #f00;
+	flex-shrink: 0;
+}

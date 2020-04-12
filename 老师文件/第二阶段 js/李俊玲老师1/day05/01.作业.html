@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+</head>
+
+<body>
+    <script>
+        // 1. 九九乘法表
+        a:
+            for (var i = 1; i < 10; i++) {
+                for (var j = 1; j <= i; j++) {
+                    if (i == 7) {
+                        break a;
+                    }
+                    var re = i * j
+                    document.write(`<td>${j} * ${i} = ${re} &nbsp;&nbsp;&nbsp;&nbsp;`);
+                }
+                document.write("<br/>");
+            }
+
+        for (var i = 1; i < 10; i++) {
+            for (var j = 1; j <= i; j++) {
+                if (j == 2) {
+                    continue;
+                }
+                var re = i * j
+                document.write(`<td>${j} * ${i} = ${re} &nbsp;&nbsp;&nbsp;&nbsp;`);
+            }
+            document.write("<br/>");
+        }
+
+
+        // var input = prompt("请输入你的答案"),
+        //     answer = 5;
+
+        // while(input!=answer) {
+        //     if (input>answer) {
+        //         alert("猜大了")
+        //     } else {
+        //         alert("猜小了")
+        //     }
+        //     input = prompt("请输入你的答案")
+        // } 
+        // alert("猜对了");
+
+
+        // var  a = 111;
+        // function test() {
+        //     alert(a);
+        //     var a = 11;
+        //     function subTest() {
+        //         alert(a);
+        //     }
+        //     return subTest;
+        // }
+
+        // // var re = test();
+        // // re();
+
+        // test()();
+
+        
+
+        function test() {
+            var n = 10;
+            function subTest() {
+                n++;
+                alert(n);
+            }
+            return subTest;
+        }
+
+        var func = test();
+        func();
+        func();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<audio id="myaudio" controls autoplay loop>
+			<!-- 这里的两个音频其实是同一首歌，目的在于防止第一个音频无法播放时无歌可放，起到一个备胎的作用。此处的音频来自于本地，一个音频要么来自本地，要么来自服务器 -->
+			<source src="00mv-img/menu.mp3" type="audio/mp3">  
+			<source src="00mv-img/menu.ogg" type="audio/ogg">
+		</audio>
+		<div id="div1">
+			
+		</div>
+		<script type="text/javascript">
+			//let audio = new Audio(); 
+			let audio = document.createElement("audio"); 
+			audio.controls="controls";
+			let source = document.createElement("source");
+			source.src = "00mv-img/menu.mp3";
+			source.type = "audio/mp3";
+			audio.appendChild(source);
+			console.log(audio);
+			document.getElementById("div1").appendChild(audio);
+		</script>
+	</body>
+</html>

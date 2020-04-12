@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原始值与引用对象</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            value: "string"
+        }
+        // obj.value = "str";
+        // obj.name = "张三";
+        // console.log(obj.value); 
+        // console.log(obj.name);
+
+        var s = "str";
+        s = "string"; //对s再次赋值，不需要再次声明，一个变量声明一次就够了
+        console.log(s);//string
+
+        var obj2 = {
+            id: 1,
+            value: "string"
+        }
+
+        console.log(obj == obj2); // false 值相同但是指向不同  比较的是变量中存的对象的引用而不是值
+
+        var obj3 = obj;
+        console.log(obj3 == obj); // true
+
+        obj3.value = "str";
+        console.log(obj.value); // str  obj3更改后的值会被obj取到,因为指向同一个对象 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class MyApp extends React.Component {
+
+            render() {
+                console.log(this.props);
+                console.log(this.props.name);
+                return(
+                    <div>
+                        <h1>姓名：  { this.props.name } </h1>
+                        <p>爱好：  { this.props.joy1 } </p>
+                        <p>爱好：  { this.props.joy2 } </p>
+                        <p>爱好：  { this.props.joy3 } </p>
+                        <p>爱好：  { this.props.joy4 } </p>
+
+                    </div>
+                )
+            }
+        }
+        // 定义默认属性，实际传递的属性优先于默认属性
+        MyApp.defaultProps = {
+            joy1: "study"
+        }
+
+        MyApp.props = {
+            name: "李四",
+            joy1: "study",
+            joy2: "games",
+            joy3: "vedio",
+            joy4: "music",
+
+        }
+       
+        ReactDOM.render(
+            <div>
+                <MyApp name="张三"/>
+                
+                {/*使用延展属性给组件传递多个属性*/}
+                <MyApp {...MyApp.props}/>
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

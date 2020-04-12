@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fixed{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            /* 固定定位 */
+            /* 只要定位，就有边偏移 */
+            position: fixed;
+            /* 边偏移  left  right  top  bottom */
+            right: 50px;
+            bottom: 100px;
+        }
+        .content{
+            height: 1400px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed">固定定位</div>
+    <div class="content">我是内容</div>
+</body>
+</html>

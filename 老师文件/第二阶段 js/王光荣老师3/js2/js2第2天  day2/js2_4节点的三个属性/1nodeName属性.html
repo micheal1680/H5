@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>nodeName属性</title>
+	</head>
+	<body>
+		<div>
+		</div>
+		<h1 align="center">标题1</h1>
+		<h1 align="center">标题2</h1>
+	</body>
+	
+	<script type="text/javascript">
+		// 元素.childNodes--->得到元素中嵌套的所有直接子节点数组
+		let body = document.body;
+		//得到body元素中嵌套的所有子节点数组
+		let a = body.childNodes;
+		for(let i=0; i<a.length; i++) {
+			let e = a[i];
+			console.log(e.nodeName);
+		}
+		let h1 = document.querySelector("h1");
+		let a1 = h1.childNodes;
+		console.log(">>>>",a1[0].nodeName);
+		console.log(">>>>",a1[0].nodeValue);
+	</script>
+</html>

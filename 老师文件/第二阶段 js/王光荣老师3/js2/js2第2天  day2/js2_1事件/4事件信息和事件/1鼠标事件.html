@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			#div1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				margin-top: 50px;
+				margin-left: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			/**
+			 * (1)e.offsetX, e.offsetY的解释
+			 * 事件源左上角为坐标原点，往下是offsetY，往右是offsetX
+			 * (2)e.clientX, e.clientY
+			 * 浏览器窗口左上角为坐标原点，往下是clientY，往右是clientX
+			 */
+			window.addEventListener("load", function(){
+				let div1 = document.getElementById("div1");
+				div1.addEventListener("click", function(e){
+					// console.log(e.offsetX, e.offsetY);
+					// console.log(e.clientX, e.clientY);
+					console.log(e);
+				})
+			})
+		</script>
+	</head>
+	
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

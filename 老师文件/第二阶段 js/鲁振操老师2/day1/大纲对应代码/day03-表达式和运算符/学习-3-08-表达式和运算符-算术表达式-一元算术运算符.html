@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-08-表达式和运算符-算术表达式-一元算术表达式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>一元运算符作用于一个单独的操作数，并产生一个新的值；</h3>
+        <ol>
+            <li>+：也是一元运算符，好意外，原来可以拿来很方便的把操作数转换为数字；</li>
+            <li>-：也是一元运算符，好惊喜，把操作数转换成数字，改变运算结果的符号；</li>
+            <li>
+                ++、--：自增自减运算符，常用于循环的计数器控制；<br>
+                放在操作数前面表示先运算后执行；
+                放在操作数后面表示先执行后运算；
+                <pre>
+                    //知道执行结果就基本理解自增自减了
+                    var a = 2;
+                    var b = 3;
+                    var c = (++a) + (b++) + b + (a++) - a;
+                    console.log(c);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

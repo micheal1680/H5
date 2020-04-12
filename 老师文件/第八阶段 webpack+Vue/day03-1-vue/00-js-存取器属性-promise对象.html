@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		存取器属性
+		<br>
+		promise 对象
+		
+		<script type="text/javascript">
+			var p=new Promise(function(res,rej){
+				setTimeout(function(){
+					console.log(1);
+					res();
+				},3000)
+			})
+			
+			p.then(function(){
+				console.log(2)
+			})
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			var obj={
+				birth:1990,
+				get age(){
+					return (new Date).getFullYear()-this.birth
+				},
+				set age(value){
+					this.birth=value
+				}
+				
+			}
+			
+			console.log(  obj.age )
+			obj.age=1995;
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-10-函数-函数的属性</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>函数是JavaScript代码中特殊的对象；数组也是特殊对象；</h3>
+        <ol>
+            <li>
+                length：属性，定义的是应该传递的实参个数，就是形参个数；
+                <pre>
+                    function fn (a, b, c) {}
+                    var al = fn.length;
+                    console.log(al);
+                </pre>
+                检查传递的实参和形参是否一致：
+                <pre>
+                    function check (arg) {
+                        var al1 = arg.length;
+                        var al2 = arg.callee.length;
+                        if(al1 !== al2){
+                            throw Error('参数错误：需要'+al2+'个参数，你传递了'+al1+'个参数');
+                        }
+                        return true;
+                    }
+                    function add (a, b, c) {
+                        check(arguments);
+                        return a+b+c;
+                    }
+                    add(1,2,3);
+                    add(1,2,3,4);
+                </pre>
+            </li>
+            <li>
+                prototype：指向一个对象的引用，称为原型对象；
+                <pre>
+                    console.log(Array.prototype);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        console.log(Array.prototype);
+    </script>
+</body>
+</html>

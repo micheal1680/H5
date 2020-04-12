@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型</title>
+</head>
+<body>
+    <script>
+        var arr = new Array(1,2,3,4);
+        var arr1 = new Array(1,2,3);
+        var arr2 = new Array(1,2);
+        // 原型给我们修改属性和方法的机会
+        Array.prototype.sum = function(){
+            var sum = 0;
+            for (var i = 0; i < this.length; i++) {
+                    sum += this[i];
+            }
+            return sum;
+        }
+        console.log(arr1.sum());//6+4=10
+        console.log(arr);
+        // arr.__proto__ -->Array.prototype
+        // Array.prototype.__ptoto__   --->Object.prototype-->null
+    </script>
+</body>
+</html>

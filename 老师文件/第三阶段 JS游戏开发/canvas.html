@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    #Mycanvas{
+        border: 1px solid #000000
+    }
+    </style>
+</head>
+<body>
+    <canvas id="Mycanvas" width="500" height="500">
+       
+    </canvas>
+    <script>
+    //获取canvas节点
+    var Mycanvas = document.getElementById('Mycanvas');
+    //获取画笔
+    var ctx = Mycanvas.getContext('2d')
+    //绘制矩形
+    ctx.fillStyle = 'red';
+    ctx.fillRect(50,50,150,150);
+    //绘制圆形
+    ctx.beginPath();
+    ctx.arc(300,300,50,0,Math.PI);
+    ctx.fill()
+    //绘制线条
+    ctx.strokeStyle = 'blue'
+    ctx.moveTo(0,0)
+    ctx.lineTo(150,150);
+    ctx.stroke();
+    //绘制文字
+    ctx.fillStyle = 'black'
+    ctx.font= '30px Arial';
+    ctx.fillText('hello world',10,50);
+    ctx.stroke()
+    
+    </script>
+</body>
+</html>

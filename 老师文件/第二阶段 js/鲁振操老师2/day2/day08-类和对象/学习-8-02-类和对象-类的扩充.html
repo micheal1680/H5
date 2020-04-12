@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第八天-02-类和对象-类的扩充</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>JavaScript基于原型的继承机制是<code>动态的</code>；</h3>
+        <ol>
+            <li>
+                如果原型对象发生改变，继承这个原型的所有实例对象也跟着改变；
+                首先扩展先构造函数的原型；
+                <pre>
+                    //扩展构造函数原型
+                    Range.prototype.sum = function () {
+                        var sum = 0;
+                        for (var i = this.from; i <= this.to; i++) {
+                            sum += i;
+                        }
+                        return sum;
+                    }
+                </pre>
+                然后让<code>已经实例化过的</code>实例对象调用该扩展方法；
+                <pre>
+                    function Range (from, to) {
+                        this.from   = from;
+                        this.to     = to;
+                    }
+                    Range.prototype = {
+                        //为了演示方便，这里的属性只留一个，只是为了演示方便
+                        includes:function (a) {
+                            return a >= this.from && a <=this.to;
+                        }
+                    };
+                    var nr = new Range(2, 20);
+                    console.log(nr);
+                    //为构造函数的原型新增方法,并没有修改或重新创建实例对象nr
+                    Range.prototype.sum = function () {
+                        var sum = 0;
+                        for (var i = this.from; i <= this.to; i++) {
+                            sum += i;
+                        }
+                        return sum;
+                    }
+                    //nr是在上面实例化的，这里动态继承了sum
+                    var m = nr.sum();
+                    console.log(m);
+                </pre>
+                如此我们就能理解什么是动态继承了；
+            </li>
+            <li>
+                内置的构造函数能不能扩展那？
+                <pre>
+                    //求和
+                    var numall = new Array(1, 56, 89, 901, 556);
+                    Array.prototype.sum = function () {
+                        var total = 0;
+                        for (var i = 0; i < this.length; i++) {
+                            total += this[i];
+                        }
+                        return total;
+                    }
+                    console.log(numall.sum());
+                </pre>
+            </li>
+            <li>
+                <code>禁止对构造函数扩展的方法</code>：
+                <pre>
+                    Object.preventExtensions(Range.prototype);// 将对象设置为不可扩展
+                    Object.seal(Array.prototype);//既不能扩展又不能删除
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        function Range (from, to) {
+            this.from   = from;
+            this.to     = to;
+        }
+        Range.prototype = {
+            //为了演示方便，这里的属性只留一个，只是为了演示方便
+            includes:function (a) {
+                return a >= this.from && a <=this.to;
+            }
+        };
+        //实例对象
+        var nr = new Range(2, 20);
+        console.log(nr);
+        // Object.seal(Array.prototype);
+        //修改原型，并没有修改或重新创建对象
+        Range.prototype.sum = function () {
+            var sum = 0;
+            for (var i = this.from; i <= this.to; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        //nr是在上面实例化的，这里动态继承了sum
+        var m = nr.sum();
+        console.log(m);
+
+        //内置的构造函数扩展
+        var numall = new Array(1, 56, 89, 901, 556);
+        
+        Array.prototype.sum = function () {
+            var total = 0;
+            for (var i = 0; i < this.length; i++) {
+                total += this[i];
+            }
+            return total;
+        }
+        console.log(numall.sum());
+
+    </script>
+</body>
+</html>

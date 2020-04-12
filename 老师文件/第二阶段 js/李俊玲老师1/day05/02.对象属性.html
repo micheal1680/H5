@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象属性</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "张三",
+            age: 49,
+            job: "律师",
+            sayName: function () {
+                alert(this.name)
+            }
+        }
+
+        // 访问对象:  .属性名
+        console.log(obj.name);
+
+        // ["属性名"]  [name]: name代表变量
+        var name = "name";
+        var a = obj[name];
+        console.log(a); // 
+
+        // delete  
+        // 只能删除 没有var声明的全局变量
+        // var x = 23;
+        // y = 8;
+        // console.log(window.x)
+        // console.log(window.y)
+        // delete window.x;
+        // delete window.y;
+        // console.log(window.x)
+        // console.log(window.y)
+
+        delete obj.name; // 成功 true
+        console.log(obj);
+        // 判断属性是否存在: in hasOwnProperty()
+        console.log("age" in obj); // true
+        console.log("toString" in obj); // true
+
+        console.log(delete obj.age); // true
+        console.log(delete obj.toString); //true
+        console.log(obj.age);
+        console.log(obj.toString);
+        // hasOwnProperty: 当前属性是否为对象的自有属性
+        console.log(obj.hasOwnProperty("job")); // true
+        console.log(obj.hasOwnProperty("toString")); // false
+
+        // 枚举属性
+        for (var prop in obj) {
+            console.log(prop + '=' + obj[prop] + '  ;');
+        }
+
+        // 存取器属性 get set
+        var myObj = {
+            a: 2,
+            get b() {
+                return 3;
+            },
+            c: "string",
+            set d(value) {
+                this._d_ = value
+            }
+        }
+
+        console.log(myObj.a)
+        console.log(myObj.b)
+
+        myObj.b = 4;
+        console.log(myObj.b)
+
+        myObj.d = 6;
+        console.log(myObj._d_);
+
+        var myobj = {
+            //数据属性
+            myname: 'yourname',
+            birthday: '1983-05-17',
+            sex: "male",
+            get myage() {        //取
+                return (new Date().getFullYear()) - new Date(this.birthday).getFullYear();
+            },
+            set mysex(value) {   //存
+                this.sex = value;
+            }
+        };
+
+        console.log(myobj.myage)
+
+        console.log(myobj.sex)
+
+        myobj.mysex = "女";
+        console.log(myobj.sex)
+    </script>
+</body>
+
+</html>

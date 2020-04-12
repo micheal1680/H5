@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数作为实参</title>
+</head>
+
+<body>
+    <script>
+        function add(a, b) { return a + b; }
+        function sub(a, b) { return a - b; }
+        function mul(a, b) { return a * b; }
+        function div(a, b) { return a / b; }
+
+        function all(oper, a, b){
+            return oper(a, b);    //混合运算的表示方法，其中oper是指引用的函数的函数名，a和b指进行运算的对象
+        }
+        // var a =  6*3 + 8/2;
+        var a = all(add, all(mul, 6, 3), all(div, 8, 2));
+        console.log(a);
+
+    </script>
+</body>
+
+</html>

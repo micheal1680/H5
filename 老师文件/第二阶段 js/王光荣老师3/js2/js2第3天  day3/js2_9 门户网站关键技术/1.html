@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>让元素滚动到视口</title>
+		<style type="text/css">
+			.menu {
+				position: fixed;
+			}
+			.menu>a {
+				height: 40px;
+				width: 70px;
+				line-height: 40px;
+				text-align: center;
+				display: inline-block;
+				margin-right: 5px;
+				background-color: blue;
+				color: white;
+				font-size: 14px;
+			}
+			.kongbai {
+				height: 900px;
+				padding-top: 50px;
+			}
+			.info {
+				background-color: red;
+			}
+			.products {
+				background-color: orange;
+			}
+			.contact {
+				background-color: purple;
+			}
+			.hr {
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+				<a href="###" goto="info">公司简介</a>|
+				<a href="###" goto="products">产品信息</a>|
+				<a href="###" goto="contact">联系方式</a>|
+				<a href="###" goto="hr">招聘信息</a>
+		</div>
+		
+		<div class="info kongbai">公司简介</div>
+		<div class="products kongbai">产品信息</div>
+		<div class="contact kongbai">联系方式</div>
+		<div class="hr kongbai">招聘信息</div>
+		<div class="kongbai">占地区域</div>	
+			
+			
+		<script type="text/javascript">
+			var anchors=document.querySelectorAll(".menu>a");
+			for(var i=0;i<anchors.length;i++){
+				anchors[i].onclick=function(){
+					  //获取a标签对应的div元素
+					  var div=document.querySelector("."+this.getAttribute("goto"))
+					  //将元素移动到视口区域
+					  div.scrollIntoView(true);  //scroll：滚动  此处（）内的值为true或false是有区别的。
+					  //为false时：点击a标签，得到相应的区域不会直接顶到浏览器可视窗口的顶部，会留有一段距离。
+					  //为true时：直接顶到浏览器可视窗口顶部。
+				}
+			}
+		</script>
+		<!-- 这个技术在设计门户网站时常用，但是这个技术所形成的网站样式在点击切换的时候难免会感觉有些突兀，太过直接，因此可以考虑用
+		样式css来为其增加过渡效果，让点击切换的时候，东西是慢慢出现的 。也体现了css与js结合使用的好处-->
+	</body>
+</html>

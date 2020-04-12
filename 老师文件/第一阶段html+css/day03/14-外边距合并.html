@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            /* border: 2px solid #ccc; */
+            background-color: #ccc;
+            /* border-bottom: 0; */
+        }
+        .mydiv1{
+            margin-bottom: 100px;
+        }
+        .mydiv2{
+            margin-top: 150px;
+        }
+
+        .box{
+            width: 400px;
+            height: 300px;
+            margin-top: 100px;
+
+            /* 解决办法 */
+            /* 多余内容隐藏 */
+            /* overflow: hidden; */
+            /* border-top: 1px solid #fff; */
+            padding-top: 1px;
+        }
+        .smallbox{
+            margin-top: 120px;
+            background-color: #f00;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 
+        1.相邻两个盒子的外边距会存在合并现象，上边的盒子的下外边距会和下边的盒子的上外边距会合并，哪个值大就取谁
+        2.嵌套的两个盒子之间上外边距会存在合并，哪个值大就取谁
+     -->
+    <!-- <div class="mydiv1"></div>
+    <div class="mydiv2"></div> -->
+
+    <div class="box">
+        <div class="smallbox"></div>
+    </div>
+</body>
+</html>

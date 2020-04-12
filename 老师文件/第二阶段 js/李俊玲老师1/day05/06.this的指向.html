@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 在全局中调用,this指向window
+        // 在对象中调用,this指向调用函数的对象
+        var a = "windowA"
+        function fm() {
+            console.log(this.a);
+        }
+
+        var obj = {
+            fn:fm
+        }
+
+        window.fm(); // windowA
+        obj.fn();
+    
+    </script>
+</body>
+</html>

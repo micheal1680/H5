@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        // includes:检查是否包含指定的元素
+        var arr = new Array(1, 2, 3, 4, 5, 3,  6);
+        console.log(arr.includes(3));
+        console.log(arr.includes(33));
+        //返回指定元的下标，如果不存在，则返回-1,第二个参数可以指定从哪个位置开始搜索
+        console.log(arr.indexOf(3));
+        console.log(arr.lastIndexOf(3));//从后面往前搜索，返回的还是元素的下标
+    </script>
+</body>
+
+</html>

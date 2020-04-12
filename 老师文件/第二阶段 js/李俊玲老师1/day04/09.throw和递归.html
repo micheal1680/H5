@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.阶乘
+        function factorial(n) {
+            if (isNaN(n)) throw "请输入数字";
+            if (n == 1) return 1;
+            return n * factorial(n - 1); //这个算法使用了递归     factorial：阶乘算法（这个算法的代码就是阶乘算法的固定格式）
+        }
+        // 递归的特点总结:1.自调用，就是在函数里面自己调用自己；2.最关键的一点，就是一个递归必须明确结束条件，不然就会陷入无穷的死循环；
+        // 3.缺点，就是消耗大量的内存。
+        // 使用递归的常见算法有：阶乘（factorial）、斐波那契数列、上楼梯问题（这是面试常问的算法问题）
+        var n = factorial(3);
+        console.log(n);  //6
+
+        // var n = factorial('a05');
+        // console.log(n);  //报错
+
+        var n = factorial(5);
+        console.log(n);   //120
+
+        // 2.斐波那契数列  1 1 2 3 5 8
+        function fei(n){
+            if(n<=0)return 0;
+            if(n>0)return 1;
+            return fei(n-1)+fei(n-2);
+        }
+
+
+
+       //3.上楼梯问题
+    //    情况1：上楼梯，可以分为一次走1/2/3阶楼梯  分析可知上楼梯方法是F(n)=F(n-1)+F(n-2)+F(n-3)  
+    function louti(n){
+        if(n<=0)return 0;
+        if(n<=1)return 1;
+        if(n<=2)return 2;
+        if(n<=3)return 4;
+        return louti(-1)+louti(-2)+louoti(-3)
+    }  
+
+    // 情况2：可以一次走1/2阶  F(n)=F(n-1)+F(n-2)
+    function louti(n){
+        if(n<=0)return 0;
+        if(n<=1)return 1;
+        if(n<=2)return 2;
+        return louti(-1)+louti(-2)
+    }
+    </script>
+</body>
+
+</html>

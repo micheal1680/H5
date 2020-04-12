@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-06-语句-条件语句-switch</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>switch:适用于多个分支依赖于同一个表达式</h3>
+        <ol>
+            <li>
+                switch语句的语法结构：
+                <pre>
+                    switch(expression){
+                        statements; //代码块
+                    }
+                </pre>
+            </li>
+            <li>
+                代码块中可以使用多个由case关键字标记的代码片段；
+                case后面跟的是一个表达式和一个冒号；
+                <pre>
+                    var expression = 'status2';
+                    switch(expression){
+                        case 'status1':
+                            代码片段1;
+                            break;
+                        case 'status2':
+                            代码片段2;
+                            break;
+                        case 'status3':
+                            代码片段3;
+                            break;
+                        default:
+                            默认代码片段;
+                            break;
+                    }
+                </pre>
+                如果其中一个case子句中的表达式和条件表达式相同(===)，
+                则从对应的代码块开始执行；<br>
+                <code>不可以理解为执行对应的代码块</code>，
+                这就是为什么代码块最后要加<code>break</code>；<br>
+                case只标记开始位置，不标记结束位置，这坑货，这样有意思吗？<br>
+                如果找不到和条件表达式相同的case，则执行default下面的代码块； <br>
+                象神一样的代码，猜一猜输出什么：
+                <pre>
+                    var a = 3;
+                    switch(a){
+                        case 1:
+                            console.log('1的');
+                            break;
+                        case 2:
+                            console.log('2的');
+                            break;
+                        case 3:
+                            console.log('3的');
+                            //break;
+                        case 4:
+                            console.log('4的');
+                            break;
+                        default:
+                            console.log('鬼的');
+                            break;
+                    }
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

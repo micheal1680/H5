@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>总结day02</title>
+    <style>
+        div {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">总结</h1>
+    <div>Boolean类型</div>
+    <p>
+        <ol>
+            <li>值: true false</li>
+            <li>
+                <ol>
+                    <li>string: ""  false  非空字符串  true</li>
+                    <li>undefined:   false </li>
+                    <li>object: null false 非空对象 true </li>
+                    <li>number: 0/-0 NaN false 非零数值 true </li>
+                </ol>
+            </li>
+        </ol>
+    </p>
+
+    <div>Number类型</div>
+    <p>
+        <ol>
+            <li>整数 9 10 浮点数 1.01 2.0==>整数 2.==>整数 .9 (不建议使用)</li>
+            <li>精度问题: 解决办法: 转为整数计算 保留小数  Math.floor(x), Math.ceil(x) </li>
+            <li>其他类型转为Number类型: Number() parseInt()  parseFloat()  +/-/*// , ++ ,--, -/+ </li>
+            <li>NaN : 0 / 0 ==> NaN  特点: NaN == NaN ==> false</li>
+        </ol>
+    </p>
+    <div>Object类型</div>
+    <p>
+        <ol>
+            <li>对象的创建方法 var obj = {}  var obj = new Object()</li>
+            <li>访问: . []  .语法无法访问数值属性, a.1 // 错误 []: 访问中括号中的值不能直接写属性名,需要改为字符串访问 </li>
+            <li>包装对象
+                <ol>
+                    <li>临时包装对象: 访问属性后会被销毁</li>
+                    <li>显示包装对象: var s = "string"; var S = new String(s); S不会被销毁</li>
+                </ol>
+            </li>
+        </ol>
+    </p>
+    <div>变量作用域</div>
+    <p>
+        <ol>
+            <li>全局作用域: window/this</li>
+            <li>局部作用域(函数作用域): 函数内部声明的变量(必须使用关键字var声明)</li>
+            <li>函数内部可以访问外部变量  外部不能访问内部变量(报错)</li>
+        </ol>
+    </p>
+    <div>操作符</div>
+    <p>
+        <ol>
+            <li>一元操作符: ++  --  + - </li>
+            <li>位操作符: ~ & | ^ << >> >>></li>
+            <li>逻辑操作符: ! && ||
+                <ol>
+                    <li>!: !! 获得当前值的布尔值</li>
+                    <li>&&(逻辑与/短路与) : 第一个值的结果为真,返回第二个值的结果, 第一个值的结果为假,则直接返回第一个值的结果</li>
+                    <li>||(逻辑或/短路或) : 第一个值的结果为真,返回第一个值的结果,第一个值的结果为假,返回第二个值的结果</li>
+                </ol>
+            </li>
+            <li>乘性操作符: * / % </li>
+            <li>加性操作符: + - </li>
+        </ol>
+    </p>
+
+    
+</body>
+
+</html>

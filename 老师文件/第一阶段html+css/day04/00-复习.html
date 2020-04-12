@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mydiv {
+            width: 200px;
+            height: 30px;
+            background-color: #ccc;
+            /* display: inline-block; */
+            /* 设置盒子水平方向居中  只能针对于块级元素 */
+            margin: 0 auto;
+            text-align: center;
+            line-height: 30px;
+        }
+
+
+        .box {
+            background-color: #ccc;
+            padding: 30px 0;
+            width: 600px;
+        }
+
+        .box .div1 {
+            width: 200px;
+            height: 50px;
+            background-color: #f00;
+            margin: 0 auto;
+
+            text-align: center;
+            line-height: 50px;
+        }
+
+
+        .box2{
+            background-color: #f00;
+            /* 宽高设为百分比  都是相对于父元素的百分之多少 */
+            width: 70%;
+            /* height: 90%; */
+            height: 500px;
+        }
+        .box2 .div22{
+            height: 100%;
+        }
+        .box2 .div11{
+            width: 50%;
+            height: 50%;
+            background-color: #ccc;
+        }
+
+        .box3{
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        1.css特性：层叠性  css继承性  a   
+        css的优先级：!important>行内样式>id选择器>class选择器>标签选择器>通配符选择器>浏览器默认样式
+        2.css优先级权重
+        3.背景：background-color：rgba()  background-image  background-repeat  background-size
+               background-position  background-attachment  
+               background：background-color  background-image  background-repeat  background-attachment background-position；
+        4.多背景
+        5.盒子模型：外边距  内边距  边框  内容
+        标准盒模型：
+        转换为IE盒模型：box-sizing：border-box;
+
+     -->
+    <div class="mydiv">我是div</div>
+    <div class="box">
+        <div class="div2">
+            <div class="div1">我是里面的div</div>
+        </div>
+    </div>
+
+    <div class="box2">
+        <div class="div22">
+            <div class="div11">我是里面的div11</div>
+        </div>
+    </div>
+
+    <div class="box3">
+        <p>段落1</p>
+        <p>段落2</p>
+        <p>段落3</p>
+        <p>段落4</p>
+        <p>段落5</p>
+        <p>段落6</p>
+        <p>段落7</p>
+        <p>段落8</p>
+        <p>段落9</p>
+        <p>段落10</p>
+        <p>段落11</p>
+        <p>段落12</p>
+        <p>段落13</p>
+        <p>段落14</p>
+        <p>段落15</p>
+        <p>段落16</p>
+        <p>段落17</p>
+        <p>段落18</p>
+        <p>段落19</p>
+        <p>段落20</p>
+        <p>段落21</p>
+        <p>段落22</p>
+        <p>段落23</p>
+        <p>段落24</p>
+        <p>段落25</p>
+        <p>段落26</p>
+        <p>段落27</p>
+        <p>段落28</p>
+        <p>段落29</p>
+        <p>段落30</p>
+    </div>
+    <div>我是下面的内容</div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{ display: none; }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- <table>
+            <ul>
+                <li></li>
+            </ul>
+        </table> -->
+        
+        <div v-if="mainpage" v-for="item in student">
+            <br>
+               <p>姓名：{{item.name}}</p>
+               <p>性别：{{item.sex}}</p>
+               <p>成绩：{{item.score}}</p>
+                <br>
+                {{student.name}}
+
+        </div>
+
+        <!-- 登录界面 -->
+        <div v-if="abc">
+            账号：<input type="text" placeholder="请输入账号" @change="pss"  v-model="passuer"><span>{{tishi}}</span><br>
+            密码：<input type="text" placeholder="请输入密码" v-model="passwd" @change="pssw"><span>{{tishi}}</span><br>
+            <button @click="login"> 登录</button>
+            <button @click="zhucei"> 注册账号</button>
+
+        </div>
+        <!-- 注册页面 -->
+        <div v-if="bbc">
+                账号：<input type="text" placeholder="请输入账号" @change="rej" v-model="zhuceiNum"><span>{{tishi}}</span><br>
+                密码：<input type="text" placeholder="请输入密码" @change="rez" v-model="zhuceipwd"><span>{{tishi}}</span><br>
+                再次确认密码：<input type="text" placeholder="请输入密码" @change="rec" v-model="zhuceiCheck"><span>{{tishi}}</span><br>
+                
+                <button @click="resgiter"> 确认注册</button>
+
+        </div>
+        
+        <div :style="{color:mycolor1}">2222222222</div>
+        <mydiv mycolor="red">来自组件外的内容
+            <span slot="one">来自组件外的第二条内容</span>
+        </mydiv>
+        <mydiv ></mydiv>
+        <mydiv mycolor="red"></mydiv>
+        
+        
+        
+    </div>
+</body>
+</html>

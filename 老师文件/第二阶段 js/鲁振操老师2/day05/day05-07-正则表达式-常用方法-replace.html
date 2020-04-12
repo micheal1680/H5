@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        //关键词标红
+       var keyword = '围巾'; //从输入框获取的   用户输入的关键词
+
+       var str = '冬装，顾名思义就是冬天穿的<span style="color:red">服装</span>。冬装主要有：羽绒服、夹克、毛衣、棉袄和保暖内衣以及围巾等。冬装一般适合冬天穿，当然在寒冷的地方，秋天也就需要穿冬装了。';
+       var kReg = new RegExp(keyword, 'g');
+       str = str.replace(kReg, '<span style="color:red">'+keyword+'</span>');
+
+        document.querySelector('div').innerHTML = str;
+    </script>
+</body>
+
+</html>

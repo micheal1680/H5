@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				display: block;
+				border: 1px solid red;
+				width: 300px;
+				margin-top: -150px;
+				height: 300px;
+				margin-left: -150px;
+				position: absolute;
+				left: 50%;
+				top:50%;
+			}
+		</style>
+		<script type="text/javascript">
+			function regist() {
+				let form = document.forms[0];
+				//第一步,获取到所有的表单元素值
+				//(1)得到name和pwd
+				let name = document.querySelector("form input[type='text'][name='name']").value;
+				let pwd = document.querySelector("form input[type='password'][name='pwd']").value;
+				//(2)得到sex
+				let sex = document.querySelector("form input[type='radio'][name='sex']:checked").value;
+				console.log(sex);
+				//(3)得到like
+				let like_elementes = document.querySelectorAll("form input[type='checkbox'][name='like']:checked")
+				let likevalues = [];
+				for(let i=0; i<like_elementes.length; i++) {
+					let like = like_elementes[i];
+					likevalues.push(like.value);
+				}
+				console.log(likevalues);
+				//(4)得到province
+				let province_value = document.querySelector("form select[name='province']").value;
+				console.log(province_value);
+				
+				//使用ajax向服务器发出请求，并带上前面取出的参数
+			}
+			
+			function cleara() {
+				let form = document.forms[0];
+				form.reset();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<form enctype="multipart/form-data" method="get">
+				名字:<input placeholder="名字" type="text" name="name" value="光荣"/><br />
+				密码:<input placeholder="密码" type="password" name="pwd"/> <br>
+				性别:<input type="radio" name="sex"  value="boy"  checked="true"/>男孩
+					 <input type="radio" name="sex"  value="girl" />女孩
+					 <br />
+				爱好:
+					<input type="checkbox" name="like" value="h5" />H5技术
+					<input type="checkbox"  name="like" value="物演" checked="checked"/>物演通论
+					<input type="checkbox"  name="like" value="大学" />四书大学
+				<br />
+				省份:
+				<select name="province">
+					<option value="shic">四川</option>
+					<option value="chongq">重庆</option>
+					<option value="beij">北京</option>
+				</select>
+				<br />
+				<input type="file" name="file"/>
+			</form>
+			<button onclick="regist();">ajax注册</button>
+			<button onclick="cleara();">重置</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object类型</title>
+</head>
+
+<body>
+    <script>
+        // 创建对象
+        var o = new Object();
+        o.name = "张珊"; // name代表属性  "张珊" 代表属性值   对象.属性相当于对该对象添加属性
+        o.sex = "女";
+        var person = {
+            name: "李四",
+            say: function(){
+                console.log("哈哈哈");
+            }
+        }
+
+        console.log(person.name);
+        person.say();  //表示调用person的say属性，因为say属性是一个函数，因此在其后面加一个()表示函数的运行
+
+        var s = "HelloWorld";
+        s.len = 4; // 当调用结束时当前对象会被销毁
+        var t = s.len; // t 4 undefined
+        console.log(t);//undefined
+
+    </script>
+</body>
+
+</html>

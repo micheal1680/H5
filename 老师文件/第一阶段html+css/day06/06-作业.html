@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .shopcart {
+            border: 1px solid #ccc;
+            font-size: 14px;
+            width: 138px;
+            height: 34px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .shopcart img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .shopcart-text {
+            color: red;
+            padding-left: 20px;
+        }
+
+        .shopcart-img {
+            position: relative;
+        }
+
+        .shopcart-num {
+            position: absolute;
+            right: -14px;
+            top: -2px;
+            width: 20px;
+            height: 14px;
+            background-color: #f00;
+            border-radius: 8px;
+            color: #fff;
+            text-align: center;
+            line-height: 14px;
+            /* font-weight: bolder; */
+
+        }
+
+        .box {
+            margin: 0 auto;
+            width: 500px;
+            /* position: relative; */
+        }
+
+        .bottom-box {
+            border: 1px solid #f00;
+            border-top: 0;
+            position: absolute;
+            right: -1px;
+            top: 33px;
+            width: 310px;
+            height: 70px;
+            display: none;
+        }
+
+        .shopcart:hover .bottom-box {
+            display: inline-block;
+        }
+
+        .shopcart:hover {
+            border: 1px solid #f00;
+            border-bottom: 1px solid #fff;
+        }
+
+        .shopcart:hover .bottom-box::before{
+            content: '';
+            display: block;
+            width: 174px;
+            border-top: 1px solid #f00;
+        }
+        .bottom-con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="shopcart">
+            <div class="shopcart-img">
+                <img src="img/shopcart.png" alt="">
+                <span class="shopcart-num">0</span>
+            </div>
+            <span class="shopcart-text">我的购物车</span>
+
+            <div class="bottom-box">
+                <div class="bottom-con">
+                    <img src="img/58004d6dN2927f0f7.png" alt="">
+                    <span>
+                        购物车中还没有商品，赶紧选购吧！
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

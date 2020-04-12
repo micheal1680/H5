@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var s = "test",
+            n = 1,
+            b = true; //一个字符串、数字和布尔值
+
+        // var obj=new Object（）是创建对象的方法。示例：var arr=new Array()表示创建一个新的数组（这个数组就是一个对象）
+        var S = new String(s); //一个字符串对象    表示创建一个新的字符串，该字符串也是一个对象
+        var N = new Number(n); //一个数值对象
+        var B = new Boolean(b); //一个布尔对象
+
+        S.len = 4; 
+        var t = S.len; // t 4
+        console.log(t);
+
+        console.log(typeof s); // "string"
+        console.log(typeof n); // "number"
+        console.log(typeof b); // "boolean"
+        console.log(typeof S); // "object"
+        console.log(typeof N); // "object"
+        console.log(typeof B); // "object"
+    </script>
+</body>
+
+</html>

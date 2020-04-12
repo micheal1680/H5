@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量</title>
+</head>
+
+<body>
+    <script>
+        'use strict'; 
+        var a; // 声明一个变量a a是变量名 ==> 标识符
+        // 不能以数字开头,命名要见名知意, 采取小驼峰式命名
+        var age = 12;
+        var $b = "kill";
+        var _age = 50;
+        // var 2a = 20; // 不能以数字开头
+        var a2 = true;
+        // var 张三 = 20;
+        // console.log(张三); 非常不建议,最好别用 
+
+        // 变量重新赋值 但是var 只能声明一次
+        // 双引号或者单引号引起来的值为字符串
+
+        var name = "李四";
+        name = "李狗蛋";
+        console.log(name);
+        // 赋值为数值
+        name = 20;
+        console.log(name);
+
+        var x = 10;
+        x = x + 2;// 先计算 10 + 2 将结果赋值给x
+        console.log(x);
+
+        var i = 20;// 没有使用var 声明, 自动归为全局变量  属于window
+        console.log(i);
+    </script>
+</body>
+
+</html>

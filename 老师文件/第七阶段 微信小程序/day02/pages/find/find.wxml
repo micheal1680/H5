@@ -1,0 +1,12 @@
+<!--pages/find/find.wxml-->
+
+<view hidden="{{true}}">
+<audio src="http://music.163.com/song/media/outer/url?id=1376577855.mp3"  controls></audio>
+<button bindtap="play">播放</button>
+<button bindtap="pause">暂停</button>
+<button bindtap="stop">停止</button>
+</view>
+
+<video src=""></video>
+
+<view class="add">一个</view>

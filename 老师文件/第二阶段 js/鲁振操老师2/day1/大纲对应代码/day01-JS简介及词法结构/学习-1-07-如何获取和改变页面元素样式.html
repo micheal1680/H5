@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第一天-7-如何改变页面元素样式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    .c{
+        list-style-type:;
+    }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+<div class="container">
+    <h3>如何改变元素的样式？</h3>
+    <ol>
+        <li>语法是：document.querySelector('选择器').style.属性 = '属性值';</li>
+        <li>其中属性是CSS样式中的属性，如：display、color、width、height等；</li>
+        <li>
+            如果属性有横线(-)，如：background-color、font-size、border-radius、font-weight，则把横线去掉，同时横线后面的第一个字母大写，<br>如：backgroundColor、fontSize、borderRadius、fontWeight；
+        </li>
+    </ol>
+    
+    <h3>例子：</h3>
+    <ol>
+        <li>隐藏元素：document.querySelector('选择器').style.display = 'none'; </li>
+        <li>改变字体颜色：document.querySelector('选择器').style.color = '#FF0000';</li>
+        <li>改变背景颜色：document.querySelector('选择器').style.backgroundColor = '#000000';</li>
+        <li>字体加粗：document.querySelector('选择器').style.fontWeight = 'bolder';</li>
+    </ol>
+    </div>
+</body>
+</html>

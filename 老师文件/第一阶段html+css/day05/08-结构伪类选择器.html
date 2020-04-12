@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li:first-child{
+            font-style: italic;
+        }
+        /* 匹配第一个div元素，并且div元素是当前box2下面的第一个子元素才有效果 */
+        .box2 div:first-child{
+            text-decoration: line-through;
+        }
+        ul li:last-child{
+            /* background-color: #ccc; */
+        }
+        .box2 div:last-child{
+            letter-spacing: 10px;
+        }
+
+        /* 选中ul标签下面的第三个li标签 */
+        ul li:nth-child(3){
+            color: red;
+        }
+        .box2 div:nth-child(3){
+            color: yellow;
+        }
+        ul li:nth-child(2n-1){
+            background-color: #ccc;
+        }
+
+        ul li:nth-last-child(1){
+            font-size: 30px;
+        }
+
+
+
+
+
+
+        /* 匹配同类型中的第一个同级兄弟元素 div */
+        .box2 div:first-of-type{
+            color: red;
+        }
+        .box2 div:last-of-type{
+            border-bottom: 1px solid red;
+        }
+        .box2 div:nth-of-type(3){
+            background-color: green;
+        }
+        .box2 div:nth-of-type(2n-1){
+            padding-left: 100px;
+        }
+        .box2 div:nth-last-of-type(2){
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>列表标签1</li>
+            <li>列表标签2</li>
+            <li>列表标签3</li>
+            <li>列表标签4</li>
+            <li>列表标签5</li>
+            <li>列表标签6</li>
+            <li>列表标签7</li>
+            <li>列表标签8</li>
+        </ul>
+    </div>
+    <div class="box2">
+        <p>我是段落</p>
+        <div>我是div1</div>
+        <div>我是div2</div>
+        <div>我是div3</div>
+        <div>我是div4</div>
+        <div>我是div5</div>
+        <h3>我是h3</h3>
+    </div>
+</body>
+</html>

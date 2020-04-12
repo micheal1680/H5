@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+        .container {
+            display: flex;
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid skyblue;
+            justify-content: space-between;
+        }
+        .box {
+            width: 300px;
+            height: 600px;
+            border: 1px solid lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            float: left;
+        }
+        .title {
+            width: 100%;
+        }
+        .myImg {
+            width: 236px;
+            height: 200px;
+        }
+        p {
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+        class ListItem extends React.Component {
+            render() {
+                return(
+                    <div className="box">
+                        <img className="myImg" src={this.props.myImg} />
+                        <h2 className="title">{this.props.title}</h2>
+                        <p className="oneP">{this.props.one}</p>
+                        <p className="twoP">{this.props.two}</p>
+                    </div>
+                )
+            }
+        }
+
+        class MyApp extends React.Component {
+
+            constructor(props) {
+                super();
+				
+				this.state = {
+					pic: "https://reactjs.org.cn/asset/img/home/1.svg"
+				}               
+            }
+			
+			handleChange() {
+                console.log("change....")
+				this.setState({
+                    pic: "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2717595227,1512397782&fm=26&gp=0.jpg"
+                })
+                
+			}
+
+            render() {
+                let arr = [
+                    {
+                        id: 1, 
+                        title: "声明式", 
+                        imgSrc: this.state.pic,
+                        oneText: "React 使创建交互式 UI 变得轻而易举。为你应用的每一个状态设计简洁的视图，当数据改变时 React 能有效地更新并正确地渲染组件。", 
+                        twoText: "以声明式编写 UI，可以让你的代码更加可靠，且方便调试。"
+                    },
+                    {
+                        id: 2, 
+                        title: "组件化", 
+                        imgSrc: "https://reactjs.org.cn/asset/img/home/2.svg",
+                        oneText: "创建拥有各自状态的组件，再由这些组件构成更加复杂的 UI。", 
+                        twoText: "组件逻辑使用 JavaScript 编写而非模版，因此你可以轻松地在应用中传递数据，并使得状态与 DOM 分离。"
+                    },
+                    {
+                        id: 3, 
+                        title: "一次学习，随处编写", 
+                        imgSrc: "https://reactjs.org.cn/asset/img/home/3.svg",
+                        oneText: "无论你现在正在使用什么技术栈，你都可以随时引入 React 来开发新特性，而不需要重写现有代码。", 
+                        twoText: "React 还可以使用 Node 进行服务器渲染，或使用 React Native 开发原生移动应用。"
+                    }
+                ]
+
+                let newArr = [];
+                arr.forEach(ele => {
+                    newArr.push(<ListItem key={ele.id} title={ele.title} myImg={ele.imgSrc} one={ele.oneText} two={ele.twoText}/>)
+                });
+
+                console.log(newArr);
+
+                return(
+					<div>
+						<button onClick={this.handleChange.bind(this)}>点击改变图片</button>
+						<div className="container">
+						    { newArr }
+						</div>
+					</div>
+                    
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(
+            <div>
+                <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

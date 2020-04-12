@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频各种状态控制</title>
+    <style>
+        ul>li {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            list-style: none;
+        }
+		video {
+			width: 100%;
+		}
+    </style>
+</head>
+
+<body>
+    <video controls id="myvideo">
+        <source src="http://localhost:9999/buy.mp4" type="video/mp4">   视频同样可以来自于本地和服务器，localhost表示本地ip地址
+    </video>
+    <!-- 假设用js写了一个服务器叫node.js服务器，它的ip地址即本地ip地址为192.168.1.101，用它可以支持流畅观看视频和播放音频，那说明该服务器也是很强大的 -->
+    <ul>
+        <li>
+            <a href="###">播放</a>
+        </li>
+        <li>
+            <a href="###">暂停</a>
+        </li>
+        <li>
+            <a href="###">静音</a>
+        </li>
+        <li>
+            <a href="###">恢复</a>
+        </li>
+        <li>
+            <a href="###">音量+</a>
+        </li>
+        <li>
+            <a href="###">音量-</a>
+        </li>
+        <li>
+            <a href="###">快进</a>
+        </li>
+        <li>
+            <a href="###">慢放</a>
+        </li>
+    </ul>
+    <script>
+        let myvideo = document.querySelector('#myvideo');
+        let ul = document.querySelector('ul');
+        //播放
+        ul.children[0].onclick = function () {
+            myvideo.play();
+        }
+        //暂停
+        ul.children[1].onclick = function () {
+            myvideo.pause();
+        }
+        //静音
+        ul.children[2].onclick = function () {
+            myvideo.muted = true;
+            // myvideo.volume = 0; 
+        }
+        ul.children[3].onclick = function () {
+            myvideo.muted = false;
+        }
+        //控制音量大小
+        ul.children[4].onclick = function () {
+            //  最大值是1
+            myvideo.volume += 0.1;
+        }
+        ul.children[5].onclick = function () {
+            // 最小值是0
+            myvideo.volume -= 0.1;
+        }
+
+        //控制播放速度
+        ul.children[6].onclick = function () {
+            myvideo.playbackRate *= 2;
+        }
+        ul.children[7].onclick = function () {
+            // 最小值是0
+            myvideo.playbackRate /= 2;
+        }
+        
+    </script>
+</body>
+
+</html>

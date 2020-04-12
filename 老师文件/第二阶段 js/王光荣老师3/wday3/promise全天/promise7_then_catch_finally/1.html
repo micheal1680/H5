@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="showImg();">显示图片</button>
+		<div id="box" style="border: 5px solid red;padding: 5px;">
+		</div>
+		<script type="text/javascript">
+			function getPromise() {
+				const promise = new Promise(function(resolve, reject){
+					let img = document.createElement("img");
+					//子线程获取图片资源
+					img.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573020859737&di=68970ad63ff317e687a8267b010c1fe1&imgtype=0&src=http%3A%2F%2Fpic13.nipic.com%2F20110305%2F4308872_155007477345_2.jpg"
+					//监听图片资源的加载完毕事件
+					img.onload = function() {
+						resolve(img);
+					}
+				});
+				return promise;
+			}
+			//then...finally;   catch....finally
+			function showImg() {
+				const p = getPromise();
+				p.then(function(img){
+					let box = document.getElementById("box");
+					box.appendChild(img);
+				}).catch(function(v){
+					let box = document.getElementById("box");
+					box.innerHTML="有问题";
+				}).finally(function(){
+					console.log("结束");
+				});;
+			}
+		</script>
+		
+	</body>
+</html>

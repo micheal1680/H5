@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-10-数组-数组类型</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Array.isArray()：判断下是否是数组；</h3>
+        <ol>
+            <li>例子走一波；
+                <pre>
+                    //数组类型检查
+                    var a = [1,2,23,34,5,6,78,98, 23,900];
+                    console.log(Array.isArray(a)); //true
+                    var b = {x:1, y:2};
+                    console.log(Array.isArray(b));//false
+                    console.log(a instanceof Array);//这种检查方式也很帅
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        //注意类型
+        var a = [1,2,23,34,5,6,78,98, 23,900];
+        console.log(typeof a);//Object
+        console.log(Array.isArray(a)); //true
+        var b = {x:1, y:2};
+        console.log(Array.isArray(b));//false
+        console.log(a instanceof Array);
+    </script>
+</body>
+</html>

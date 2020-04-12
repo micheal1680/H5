@@ -1,0 +1,114 @@
+<!--pages/xioami/xiaomi.wxml-->
+<!-- 小米Lite : 浏览器中的iphone6模式下寻找 -->
+<view class="con">
+    <!-- 导航栏,窗口 -->
+    <view class="nav">
+        <!-- 小米图标 -->
+        <view class="iconfont icon-xiaomi1 mi"></view>
+        <!-- 小米文本 -->
+        <view class="iconfont icon-xiaomi xiaomi"></view>
+        <!-- 搜索栏 -->
+        <view class="search">
+            <text class="iconfont icon-sousuo search-icon-text"></text>
+        </view>
+    </view>
+    <view class="nav box"></view>
+    <!-- 
+		自动播放 autoplay
+		播放时间 duration
+		播放间隔 interval
+		面板指示点
+		面板指示点颜色
+		当前已被选中的颜色
+		未被选中的颜色
+		是否循环
+		纵向滑动 vertical="true"
+		previous-margin="30rpx" next-margin="30rpx" 
+		display-multiple-items="1"
+ 	-->
+    <swiper class="swiper" interval="2000" duration="1000" indicator-dots="true" indicator-color="#ff0" indicator-active-color="#f00" circular="true">
+        <swiper-item>
+            <image class="lunbo-img" src="/images/lunbo1.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image class="lunbo-img" src="/images/lunbo2.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+            <image class="lunbo-img" src="/images/lunbo3.jpg"></image>
+        </swiper-item>
+    </swiper>
+    <view  class="sort">
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+        <image src="/images/sort1.png"></image>
+    </view>
+    <view  class="goods">
+        <view class="goods-inner">
+            <!-- 人气推荐 -->
+            <view class="hot-recommend">
+                <view class="hot-title">人气推荐</view>
+                <image class="hot-img" mode="widthFix" src="/images/lunbo1.jpg"></image>
+                <view class="goods-info">
+                    <view>迷你保温杯</view>
+                    <view class="info-text">小巧便携 / 小巧便携 / 小巧便携 / 小巧便携 / 小巧便携</view>
+                    <view class="info-price">￥49</view>
+                </view>
+            </view>
+            <!-- 商品展示 -->
+            <view class="goods-show">
+                <!-- 小项目 -->
+                <view class="goods-item">
+                    <image mode="widthFix" class="item-img" webp="true" src="/images/goods1.webp"></image>
+                    <view class="item-info">
+                        <!-- 名称 -->
+                        <view>空调</view>
+                        <!-- 介绍 -->
+                        <view class="item-introduction">出众静音，快速制冷热出众静音，快速制冷热</view>
+                        <!-- 价格 -->
+                        <view class="info-price">￥1599</view>
+                    </view>
+                </view>
+                <view class="goods-item">
+                    <image mode="widthFix" class="item-img" webp="true" src="/images/goods1.webp"></image>
+                    <view class="item-info">
+                        <!-- 名称 -->
+                        <view>空调</view>
+                        <!-- 介绍 -->
+                        <view class="item-introduction">出众静音，快速制冷热出众静音，快速制冷热</view>
+                        <!-- 价格 -->
+                        <view class="info-price">￥1599</view>
+                    </view>
+                </view>
+                <view class="goods-item">
+                    <image mode="widthFix" class="item-img" webp="true" src="/images/goods1.webp"></image>
+                    <view class="item-info">
+                        <!-- 名称 -->
+                        <view>空调</view>
+                        <!-- 介绍 -->
+                        <view class="item-introduction">出众静音，快速制冷热出众静音，快速制冷热</view>
+                        <!-- 价格 -->
+                        <view class="info-price">￥1599</view>
+                    </view>
+                </view>
+                <view class="goods-item">
+                    <image mode="widthFix" class="item-img" webp="true" src="/images/goods1.webp"></image>
+                    <view class="item-info">
+                        <!-- 名称 -->
+                        <view>空调</view>
+                        <!-- 介绍 -->
+                        <view class="item-introduction">出众静音，快速制冷热出众静音，快速制冷热</view>
+                        <!-- 价格 -->
+                        <view class="info-price">￥1599</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

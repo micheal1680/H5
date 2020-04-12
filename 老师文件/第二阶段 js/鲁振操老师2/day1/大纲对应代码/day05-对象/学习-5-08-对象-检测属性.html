@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第五天-08-对象-检测属性</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>判断某个属性是否存在于某个对象中；</h3>
+        <ol>
+            <li>
+                in：检查一个属性是否属于某个对象，包括继承来的属性；
+                <pre>
+                    var person = {name:'yourname', age:10};
+                    console.log('name' in person); //true
+                    console.log('sex' in person);  //false
+                    console.log('toString' in person); //true
+                </pre>
+            </li>
+            <li>
+                hasOwnProperty()：检查一个属性是否属于某个对象自有属性，不包括继承来的属性；
+                <pre>
+                    var person = {name:'yourname', age:10};
+                    console.log(person.hasOwnProperty('name')); //true
+                    console.log(person.hasOwnProperty('sex'));  //false
+                    console.log(person.hasOwnProperty('toString')); //false
+                </pre>
+            </li>
+            <li>
+                propertyIsEnumerable()是hasOwnProperty()的增强版：
+                检查一个属性是否属于某个对象自有属性，且该属性可枚举，不包括继承来的属性；
+                <pre>
+                    var person = {name:'yourname', age:10};
+                    console.log(person.propertyIsEnumerable('name')); //true
+                    console.log(person.propertyIsEnumerable('sex'));  //false
+                    console.log(person.propertyIsEnumerable('toString')); //false
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        var person = {name:'yourname', age:10};
+                    console.log(person.propertyIsEnumerable('name')); //true
+                    console.log(person.propertyIsEnumerable('sex'));  //false
+                    console.log(person.propertyIsEnumerable('toString')); //false
+
+    </script>
+</body>
+</html>

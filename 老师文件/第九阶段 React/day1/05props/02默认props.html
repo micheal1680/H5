@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+     <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+     <script src="../bower_components/react/react.development.js"></script>
+     <script src="../bower_components/react/react-dom.development.js"></script>
+     <script src="../bower_components/babel/browser.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            render() {
+                return(
+                    <div>
+                        <a href={this.props.address} target={this.props.methods}>
+                            <img src={this.props.logo}/>
+                        </a>
+                    </div>
+                )
+            }
+        }
+
+        // 声明组件的默认属性：当使用组件时没有传递属性值，而组件内部却使用属性值,此时就会使用默认属性
+        //如果组件传递了属性值，那么会覆盖默认的属性值
+        MyApp.defaultProps = {
+            address: "http://www.baidu.com",
+            logo: "http://www.baidu.com/img/bd_logo1.png",
+            methods: "_blank"
+        }
+    
+    
+        ReactDOM.render(
+            <div>
+                <MyApp />
+                <MyApp address="http://www.163.com" logo="http://img0.imgtn.bdimg.com/it/u=1674426331,2016526019&fm=26&gp=0.jpg"/>
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

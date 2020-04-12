@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: -moz-calc((100*100vw) / 750);
+    font-size: -webkit-calc((100*100vw) / 750 );
+    font-size: calc((100*100vw) / 750);  
+}
+body{
+    font-size: 0.28rem;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}

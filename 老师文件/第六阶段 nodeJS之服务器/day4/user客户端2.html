@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mysql</title>
+</head>
+<body>
+      <!-- 是06mysql.js的客户端 -->
+    <h1>登录操作</h1>
+    <form action="http://localhost:8888/login" method="post">
+        用户名: <input type="text" placeholder="用户名" name="username"><br><br>
+        密　码: <input type="password" placeholder="密码" name="password"><br><br>
+        <input type="submit" value="登录">
+    </form>
+
+    <h1>注册操作</h1>
+    <form action="http://localhost:8888/register" method="post">
+        用户名: <input type="text" placeholder="用户名" name="username"><br><br>
+        密　码: <input type="password" placeholder="密码" name="password"><br><br>
+        <input type="submit" value="注册">
+    </form>
+
+
+    <h1>更改密码</h1>
+    <form action="http://localhost:8888/change" method="post">
+        用户名: <input type="text" placeholder="用户名" name="username"><br><br>
+        密　码: <input type="password" placeholder="密码" name="password"><br><br>
+        <input type="submit" value="更改密码">
+    </form>
+
+    <h1>更改密码</h1>
+    <form action="http://localhost:8888/remove" method="post">
+        用户名: <input type="text" placeholder="用户名" name="username"><br><br>
+        <input type="submit" value="删除用户">
+    </form>
+</body>
+</html>

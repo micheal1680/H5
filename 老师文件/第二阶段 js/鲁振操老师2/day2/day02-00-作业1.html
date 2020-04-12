@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业讲解</title>
+</head>
+
+<body>
+    <script>
+        //数组的排序
+        // 循环：中间循环
+        // 数组元素的操作
+        var arr5 = [1, 23, 45, 6, 7, 80, 89, 90, 102, 300];
+        // 处理结果：
+
+        // 所有的js代码写出来都要是通用的，即不能专门针对一种情况写代码，否则就是漏洞（bug）.
+
+        function mm(arr) {    //这里mm函数（）里面的arr是所有数组的一个代名词，即这个处理函数对于任何数组都可以使用，比如此题是要对arr5处理。
+            var newArr = [];
+            var arr = arr.sort(function(a,b){return a-b});
+            console.log(arr);
+            let l = arr.length;
+            //  对数组进行处理
+            for (let i = 0; i < arr.length/2; i++) {
+                var a = [];
+                a.push(arr[i], arr[l-i-1]);
+                newArr.push(a);
+            }
+            return newArr;
+        }
+        console.log(mm(arr5));
+        // [[1, 300],[6, 102], [7, 90], [23, 89], [45, 80]]
+    </script>
+</body>
+
+</html>

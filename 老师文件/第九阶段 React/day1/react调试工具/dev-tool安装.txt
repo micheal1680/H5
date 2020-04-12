@@ -1,0 +1,18 @@
+
+脚手架调试：
+https://www.jianshu.com/p/9f4d827a478c
+（即用脚手架create-react-app创建所写的项目，控制台调试工具react的安装说明）
+也可以直接将在https://github.com/facebook/react-devtools/releases下载的已经编译好的Chrome：extension解压后的文件拖到扩展程序出即可
+
+直接引入方式：
+https://www.cnblogs.com/Super-scarlett/p/8657572.html
+（即没用react脚手架，只是普通的react项目或网页。所用的控制台调试工具react的安装说明）
+
+
+
+直接引入方式的react-devtools不能调试脚手架做的react项目。react调试工具其实可有可无，只是它能清晰明了的展示网页的结构，
+对于react来说，比element调试工具好用，react调试工具也只适用于react项目
+
+react调试工具：
+一般网页是react-devtools 3.4.0版本
+脚手架是react-devtools 3.4.2版本

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Person {
+				constructor() {
+					//实例方法
+					this.eat = function() {
+					}
+				}
+				study() {
+					console.log("学习....");
+				}
+			}
+			class Stu extends Person {
+				constructor() {
+					super();
+				}
+				//重写
+				study(major) {
+					super.study();//调用父类的原型方法study();
+					console.log("专业学习"+major);
+				}
+				show() {
+					super.study();//调用父类的原型方法study();
+				}
+				test() {
+					console.log("test()...")
+				}
+			}
+			let s1 = new Stu();
+			s1.study("H5");
+			s1.show();
+			s1.test();
+		</script>		
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 160px;
+            background-color: #ccc;
+            /* 多余内容隐藏 */
+            /* overflow: hidden; */
+            overflow: auto;
+        }
+
+        /* 去除滚动条 */
+        .div1::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        /*修改滚动条样式*/
+        /* 滚动条整体部分修改 */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        /* 滚动条的轨道（里面装有Thumb） */
+        ::-webkit-scrollbar-track {
+            background: rgb(239, 239, 239);
+            border-radius: 2px;
+        }
+
+        /* 滚动条里面的小方块 */
+        ::-webkit-scrollbar-thumb {
+            background: #bfbfbf;
+            border-radius: 10px;
+        }
+
+        /* 移入滚动条滑块显示的样式 */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+
+        /* 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。 */
+        ::-webkit-scrollbar-button {
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</div>
+    <p>我是一个段落</p>
+    <div>我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容</div>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第八天-03-类和对象-模块-用作命名空间的对象</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="./range.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>代码的模块化可以让代码在不同的场景中重复使用；</h3>
+        <ol>
+            <li>模块化的中心思想是<code>代码的可重用性</code>；</li>
+            <li>一般模块是一个独立的JavaScript文件；里面可以是一个或一组相关的类、常用函数等</li>
+            <li>模块是为了大规模JS开发;模块中尽可能少定义全局变量,最好不超过一个；</li>
+        </ol>
+        <h3>用作命名空间的对象</h3>
+        <ol>
+            <li>
+                在模块创建过程中，用一个对象作为命名空间，可以避免全局变量被污染； <br>
+                函数和变量可以作为这个命名空间的属性存储起来，
+                而不是直接定义全局变量；
+            </li>
+            <li>
+                看个命名空间的小例子：
+                <pre>
+                    //实例化一个对象
+                    var nr = new set.Range(2, 20);
+                    console.log(nr);
+                    console.log(nr.includes(3));
+
+                    //这里可以自己扩展，当然完全的一般的还是在模块就是range.js文件里扩展
+                    set.Range.prototype.sum = function () {
+                        var sum = 0;
+                        for (var i = this.from; i <= this.to; i++) {
+                            sum += i;
+                        }
+                        return sum;
+                    }
+
+                    var m = nr.sum();
+                    console.log(m);
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        //实例化一个对象
+        var nr = new set.Range(15, 20);
+        console.log(nr);
+        console.log(nr.includes(3));
+        nr.foreach(console.log);
+
+        //这里可以自己扩展，当然完全的一般的还是在模块就是range.js文件里扩展
+        set.Range.prototype.sum = function () {
+            var sum = 0;
+            for (var i = this.from; i <= this.to; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        var m = nr.sum();
+        console.log(m);
+
+    </script>
+</body>
+</html>

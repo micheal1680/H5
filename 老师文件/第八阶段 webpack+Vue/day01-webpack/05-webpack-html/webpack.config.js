@@ -1,0 +1,29 @@
+//html 文件处理，1\ 安装--cnpm i html-webpack-plugin --save-dev		2\引入require和 配置plugins
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+var path=require("path");
+
+module.exports={
+	entry:"./src/main.js",
+	output:{
+		path:path.resolve(__dirname,"dist"),
+		filename:"index.[hash:6].js"
+	},
+	plugins:[
+		new HtmlWebpackPlugin({
+			title:'myapp',			//为生成的html 文档添加<title>myapp</title>
+			hash:true,				//为所有包含的脚本和CSS文件附加唯一的编译哈希，这对缓存清除很有用
+			filename: 'app.html', //打包后生成的文件名  放在output.path里面
+			template: './src/index.html',    //来自哪里 模板文件
+			inject: 'body',         //引入js的位置:引入js的位置:  'head'-头部引入 'body'/true--</body>之前引入 false不引入
+			minify: {				  //压缩项配置
+			    removeComments: true, //是否清除HTML注释  
+			    collapseWhitespace: true, //是否压缩HTML  
+			    removeScriptTypeAttributes: true, //是否删除< script>的type="text/javascript"  
+			    removeStyleLinkTypeAttributes: true, //是否删除< style>和< link>的type="text/css"  
+			    minifyJS: false, //是否压缩页内JS  
+			    minifyCSS: true //是否压缩页内CSS  
+			}
+		})
+	]
+}
+

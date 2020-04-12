@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function f1(cb) {
+				console.log("开始");
+				window.setTimeout(()=>{  
+					console.log("处理事情....");
+					cb();
+				}, 5000);
+				console.log("结束");
+			}
+			
+			f1(function(){
+				console.log("处理事情结束")
+			});
+			// 打印顺序：
+			// 开始
+            // 结束
+			// 处理事情....
+			// 处理事情结束       
+		// 原因：setTimeout（）创建了子线程，而主线程不会等待子线程，依次执行下去，由于js是单线程执行，因此
+		// 等主线程执行完之后再执行子线程，（但是主线程与子线程是互不干扰的，互不影响，各自独立）。直至目前打印：开始 、 结束
+		// 又因为形参cb被赋值为函数function(){
+				// console.log("处理事情结束")
+			// }      ，因此再打印顺序为：处理事情....   、  处理事情结束
+		</script>
+	</body>
+</html>
+

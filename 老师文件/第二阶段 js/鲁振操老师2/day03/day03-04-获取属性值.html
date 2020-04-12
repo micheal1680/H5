@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据属性获取对象的值</title>
+</head>
+
+<body>
+    <script>
+        var obj = { username: '刘西宇', age: 20, height: 180 };
+        console.log(obj.username);//.  获取属性值
+        console.log(obj['age']);
+        // 这个知识点很重要  [] 里面可以使用表达式
+        var p = 'heig';
+        console.log(obj.p);
+        console.log(obj[p + 'ht']);
+    </script>
+</body>
+
+</html>

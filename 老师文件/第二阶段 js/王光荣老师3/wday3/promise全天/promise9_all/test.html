@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		当三个都resolve后才会执行then, 只要有一个reject后就会执行catch
+		<br />
+		<button type="button" onclick="showData()">显示数据</button>
+		<script type="text/javascript">
+			function getData() {
+				let p1 = new Promise((resolve, reject)=>{
+					window.setTimeout(()=>{
+						let num = Math.floor(Math.random()*100);
+						if(num<=80) {
+							resolve("p1>"+num);
+						}else {
+							reject("p3>"+"数据有错")
+						}
+					}, 5000);
+				})
+				let p2 = new Promise((resolve, reject)=>{
+					window.setTimeout(()=>{
+						let num = Math.floor(Math.random()*100);
+						if(num<=80) {
+							resolve("p2>"+num);
+						}else {
+							reject("p3>"+"数据有错")
+						}
+					}, 2000);
+				})
+				let p3 = new Promise((resolve, reject)=>{
+					window.setTimeout(()=>{
+						let num = Math.floor(Math.random()*100);
+						if(num<=80) {
+							resolve("p3>"+num);
+						}else {
+							reject("p3>"+"数据有错")
+						}
+					}, 3000);
+				})
+				//创建一个封装3个promise对象的promise对象. 得到的promise对象是一个新的对象
+				const newPromise = Promise.all([p1, p2, p3]);
+				return newPromise;
+			}
+			
+			function showData() {
+				const newPromise = getData();
+				newPromise.then((value)=>{
+					console.log(value);
+				}).catch((error)=>{
+					console.log(error);
+				}).finally(()=>{
+					console.log("结束了....");
+				});
+			}
+		</script>
+	</body>
+</html>

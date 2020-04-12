@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON</title>
+</head>
+
+<body>
+    <script>
+
+        var json = [{
+            username: '牛秀秀',
+            age: 20,
+            gender: '女'
+        }, {
+            username: '罗鑫',
+            age: 21,
+            gender: '男',
+            scores: {
+                math: 90,
+                chinese: 92,
+                history: 89
+            },
+            honby: ['读书', '学习', '运动']
+        }];
+
+        console.log(json[1].honby[1]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包的基本概念</title>
+</head>
+<body>
+    <script>
+        var btn = [];
+        for (var i = 0; i < 5; i++) {
+            (function(j){
+                btn[j] = function(){console.log(j);}
+            })(i);
+        }
+        btn[0]();
+        btn[2]();
+        btn[4]();
+
+        //计数器
+        function count(){
+            var n = 0;
+            n++;
+            return n;
+        }
+        console.log(count());
+
+        function myCount(){
+            var n = 0;
+            return function(){
+                return ++n;
+            }
+        }
+        let my1 = myCount();
+        let my2 = myCount(); //新的镜像
+        console.log(my1());//引用在，空间不灭
+        console.log(my1());
+        console.log(my1());//3
+        console.log(my2());//1
+        console.log(my2());//2
+        console.log(my1());//4
+        //练习
+        console.log(sum(3,4));//7
+        console.log(sum(3)(40));//7
+        function sum(a, b){
+            var sum = a;
+            if(b){
+                return sum + b;
+            }
+            //单个实参的时候
+            return function (n){
+                return sum + n;
+            }
+        }
+
+    </script>
+</body>
+</html>

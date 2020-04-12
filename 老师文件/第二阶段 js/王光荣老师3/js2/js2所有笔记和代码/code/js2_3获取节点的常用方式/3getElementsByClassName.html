@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>getElementsByClassName</title>
+		<script type="text/javascript">
+			//getElementsByClassName方法同时定义在Documnet和Element类中
+			window.onload = function() {
+				//得到当前文档中所有class值为myspan的元素组成的数组
+				//这里得到span1, span2,span3,span4,span5,span6;
+				let spanArray = document.getElementsByClassName("myspan");
+				for(let i = 0; i<spanArray.length; i++) {
+					console.log(spanArray[i].innerHTML)
+				}
+				
+				console.log("======================");
+				let mydiv1 = document.getElementById("mydiv1");
+				//得到mydiv1中所有class值为myspan的元素组成的数组
+				//这是得到span4, span5,span6
+				let spanArray2 = mydiv1.getElementsByClassName("myspan");
+				for(let i = 0; i<spanArray2.length; i++) {
+					console.log(spanArray2[i].innerHTML)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<span class="myspan">span1</span>
+			<span class="myspan">span2</span>
+			<span class="myspan">span3</span>
+		</div>
+		<div id="mydiv1">
+			<span class="myspan">span4</span>
+			<span class="myspan">span5</span>
+			<span class="myspan">span6</span>
+		</div>
+	</body>
+</html>

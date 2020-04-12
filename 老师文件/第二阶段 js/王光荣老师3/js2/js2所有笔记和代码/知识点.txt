@@ -1,0 +1,4 @@
+脱离文档流的东西有：fixed、absolute、margin、浮动等。
+其中，css中存在一个bug，就是margin，假设相邻两个div，都设了margin，那么它们之间的margin不是它们的margin
+之和，而是取它们的margin较大的那个。解决方法：BFC（css 的东西）
+html和css对浏览器的内容和样式进行渲染。

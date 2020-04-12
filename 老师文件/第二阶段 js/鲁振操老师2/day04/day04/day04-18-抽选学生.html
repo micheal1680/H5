@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽选学生</title>
+</head>
+<body>
+    <h2>。。。</h2>
+
+    <button type="button">抽选学生</button>
+    <script>
+        var show =document.querySelector('h2');
+        document.querySelector('button').onclick = function(){
+            var n = 0;
+            var students = ['王磊', '罗鑫', '李旭', '牛秀秀', '肖晗', '刘西宇', '彭朝辉', '李菊艳'];
+            var sid = setInterval(function(){
+                n++;
+                var ind = Math.floor(Math.random()*students.length);
+                // Math.ceil
+                show.innerHTML = students[ind];
+                if(n == 5){
+                    clearInterval(sid);
+                }
+            }, 200);
+        }
+
+    </script>
+</body>
+</html>

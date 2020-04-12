@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-07-函数-作为命名空间的函数</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>函数内声明的变量整个函数内可见，函数外不可见；</h3>
+        <ol>
+            <li>
+                定义一个函数作为变量的作用域空间，这样不会污染到全局变量；避免同名变量冲突；
+                <pre>
+                    //这样写就不怕变量名冲突问题了
+                    (function(){
+                        //这里写你的代码
+                    }());
+                </pre>
+                这在js里面是一种很常见的习惯写法；
+            </li>
+        </ol>
+    </div>
+    <div class="myclass">修改盒子样式</div>
+    <script>
+        (function(){
+            var name    = '';
+            var jQuery = function(){
+                return {
+                    setname:function(newname){
+                        console.log(this);
+                        name = newname;
+                        return this;
+                    },
+                    getname:function(){
+                        return name;
+                    }
+                }
+            };
+            //可以暴露一个接口到全局里面
+            return window.$ = jQuery;
+        })();
+
+        //封装一个框架，用于修改指定元素的css
+        (function(){
+            var name    = '';
+            var jQuery = function(selector){
+                function getelement () {
+                    return document.querySelector(selector);
+                }
+                var element = getelement();
+                function touseful(property) {
+                    var pa = property.split('-');
+                    var up = pa[0];
+                    for (var i = 1; i < pa.length; i++) {
+                        up += pa[i].substring(0, 1).toUpperCase() + pa[i].substring(1);
+                    }
+                    return up;
+                }
+
+                return {
+                    css:function(property, pvalue){
+                        property = touseful(property);
+                        element.style[property] = pvalue;
+                        return this;
+                    }
+                }
+            };
+            //可以暴露一个接口到全局里面
+            return window.$ = jQuery;
+        })();
+        
+        $('.myclass').css('color', '#FF0000').css('border-radius','5px');
+
+    </script>
+</body>
+</html>

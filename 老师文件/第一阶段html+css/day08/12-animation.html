@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: mymove1 2s ease-in 0s infinite reverse;
+        }
+        @keyframes mymove1 {
+            from{
+                left: 0;
+            }
+            to{
+                left: 200px;
+            }
+        }
+        /* @keyframes mymove {
+            0%{
+                left: 0;
+            }
+            100%{
+                left: 100px;
+            }
+        } */
+        /* @keyframes mymove {
+            0%{
+                left: 0;
+            }
+            40%,60%{
+                left: 200px;
+            }
+            100%{
+                left: 0;
+            }
+        } */
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            position: absolute;
+            top: 120px;
+            left: 0;
+            animation: mymove 3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

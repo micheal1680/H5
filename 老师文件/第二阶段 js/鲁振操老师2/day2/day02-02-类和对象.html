@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类和对象</title>
+</head>
+<body>
+    <script>
+        // 构造函数  工厂模式
+        function Car(brand, color){
+            // 需要使用this来指向当前 类创建的实例化  对象
+            // 使用this代表car创建的具体的汽车这个实例化对象
+            this.brand = brand;
+            this.color = color;
+            this.desc = function(){
+                return '我是'+this.brand+'车，我的颜色是'+this.color;
+            }
+        }
+        // 使用构造函数创建实例化对象  new 
+        var car1 = new Car('四个圈', 'white');
+        console.log(car1);
+
+        var car2 = new Car('BMW', '黑色'); 
+        console.log(car2);
+        console.log(car2.brand);
+        console.log(car2.desc());
+    </script>
+</body>
+</html>

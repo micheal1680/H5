@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 行内: 不需要选择元素,可以直接绑定  
+                在一行写的代码可读性不高
+    -->
+    <div  onclick="javascript: alert(0)"></div>
+    <!-- 内嵌: 可以写在head或者body的任何地方  
+                不能在script内部任意位置出现</script>字符串,可以使用拼接的方法解决
+        -->
+    <script>
+        // 操作当前div
+        // js代码
+        alert('这是第一个script');
+    </script>
+<div>
+
+</div>
+<!-- 外联: 可以书写大量js代码   js与html分离
+
+           需要先下载在使用,可能会引起空白页出现
+-->
+    <script src="js.js" type="text/javascript">
+        // 只要在script中写了src属性 那么就不能在script里面写代码(因为无法运行)
+        alert("你看不见我")
+    </script>
+
+    <script src="">
+        000000
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Stu1() {
+				this.name = "小明";
+				this.age = 30;
+				this.show = function() {
+					console.log(this.name, this.age);
+				}
+			}
+			Stu1.prototype.sleep = function() {
+				console.log("sleep()");
+			}
+			
+			class Stu {
+				//类中的构造器
+				constructor() {
+					this.name = "小明";
+					this.age = 30;
+					this.show = function() {
+						console.log(this.name, this.age);
+					}
+				}
+				sleep() {
+					console.log("sleep()");
+				}
+			}
+			
+			let s1 = new Stu();
+			console.log(s1.name);//小明
+			s1.show();//小明 30
+			s1.sleep();//sleep();
+		</script>
+	</body>
+</html>

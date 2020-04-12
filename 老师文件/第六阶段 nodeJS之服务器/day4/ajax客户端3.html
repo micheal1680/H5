@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax请求</title>
+     <!-- 是07ajax.js的客户端 -->
+
+    <!-- 引入JQuery库 -->
+    <!-- 引入方法：到bootcdn.cn官网去找，搜索关键字jQuery就可找到，复制jQuery插件的script代码即可 -->
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <h1>标题</h1>
+    <img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=92afee66fd36afc3110c39658318eb85/908fa0ec08fa513db777cf78376d55fbb3fbd9b3.jpg"
+        alt="">
+    <br><br><br>
+
+    <input type="text" name="title">
+    <button onclick="sendAjax()">发送ajax请求</button>
+
+    <button class="mybtn"> 按钮 </button>
+
+    <script>
+        function sendAjax() {
+            console.log(this);
+
+            let mytitle = document.querySelector("input").value;
+            if (mytitle == null || mytitle == "") {
+                alert("输入不能为空")
+            } else {
+                alert("else")
+                // $是jquery库中的一个对象
+                // url 请求地址
+                // type 请求方式  GET  POST
+                // success 表示请求成功执行的回调函数
+                // error 表示请求失败执行的回调函数
+                $.ajax({
+                    url: `http://localhost:8888/index?title=${mytitle}`,
+                    type: "GET",
+                    success: function (result) { //成功返回的回调函数
+                        console.log(result);
+                        document.querySelector("h1").innerHTML = result[0].title;
+                        document.querySelector("img").src = result[0].img_url;
+                    },
+                    error: function (e) { //请求失败回调的函数
+                        console.error(e);
+                    }
+                })
+            }
+        }
+
+        function show() {
+            var mybtn = document.querySelector(".mybtn");
+            mybtn.onclick = function() {
+                console.log("click");
+                console.log(this)
+            }
+        }
+        show();
+    
+    </script>
+</body>
+
+</html>

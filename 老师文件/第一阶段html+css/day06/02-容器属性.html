@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: flex;
+            /* 决定主轴方向 */
+            flex-direction: row;
+            /* 决定项目在主轴上面的排列方式 */
+            justify-content: space-between;
+            /* 决定项目在交叉轴上面的排列方式 */
+            align-items: stretch;
+        }
+
+        .item{
+            background-color: #ccc;
+        }
+
+        .box2 {
+            width: 400px;
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item2 {
+            width: 100px;
+            height: 50px;
+            background-color: #f00;
+        }
+
+        .box3{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            display: flex;
+            /* 设置项目换行 */
+            flex-wrap: wrap;
+            /*flex-flow: <flex-direction> || <flex-wrap>;  */
+            /* flex-flow: row wrap; */
+            align-content: stretch;
+        }
+        .item3{
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+        <div class="item">item4</div>
+    </div>
+    <!-- <div class="box2">
+        <div class="item2"></div>
+    </div> -->
+
+    <div class="box3">
+        <div class="item3">item1</div>
+        <div class="item3">item2</div>
+        <div class="item3">item3</div>
+        <div class="item3">item4</div>
+    </div>
+</body>
+
+</html>

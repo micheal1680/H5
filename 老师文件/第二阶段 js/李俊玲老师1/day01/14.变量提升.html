@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>变量提升</title>
+</head>
+
+<body>
+    <script>
+        /*  
+       {
+           a: 20,
+           c: undefined,
+           d: undefined
+       } 
+        */
+        // console.log(a);// undefined
+        // console.log(b); // Uncaught ReferenceError: b is not defined
+        var a = 20; // var a; a= 20;
+
+        b = 1; // 没有var声明,则在运行到当前时在全局创建一个属性b
+        var c = "哈哈哈";
+        var d = true;
+        // 全局变量: 都可以使用window访问
+        // 局部变量: 在内部代码块中使用,外部无法访问
+
+        console.log(window.a, window.b);
+        console.log(delete a); // 有var声明则打印false
+        console.log(delete b); // 没有var声明则打印true
+        console.log(window.a, window.b);
+
+        // 函数声明
+        function funName() {
+            var a2 = 20;
+            console.log(a2);
+        }
+        // 函数运行
+        funName();
+        console.log(a2);
+        // 声明变量  变量赋值  变量提升  全局变量  删除有var 和 无var声明的全局变量之间的区别
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        // forEach：很常用,循环对每个元素进行指定操作
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        arr.forEach(function(value, ind, array){
+            array[ind] = value*2;
+        });
+        console.log(arr);
+    </script>
+</body>
+
+</html>

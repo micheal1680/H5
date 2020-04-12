@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="mydiv">
+			 Document--HTMLDocument，而document是属性HTMLDocument类的对象<br />
+			 getElementById("id")是Document类中的原型方法
+		</div>
+		<div>
+			div对象是HTMLDivElement类的对象
+		</div>
+		<script type="text/javascript">
+			console.log(document instanceof HTMLDocument);//true
+			console.log(document instanceof Document);//true
+			console.log(document instanceof Element);//false
+			let mydiv = document.getElementById("mydiv");
+			console.log(mydiv instanceof HTMLDivElement);//true
+			console.log(mydiv instanceof HTMLElement);//true
+			console.log(mydiv instanceof Element);//true
+		</script>
+	</body>
+</html>

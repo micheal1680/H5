@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            z-index: 2;
+        }
+        .div2{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            z-index: 6;
+        }
+        .div3{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            z-index: 9;
+        }
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.字体属性：font-size  font-weight  font-family  font-style  font
+        2.文本属性：line-height  color  text-align  text-decoration  
+        3.背景：background-color  background-image   background-repeat  background-size  background-position
+        4.盒子模型：内容  边框  外边距  内边距  box-sizing  
+        5.浮动：float
+          浮动的特点：（1）脱离标准文档流，浮动只会影响后面的元素，不会影响前面的元素
+                     （2）会改变标签的显示模式，只要设置了浮动都会把标签转换为行内块级标签
+                     （3）设置了后的几个标签彼此会挨着
+                     （4）不管怎么浮动，都在父元素里面浮动
+         清除浮动：（1）给父元素设置高度
+                  （2）给父元素设置overflow：hidden
+                  （3）设置clear：both
+                  （4）伪元素清除浮动  给父元素设置  ::after
+        什么时候会用到浮动：（1）去掉标签之间的间隙
+                          （2）想让一个盒子贴着右边的时候
+                          （3）想让多个并列的元素排成一行的时候
+
+        去掉li标签前面的点：list-style：none
+        6.定位：position
+        固定定位：fixed
+        相对定位：relative
+        绝对定位：absolute
+     -->
+     <div class="div1">div1</div>
+     <div class="div2">div2</div>
+     <div class="div3">div3</div>
+
+</body>
+</html>

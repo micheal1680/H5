@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的操作</title>
+</head>
+
+<body>
+    <script>
+        var arr3 = [{
+            username: '王磊',
+            gender: '男',
+            age: 20
+        },
+        {
+            username: '王磊',
+            gender: '男',
+            age: 20
+        }];
+        var arr = ['肖晗', '刘西宇', '李旭'];
+        console.log(arr.sort());
+
+        var arr1 = [1, 2, 12, 23, 3, 34, 5, 6, 7];
+        // 使用函数提供排序规则
+        console.log(arr1.sort(function (a, b) {
+            return b - a;
+        }));
+
+        var student = [
+            { username: '肖晗', score: 80 },
+            { username: '刘西宇', score: 90 },
+            { username: '李旭', score: 70 }
+
+        ];
+        console.log(student.sort(function (a, b) {
+            return a.score - b.score;
+        }));
+        //元素的操作  增删改查  会修改原始数组
+        var arr1 = [1, 2, 3];
+        let first = arr1.shift();//删除第一个元素并返回
+        console.log(first);
+        console.log(arr1);
+        arr1.unshift(100, 200);//在数组的开始位置追加元素
+        console.log(arr1);
+
+        var last = arr1.pop();//删除数组的最后一个元素并返回删除的元素
+        console.log(last);
+        console.log(arr1);
+        arr1.push(300, 400);//在数组的结尾追加元素
+        console.log(arr1);
+        // 万能的元素操作方法： splice
+        arr1.splice(3, 0, 800, 900);
+        console.log(arr1);
+
+        var arr2 = arr1.concat([500, 600]);
+        console.log(arr2);
+
+        // 作业：
+        var arr5 = [1,23,45,6,7,80, 89, 90, 102, 300];
+        // 处理结果：
+        // [[1, 300],[6, 102], [7, 90], [23, 89], [45, 80]]
+
+    </script>
+</body>
+
+</html>

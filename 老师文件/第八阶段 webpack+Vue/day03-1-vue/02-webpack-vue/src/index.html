@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+</head>
+<body>
+<div id="app">
+	{{msg}}
+	<br>
+	搜索：
+	<input type="text" v-model="keyWord" />
+	<br><br>
+	
+	<ul>
+		<li v-for="item in employees">
+			<p>员工姓名：{{item.name}}</p>
+			<p>员工工资：{{item.salary}}</p>
+			<p>员工部门：{{item.deptid}}</p>
+		</li>
+	</ul>
+	
+</div>
+
+
+
+</body>
+</html>

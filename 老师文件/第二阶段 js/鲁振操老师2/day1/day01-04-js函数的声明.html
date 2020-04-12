@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+        // 普通函数
+        function add(a, b) {
+            return a + b; //return 后面的代码不会再执行
+            console.log(5);
+        }
+        var a = add(1, 2); //这步就是在对add函数传参。
+        console.log(a);  //3
+        // 表达式函数
+        var fn = function(a, b){
+            return a + b
+        };
+        console.log(fn(3,4));  //7  return和console.log返回的其实都是最终的值，但是return返回的是表达式，而console.log打印的是值
+        // 匿名函数和自运行函数
+        (function (){
+            console.log(33);
+        })();
+        var username = '你好';//创建一个全局变量
+        // 对象的方法
+        var obj = {
+            age:20,
+            username:'雍阳',
+            //方法
+            say:function(){
+                return '我是'+this.username+',今年'+this.age+'岁了'; //字符串与变量分开表示时的表示方法
+            }  //say也是对象obj的一个属性，表示：方法，是一个字面量，可以任意写。这里采用的方法是引用函数，return返回的是一个：字符串与变量的结合字段。
+        };
+        var say = obj.say;
+        console.log(obj.say());//我是雍阳，今年20岁了
+        console.log(say());//我是你好，今年undefined岁了    没有明确对象，因此弄成Window的变量，有全局变量username为“你好”，但是没有全局变量age，因此引用了对象没有定义的属性，返回undefined
+    </script>
+
+<script src="./js/index.js"></script>
+<script src="./js/common.js"></script>
+   <script>
+       console.log(username);
+   </script>
+</body>
+
+</html>

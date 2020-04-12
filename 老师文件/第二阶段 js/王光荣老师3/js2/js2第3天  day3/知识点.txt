@@ -1,0 +1,7 @@
+1.修改类名：class="aa bb cc"，这时类有三个类名。该类长度为3，类名之间用空格隔开
+2.对属性的操作（包括设置set和获取get）：自带的标准属性：align、id；自定义标准属性:data-类或this-类(如：data-sex，data-age)（这是唯一的自定义标准格式）；万能属性：Attribute（getAttribute是获取属性的通用方式）
+3.常用的属性：class、type（这两个是自带的属性）
+4.scrollTo(x,y)：滚动到指定位置；（x,y）是坐标。scrollby(x,y):在原基础上追加滚动;(x,y)不是坐标；
+5.<button onclick="show(this)">more</button>:因为事件中this指事件源botton，这种代码比较特殊，需要将this传进处理函数，相当于将事件源传进处理函数
+6.浏览器兼容问题：若一个浏览器不支持某种函数或方法，那么就会出现浏览器不兼容问题。
+7.盒子模型--基本操作：所讲都是做网站常用的技术

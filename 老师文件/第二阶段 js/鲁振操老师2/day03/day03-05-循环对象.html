@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象的循环</title>
+</head>
+
+<body>
+    <script>
+        var obj = { username: '刘西宇', age: 20, height: 180 };
+        for (var key in obj) {
+            console.log(key, obj[key]);//使用[]
+        }
+
+
+        var arr = [];
+        var i = 0;
+        for (arr[i++] in obj) {
+        }
+
+        console.log(arr);//username,  age,  height
+
+    </script>
+</body>
+
+</html>

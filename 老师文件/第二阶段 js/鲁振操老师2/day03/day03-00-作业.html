@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 动画：定时器  定时器里面的函数可以接收参数
+        // setInterval(function(a, b){console.log(a, b);}, 1000, 200, 300);
+        setInterval(function () {
+            var dt = new Date();
+            var str = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate() + ' ' + (dt.getHours() < 10 ? '0' : '') + dt.getHours() + ':' + (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes() + ':' + (dt.getSeconds() < 10 ? '0' : '') + dt.getSeconds();
+            document.querySelector('div').innerHTML = str;
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+			* {
+				color: white;
+				text-align: center;
+				font-size: 24px;
+			}
+			
+			#app {
+				height: 500px;
+				background-color: pink;
+			}
+			
+			#father{
+				height: 300px;
+				background-color: blue;
+			}
+			
+			#son{
+				height: 100px;
+				background-color: red;
+			}
+			
+			#head {
+				height: 70px;
+				background-color: blue;
+			}
+			
+			#left {
+				width: 70%;
+				height: 400px;
+				background-color: gray;
+				display: inline-block;
+			}
+			
+			#right {
+				width: 30%;
+				height: 400px;
+				background-color: purple;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+
+
+		<div id="app" v-cloak>
+			{{fthermsg}}
+			<!-- 父向子传值补充：$children 和$refs 可以访问到子组件 -->
+			<button type="button" @click="handleChange">修改左侧</button>
+			
+			
+			<!-- 子向父传值:$root 或$parent 来传递 -->
+			<my-head ref="myhead"></my-head>
+			<my-left ref="myleft"></my-left>
+			<my-right></my-right>
+		</div>
+		
+		
+		
+		
+
+	</body>
+</html>

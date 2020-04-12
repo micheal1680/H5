@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第九天-05-正则表达式-选择和分组</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>正则表达式支持选择项或子表达式；</h3>
+        <ol>
+            <li>
+                选择和分组：
+                <pre>
+                    字符                    含义
+                    ----------------------------------------------------------------
+                    |                       选择，匹配的是左边子表达式或右边子表达式
+                    (...)                   组合，将几个选项组合到一个单元
+                </pre>
+                整个小例子瞄一眼；
+                <pre>
+                    var emailp = /^\w{1}[\w_\-]{2,31}@[\w]{1,}\.(com|com\.cn|gov|net|edu)$/;
+                </pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

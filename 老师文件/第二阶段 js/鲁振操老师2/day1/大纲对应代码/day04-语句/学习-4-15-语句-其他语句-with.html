@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-15-语句-其他语句-with</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>with语句用于临时扩展作用域链；</h3>
+
+        <ol>
+            <li>是的，临时扩展作用域，临时；with代码块执行完成后恢复原始状态；</li>
+            <li>
+                语法结构是这样的：
+                <pre>
+                with(object){
+                    statement;
+                }
+                </pre>
+                将object添加到作用域链的头部，执行完成statement后，作用域链恢复到原始状态；
+            </li>
+            <li>
+            看代码吧
+            <pre>
+                /*
+                 *清空表单所有输入框的值
+                 *document.querySelector['#myform'].username.value = ''; 
+                 *document.querySelector['#myform'].password.value = ''; 
+                 *document.querySelector['#myform'].coder.value = ''; 
+                 */
+                with(document.querySelector['#myform']){
+                    username.value  = ''; 
+                    password.value  = ''; 
+                    coder.value     = ''; 
+                }
+            </pre>
+            这就是with的用法；
+            </li>
+            <li>但是，不推荐使用with，有代码不好优化，运行慢等问题；</li>
+            <li>并且，严格模式下是不能使用with的；</li>
+            <li>所以，能不用我看你还是不要用with了吧；</li>
+        </ol>
+    </div>
+    <script>
+        /*
+         *清空表单所有输入框的值
+         *document.querySelector['#myform'].username.value = ''; 
+         *document.querySelector['#myform'].password.value = ''; 
+         *document.querySelector['#myform'].coder.value = ''; 
+         */
+        with(document.querySelector['#myform']){
+            username.value  = ''; 
+            password.value  = ''; 
+            coder.value     = ''; 
+        }
+    </script>
+</body>
+</html>

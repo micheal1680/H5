@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			#div1 {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				margin-top: 50px;
+				margin-left: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.addEventListener("load", function(){
+				console.log("开始")
+				document.onkeydown = function(e) {
+					// console.log("onkeydown")
+				}
+				// document.onkeypress = function(e) {
+				// 	console.log("onkeypress")
+				// }
+				document.onkeyup = function(e) {
+					// console.log("onkeyup")
+					console.log(e.key);//按什么键就会打印什么字
+				}
+				div1.focus();
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="mydiv1"></div>
+		<div id="mydiv2"></div>
+		<script type="text/javascript">
+			var mydiv1 = document.getElementById("mydiv1");
+			var mydiv2 = document.getElementById("mydiv2");
+			function show2() 
+			{
+				if(true) {       //若将if换成while，则变成一个死循环
+					var m = 1000;//出块
+					let n = 2000;//只能在当前块中使用
+					console.log(m);
+					console.log(n);
+				}
+				//let声明的变量只在当前块中被使用，而var声明的变量在块之后也能被使用。一个{ }就是一个块
+				mydiv1.innerHTML = m;//能使用块中声明的m
+				// mydiv2.innerHTML = n;//直接报错
+			}
+			show2()
+		</script>
+	</body> 
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>月份日期</title>
+</head>
+
+<body>
+    <script>
+        var month = Number(prompt("请输入月份"));
+        switch (month) {
+            case 1:    //switch ()的()内的数据要和case后的数据同一类型
+                console.log(31);
+            case 2:
+                console.log(28);
+            case 3:
+                console.log(31);
+            case 4:
+                console.log(30);
+            case 5:
+                console.log(31);
+            case 6:
+                console.log(30);
+            case 7:
+                console.log(31);
+            case 8:
+                console.log(31);
+            case 9:
+                console.log(30);
+            case 10:
+                console.log(31);
+            case 11:
+                console.log(30);
+            case 12:
+                console.log(31);
+                break;    //之前的分支没有break，形成穿透作用，一直跳过case的条件判断直接执行语句，直至遇到break或语句结束。所以打印出1~12月份
+            default:
+                console.log("输入的月份有误");
+        }
+    </script>
+</body>
+
+</html>

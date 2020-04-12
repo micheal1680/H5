@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 300px;
+				height: 200px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p>段落1</p>
+			<p>段落2</p>
+			<p>段落3</p>
+		</div>
+		<button onclick="delBox()">删除Box</button>
+		<br />
+		<button onclick="delChild()">删除指定的子节点</button>
+	</body>
+	<script type="text/javascript">
+		function delBox() {
+			let box = document.getElementById("box");
+			box.remove();//删除box  自销毁
+		}
+		function delChild() { 
+			let box = document.getElementById("box");
+			let pes = box.children;
+			if(pes.length>=1) {
+				//得到box子元数节点的第一个节点
+				let first = pes[0];
+				//删除指定的子节点
+				box.removeChild(first); 
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+</head>
+
+<body>
+    <script>
+        // filler：过滤器
+        var arr = new Array(1, 2, 3, 4, 5, 6);
+        var arr1 = arr.filter(function(value, ind, array){
+            return value < 4;
+        });
+        console.log(arr1, arr);
+
+
+         // 查找工资高于8000的学生
+         var students = [{
+            username: '王磊',
+            salary: 8000
+        },
+        {
+            username: '罗鑫',
+            salary: 8001
+        },
+        {
+            username: '刘西宇',
+            salary: 7500
+        },
+        {
+            username: '肖晗',
+            salary: 7600
+        }
+        ];
+        var newstudents = students.filter(function(stu){
+            return stu.salary >= 8000;
+        });
+        console.log(newstudents);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+{
+	"pages": [
+    "pages/find/find",
+    "pages/sort/sort",
+    "pages/dome/dome",
+    "pages/xiaomi/xiaomi",
+		"pages/cart/cart",
+		"pages/my/my"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "WeChat",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"color": "#ccc",
+		"selectedColor": "#fe6701",
+		"borderStyle": "black",
+		"backgroundColor": "#fff",
+		"list": [
+			{
+				"pagePath": "pages/xiaomi/xiaomi",
+				"text": "首页",
+				"iconPath": "/images/tabBarIcon/shouye.png",
+				"selectedIconPath": "/images/tabBarIcon/shouye_selected.png"
+			},
+			{
+				"pagePath": "pages/sort/sort",
+				"text": "分类",
+				"iconPath": "/images/tabBarIcon/sort.png",
+				"selectedIconPath": "/images/tabBarIcon/sort_selected.png"
+			},
+			{
+				"pagePath": "pages/find/find",
+				"text": "发现"
+			},
+			{
+				"pagePath": "pages/cart/cart",
+				"text": "购物车"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+		]
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>序列化对象</title>
+</head>
+
+<body>
+    <script>
+        // 序列化对象2大操作：
+        // JSON.stringify(对象); : 将对象变为字符串
+        // JSON.parse(字符串);: 将字符串变为对象 
+                            // 字符串只能使用单引号 内部使用双引号 例如 '{"name":"OMG","age": 30}'
+        var hqyj = {
+            name: '华清远见',
+            add: '科华北路99',
+            tel: ['0900', 8304, '0910']
+        };
+        console.log(hqyj)
+        var str = JSON.stringify(hqyj); // 序列化后会变为字符串
+        console.log(str);
+        console.log(typeof str);
+        var obj1 = JSON.parse(str);
+        console.log(obj1);
+
+        var string = '{"name":"OMG","age": 30}';
+        var obj2 = JSON.parse(string);
+        console.log(obj2);
+    </script>
+</body>
+
+</html>

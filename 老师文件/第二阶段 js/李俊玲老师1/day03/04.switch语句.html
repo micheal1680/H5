@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>switch语句</title>
+</head>
+
+<body>
+    <script>
+        /*  
+            Switch case 使用严格比较（===）。
+            值必须与要匹配的类型相同。
+            只有操作数属于同一类型时，严格比较才能为 true。 
+        */
+        var value = Number(prompt("请输入1-3的整数数字")); // 80
+        // break: 结束switch语句, 没有break==>发生穿透效果, 跳过case判断直接执行语句直到遇到break或者语句结束
+        switch (true) {
+            default:
+                alert("输入的值范围错误");
+                break;
+            case value>= 90:
+                alert(1);
+                break;
+            case value>=80 && value <90:
+                alert(2);
+                break;
+            case value > 100 || value < 0 || isNaN(value):
+                alert(3);
+                break;
+        }
+        // 成绩判断改为switch语句
+    </script>
+</body>
+
+</html>

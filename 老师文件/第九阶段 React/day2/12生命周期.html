@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class Count extends React.Component {
+
+            //挂载前：是一个虚拟DOM节点
+            componentWillMount() {
+                console.log('Component WILL MOUNT!')
+            }
+            //挂载后：是一个真实的DOM节点，可以完成一些js操作，如定时器、ajax异步请求等操作
+            componentDidMount() {
+                console.log('Component DID MOUNT!')
+            }
+            //在组件接收到一个新的 prop (组件状态改变时)时被调用
+            componentWillReceiveProps(newProps) {
+                console.log('Component WILL RECEIVE PROPS!')
+            }
+            //在组件接收到新的props或者state时被调用：一般是父组件传递props到子组件，返回值决定了要不要重新渲染页面
+            shouldComponentUpdate(newProps, newState) {
+                console.log("shouldComponentUpdate")
+                return true;  //true表示重新渲染，false表示不渲染，那么willUpdate与DidUpdate将不调用
+            }
+            //在组件接收到新的props或者state但还没有render时被调用
+            componentWillUpdate(nextProps, nextState) {
+                console.log('Component WILL UPDATE!');
+            }
+            //在组件完成更新后立即调用
+            componentDidUpdate(prevProps, prevState) {
+                console.log('Component DID UPDATE!')
+            }
+            //在组件从 DOM 中移除的时候立刻被调用
+            componentWillUnmount() {
+                console.log('Component WILL UNMOUNT!')
+            }
+
+
+            render() {
+                return(
+                    <div>
+                        <h1> { this.props.num } </h1>
+                    </div>
+                )
+            }
+        }
+
+        class MyApp extends React.Component {
+
+            constructor(props) {
+                super();
+
+                this.state = {
+                    num: 0,
+                    isRender: true
+                }
+            }
+            
+            //增加数据
+            add() {
+                this.setState({
+                    num: ++this.state.num
+                })
+            }
+
+            // 移除组件
+            removeNode() {
+                this.setState({
+                    isRender: !this.state.isRender
+                })
+            }
+
+            render() {
+                return(
+                    <div>
+                        <button onClick={this.add.bind(this)}>点击增加数据</button>
+                        <button onClick={this.removeNode.bind(this)}>移除/挂载组件</button>
+                        { this.state.isRender ? <Count num={this.state.num}/> : null }
+                        
+                    </div>
+                )
+            }
+        }
+      
+       
+        ReactDOM.render(
+            <div>
+               <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>

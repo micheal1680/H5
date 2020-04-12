@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(typeof 1 / 0) //NaN,typeof操作符的优先级高于除法
+        console.log(typeof typeof 5 / 0) //NaN
+        console.log(typeof (7 / 0)) //number
+        console.log(typeof (typeof 9 / 0)) //number
+        console.log(typeof typeof (typeof 4 / 0)) //string
+    </script>
+</body>
+
+</html>

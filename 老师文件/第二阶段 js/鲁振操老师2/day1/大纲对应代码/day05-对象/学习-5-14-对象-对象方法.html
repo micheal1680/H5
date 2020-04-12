@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第五天-14-对象-对象方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>toString；</h3>
+        <ol>
+            <li>
+                toString：返回调用这个方法的对象的值的字符串；
+                <pre>
+                    //对象调用该方法返回 [object Object]
+                    var o = {h:1}.toString();
+                    console.log(o);
+                    //数组调用该方法返回数组元素列表
+                    var a = [1,2,3];
+                    console.log(a.toString());
+                    //函数调用该方法返回的是函数本身的代码
+                    function hq (argument) {
+                        // body... 
+                    }
+                    console.log(hq.toString());
+            </li>
+            <li>
+            valueOf()方法和toString()方法类似，往往在需要讲对象转换为原始值时用到；
+            <pre>
+                console.log(new Date().valueOf()); //返回毫秒数
+                console.log(new Date().toString());//返回日期格式的字符串
+                console.log(a.valueOf());//他又返回什么鬼那？
+            </pre>
+
+            </li>
+            
+        </ol>
+    </div>
+    <script>
+        var o = {h:1}.toString();
+        console.log(o);
+
+        var a = [1,2,3];
+        console.log(a.toString());
+
+        function hq (argument) {
+            // body... 
+        }
+        console.log(hq.toString());
+
+        console.log(new Date().valueOf())
+        console.log(new Date().toString())
+        console.log(a.valueOf());
+    </script>
+</body>
+</html>

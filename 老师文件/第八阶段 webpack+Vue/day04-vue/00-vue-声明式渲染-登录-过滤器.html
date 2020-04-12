@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+	[v-cloak]{
+		display: none;
+	}
+</style>
+</head>
+<body>
+<div id="app" v-cloak>
+	<div v-if="mainPage">
+		{{msg}}
+		<br>
+		搜索：
+		<input type="text" v-model="keyWord" />
+		<br><br>
+		
+		<ul>
+			<li v-for="item in employees">
+				<!-- filtes 方法只能用在v-bind 或{{}} 里 -->
+				<!-- {{item.name|iTemName(keyWord)}} -->
+				<p v-html="$options.filters.iTemName(item.name,keyWord)"></p>
+				<p>员工工资：{{item.salary}}</p>
+				<p>员工部门：{{item.deptid}}</p>
+			</li>
+		</ul>
+	</div>
+	<div v-else>
+		用户名：<input type="text" placeholder="请输入用户名" v-model="username" @change="userChange" />
+		<span style="color: red;">{{userhit}}</span>
+		<br>
+		
+		密&nbsp;码：<input type="password" v-model="passW" @change="passChange" />
+		<span style="color: red;">{{passhit}}</span>
+		<br>
+		
+		
+		<button type="button" @click="userLogin">登录</button>
+	</div>
+
+</div>
+
+
+
+</body>
+</html>

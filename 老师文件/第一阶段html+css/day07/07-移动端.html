@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 百分比布局 */
+        .box1{
+            width: 50%;
+            height: 200px;
+            background-color: #ccc;
+        }
+        .box2{
+            width: 50vw;
+            height: 50vw;
+            background-color: #f00;
+            font-size: 5vw;
+        }
+
+        .box3{
+            width: 50vw;
+            height: 50vh;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">我是div</div>
+    <!-- 
+        vw: 使用的是视窗宽度的百分比，1vw就相当于视窗宽度的1%   1vw=1%  100vw=100%
+        vh: 使用的是视窗高度的百分比，1vh就相当于视窗高度的1%   1vh=1%  100vh=100%
+        vmin:使用的是视窗宽度和高度中较小的那一个，如果高大于宽，1vmin=1vw
+        vmax:使用的是视窗宽度和高度中较大的那一个，如果高大于宽，1vmax=1vh
+    -->
+    <div class="box2">我是box2</div>
+    <div class="box3">我是box3</div>
+    
+</body>
+</html>

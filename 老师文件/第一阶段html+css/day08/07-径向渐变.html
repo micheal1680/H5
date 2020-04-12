@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* background：radial-gradient(center,shape size,color1,color2...,last-color) */
+        .box1{
+            width: 400px;
+            height: 200px;
+            margin-bottom: 10px;
+            background: radial-gradient(red,green,blue);
+        }
+        .box2{
+            width: 400px;
+            height: 400px;
+            margin-bottom: 10px;
+            /* background: radial-gradient(circle,red,green,blue); */
+            background: radial-gradient(circle,red,green,blue 60%);
+        }
+        .box3{
+            width: 400px;
+            height: 200px;
+            margin-bottom: 10px;
+            /* background：radial-gradient(size at center,color1,color2...,last-color) */
+            /* background: radial-gradient(100px 100px at 30% 30%,red,green,blue); */
+            background: radial-gradient(closest-corner at 30% 30%,red,green,blue);
+
+        }
+        .box4{
+            width: 400px;
+            height: 200px;
+            margin-bottom: 10px;
+            background: repeating-radial-gradient(red,green 10%,blue 20%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+
+
+
+</body>
+</html>

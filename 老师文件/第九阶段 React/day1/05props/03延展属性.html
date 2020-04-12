@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+            class MyApp extends React.Component {
+                render() {
+                    return(
+                        <div>
+                            <a href={this.props.address} target={this.props.methods}>
+                                <img src={this.props.logo}/>
+                            </a>
+                        </div>
+                    )
+                }
+            }
+    
+            // 延展属性
+            MyApp.props = {
+                address: "http://www.qq.com",
+                logo: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2489210062,4050084366&fm=26&gp=0.jpg",
+                methods: "_blank",
+                title: "xxx"
+            }
+        
+        
+            ReactDOM.render(
+                <div>
+                    {/*<MyApp address="" logo="" methods="" title=""/>*/}
+                    {/*使用延展属性来传递多个属性值*/}
+                    <MyApp {...MyApp.props}/>
+                </div>,
+                document.getElementById("root")
+            )
+        </script>
+</body>
+
+</html>

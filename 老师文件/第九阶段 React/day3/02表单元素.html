@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class MyApp extends React.Component {
+            constructor(props) {
+                super();
+                // 设置状态 （若是静态页面即页面上的内容不发生改变，则只需用属性props即可，但是若要发生变化，则需要用状态来传递属性值）
+                this.state = {
+                    myValue: "哈哈哈"
+                }
+            }
+            // 事件函数，（）里面得传递事件信息
+            handleChange(event) {
+                console.log(event.target.value)
+                this.setState({
+                    myValue: event.target.value
+                })
+            }
+
+            render() {
+                return(
+                    <div>
+                        {/*非受控组件*/}
+                        <input type="text" defaultValue="恭喜发财"/>
+                        {/*受控组件*/}
+                        <input type="text" value={this.state.myValue} onChange={this.handleChange.bind(this)}/>
+                        <h1> { this.state.myValue } </h1>
+                    </div>
+                )
+            }
+        }
+      
+        ReactDOM.render(
+            <MyApp />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>删除数组元素</title>
+</head>
+
+<body>
+    <script>
+        var arr = [0, 1, 2, 3, 4, 5, 6];
+        // delete 不常用
+        delete arr[3];
+        console.log(arr)
+        console.log(arr[3]);
+
+        // 删除元素  pop() 在数组尾部进行操作
+        console.log(arr.pop()); // 有返回值  返回的是被删除的元素的值
+        console.log(arr);
+
+        // 删除元素 shift() 在数组头部进行操作
+
+        console.log(arr.shift()); // 有返回值  返回的是被删除的元素的值
+        console.log(arr[0]);
+
+        // 创建数组
+        // 写入元素
+        // 删除元素
+        // 遍历数组
+    </script>
+</body>
+
+</html>

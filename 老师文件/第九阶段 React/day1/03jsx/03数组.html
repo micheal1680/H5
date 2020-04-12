@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+     <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+     <script src="../bower_components/react/react.development.js"></script>
+     <script src="../bower_components/react/react-dom.development.js"></script>
+     <script src="../bower_components/babel/browser.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let arr = [
+            <h1>我是标题</h1>,
+            <p>我是段落</p>,
+            <div>我是盒子</div>,
+            <img src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2758807304,2560528048&fm=26&gp=0.jpg"/>
+        ];
+        ReactDOM.render(
+            <div>
+                {arr}
+            </div>,
+            document.getElementById("root")
+        )
+    
+    </script>
+</body>
+
+</html>

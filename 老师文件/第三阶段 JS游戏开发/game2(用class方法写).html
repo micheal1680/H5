@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用类构造魔塔</title>
+    <style>
+        .gamebox {
+            width: 600px;
+            height: 600px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            font-size: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gamebox"></div>
+    <script>
+
+        class Game {
+            constructor() {
+                this.Map = [
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                ];
+                this.GameBox = document.getElementsByClassName('gamebox')[0];
+            }
+            CreateMap() {
+                this.GameBox.innerHTML = '';
+                for (let i = 0; i < this.Map.length; i++) {
+                    for (let j = 0; j < this.Map[i].length; j++) {
+                        console.log(this.Map[i][j]);
+                        let CreateDom = document.createElement('img');
+                        CreateDom.alt = '图片加载失败';
+                        CreateDom.style.width = '60px';
+                        CreateDom.style.height = '60px';
+                        if (this.Map[i][j] == 0) {
+                            CreateDom.src = 'imgs/背景.png';
+                        } else if (this.Map[i][j] == 1) {
+                            CreateDom.src = 'imgs/人物.png';
+                        } else if (this.Map[i][j] == 2) {
+                            CreateDom.src = 'imgs/怪1.png';
+                        }
+                        this.GameBox.appendChild(CreateDom)
+                    }
+                }
+            }
+            Sstart() {
+                console.log('游戏开始')
+                this.CreateMap()
+            }
+        }
+        let NewGame = new Game()
+        NewGame.Sstart()
+
+
+    </script>
+</body>
+
+</html>

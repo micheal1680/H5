@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第四天-16-语句-其他语句-debugger</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>debugger语句会产生一个断点，用于调试程序，并没有实际功能；</h3>
+
+        <ol>
+            <li>使用debugger的前提是你手动打开了“开发者工具”；</li>
+            <li>debugger会产生一个断点，代码会停止在这里不再往下执行；</li>
+        </ol>
+    </div>
+    <script>
+        console.log(1);
+        debugger;
+        console.log(2);
+    </script>
+</body>
+</html>

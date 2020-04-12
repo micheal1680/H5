@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mydiv">
+        <p>p1
+            <h1>我是h1</h1>
+        </p>
+        <p>p2
+            <h1>我是h2</h1>
+        </p>
+        <p>p3
+            <h1>我是h3</h1>
+        </p>
+    </div>
+</body>
+<script>
+    let mydiv = document.getElementById("mydiv");
+    let mmm=mydiv.parentElement;
+    console.log(mmm.nodeName);
+    let mydiv_children=mydiv.children; //将获取的所有子元素封装成一个数组mydiv_children
+    for(let i=0;i<mydiv_children.length;i++){
+    console.log(mydiv_children[i].nodeName);
+    }
+
+</script>
+
+</html>

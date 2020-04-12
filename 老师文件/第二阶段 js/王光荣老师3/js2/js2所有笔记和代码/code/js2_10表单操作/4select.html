@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>实现联动选项菜单</title>
+	</head>
+	<body>
+
+		<form action="">
+			户籍所在地：
+			<select class="p">
+				<option value="0">==请选择所在省份==</option>
+			</select>
+			<select class="c">
+				<option value="0">==请选择所在城市==</option>
+			</select>
+		</form>
+		<script type="text/javascript">
+			var menu = [
+				{
+					name: '四川',
+					pid: 20,
+					children: [{
+							name: '成都',
+							cid: 20001
+						}, {
+							name: '德阳',
+							cid: 20002
+						}, {
+							name: '绵阳',
+							cid: 20003
+						},
+						{
+							name: '乐山',
+							cid: 20004
+						}, {
+							name: '广元',
+							cid: 20005
+						}
+					]
+				},
+				{
+					name: '河南',
+					pid: 10,
+					children: [{
+							name: '郑州',
+							cid: 10001
+						}, {
+							name: '开封',
+							cid: 10002
+						}, {
+							name: '洛阳',
+							cid: 10003
+						},
+						{
+							name: '信阳',
+							cid: 10004
+						}, {
+							name: '安阳',
+							cid: 10005
+						}
+					]
+				}
+			];
+			var p=document.getElementsByClassName("p")[0];
+			var c=document.getElementsByClassName("c")[0];
+			//<option value='p20'>四川</option>
+			//<option value='p10'>河南</option>
+			for(var i=0;i<menu.length;i++){				
+				var option=document.createElement("option");
+				option.text=menu[i].name;
+				option.value=menu[i].pid;
+				p.appendChild(option)
+			}
+			//选项框的值发生变化的时候触发
+			p.onchange=function(){
+				c.innerHTML = "<option value='0'>==请选择所在城市==</option>"
+				var pid=p.value;
+				// console.log(pid);//p20
+				for(var i=0;i<menu.length;i++){
+					if(menu[i].pid==pid){//p20
+						for(var j=0;j<menu[i].children.length;j++){
+							var option=document.createElement("option");
+							option.text=menu[i].children[j].name;
+							option.value=menu[i].children[j].cid;
+							c.appendChild(option)
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

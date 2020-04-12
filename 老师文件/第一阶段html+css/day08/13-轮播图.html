@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 700px;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            width: 2100px;
+            animation: mymove 8s infinite;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+            width: 700px;
+            height: 320px;
+        }
+        @keyframes mymove {
+            0%,25%{
+                left: 0;
+            }
+            40%,65%{
+                left: -700px;
+            }
+            80%,100%{
+                left: -1400px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="https://img02.hua.com/slider/18_birthday_m.jpg?830" alt="">
+            </li>
+            <li>
+                <img src="https://img02.hua.com/slider/18_youflower_m.jpg?830" alt="">
+            </li>
+            <li>
+                <img src="https://img02.hua.com/slider/17_banner_tc_m.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <h1 class="animated infinite fadeIn">Example</h1>
+</body>
+</html>

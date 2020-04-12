@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>认识js</title>
+    <style>
+        .myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="myDiv"></div>
+    <script>
+        // 事件: 事件源 事件 事件处理
+        var flag = false
+        document.querySelector(".myDiv").onclick = function () {
+            if (flag) {
+                this.style.backgroundColor = "red"
+                flag = false
+            } else {
+                this.style.backgroundColor = "green"
+                flag = true
+            }
+        }
+
+        /*
+            shell   外壳
+
+            js引擎  运行js   v8引擎
+            渲染引擎（即内核）
+        
+        */
+        //                   内核（渲染引擎）       Js引擎          
+        // 五大主流浏览器：ie--trident               JScript
+        // 				/firefox--gecko             SpiderMonkey
+        // 				/safari--webkit             WebCore+javascriptCore
+        // 				/chrome--webkit/blink        V8
+        // 				/oprera--presto              V8
+        //           对于oprera，presto是其前内核，已舍弃，现在是用blink.
+        //           但是内核分类确实分为5类：trident、gecko、webkit、blink、presto
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mydiv{
+            width: 200px;
+            height: 100px;
+            background-color: #ccc;
+            /* 设置顶部边框   solid  dashed*/
+            border-top: 2px dotted red;
+            border-bottom: 10px double red;
+        }
+        .myspan{
+            display: inline-block;
+            /* 用边框设置三角形 */
+            border-left: 20px solid red;
+            border-top: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+        .mydiv2{
+            width: 100px;
+            height: 30px;
+            border: 2px solid red;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: red;
+            /* 设置边框圆角 */
+            /* border-radius: 5px; */
+            border-radius: 17px;
+        }
+        .mydiv3{
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+            margin: 20px;
+            border-radius: 50%;
+        }
+        .mydiv4{
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+            margin: 20px;
+            /* border-radius后面可以有1-4个值 */
+            /* border-radius: 10px  5px  30px  60px; */
+            /* 按照顺时针的方向去设置  如果设置到哪一个角没有值了，就去对边找 */
+            /* border-radius: 10px  30px  50px; */
+            border-radius: 10px  30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="mydiv"></div>
+    <span class="myspan"></span>
+    <div class="mydiv2">按钮</div>
+    <div class="mydiv3"></div>
+    <div class="mydiv4"></div>
+
+</body>
+</html>

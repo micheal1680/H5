@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-05-函数-作为值的函数</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>可以将函数作为值赋值给变量；也可以作为实参直接使用；</h3>
+        <ol>
+            <li>
+                定义一个对象，其中一个属性值是函数：
+                <pre>
+                    var fn = {
+                                add:function (a, b) {
+                                return a + b;
+                            }
+                        };
+                    console.log(fn.add(3, 5));
+                </pre>
+                定义一个数组，其中一个元素是函数：
+                <pre>
+                    var arr = [function (a, b) {return a*b;}, 20, 30];
+                    console.log(arr[0](5, 20));
+                    console.log(arr[0](arr[1], arr[2]));
+                </pre>
+                再看一个经典例子，我服：
+                <pre>
+                    //定义几个小函数
+                    function add (a, b) {return a+b; }
+                    function sub (a, b) {return a-b; }
+                    function mul (a, b) {return a*b; }
+                    function div (a, b) {return a/b; }
+                    function alloper (opername, arg1, arg2) {
+                        return opername(arg1, arg2);
+                    }
+                    //直接把函数作为实参传递进来
+                    var n = alloper(add, 2, 3);
+                    console.log(n);
+                    //绕一绕
+                    //=(6*8 -10) + (20/5)
+                    var m = alloper(add, sub(mul(6, 8), 10), div(20,5));
+                    console.log(m);
+                </pre>
+
+
+            </li>
+        </ol>
+    </div>
+    <script>
+        //定义几个小函数
+        function add (a, b) {return a+b; }
+        function sub (a, b) {return a-b; }
+        function mul (a, b) {return a*b; }
+        function div (a, b) {return a/b; }
+        function alloper (opername, arg1, arg2) {
+            return opername(arg1, arg2);
+        }
+        //直接把函数作为实参传递进来
+        var n = alloper(add, 2, 3);
+        console.log(n);
+        //绕一绕，把你绕晕我就开心了
+        //=(6*8 -10) + (20/5)
+        var m = alloper(add, sub(mul(6, 8), 10), div(20,5));
+        console.log(m);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第三天-10-表达式和运算符-关系表达式</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>关系运算符用于检测两个值之间的关系；</h3>
+        <ol>
+            <li>总是返回一个布尔值true或false；</li>
+            <li>==：相等运算符，检查两个值是否相等，不考虑类型；</li>
+            <li>===：恒等运算符，检查两个值是否相等，同时考虑类型；</li>
+            <li>比较运算符：>、>=、<、<=；</li>
+            <li>
+                in运算符：检查右侧对象里面是否拥有左侧属性名，如果有返回true； <br>
+                实例代码一看就什么都懂了 ：
+                <pre>
+                    var a = {x:1, y:2, z:''};
+                    console.log(a);
+                    console.log('x' in a);
+                    console.log('z1' in a);
+                    console.log('toString' in a);
+                    console.log('isPrototypeOf' in a);
+                </pre>
+            </li>
+            <li>
+                instanceof:检查左侧的对象是否是右侧类的实例，如果是返回true； <br>
+                如果一个对象是一个“父类”的子类的实例，则一样返回true； <br>
+                还有记住一点所有的对象都是Object的子类(后面原型链会讲到)； <br>
+                所以，还是看代码：
+                <pre>
+                    var d = new Date();
+                    console.log(d instanceof Date);
+                    console.log(d instanceof Array);
+                    console.log(d instanceof String);
+                    console.log(d instanceof Object);
+                </pre>
+
+            </li>
+            
+        </ol>
+    </div>
+    <script>
+        var a = {x:1, y:2, z:''};
+        console.log(a);
+        console.log('x' in a);
+        console.log('z1' in a);
+        console.log('toString' in a);
+        console.log('isPrototypeOf' in a);
+
+        var d = new Date();
+        console.log(d instanceof Date);
+        console.log(d instanceof Array);
+        console.log(d instanceof String);
+        console.log(d instanceof Object);
+
+    </script>
+</body>
+</html>

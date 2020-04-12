@@ -1,0 +1,100 @@
+<!--pages/dome/dome.wxml-->
+<block wx:if="{{false}}">
+    <view hidden="{{true}}">
+        <view class="title">选项卡切换效果</view>
+        <scroll-view class="navTabBar" enable-flex="{{true}}" scroll-x>
+            <view bindtap="changeActive" data-id="{{index}}" class="tag {{active==index?'active':''}}" wx:for="{{arrayTags}}">
+                {{item}}
+            </view>
+        </scroll-view>
+        <view hidden="{{active == index ? false : true}}" class="box" wx:for="{{arrayTags}}">
+            {{item}}
+        </view>
+    </view>
+
+    <!-- scroll-view 纵向 -->
+    <scroll-view hidden="{{true}}" class="scroll-view" scroll-y>
+        <view class="box" wx:for="{{arrayTags}}">
+            {{item}}
+        </view>
+    </scroll-view>
+    <view hidden="{{true}}">
+        <!-- 横向  scroll-left="10000rpx" -->
+        <scroll-view bindscroll="bindScroll" scroll-into-view="item-{{current}}" scroll-with-animation="{{true}}" enable-flex="{{true}}" class="scroll-view1" scroll-x>
+            <view id="item-{{index}}" class="box1" wx:for="{{arrayTags}}">{{item}}
+            </view>
+        </scroll-view>
+        <button bindtap="changeCurrent">{{current}}</button>
+    </view>
+
+    <!-- 导航跳转 -->
+    <!-- 
+	选项卡页面: 在tabBar内的list中的pagePath里定义过的页面
+	open-type: 
+		navigate: 默认值 - 跳转到其它页面(非选项卡页面) 可以返回
+		redirect: 重定向 - 跳转到其它页面(非选项卡页面) 可以直接跳转到首页 不能返回
+		switchTab: 选项卡跳转 - 只能跳转到选项卡页面 不能返回
+		reLaunch: 重新加载 - 能跳转到任何页面(关闭其它所有页面) 可以直接跳转到首页 不能返回 
+		navigateBack: 返回 可以返回navigate跳转后的页面 
+					  delta 如果 delta 大于现有页面数，则返回到首页。
+ 	-->
+    <view hidden="{{true}}">
+        <navigator url="../list/list?title={{true}}&name=1" open-type="navigate" delta="1">
+            <button>list</button>
+        </navigator>
+        <button bindtap="list">list</button>
+    </view>
+    <!-- 音频视频 -->
+    <view hidden="{{true}}">
+        <audio src="http://music.163.com/song/media/outer/url?id=1380860395.mp3" controls></audio>
+        <button bindtap="play">播放</button>
+        <button bindtap="pause">暂停</button>
+        <button bindtap="stop">停止</button>
+    </view>
+
+    <video hidden="{{true}}" src="http://video.699pic.com/videos/31/38/88/nPZUZf11Tj6P1534313888.mp4" />
+
+    <!-- 
+	hidden 和 wx:if
+	同: 可以控制组件的显隐性
+	异: 在隐藏时 : hidden仍旧能够在控制台中看见,只是没有渲染
+				  wx:if直接不执行
+ -->
+    <view wx:if="{{3>5}}">
+        你不能看见我
+    </view>
+    <view wx:elif="{{2>1}}">
+        2222
+    </view>
+    <view wx:else>
+        你可以看见我
+    </view>
+    <block wx:for="{{[1,2,3,4,5]}}">
+        <view>
+            1
+        </view>
+        <view>
+            2
+        </view>
+    </block>
+    <block wx:if="{{!(6>5?true:false)}}">你可以看见我</block>
+</block>
+
+<button open-type="getUserInfo" bindgetuserinfo="bindGetuserInfo">
+    获取信息
+</button>
+<image wx:if="{{avatarUrl}}" src="{{avatarUrl}}"></image>
+
+<button bindtap="send">
+    获取后台数据
+</button>
+<!-- 能够将目标文件wxml内的代码拷贝到当前文件中: 不能拷贝目标文件中的模板 -->
+<include src="header.wxml"/>
+<!-- 创建了一个模板 -->
+<!-- 模板内使用的数据都来自于data属性中传递进来的数据 -->
+
+<!-- 使用模板 -->
+<import src="header.wxml"/>
+<template is="mytemp" data="{{...item}}"/>
+
+<!-- 引用模板: import -->

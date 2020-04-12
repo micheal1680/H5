@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//querySelector定义在Document中
+				//得到当前文档中第1个class值为myspan的元素, 这里是得到span1
+				let span1 = document.querySelector(".myspan");
+				console.log(span1.innerHTML);//span1
+				
+				let mydiv1 = document.getElementById("mydiv1");
+				//因为querySelector同时也定义在Element中
+				//得到mydiv1的内部嵌套的并且class值为myspqn的第1个元素,这里是得到span4
+				let span4 = mydiv1.querySelector(".myspan");
+				console.log(span4.innerHTML)//span4
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<span class="myspan">span1</span>
+			<span class="myspan">span2</span>
+			<span class="myspan">span3</span>
+		</div>
+		<div id="mydiv1">
+			<span class="myspan">span4</span>
+			<span class="myspan">span5</span>
+			<span class="myspan">span6</span>
+		</div>
+	</body>
+</html>

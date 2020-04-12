@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全局作用域和局部作用域</title>
+</head>
+
+<body>
+    <script>
+        // var a = "全局";
+        // console.log(a); // 
+        // console.log(window.a);
+        // // 使用this指代
+        // console.log(this.a);
+
+        // function funName() {
+        //     b = "这是函数内部的变量,没有使用var声明";
+        // }
+        // funName();
+        // console.log(this.b);
+        // console.log(this.NaN);
+        // console.log(this.undefined);
+        // console.log(this.acvb);
+
+        // function fun() {
+        //     // c 
+        //     var c = "local";
+        //     console.log(c)
+        // }
+        // fun(); // c会被销毁
+        // // alert(c);
+
+        // var message = "HelloWorld";
+
+        // function test() {
+        //     var message = "test";
+        //     console.log(message); // test
+        //     console.log(a)
+        // }
+        // test();
+
+        // 全局变量 任何地方都能访问(包括函数内部)
+        var a = 123;
+
+        function test() {
+            var b = 123;
+
+            function demo() {
+                var c = 234;
+                document.write(b); // 123
+                document.write(a); // 123
+            }
+            demo();
+
+            document.write(c); // 报错
+        }
+
+        test();
+
+        // 函数里面的能访问外面的
+        // 函数外面的不能访问函数里面的
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第八天-04-类和对象-模块-用作私有命名空间的函数</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="./fn.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>用作私有命名空间的函数</h3>
+        <ol>
+            <li>在一个函数中定义的变量和函数是局部变量，也就是传说中的私有变量；</li>
+            <li>
+                对象的方式模块化会暴露全部成员变量；
+                我们可以使用函数的方式把成员变量变成私有的；
+            </li>
+            <li>
+                这里的函数一般是立即执行函数，也就是函数直接量后面跟个小括号；
+                <pre>
+                    (function(){
+                        函数体;
+                    })();
+                </pre>
+                如果需要传递参数：
+                <pre>
+                    (function(a, b, ...){
+                        函数体;
+                        使用参数a;
+                        使用参数b;
+                    })(arg1, arg2, ...);
+                </pre>
+            </li>
+            <li>
+                用函数实现私有命名空间：
+                <pre>
+                    //js文件里面定义下面的模块
+                    var testmodel = (function () {
+                        var n = 1;
+                        function fn1 () {
+                            console.log('fn1');
+                        }
+
+                        function fn2 () {
+                            console.log(n++);
+                        }
+
+                        function fn3 () {
+                            console.log(n++);
+                        }
+                        
+                        return {
+                            myfn1:fn1,
+                            myfn2:fn2
+                        };
+                    })();
+                    //在需要使用的地方引用
+                    testmodel.myfn2();
+                    testmodel.myfn1();
+                    testmodel.myfn1();
+                    testmodel.myfn2();
+                </pre>
+                这代码看起来很帅的样子~~~
+            </li>
+        </ol>
+    </div>
+    <script>
+        //在需要使用的地方引用
+        testmodel.myfn2();
+        testmodel.myfn1();
+        testmodel.myfn1();
+        testmodel.myfn2();
+    </script>
+</body>
+</html>

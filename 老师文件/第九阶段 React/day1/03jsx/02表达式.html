@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入相关的js库 ： 先加载React，后加载react-dom， babel没有顺序-->
+    <script src="../bower_components/react/react.development.js"></script>
+    <script src="../bower_components/react/react-dom.development.js"></script>
+    <script src="../bower_components/babel/browser.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        let a = 5;
+
+        let pStyle = {
+            lineHeight: "24px",
+            textIndent: "2em"
+        }
+        ReactDOM.render(
+            //jsx外部的注释
+            <div>
+                { /*算数表达式*/ }
+                <h1> 1 + 1 = { 1 + 1} </h1>
+                {/* 三元运算符 */}
+                <h1> { a%2 == 0 ? "a是一个偶数" : "a是一个奇数" } </h1>
+
+                {/*  使用内联样式 */}
+                <p style={pStyle}>React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。</p>
+
+                <p style={pStyle}>React主要用于构建UI。你可以在React里传递多种类型的参数，如声明代码，帮助你渲染出UI、也可以是静态的HTML DOM元素、也可以传递动态变量、甚至是可交互的应用组件。</p>
+
+                <p style={pStyle}>React 拥有较高的性能，代码逻辑非常简单，越来越多的人已开始关注和使用它。</p>
+            </div>,
+            document.getElementById("root")
+        )
+
+    </script>
+
+</body>
+
+</html>

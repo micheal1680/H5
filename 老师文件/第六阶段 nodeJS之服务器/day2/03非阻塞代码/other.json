@@ -1,0 +1,8 @@
+{
+    "weather": [
+        {"city": "成都", "temp": "10C", "water": "50%"},
+        {"city": "北京", "temp": "-5C", "water": "30%"},
+        {"city": "上海", "temp": "15C", "water": "80%%"},
+        {"city": "南京", "temp": "9C", "water": "66%"}
+    ]
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-10-类型值变量-不可变的原始值和可变的对象引用</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>不可变的原始值</h3>
+        <ol>
+            <li>任何方法都无法更改一个原始类型的值:数字、字符串、布尔值、null、undefined;</li>
+            <li>对字符串类型的修改操作，只会返回一个新的字符串，原始字符串不会被修改；</li>
+            <li>原始值在做比较时，只要值相等，他们就是相等的；</li>
+        </ol>
+
+        <h3>可变的对象引用</h3>
+        <ol>
+            <li>
+                对象类型的值是可以修改的，看代码;
+                <pre>
+                    var obj = {name:'yourname', age:20};
+                    console.log(obg.age);
+                </pre>
+            </li>
+        </ol>
+
+        <h3>对象的比较</h3>
+        <ol>
+            <li>
+                包含相同属性及相同值的两个对象类型的值是......不相等的；意外不？惊喜不？<br>
+                为什么会这样那？ <br>
+                我们通常将对象称为引用类型(reference type)；<br>
+                依照术语叫法，对象值都是引用，对象的比较均是引用比较；<br>
+                所以，当且仅当他们引用同一个基对象时，才相等；
+                <pre>
+                    var a = [1,2,3];
+                    var b = a;//变量b也引用这个数组
+                    b[2]  = 9;//通过变量b来修改引用的数组，变量a也会被修改
+                    console.log(a === b);
+                    console.log(a);//这个时候控制台会打印出来：[1,2,9]
+                </pre>
+                所以，将对象或者数组赋值给一个变量时，是对值的引用，本身并没有复制一份； <br>
+                如果想复制一个副本出来，则需要显式的复制对象的每个属性或者数组的每个元素；<br>
+                这很不科学，ES6里面是不是有更好的方法那？
+            </li>
+            <li>如果我们想比较两个对象或者数组是否相等，则需要比较他们的属性或元素；</li>
+            <li>数组可以循环比较每一个元素；</li>
+        </ol>
+
+    </div>
+    <script>
+        var obj1 = {name:'yourname'};
+        var obj2 = {name:'yourname'};
+        console.log(obj1 === obj2);
+
+        var arr1 = [1,2,3];
+        var arr2 = [1,2,3];
+        console.log(arr1 == arr2);
+
+        var a = [1,2,3];
+        var b = a;
+        b[2]  = 9;
+        console.log(a === b);
+        console.log(a);
+
+    </script>
+</body>
+</html>

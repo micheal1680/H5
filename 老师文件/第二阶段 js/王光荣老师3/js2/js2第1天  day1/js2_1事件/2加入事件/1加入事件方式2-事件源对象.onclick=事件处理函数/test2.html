@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件源对象.onmouseenter=事件处理函数</title>
+		<style type="text/css">
+			table {
+				border: 1px solid green;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			//当文档加载结束后执行  （因为正常情况是先加载文档，再执行js代码，js才能获取文档数据。
+			// 而此处将js代码写在文档前面，因此就必须得要写这行代码，表示让文档先行加载，
+			// 否则js无法获取文档数据，js执行之后没有任何效果）
+			window.onload = function() {    //这行代码的function不是事件处理函数
+				//得到所有的tr元素对象的数组
+				let trArray = document.querySelectorAll(".mytr");
+				for(let i=0; i<trArray.length; i++) {
+					trArray[i].onmouseenter = function() {  //这个function才是事件处理函数
+						//this代表事件源
+						this.style.backgroundColor = "#ff0";
+					};
+					trArray[i].onmouseleave = function() {  //这个function也是事件处理函数
+						//this代表事件源
+						this.style.backgroundColor = "pink";
+					}
+					
+					// trArray[i].addEventListener("mouseleave",function() {
+					// 	//this代表事件源
+					// 	this.style.backgroundColor = "pink";
+					// });
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table
+			border="1"  
+			cellspacing="0"  
+			cellpadding="2" 
+			bgcolor="pink" 
+			width="400px" 
+			height="200px" 
+		>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="myul">
+			<li>document.createElement("标签名");</li>
+			<li>document.createTextNode("文本");</li>
+			<li>HTMLElement.property.appendChild(node)</li>
+			<li>HTMLElement.property.insertBefore(index,node)</li>
+		</ul>
+		<p>
+			创建元素节点
+		</p>
+		<script type="text/javascript">
+			//创建<li>元素
+			let li = document.createElement("li");
+			//创建文本节点
+			let text = document.createTextNode("这是新加的");
+			//把文本节点text嵌套到li中去
+			li.appendChild(text);
+			
+			let myul = document.getElementById("myul");
+			// myul.innerHTML="";//清空
+			myul.appendChild(li);//在myul的最后增加一个li
+		</script>
+	</body>
+</html>

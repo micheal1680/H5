@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            constructor(props) {
+                super();
+                console.log("constrctor");
+
+                this.state = {
+                    time: new Date()
+                }
+            }
+
+            // 挂载前：还是虚拟DOM节点
+            componentWillMount() {
+                console.log("挂载前");
+                //console.log(document.getElementById("myapp"));
+            }
+            // 挂载后：真实的DOM节点,只在第一次渲染时调用：状态改变时，重新渲染组件时不会调用
+            componentDidMount() {
+                console.log("挂载后");
+                console.log(document.getElementById("myapp"));
+                
+                setInterval(() => {
+                    this.setState({
+                        time: new Date()
+                    })
+                }, 1000)
+            }
+
+            render() {
+                return(
+                    <div id="myapp">
+                        <h1> { this.state.time.toLocaleDateString() }   { this.state.time.toLocaleTimeString() }</h1>
+                    </div>
+                )
+            }
+        }
+       
+        ReactDOM.render(
+            <div>
+               <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

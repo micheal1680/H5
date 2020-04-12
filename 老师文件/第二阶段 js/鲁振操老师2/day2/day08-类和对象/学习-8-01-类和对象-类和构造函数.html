@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第八天-01-类和对象-类和构造函数</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>构造函数用来创建新对象；</h3>
+        <ol>
+            <li>
+                构造函数<code>首字母大写</code>；一般用于初始化一些属性值；
+                <pre>
+                    function Range (from, to) {
+                        this.from   = from;
+                        this.to     = to;
+                    }
+                </pre>
+            </li>
+            <li>
+                构造函数的<code>prototype属性</code>用于定义该函数对象的原型； <br>
+                该原型会被所有的实例对象继承； <br>
+                <pre>
+                    Range.prototype = {
+                        includes:function (a) {
+                            return a >= this.from && a <=this.to;
+                        },
+                        foreach:function (f) {
+                            for (var i = this.from; i <= this.to; i++) {
+                                f(i);
+                            }
+                        },
+                        avage:function () {
+                            var n = 0;
+                            for (var i = this.from; i <= this.to; i++) {
+                                n += i;;
+                            }
+                            return (n/(this.to - this.from + 1)).toFixed(2);
+                        },
+                        setfrom:function (from) {
+                            this.from = from;
+                        },
+                        setto:function (to) {
+                            this.to = to;
+                        }
+                    };
+                </pre>
+            </li>
+            <li>
+                使用关键词new调用构造函数创建一个实例对象；
+                <pre>
+                    var nr = new Range(2, 20);
+                </pre>
+            </li>
+            <li>
+                新创建的所有实例对象会继承构造函数的原型，也就是prototype属性；
+                <pre>
+                    console.log(nr);
+                    nr.setfrom(10);
+                    nr.setto(15);
+                    nr.foreach(console.log);
+                    var avg = nr.avage();
+                    console.log(avg); 
+                </pre>
+            </li>
+            <li>
+                此时原型对象或实例都没有constructor(构造函数)属性，需要显式指定：
+                <pre>
+                    Range.prototype = {
+                        constructor:Range,
+                        ...其他属性或方法...
+                    }
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

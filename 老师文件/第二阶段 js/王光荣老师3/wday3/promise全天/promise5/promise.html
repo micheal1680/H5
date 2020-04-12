@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function getP() {
+				let p = new Promise(function(resolve, reject){
+					setTimeout(function(){
+						let num = Math.floor(Math.random()*10); //获取一个随机的整数
+						let f = num%2===0;//true, false判断是否为遇数
+						if(f) {//偶数
+							resolve("这是偶数"+num);
+						}else {//奇数
+							reject("这是奇数"+num);
+						}
+					}, 5000);
+				});
+				return p;
+			}
+			function getData() {
+				let box = document.getElementById("box");
+				let p = getP();
+				p.then(
+					function(v){//监听resolve(....)
+						console.log(v);//这是偶数
+						box.innerHTML=v;
+					},
+					function(v) {//监听reject(....);
+						console.log(v);//这是厅数
+						box.innerHTML = v;
+					}
+				)
+			}
+		</script>
+		<button type="button" onclick="getData();">getData</button>
+		<div id="box">
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+   
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+        
+
+        class MyApp extends React.Component {
+            componentWillMount() {
+                console.log("will mount")
+                console.log(document.getElementById("btn"));
+                console.log(this.refs);
+                
+            }
+            componentDidMount() {
+                console.log("Did mount")
+                console.log(document.getElementById("btn"));
+                console.log(this.refs.mybtn);
+                this.refs.mybtn.onclick = () => {
+                    alert(1)
+                }
+            }
+            render() {
+                // 在组件内部给标签添加ref属性，在组件成功挂载后，可以通过this.refs.ref属性值来获取指定的元素节点对象
+                return(
+					<div>
+						<button id="btn" ref="mybtn">按钮</button>
+                        <h1 ref="myhead">我是标题</h1>
+					</div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

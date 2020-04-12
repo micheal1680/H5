@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div id="app" v-cloak>
+			<input type="text" v-model="keyWord" />
+			<button type="button">百度一下</button>
+			
+			<!-- 父向子传值: props 属性进行传值 -->
+			<my-word v-for="item in myWords" :words="item">
+			</my-word>
+			
+			
+			<!-- 父向子传值,slot插槽 -->
+			<!-- <my-word v-for="item in myWords">
+				
+				{{item.titile}}
+				<span slot="content">{{item.content}}</span>
+				<span slot="address">{{item.address}}</span>
+			</my-word> -->
+			
+			
+		</div>
+		
+		
+
+
+	</body>
+</html>

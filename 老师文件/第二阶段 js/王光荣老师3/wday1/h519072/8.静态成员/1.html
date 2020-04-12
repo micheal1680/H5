@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1.使用“函数名.属性=值或方法”,增加静态成员。
+		2.静态成员只能使用"函数名.属性"来访问
+		3.静态成员方法中不能使用this
+		<script type="text/javascript">
+			function Stu(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			
+			//静态成员
+			Stu.sex = "男";
+			//静态成员
+			Stu.showType = function() {
+				console.log(Stu.sex);
+			}
+			
+			Stu.showType();//男
+			console.log(Stu.sex);//男
+		
+			let s1 = new Stu("小明",10);
+			let s2 = new Stu("小华",20);
+			
+			
+			
+			console.log(Math.PI);
+			let x = Math.max(100,10, 80);
+			console.log(x);
+			// Math:是数学函数，但又属于 对象 数据类型。
+			// 有：1.Math.abs() 获取绝对值
+			//     2.Math.ceil() 向上取值
+			// 	   3.Math.floor() 向下取值
+			//     4.Math.round() 四舍五入
+			// 	   5.Math.random() 取[0,1)的随机小数
+			//     6.Math.max() 获取一组数据中的最大值
+			// 	   7.Math.min() 获取一组数据中的最小值
+			// 	   8.Math.PI  获取圆周率π的值
+			// 	   9.Math.pow(x,y) 获取x的y次幂
+			// 	   10.Math.sqrt() 对数值开方
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第七天-11-函数-函数的方法</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>call()和apply()：方法劫持</h3>
+        <ol>
+            <li>apply(把劫持过来的方法用在谁身上：为谁做事情, 传递的一个数组参数);</li>
+            <li>apply传递过来的数组参数会和方法的参数一一对应;</li>
+            <li>apply语法格式:被劫持的方法.apply();</li>
+            <li>call(thisArg: any, args...: any);</li>
+            <li>call传递的参数是一个一个的，这样可以很方便的和被劫持的方法参数保持一致;</li>
+            <li>方法劫持以后：this的指向也跟着变化；谁调用这个方法，this就指向谁；</li>
+            <li>来一大波代码；
+                <pre>
+                    console.log(Math.max(1, 20, 90));
+                    var arr = [1, 80, -90, 501, 856];
+                    // var am = 数组里面的最大值;
+                    var am = Math.max.apply(Array, arr);
+                    console.log(am);
+
+                    //自定义方法劫持
+                    function Person(name, age, sex){
+                        this.name   = name;
+                        this.age    = age;
+                        this.sex    = sex;
+                        this.talk   = function () {
+                            console.log(this);
+                            console.log('我是' + this.name + '，性别' + this.sex + '，年龄'+this.age+'岁');
+                        }
+                    }
+                    function itboy (name, age, sex, code) {
+                        Person.apply(this, arguments);
+                        this.code   = code;
+                        this.mycode = function (){
+                            console.log('我精通'+this.code+'编程语言');
+                        }
+                    }
+                    function itgirl (name, code, age, sex) {
+                        Person.call(this, name, age, sex);
+                        this.code = code;
+                        this.mycode = function () {
+                            console.log('我精通的编程语言是' + this.code);
+                        }
+                    }
+
+                    var boy1 = new itboy('一个男生', 20, '男', 'H5');
+                    boy1.talk();
+                    boy1.mycode();
+
+                    var girl1 = new itgirl('一个女生', 'JAVA', 20, '女');
+                    girl1.talk();
+                </pre>
+            </li>
+        </ol>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

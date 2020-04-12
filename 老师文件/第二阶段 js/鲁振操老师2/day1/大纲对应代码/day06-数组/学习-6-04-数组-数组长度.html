@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第六天-04-数组-数组长度</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>arr.length得到数组的长度；</h3>
+        <ol>
+            <li>
+                代码真是好东西；
+                <pre>
+                    var arr = ['h', 'q', 'y', '', '', 'j', '', ''];
+                    console.log(arr.length);
+                    arr.length = 0; //会发什么？
+                    console.log(arr);
+                </pre>
+                你还有什么问题吗？
+            </li>
+        </ol>
+    </div>
+    <script>
+        var arr = ['h', 'q', 'y', 'j'];
+        //Object.defineProperty(arr, 'length', {writable:false});
+        console.log(arr.length);
+        arr.length = 0; //会发什么？
+        arr[2] = 90;
+        console.log(arr);
+        console.log(arr.length);
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+        .container {width: 500px; height: 400px; border: 1px solid red; margin: 30px auto; position: relative;}
+        .arrow {width: 50px; height: 80px; background-color: #999; position: absolute; z-index: 1; border: none; top: 50%; margin-top: -40px; font-size: 30px; color: #fff; font-weight: bold;}
+        .left {left: 0;}
+        .right {right: 0;}
+        .myImg {width: 500px; height: 400px; position: absolute;}
+    
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Picture extends React.Component {
+
+            constructor(props) {
+                super();
+                
+                // 定义图片数组：定义为属性，固定的，不可变的
+                this.imgArr = [
+                    "https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2717595227,1512397782&fm=26&gp=0.jpg",
+                    "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2758807304,2560528048&fm=26&gp=0.jpg",
+                    "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2381434214,3086830086&fm=26&gp=0.jpg",
+                    "https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1048654331,657656318&fm=26&gp=0.jpg",
+                    "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3480158001,2524345510&fm=26&gp=0.jpg"
+                ]
+
+                // 定义状态，根据下标变化显示不同的图片
+                this.state = {
+                    index: 4
+                }
+                
+                // 定时器开启自动轮播
+                setInterval(()=> {
+                    this.setState({
+                        index: this.state.index==this.imgArr.length-1 ? 0 : ++this.state.index
+                    })
+                }, 2000)
+            }
+
+            // 上一张
+            leftPicture() {
+                this.setState({
+                    index: this.state.index==0 ? this.imgArr.length-1 : this.state.index-1
+                })
+            }
+
+            // 下一张
+            rightPicture() {
+                this.setState({
+                    index: this.state.index==this.imgArr.length-1 ? 0 : ++this.state.index
+                })
+            }
+
+            render() {
+                return(
+                    <div className="container">
+                        <button className="arrow left" onClick={this.leftPicture.bind(this)}>&lt;</button>
+                        <button className="arrow right" onClick={this.rightPicture.bind(this)}>&gt;</button>
+                        <img className="myImg" src={this.imgArr[this.state.index]}/>
+                    </div>
+                )
+            }
+        }
+    
+        ReactDOM.render(
+            <div>
+                <Picture />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+    
+</body>
+</html>

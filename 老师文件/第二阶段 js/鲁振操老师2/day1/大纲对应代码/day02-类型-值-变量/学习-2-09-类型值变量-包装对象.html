@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-09-类型值变量-包装对象</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>简单认识下对象</h3>
+        <ol>
+            <li>JavaScript对象是一种复合值，是属性或已命名值的集合;</li>
+            <li>当值是函数的时候，我们称他为方法；</li>
+            <li>使用大括号定义对象：
+            <pre>
+                var person = {
+                    name:'yourname',
+                    say:function(){
+                        console.log('我要讲两句了');
+                    }
+                }
+            </pre>
+            </li>
+            <li>通过点(.)访问对象的属性：person.name；</li>
+            <li>通过点(.)访问对象的方法：person.say()；</li>
+        </ol>
+
+        <h3>包装对象（动词？名词？合体？）</h3>
+        <ol>
+            <li>存取字符串、数字或布尔值的属性时创建的<code>临时对象</code>称作包装对象;</li>
+            <li>
+                如何理解临时对象：先看一段代码
+                <pre>
+                    var str = 'hqyj h5';
+                    str.len = 6;
+                    var l   = str.len;
+                    console.log(l);
+                </pre>
+                这段代码运行完成后我们可以看的出来，l的值是undefined，why？
+                <pre>
+                    //创建一个原始类型：字符串
+                    var str = 'hqyj h5';
+                    //只要引用字符串的属性，JavaScript就会调用new String(str)把str转换为对象
+                    str.len = 6;
+                    //一旦属性引用结束，新创建的对象就会销毁，当然该对象的属性也就不存在了
+                    //所以这里再引用时就是一个不存在的属性  
+                    var l   = str.len;
+                    //打印：undefined
+                    console.log(l);
+                </pre>
+                看的出来，修改只是发生在临时对象身上，原始字符串并没有改变；
+            </li>
+            <li>
+                当然我们可以显示的创建包装对象：看代码
+                <pre>
+                    var str1    = 'huaqingyuanjian';
+                    var newstr  = new String(str1);
+                    newstr.len  = 8;
+                    var l       = newstr.len;
+                    console.log(str1);
+                    console.log(newstr);
+                </pre>
+                这个时候newstr就是一个String对象类型，可以被引用；
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class Son extends React.Component {
+            render() {
+                return(
+                    <div>
+                        {/*获取子组件中name属性的值，值从父组件中传递过来的*/}
+                        <h1>姓名： { this.props.name }</h1>
+                    </div>
+                )
+            }
+        }
+        class Father extends React.Component {
+            render() {
+                return(
+                    <div>
+                        <Son name="张三"/>
+                        {/*父组件将属性xxx的值传递给子组件的name属性*/}
+                        <Son name={this.props.xxx}/>
+                    </div>
+                )
+            }
+        }      
+        ReactDOM.render(
+            <div>
+                <Father xxx="这是数据"/>
+                
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

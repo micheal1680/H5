@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1>.myul1>.myul1-li3{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 子代选择器由多个选择器构成，中间以 >  连接，只能选择自己的儿子，不能隔代选择 -->
+    <div class="box1">
+        <ul class="myul1">
+            <li>列表1</li>
+            <li>
+                <p>我是列表2里面的p</p>
+            </li>
+            <li class="myul1-li3">列表3</li>
+        </ul>
+        <ul>
+            <li>列表标签</li>
+        </ul>
+    </div>
+</body>
+</html>

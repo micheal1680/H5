@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件源对象.onmouseenter=事件处理函数</title>
+		<style type="text/css">
+			table {
+				border: 1px solid green;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			//当文档加载结束后执行
+			window.onload = function() {
+				//得到所有的tr元素对象的数组
+				let trArray = document.querySelectorAll(".mytr");
+				for(let i=0; i<trArray.length; i++) {
+					trArray[i].onmouseenter = function() {
+						//this代表事件源
+						this.style.backgroundColor = "#ff0";
+					};
+					trArray[i].onmouseleave = function() {
+						//this代表事件源
+						this.style.backgroundColor = "pink";
+					}
+					
+					// trArray[i].addEventListener("mouseleave",function() {
+					// 	//this代表事件源
+					// 	this.style.backgroundColor = "pink";
+					// });
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table
+			border="1"  
+			cellspacing="0"  
+			cellpadding="2" 
+			bgcolor="pink" 
+			width="400px" 
+			height="200px" 
+		>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+			<tr class="mytr">
+				<td>td1</td>
+				<td>td2</td>
+				<td>td3</td>
+				<td>td4</td>
+				<td>td5</td>
+			</tr>
+		</table>
+	</body>
+</html>

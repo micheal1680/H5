@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        function show(gender, age){
+            console.log('我是' + this.username + '，性别' + gender + '，今年'+age+'岁了');
+        }
+
+        var person = {
+            username:'彭朝辉'
+        };
+
+        show.apply(person, ['男', 20]);//把方法劫持过来用在person这个对象身上，传参使用数组
+        show.call(person, '男', 20);//把方法劫持过来，用在person这个对象身上，一个一个的传参
+        show.bind(person, '男', 20)();//把方法劫持过来，用在person身上，返回函数体，不会执行
+        show();
+
+
+    </script>
+</body>
+
+</html>

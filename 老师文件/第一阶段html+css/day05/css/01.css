@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+.top-img{
+    height: 80px;
+    background-image: url("https://img02.hua.com/pc/images/pc_newuser_order_100.png?v");
+    background-repeat: no-repeat;
+    /* background-size: 100% 80px; */
+    background-position: 50% 0;
+}
+
+.topnav{
+    position: relative;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #e6e6e6;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 6%;
+    box-sizing: border-box;
+    width: 100%;
+}
+.topnav a{
+    text-decoration: none;
+    color: #737373;
+    font-size: 14px;
+    display: inline-block;
+    height: 35px;
+}
+.topnav .left img{
+    width: 18px;
+    height: 18px; 
+    /* vertical-align: middle; */
+}
+.topnav .left span{
+    /* vertical-align: middle; */
+}
+.topnav .right{
+    position: absolute;
+    top: 0;
+    right: 6%;
+}
+.right-line{
+    color: #737373;
+    font-size: 14px;
+    /* width: 1px;
+    height: 14px;
+    background-color: #737373;
+    display: inline-block; */
+}
+
+.con1{
+    height: 100px;
+}
+
+.connav{
+    border-bottom: 3px solid #FF6A00;
+    padding-left: 6%;
+}
+.connav-title{
+    display: inline-block;
+    width: 230px;
+    height: 40px;
+    background-color: #FF6A00;
+    line-height: 40px;
+    color: #fff;
+
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.connav a{
+    color: #4d4d4d;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    padding: 9px 22px;
+}
+.connav .active{
+    color: #FF6A00;
+}
+
+.con2{
+    position: relative;
+}
+.con2-img{
+    background-image: url('http://img02.hua.com/banner/longtou.jpg');
+    background-repeat: no-repeat;
+    /* background-size: 100% 80px; */
+    background-position: 50% 0;
+    height: 440px;
+}
+.con2-left{
+    width: 230px;
+    height: 440px;
+    background-color: #fff;
+    border-bottom: 3px solid #FF6A00;
+    position: absolute;
+    top: 0;
+    left: 6%;
+    box-sizing: border-box;
+}
+.con2-right{
+    width: 210px;
+    height: 420px;
+    background-color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 6%;
+}
+
+
+.con3{
+    height: 100px;
+}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [0,1,2,3,4];
+        // 将数组复制给另一个数组
+        // 1. 浅复制
+        var arrCopy = arr;
+        console.log(arrCopy);
+        arr[0] = "head";
+        console.log(arrCopy);
+        arrCopy[arrCopy.length-1] = "last";
+        console.log(arr);
+
+        // 2. 深复制
+        var arr1 = [0,1,2,3,4];
+        var copy = [];
+        for(var i = 0; i < arr1.length ; i++){
+            copy.push(arr1[i]);
+        }
+        console.log(copy);
+        arr1[0]="head";
+        console.log(copy);
+
+        var arr2 = [];
+        for(var i = 0;i<10;i++){
+            // arr2[i] = i;
+            arr2.push(i);
+        }
+
+        console.log(arr2);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象访问</title>
+</head>
+<body>
+    <script>
+    
+        var a = {
+            name: "张三",
+            age: 20,
+            1: "text"
+        }
+
+        console.log(a.name);
+        // []
+        // var name = 'name';    调用或访问对象属性可以采用：对象.属性  和   对象["属性"]这两种方法
+        console.log(a["name"]);
+
+        // console.log(a.1);// 数字属性不能使用.语法
+         console.log(a[1]); // 可以直接写数值
+        
+
+    </script>
+</body>
+</html>

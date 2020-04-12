@@ -1,0 +1,8 @@
+/* pages/find/find.wxss */
+/* 伪元素选择器的使用 */
+.add::after{
+    content: "仙女"
+}
+.add::before{
+  content: "你是"
+}

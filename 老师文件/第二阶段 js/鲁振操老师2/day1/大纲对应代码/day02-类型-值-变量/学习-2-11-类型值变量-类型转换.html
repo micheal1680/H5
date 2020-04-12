@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS学习笔记-第二天-11-类型值变量-类型转换</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h3>类型转换</h3>
+        <ol>
+            <li>JavaScript总是把值自行转换为他需要的数据类型;</li>
+            <li>
+                转化为数字：
+                -(减)、*(乘)、/(除)，会把类型转换成数字； <br>
+                true转化为1，false、空字符串转换为0；<br>
+                略坑的加号:+，只要有一个是字符串，则全部作为字符串；
+                因为加号(+)同时还是字符串连接符号；
+            </li>
+            <li>原始值到对象的转换：直接使用String()、Number()、Boolean()构造函数转换；</li>
+            
+        </ol>
+    </div>
+    <script>
+    console.log(1+2);
+    console.log('1'+2);
+    console.log('1'/2);
+    console.log(' 10 '*2);
+    console.log(false-2);
+
+    </script>
+</body>
+</html>

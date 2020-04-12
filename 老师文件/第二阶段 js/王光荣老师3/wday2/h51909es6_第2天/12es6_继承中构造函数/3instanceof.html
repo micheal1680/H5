@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		//instanceof
+		<script type="text/javascript">
+			class Cpu {
+				constructor() {
+				    
+				}
+			}
+			class Animal {
+				constructor() {
+				}
+			}
+			let a1 = new Animal();
+			let flag1 = a1 instanceof Animal;//true
+			let flag2 = a1 instanceof Object;//true;
+			
+			//Obejct Animal Person
+			class Person extends Animal {
+				constructor(){
+					super();
+				}
+			}
+			let p1 = new Person();
+			let b1 = p1 instanceof Person;//true;
+			let b2 = p1 instanceof Animal;//true;
+			let b3 = p1 instanceof Object;//true;
+			let b4 = p1 instanceof Cpu;//false;
+			console.log(b1,b2,b3,b4);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./bower_components/react/react.development.js"></script>
+    <script src="./bower_components/react/react-dom.development.js"></script>
+    <script src="./bower_components/babel/browser.js"></script>
+
+    <style>
+        .mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class MyApp extends React.Component {
+            constructor(props) {
+                super();
+
+                this.state = {
+                    show: "block"
+                }
+
+                // this.xxx = this.xxx.bind(this);
+            }
+            // xxx() {
+            // }
+
+            change() {
+                this.setState({
+                    show: this.state.show == "block" ? "none" : "block"
+                })
+            }
+            render() {
+                return(
+                    <div>
+                        {/*写法1：在onClick时只调用函数，在构造器中bind(this)*/}
+                        {/*<button onClick={this.xxx}>点击切换显示</button> */}
+                        {/*写法2：在onClick时直接调用函数并且bind(this)*/}                    
+                        <button onClick={this.change.bind(this)}>点击切换显示</button>
+                        <div className="mydiv" style={{display: this.state.show}}>我是一个盒子</div>
+                    </div>
+                );
+            }
+        }
+
+        
+        ReactDOM.render(
+            <div>
+               <MyApp />
+            </div>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

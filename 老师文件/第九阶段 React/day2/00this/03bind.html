@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function show(...val) {
+            console.log(this[0]);
+        }
+
+        // show();
+        // bind将this指向数组对象
+        //bind改变了this的指向，但不执行函数
+        show.bind(["xxx"])
+    </script>
+</body>
+
+</html>

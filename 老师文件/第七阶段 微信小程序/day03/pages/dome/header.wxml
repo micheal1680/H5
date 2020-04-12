@@ -1,0 +1,10 @@
+
+<view>
+	我是header
+</view>
+
+<template name="mytemp">
+	<view>
+		{{name}}
+	</view>
+</template>

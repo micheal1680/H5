@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person = 
+			{
+				name:'小明', 
+				age:30,
+				sex:'女',
+				setAttr:function(name, age, msex) {
+					//this===person
+					this.name = name;
+					this.age = age;
+					this.sex = msex; 
+					this.show();//person.show();
+				},
+				show:function() {
+					//this===person
+				    console.log(this.name+":"+this.age+":"+this.sex);
+				},
+			};
+			person.show();// "小明:30:女"    person调用show函数，因此show函数内的this指向person
+			person.setAttr("朱明",100, '男');// "朱明:100:男"    person调用setAttr函数，因此setAttr函数内的this指向person
+		</script>
+	</body>
+</html>

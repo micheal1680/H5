@@ -1,0 +1,58 @@
+/* pages/dome/dome.wxss */
+.box {
+	color: red;
+}
+
+.hide {
+	display: none;
+}
+
+.con {
+	display: flex;
+	justify-content: space-around;
+}
+.active {
+	color: red;
+}
+
+.fu {
+	width: 300rpx;
+	height: 300rpx;
+	background-color: #ff0;
+}
+
+.zi  {
+	width: 100rpx;
+	height: 100rpx;
+	background-color: #f00;
+}
+
+.lunbo {
+	position: relative;
+}
+
+.swiper {
+	height: 375rpx;
+}
+.lunbo-img {
+    width: 100%;
+	height: 100%;
+}
+
+/* 指示点*/
+.dots-container {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	bottom: 30rpx;
+	right: 30rpx;
+}
+.dots {
+	width: 15rpx;
+	height: 15rpx;
+	border-radius: 50%;
+	background-color: #ff0;
+}
+.current {
+	background-color: #f00;
+}

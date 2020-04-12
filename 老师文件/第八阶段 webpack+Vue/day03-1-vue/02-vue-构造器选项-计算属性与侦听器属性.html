@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+		<div id="app" >
+			
+			<!-- 计算属性多用在一个值受多个值的影响 -->
+			<!-- 计算属性与methods 方法之间的区别：计算属性的计算是有缓存的，methods 方法是使用一次就得调用计算一次 -->
+			<p>computed：{{fullName}}</p>
+			<p>computed：{{fullName}}</p>
+			<p>computed：{{fullName}}</p>
+			<p>computed：{{fullName}}</p>
+			<p>methods：{{getFullName()}}</p>
+			<p>methods：{{getFullName()}}</p>
+			<p>methods：{{getFullName()}}</p>
+			<p>methods：{{getFullName()}}</p>
+			<!-- {{firstName+secondName}} -->
+			<button type="button" @click="changeFirst">修改姓</button>
+			
+			<button type="button" @click="changeSecond">修改名</button>
+			
+			<!-- 侦听器属性多用在一个值影响另外多个值的情况下的 -->
+			<p>侦听器属性：{{fullName}}</p>
+			<button type="button" @click="changeFirst">修改姓</button>
+			
+			<button type="button" @click="changeSecond">修改名</button>
+			
+			<p>学生编号：{{student.num}}</p>
+			<p>学生成绩：{{student.grade}}</p>
+			<p>学生学号：{{student.studyNum}}</p>
+			<button type="button" @click="changNum">修改学生编号</button>
+		</div>
+
+
+
+	</body>
+</html>
